@@ -21,6 +21,8 @@
             <version>6.0</version>
             <scope>provided</scope>
         </dependency>
+        
+        
     </dependencies>
 
     <build>
@@ -32,9 +34,12 @@
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
-                    <compilerArguments>
+                       
+                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
+                     
+                  
                 </configuration>
             </plugin>
             <plugin>
@@ -43,6 +48,7 @@
                 <version>2.1.1</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                     
                 </configuration>
             </plugin>
             <plugin>

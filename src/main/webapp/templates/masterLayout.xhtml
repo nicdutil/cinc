@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title><ui:insert name="windowTitle"/></title>
+        <h:outputStylesheet library="css" name="styles.css"/>  
+        <h:outputScript library="javascript" name="jsScroller.js"/>
+         
+              
+       
+           
+    </h:head>
+    
+    <h:body>
+        
+         
+        <div class="header_container">
+             <div class="first">
+                     <h:graphicImage library="images" name="logo_4.png" id="logo"/> 
+             </div>
+            
+          
+             <div class="last">    
+                <h:panelGroup >
+                <h:form>
+                     <h:commandButton value="Sign in" class="sign button" type="submit" action="#{user.login}"/>  
+                </h:form>
+                </h:panelGroup>
+             </div>
+            
+          
+        </div>
+       
+        <div class="redbar"/>
+        <div class="service_container">  
+            
+          <div class="slogan_pane">
+            
+                        
+                        <h:outputText value="CINC " class="cinc"/>
+                        <br/>
+                        <h:outputText value="La performance au rendez-vous." class="slogan"/>
+                        <br/>
+                        <br/>
+                        <span class="welcometext"> 
+                        Le CINC est fondee sur un principle simple:</span><span class="proc"> 
+                                      construire une solution qui repond a vos besoin.</span>
+              
+          </div>
+          
+          <h:form class="form" prependId="false">   
+         <div class="sidebar_container">
+             <h:panelGrid class="panel" columns="1" border="0" cellspacing="0" cellpadding="0">
+                              <f:ajax render="ajax"> 
+                                <h:commandButton class="fbutton"  value="A propos" action="#{textInfo.setShow('a')}">
+                                 </h:commandButton>
+                                <h:commandButton class="fbutton" value="Industries" action="#{textInfo.setShow('b')}">
+                                 </h:commandButton>
+                                  <h:commandButton class="fbutton" value="Services" action="#{textInfo.setShow('c')}">
+                                 </h:commandButton>
+                                   <h:commandButton class="fbutton" value="Solutions" action="#{textInfo.setShow('d')}">
+                                 </h:commandButton>
+                                <h:commandButton class="fbutton" value="Contact" action="#{textInfo.setShow('e')}">
+                                 
+                                 </h:commandButton>
+                               </f:ajax>
+             </h:panelGrid>
+         </div>
+            
+        
+        <div id="content_container">  
+            
+                 
+                  <h:panelGroup id="ajax"> 
+                      
+                       <div id="Scroller">
+                               <div class="Scroller-Container">    
+                         <h:panelGroup  rendered="#{textInfo.show == 'a'}">
+                            
+                            <ui:include src="/ajax/mission.xhtml"  />
+                             
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{textInfo.show == 'b'}">
+                            <ui:include src="/ajax/industries.xhtml" />
+                           </h:panelGroup>
+                        <h:panelGroup rendered="#{textInfo.show == 'c'}">
+                            <ui:include src="/ajax/services.xhtml" />
+                         </h:panelGroup>
+                        <h:panelGroup rendered="#{textInfo.show == 'd'}">
+                            <ui:include src="/ajax/solutions.xhtml" />
+                         </h:panelGroup>
+                        <h:panelGroup rendered="#{textInfo.show == 'e'}">
+                            <ui:include src="/ajax/aboutus.xhtml" />
+                         </h:panelGroup>
+                               </div>   
+                        </div>
+                      
+                  </h:panelGroup>
+        </div>
+              <div class="scrollarea">
+                  <h:graphicImage library="images" name="up.png"
+                                  onmouseover="scroller.startScroll(0, 5);" onmouseout="scroller.stopScroll();" />
+                  <h:graphicImage  library="images" name="down.png" 
+                                  onmouseover="scroller.startScroll(0, -5);" onmouseout="scroller.stopScroll();" /> 
+                  
+              </div>
+        </h:form>
+          
+        </div>
+       
+        
+    </h:body>
+    
+    
+    
+</html>
