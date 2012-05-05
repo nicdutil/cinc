@@ -11,114 +11,120 @@ and open the template in the editor.
 
     <h:head>
         <title><ui:insert name="windowTitle"/></title>
-        <h:outputStylesheet library="css" name="styles.css"/>  
-        <h:outputScript library="javascript" name="jsScroller.js"/>
-         
-              
-       
-           
+        <h:outputStylesheet library="css" name="styles.css"/>     
+        <h:outputScript library="javascript" name="utils.js"/>
     </h:head>
     
     <h:body>
         
-         
-        <div class="header_container">
-             <div class="first">
-                     <h:graphicImage library="images" name="logo_4.png" id="logo"/> 
-             </div>
-            
-          
-             <div class="last">    
-                <h:panelGroup >
-                <h:form>
-                     <h:commandButton value="Sign in" class="sign button" type="submit" action="#{user.login}"/>  
-                </h:form>
-                </h:panelGroup>
-             </div>
-            
-          
+        <div id="logBarContainer">  
+            <div id="logBarTop">
+                 <div id="cincLogo">
+                     <h:graphicImage library="images" name="cinclogo.png"/> 
+                </div>
+                <div id="clientSupportContainer">    
+                  <h:panelGroup >
+                  <h:form prependId="false">
+                    <h:outputText value="#{msgs.clientSupport}" id="supportLabel" />
+                    <h:commandButton value="#{msgs.logIn}" id="logButton" type="submit" action="#{user.login}"/>  
+                  </h:form>
+                  </h:panelGroup>
+                </div>          
+            </div>
+            <div id="logBarBottom">              
+                 <h:form prependId="false">
+                       <h:commandLink value="#{msgs.callUs}" id="callUsLabel"/>
+                       <h:commandLink value="#{msgs.french}" action="#{localeChanger.setLocale('fr')}" id="frLocaleLabel"/>
+                       <h:commandLink value="#{msgs.english}" action="#{localeChanger.setLocale('en')}" id="enLocaleLabel"/>
+                </h:form>              
+            </div> 
         </div>
-       
-        <div class="redbar"/>
-        <div class="service_container">  
-            
-          <div class="slogan_pane">
-            
-                        
-                        <h:outputText value="CINC " class="cinc"/>
+        
+        
+        <div id="scrollerArea">             
+            <div id="mainBodyContainer">
+                <div id="sloganContainer">
+                       <h:outputText value="#{msgs.cincLabel}" class="sloganCommonAttrs" id="cincLabel"/>
                         <br/>
-                        <h:outputText value="La performance au rendez-vous." class="slogan"/>
-                        <br/>
-                        <br/>
-                        <span class="welcometext"> 
-                        Le CINC est fondee sur un principle simple:</span><span class="proc"> 
-                                      construire une solution qui repond a vos besoin.</span>
-              
-          </div>
+                        <h:outputText value="#{msgs.cincSlogan}" class="sloganCommonAttrs" id="sloganLabel"/>           
+                </div>
           
-          <h:form class="form" prependId="false">   
-         <div class="sidebar_container">
-             <h:panelGrid class="panel" columns="1" border="0" cellspacing="0" cellpadding="0">
-                              <f:ajax render="ajax"> 
-                                <h:commandButton class="fbutton"  value="A propos" action="#{textInfo.setShow('a')}">
+                <h:form id="mainBodyForm" prependId="false">   
+                    <div id="sideBarNavigation">
+                        <h:panelGrid id="sideBarNavigationGrid" columns="1" border="0" cellspacing="0" cellpadding="0">
+                              <f:ajax render="contentAjaxInfo" onevent="colorSelectedButton"> 
+                                <h:commandButton id="aboutus" class="sideBarButtonAttrs" value="#{msgs.aboutUs}" action="#{textInfo.setShow('aboutUs')}">
                                  </h:commandButton>
-                                <h:commandButton class="fbutton" value="Industries" action="#{textInfo.setShow('b')}">
+                                <h:commandButton id="industries" class="sideBarButtonAttrs" value="#{msgs.industries}" action="#{textInfo.setShow('industries')}">
                                  </h:commandButton>
-                                  <h:commandButton class="fbutton" value="Services" action="#{textInfo.setShow('c')}">
+                                  <h:commandButton id="services" class="sideBarButtonAttrs" value="#{msgs.services}" action="#{textInfo.setShow('services')}">
                                  </h:commandButton>
-                                   <h:commandButton class="fbutton" value="Solutions" action="#{textInfo.setShow('d')}">
+                                   <h:commandButton id="solutions" class="sideBarButtonAttrs" value="#{msgs.solutions}" action="#{textInfo.setShow('solutions')}">
                                  </h:commandButton>
-                                <h:commandButton class="fbutton" value="Contact" action="#{textInfo.setShow('e')}">
-                                 
+                                <h:commandButton id="contact" class="sideBarButtonAttrs" value="#{msgs.contact}" action="#{textInfo.setShow('contact')}">              
                                  </h:commandButton>
                                </f:ajax>
-             </h:panelGrid>
-         </div>
-            
-        
-        <div id="content_container">  
-            
-                 
-                  <h:panelGroup id="ajax"> 
-                      
-                       <div id="Scroller">
-                               <div class="Scroller-Container">    
-                         <h:panelGroup  rendered="#{textInfo.show == 'a'}">
-                            
-                            <ui:include src="/ajax/mission.xhtml"  />
-                             
+                        </h:panelGrid>
+                    </div>
+     
+                    <div id="contentContainer"> 
+                         <h:panelGroup id="contentAjaxInfo"> 
+                            <div id="contentText">
+                                <h:panelGroup  rendered="#{textInfo.show == 'aboutUs'}"> 
+                                    <ui:include src="/ajax/aboutUs.xhtml"  /> 
+                                 </h:panelGroup>
+                                <h:panelGroup rendered="#{textInfo.show == 'industries'}">
+                                    <ui:include src="/ajax/industries.xhtml" />
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{textInfo.show == 'services'}">
+                                    <ui:include src="/ajax/services.xhtml" />
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{textInfo.show == 'solutions'}">
+                                    <ui:include src="/ajax/solutions.xhtml" />
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{textInfo.show == 'contact'}">
+                                     <ui:include src="/ajax/contact.xhtml" />
+                                </h:panelGroup>
+                            </div>       
+                            <br style="clear:left"/>
                         </h:panelGroup>
-                        <h:panelGroup rendered="#{textInfo.show == 'b'}">
-                            <ui:include src="/ajax/industries.xhtml" />
-                           </h:panelGroup>
-                        <h:panelGroup rendered="#{textInfo.show == 'c'}">
-                            <ui:include src="/ajax/services.xhtml" />
-                         </h:panelGroup>
-                        <h:panelGroup rendered="#{textInfo.show == 'd'}">
-                            <ui:include src="/ajax/solutions.xhtml" />
-                         </h:panelGroup>
-                        <h:panelGroup rendered="#{textInfo.show == 'e'}">
-                            <ui:include src="/ajax/aboutus.xhtml" />
-                         </h:panelGroup>
-                               </div>   
-                        </div>
-                      
-                  </h:panelGroup>
-        </div>
-              <div class="scrollarea">
-                  <h:graphicImage library="images" name="up.png"
-                                  onmouseover="scroller.startScroll(0, 5);" onmouseout="scroller.stopScroll();" />
-                  <h:graphicImage  library="images" name="down.png" 
-                                  onmouseover="scroller.startScroll(0, -5);" onmouseout="scroller.stopScroll();" /> 
+                    </div>
+                </h:form>     
+            </div>
+            
+            <div id="sitemapContainer">
+                <div id="sitemapTopBar"></div>
+                <div id="sitemapDescription">
+                  <h:form prependId="false">
+                       <h:panelGrid columns="4" id="sitemapGrid"> 
+                         <h:outputText value="#{msgs.industries}" class="sitemapGridHeaderAttrs"/>
+                         <h:outputText value="#{msgs.services}" class="sitemapGridHeaderAttrs"/>
+                         <h:outputText value="#{msgs.solutions}" class="sitemapGridHeaderAttrs"/>
+                         <h:outputText value="#{msgs.aboutUs}" class="sitemapGridHeaderAttrs"/>
+                    
+                         <h:commandLink value="#{msgs.dentalClinics}" class="sitemapGridItemAttrs" />
+                         <h:commandLink value="#{msgs.webMaintenance}" class="sitemapGridItemAttrs"/>
+                         <h:commandLink value="#{msgs.webDesign}" class="sitemapGridItemAttrs"/>
+                         <h:commandLink value="#{msgs.managementTeam}" class="sitemapGridItemAttrs"/>
+                                 
+                         <h:commandLink value="#{msgs.healthCareServices}" class="sitemapGridItemAttrs"/>
+                         <h:commandLink value="#{msgs.dataStorageServices}" class="sitemapGridItemAttrs"/>
+                         <h:commandLink value="#{msgs.customSolutions}" class="sitemapGridItemAttrs"/>
+                         <h:commandLink value="#{msgs.careers}" class="sitemapGridItemAttrs"/>
+
+                         <h:commandLink value="#{msgs.sportTeams}" class="sitemapGridItemAttrs"/>
+                         <h:commandLink value="#{msgs.repair}" class="sitemapGridItemAttrs"/>
+                         <h:commandLink value="#{msgs.mobileDevelopment}" class="sitemapGridItemAttrs"/>
+                         <h:commandLink value="#{msgs.contactUs}" class="sitemapGridItemAttrs"/>
                   
+                         <h:outputText value=""/>
+                         <h:commandLink value="#{msgs.bugFixing}" class="sitemapGridItemAttrs"/>
+                         <h:outputText value=""/>
+                         <h:outputText value=""/>
+                        </h:panelGrid>
+                   </h:form>
+                </div>
               </div>
-        </h:form>
-          
-        </div>
-       
-        
-    </h:body>
-    
-    
-    
+         </div>
+  </h:body>  
 </html>

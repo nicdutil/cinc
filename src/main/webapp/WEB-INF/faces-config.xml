@@ -10,8 +10,12 @@ and open the template in the editor.
         version="2.0">
     
         <application>
+            <locale-config>
+            <default-locale>fr</default-locale>
+            <supported-locale>en</supported-locale>
+           </locale-config>
               <resource-bundle>
-                    <base-name>com.cinc.website.messages</base-name>
+                    <base-name>com.cinc.website.Messages</base-name>
                      <var>msgs</var>
               </resource-bundle>
             
