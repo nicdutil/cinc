@@ -4,8 +4,8 @@
  */
 package com.cinc.website;
 
-import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ExternalContext;
 import java.util.*;
@@ -14,7 +14,7 @@ import java.util.*;
  * @author nicolas
  */
 
-@Named
+@ManagedBean
 @RequestScoped
 public class TextInfo {
     

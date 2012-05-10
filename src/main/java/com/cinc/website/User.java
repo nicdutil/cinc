@@ -4,15 +4,15 @@
  */
 package com.cinc.website;
 
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 
 /**
  *
  * @author nicolas
  */
-@Named
+@ManagedBean
 @SessionScoped
 public class User implements Serializable{
     

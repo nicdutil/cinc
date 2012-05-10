@@ -9,10 +9,10 @@ package com.cinc.website;
  * @author nicolas
  */
 
-import javax.inject.Named;
-import javax.enterprise.context.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ApplicationScoped;
 
-@Named("localeChanger")
+@ManagedBean
 @ApplicationScoped
 public class LocaleChanger {
     
