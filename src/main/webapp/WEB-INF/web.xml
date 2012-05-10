@@ -27,11 +27,19 @@ and open the template in the editor.
              <param-value>Development</param-value>
          </context-param>
          
+         <context-param>
+             <param-name>facelets.SKIP_COMMENTS</param-name>
+             <param-value>true</param-value>
+         </context-param>
+         
+       
+ 
          <session-config>
              <session-timeout>30</session-timeout>
          </session-config>
          <welcome-file-list> 
             <welcome-file>index.xhtml</welcome-file>
          </welcome-file-list>
+         
              
 </web-app>

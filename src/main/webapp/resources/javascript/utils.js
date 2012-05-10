@@ -6,25 +6,36 @@
 
  window.onload = function initSelectedButton() 
  {
-        window.selectedButton = document.getElementById('aboutus');  
-        window.selectedButton.style.borderLeftColor="rgba(220,0,0,0.5)";
-        window.selectedButton.style.color="rgba(188,127,0,0.9)";
+        window.selectedButton = document.getElementById('aboutUs');  
+        window.selectedButton.style.borderLeftColor="rgba(199,0,0,1)";
+        window.selectedButton.style.color="rgba(188,127,0,1)";
+      
  };
+ 
 
+ 
 function colorSelectedButton(data)
 {
     var inputId = data.source.id;
     var button = document.getElementById(inputId);
-    
-    if (data.status == "success" && !(window.selectedButton === button)) {
+   
+    if (!(window.selectedButton === button))
+    {
       
-        button.style.borderLeftColor = "rgba(220,0,0,0.5)";
-        button.style.color="rgba(188,127,0,0.9)";    
-        window.selectedButton.style.borderLeftColor="rgba(0,0,0,0)";
-        window.selectedButton.style.color="rgba(0,0,0,0.85)";
-        window.selectedButton = button;
-    }
-}
+        
+       if (data.status == "success")
+       {
+     
+          button.style.borderLeftColor = "rgba(199,0,0,1)";
+          button.style.color="rgba(188,127,0,1)";    
+          window.selectedButton.style.borderLeftColor="rgba(0,0,0,0)";
+          window.selectedButton.style.color="white";
+          window.selectedButton = button;
+        
+       }
+   }
+  }
+
 
  
    

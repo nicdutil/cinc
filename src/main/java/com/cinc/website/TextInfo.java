@@ -6,7 +6,9 @@ package com.cinc.website;
 
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
-
+import javax.faces.context.FacesContext;
+import javax.faces.context.ExternalContext;
+import java.util.*;
 /**
  *
  * @author nicolas
@@ -16,7 +18,7 @@ import javax.enterprise.context.RequestScoped;
 @RequestScoped
 public class TextInfo {
     
-    private String show ="";
+    private String show ="default";
     
     public void setShow(String value)
     {
@@ -25,6 +27,11 @@ public class TextInfo {
     
     public String getShow()
     {
+        Map<String, String> reqParams = FacesContext.getCurrentInstance()
+                                        .getExternalContext().getRequestParameterMap();
+        String newSection = reqParams.get("section");
+        if (newSection != null)
+            show = newSection;
         return this.show;
     }
     

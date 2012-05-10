@@ -10,22 +10,22 @@ package com.cinc.website;
  */
 
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
-import javax.faces.component.UIViewRoot;
-import javax.faces.context.FacesContext;
-import java.util.Locale;
+import javax.enterprise.context.ApplicationScoped;
 
 @Named("localeChanger")
-@RequestScoped
+@ApplicationScoped
 public class LocaleChanger {
     
-    public String setLocale(String value) {
-        
-        
-        UIViewRoot viewRoot = FacesContext.getCurrentInstance().getViewRoot();
-        viewRoot.setLocale(new Locale(value));
-        
-        return null;
+    private String locale = "en";
+    
+
+    public String getLocale()
+    {
+        return locale;
+    }
+    
+    public void setLocale(String value) { 
+        this.locale = value;
     }
     
 }
