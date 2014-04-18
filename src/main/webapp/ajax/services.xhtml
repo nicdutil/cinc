@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+   
+    <ui:composition>
+        <h:graphicImage library="images" name="cincSymbol.png" class="cincSymbol"/>
+        <div class="ajaxTextAttrs">
+            <p style="text-indent:60px">
+                <h:outputText value="#{msgs.cincServicesNew}" />
+                
+                    
+            </p>
+           
+                <div id="imageServicesContainer">
+             <h:graphicImage library="images" name="confused.jpeg" />          
+               </div>
+             <p>
+                  <h:outputText value="#{msgs.cincServicesEstablished}"/>
+             </p>
+            <p>
+                  <h:outputText value="#{msgs.cincServicesOther}"/>                
+            </p>
+            
+            <!--
+            <p>
+               <h:outputText value="#{msgs.cincSubliminalFour}" class="subliminalTextAttrs"/>
+               <ul>
+                   <li> Web technologies and online strategies </li>
+                   <li> Site updating and maintenance services  </li>
+                   <li> Implementation analysis and optimization</li>
+               </ul>
+            </p>
+            -->
+              
+           <h:link value="Learn more" class="learnMore" />
+        </div>
+        
+        
+       
+      
+    
+        
+    </ui:composition>
+</html>

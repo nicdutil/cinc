@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+    >
+      
+    <h:head>
+        <title>IGNORED</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/masterLayout.xhtml">
+           
+            <f:metadata>
+                <f:viewParam name="lang" value="#{localeChanger.locale}"/>  
+            </f:metadata>
+             
+          
+            <ui:define name="windowTitle">
+                     #{msgs.welcome}  
+            </ui:define>
+
+            
+        <ui:define name="content">
+         <div id="scrollerArea">             
+            <div id="mainBodyContainer">
+                
+                 <h:form id="mainBodyForm" prependId="false">
+                    <div id="sideBarNavigation">
+                          
+                             <h:panelGrid id="sideBarNavigationGrid" columns="1" border="0" cellspacing="0" cellpadding="0">              
+                                <h:commandButton id="aboutUs" class="sideBarButtonAttrs" 
+                                                 value="#{msgs.aboutUs}" 
+                                                 action="#{textInfo.setShow('aboutUs')}"/>                           
+                               
+                                  
+                                <h:commandButton id="services" 
+                                                 class="sideBarButtonAttrs" 
+                                                 value="#{msgs.services}" 
+                                                 action="#{textInfo.setShow('services')}" 
+                                                 />
+                               
+                                <h:commandButton id="careers" class="sideBarButtonAttrs" 
+                                                 value="#{msgs.careers}" 
+                                                 action="#{textInfo.setShow('careers')}"/>
+                                <h:commandButton id="contact" class="sideBarButtonAttrs" 
+                                                 value="#{msgs.contact}" 
+                                                 action="#{textInfo.setShow('contact')}"/>                   
+                        </h:panelGrid>
+                   
+                    </div>
+     
+                 
+                         
+                             <div id="contentText"> 
+                                 <div id="fadeContainer">
+                                 <h:panelGroup id="servicesAjax">
+                                <h:panelGroup  rendered="#{textInfo.show == 'aboutUs' || textInfo.show =='default'}"> 
+                                    <ui:include src="/ajax/aboutUs.xhtml"  /> 
+                                 </h:panelGroup>
+                                <h:panelGroup rendered="#{textInfo.show == 'services'}">
+                                    <ui:include src="/ajax/services.xhtml" />
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{textInfo.show == 'careers'}">
+                                    <ui:include src="/ajax/careers.xhtml" />
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{textInfo.show == 'contact'}">
+                                     <ui:include src="/ajax/contact.xhtml" />
+                                </h:panelGroup>
+                                 </h:panelGroup>
+                                 </div>
+                            </div> 
+                              <script>
+                                  
+                                  
+                               
+                             var clickedId; 
+                             
+                               $('#contentText').animate( {
+                                  top: '+=400'
+                                }, "slow", 'swing');  
+                            
+                            $('#aboutUs').on('click', null, 'aboutUs',
+                                animate
+                              );
+                            $('#services').on('click', null, "services", animate);
+                             
+                           
+                            $('#careers').on('click', null, 'careers',
+                                animate
+                              );
+                            $('#contact').on('click', null, 'contact', 
+                                animate
+                              );
+                            
+                            
+                            function animate(event)
+                            {
+                               event.preventDefault();
+                               clickedId = event.data;
+                                $('#fadeContainer').fadeOut("slow");
+                               if (clickedId == 'services')
+                               {
+                                  $('#contentText').rotate3Di("toggle", 1000,
+                                                        {
+                                                          sideChange: doAjaxCall
+                                                        });
+                                /*                        
+                                   $('#contentText').animate( {
+                                  top: '-=400'
+                                }, 1000, 'swing', doAjaxCall);*/  
+                               }
+                               else
+                               {    
+                                   
+                               $('#contentText').animate( {
+                                  left: '+=400'
+                                }, 1000, 'swing', doAjaxCall);  
+                                }
+                            }    
+                            
+                            function doAjaxCall()
+                            {
+                             
+                             var el = document.getElementById(clickedId);
+                             
+                            
+                             jsf.ajax.request(el, "click", 
+                                        {
+                                          render: 'servicesAjax',
+                                          section: clickedId,
+                                          onevent: colorSelectedButton
+                                        });
+                             $('#fadeContainer').fadeIn("slow");           
+                             if (clickedId == 'services')
+                             {
+                               
+                             } else
+                                 {
+                               $('#contentText').animate( {
+                                  left: '-=400'
+                                }, 1000);  
+                              }  
+                          }
+
+                           
+                         </script>
+                            <br style="clear:left"/>
+                    
+                   
+                </h:form>
+            </div>
+            
+            <div id="sitemapContainer">
+                <div id="sitemapTopBar"></div>
+                <div id="sitemapDescription">
+                       <h:panelGrid columns="4" id="sitemapGrid"> 
+                         <h:outputText value="#{msgs.industries}" class="sitemapGridHeaderAttrs"/>
+                         <h:outputText value="#{msgs.services}" class="sitemapGridHeaderAttrs"/>
+                         <h:outputText value="#{msgs.solutions}" class="sitemapGridHeaderAttrs"/>
+                         <h:outputText value="#{msgs.aboutUs}" class="sitemapGridHeaderAttrs"/>
+                    
+                         <h:link value="#{msgs.dentalClinics}" class="sitemapGridItemAttrs" />
+                         <h:link value="#{msgs.webMaintenance}" class="sitemapGridItemAttrs"/>
+                         <h:link value="#{msgs.webDesign}" class="sitemapGridItemAttrs"/>
+                         <h:link value="#{msgs.managementTeam}" class="sitemapGridItemAttrs"/>
+                                 
+                         <h:link value="#{msgs.healthCareServices}" class="sitemapGridItemAttrs"/>
+                         <h:link value="#{msgs.dataStorageServices}" class="sitemapGridItemAttrs"/>
+                         <h:link value="#{msgs.customSolutions}" class="sitemapGridItemAttrs"/>
+                         <h:link value="#{msgs.careers}" class="sitemapGridItemAttrs"/>
+
+                         <h:link value="#{msgs.sportTeams}" class="sitemapGridItemAttrs"/>
+                         <h:link value="#{msgs.repair}" class="sitemapGridItemAttrs"/>
+                         <h:link value="#{msgs.mobileDevelopment}" class="sitemapGridItemAttrs"/>
+                         <h:link value="#{msgs.contactUs}" class="sitemapGridItemAttrs"/>
+                  
+                         <h:outputText value=""/>
+                         <h:link value="#{msgs.bugFixing}" class="sitemapGridItemAttrs"/>
+                         <h:outputText value=""/>
+                         <h:outputText value=""/>
+                        </h:panelGrid>
+                </div>
+              </div>
+         </div>
+              
+            </ui:define>
+             
+        </ui:composition>
+     
+    </h:body>
+</html>

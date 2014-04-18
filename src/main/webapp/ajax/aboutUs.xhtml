@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    
+    <ui:composition>
+        <h:graphicImage library="images" name="cincSymbol.png" class="cincSymbol"/>
+        <div class="ajaxTextAttrs">
+            <p style="text-indent:60px">
+            <h:outputText value="#{msgs.cincSubliminalOne}" class="subliminalTextAttrs" id="cincStatement"/>
+            <h:outputText value="#{msgs.cincStatement}" />
+            </p>
+                <div class="imageContainer">
+             <h:graphicImage library="images" name="rubixCube.jpg" />          
+               </div>
+            <p>
+            <h:outputText value="#{msgs.cincGroup}"/>
+            <h:outputText value="#{msgs.cincSubliminalTwo}" class="subliminalTextAttrs"/>
+            <h:outputText value="#{msgs.cincGroupDescr}"/>
+            </p>
+            
+            <p>
+            <h:outputText value="#{msgs.cincMissionBegin}"/>
+            <h:outputText value="#{msgs.cincSubliminalThree}" class="subliminalTextAttrs"/>
+            <h:outputText value="#{msgs.cincMissionEnd}"/>
+            </p>
+           
+<!--
+            <p>
+                <h:outputText value="#{msgs.cincGroup}"/>
+                <ul>
+                    <li><h:outputText value="#{msgs.cincCompSci}" class="cincFocus"/></li>
+                    <li><h:outputText value="#{msgs.cincMath}" class="cincFocus"/></li>
+                    <li><h:outputText value="#{msgs.cincSoftEng}" class="cincFocus"/></li>
+                    <li><h:outputText value="#{msgs.cincSysEng}" class="cincFocus"/></li>
+                </ul>
+            </p>
+    -->       <h:link value="Learn more" class="learnMore" />
+   
+        
+        </div>
+        
+        
+         
+       
+    </ui:composition>
+</html>

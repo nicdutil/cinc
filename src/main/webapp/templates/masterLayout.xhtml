@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+   
+    
+    <h:head>
+        <title><ui:insert name="windowTitle"/></title>
+        <h:outputStylesheet library="css" name="styles.css"/>   
+         <h:outputScript library="javascript" name="jquery-1.7.2.min.js"/>   
+        <h:outputScript library="javascript" name="utils.js"/>
+        <h:outputScript library="javax.faces" name="jsf.js"/>
+        <h:outputScript library="javascript" name="jquery-css-transform.js"/>
+        <h:outputScript library="javascript" name="rotate3Di.js"/>
+     
+    </h:head>
+    
+    <h:body>
+       
+        <div id="logBarContainer">  
+            <div id="logBarTop">
+                 <div id="cincLogo">
+                     <h:graphicImage id="cincLogo" library="images" name="whiteCincLogo.png"/>               
+                </div>
+                 <h:outputText value="#{msgs.cincSlogan}" class="sloganCommonAttrs" id="sloganLabel"/>
+               
+                 <h:outputText value="#{msgs.callUs}" id="callUsLabel"/>
+                <!--
+                <div id="clientSupportContainer">    
+                  <h:panelGroup >
+                  <h:form prependId="false                
+                   <h:outputText value=#{msgs.clientSupport}" id="supportLabel" />
+                    <h:commandButton value="#{msgs.logIn}" id="logButton" type="submit" action="#{user.login}"/>  
+                  </h:form>
+                  </h:panelGroup>
+                </div>
+                -->         
+            </div>
+            <div id="logBarBottom">                        
+                       <h:link id="frLocaleLabel" value="#{msgs.french}"   outcome="index?lang=fr"/>                        
+                       <h:link id="enLocaleLabel" value="#{msgs.english}" outcome="index?lang=en"/>
+            </div> 
+          
+        </div>
+        
+       <ui:insert name="content"/>
+  </h:body>
+   
+</html>
