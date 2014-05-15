@@ -8,7 +8,7 @@ app.set('title', 'Docteur Quantum - Votre specialiste des sciences et technologi
 
 
 app.get('/', function(req, res){
-    res.sendfile('503.html');
+    res.sendfile('index.html');
 });
 
 app.use(express.static(__dirname + '/public'));
