@@ -31,7 +31,7 @@
     running the webticker, we set it back to default -->
 
     <!-- Video hidden section -->
-    <div id="video_page" class="container" style="display:none">
+    <div id="video-page" class="container" style="display:none">
         <div class="row">
             <div class="col-xs-1 col-xs-offset-11">
                 <button type="button" class="btn btn-danger">X</button>
@@ -39,7 +39,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 flex-video widescreen">
-                <iframe id="video_iframe" allowfullscreen="" frameborder="0">
+                <iframe id="video-iframe" allowfullscreen="" frameborder="0">
                 </iframe>
             </div>
         </div>
@@ -239,7 +239,6 @@
     </div>
 
 
-
     <div id="services_top" class="container">
         <a id="quirk_anchor" href="#services_top"></a>
         <div class="row" id="services_desc">
@@ -256,7 +255,7 @@
         <div id="service-icons">
             <div class="row ">
                 <div class="col-sm-6 col-md-4">
-                    <a data-toggle="collapse" data-parent="#malware" href="#collapseOne">
+                    <a data-toggle="collapse" data-parent="#malware" href="#collapseOne" class="service-click">
                         <div class="service-thumbnail">
                             <img id="malware_img" src="img/virus2.png" alt="purge des malwares">
                         </div>
@@ -285,7 +284,7 @@
                 </div>
 
                 <div class="col-sm-6 col-md-4">
-                    <a data-toggle="collapse" data-parent="#network" href="#collapseTwo">
+                    <a data-toggle="collapse" data-parent="#network" href="#collapseTwo" class="service-click">
                         <div class="service-thumbnail ">
                             <img id="network_img" src="img/network2.png" alt="configuration des reseaux">
                         </div>
@@ -315,7 +314,7 @@
                 </div>
 
                 <div class="col-xs-6 col-md-4">
-                    <a data-toggle="collapse" data-parent="#performance" href="#collapseThree">
+                    <a data-toggle="collapse" data-parent="#performance" href="#collapseThree" class="service-click">
                         <div class="service-thumbnail ">
                             <img id="flatliner_img" src="img/flatliner2.png" alt="analyse de performance">
                         </div>
@@ -342,7 +341,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-4 service-display">
-                    <a  data-toggle="collapse" data-parent="#custom" href="#collapseFour">
+                    <a  data-toggle="collapse" data-parent="#custom" href="#collapseFour" class="service-click">
                         <div class="service-thumbnail ">
                             <img id="computer_img" src="img/custom2.png" alt="ordinateur sur mesure"></img>
                         </div>
@@ -366,17 +365,17 @@
             </div>
             <div class="row">
                 <div class="col-xs-6 col-md-4 service-hide">
-                    <a  data-toggle="collapse" data-parent="#custom" href="#collapseFour">
+                    <a  data-toggle="collapse" data-parent="#custom-copy" href="#collapseFive" class="service-click">
                         <div class="service-thumbnail ">
                             <img id="computer_img" src="img/custom2.png" alt="ordinateur sur mesure"></img>
                         </div>
-                        <div id="custom" class="panel panel-default">
+                        <div id="custom-copy" class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title">
                                     Ordinateurs sur mesure
                                 </h3>
                             </div>
-                            <div id="collapseFour" class="panel-collapse collapse">
+                            <div id="collapseFive" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <h4>Pour des besoins sp&eacutecifiques ou de la haute performance, laissez-nous vous conseillez en mati&egrave d'&eacutequipement</h4>
 
@@ -388,7 +387,7 @@
                 </div>
 
                 <div class="col-xs-6 col-md-4">
-                    <a  data-toggle="collapse" data-parent="#website" href="#collapseFive">
+                    <a  data-toggle="collapse" data-parent="#website" href="#collapseSix" class="service-click">
                         <div class="service-thumbnail ">
                             <img id="website_img" src="img/website2.png" alt="service a distance"></img>
                         </div>
@@ -398,7 +397,7 @@
                                     Conception de site webs
                                 </h3>
                             </div>
-                            <div id="collapseFive" class="panel-collapse collapse">
+                            <div id="collapseSix" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <h4>Votre site web a un impacte important sur l'image de votre entrerpise. Moderniser votre site a l'aide des meilleurs outils.
                                     </h4>
@@ -417,7 +416,7 @@
                 </div>
 
                 <div class="col-xs-6 col-md-4">
-                    <a  data-toggle="collapse" data-parent="#excel" href="#collapseSix">
+                    <a  data-toggle="collapse" data-parent="#excel" href="#collapseSeven" class="service-click">
                         <div class="service-thumbnail ">
                             <img id="excel_img" src="img/excel2.png" alt="service a distance"></img>
                         </div>
@@ -427,7 +426,7 @@
                                     Int&eacutegration de donn&eacutees Excel
                                 </h3>
                             </div>
-                            <div id="collapseSix" class="panel-collapse collapse">
+                            <div id="collapseSeven" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <h4>Automatis&eacutees vos rapports excel &agrave l'aide de VBA, "web queries" et "web scrapers".</h4>
 
@@ -441,7 +440,7 @@
 
             <div class="row">
                 <div class="col-xs-6 col-md-4 ">
-                    <a class="services_box " data-toggle="collapse" data-parent="#remote" href="#collapseSeven">
+                    <a data-toggle="collapse" data-parent="#remote" href="#collapseEight" class="service-click">
                         <div class="service-thumbnail ">
                             <img id="remote_img" src="img/remote2.png" alt="service a distance"></img>
                         </div>
@@ -451,7 +450,7 @@
                                     Services &agrave distance
                                 </h3>
                             </div>
-                            <div id="collapseSeven" class="panel-collapse collapse">
+                            <div id="collapseEight" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <h4>En cas d'urgence ou pour un support d'apr&egraves service, nous sommes la pour vous.
                                     </h4>
@@ -464,7 +463,7 @@
                 </div>
 
                 <div class="col-xs-6 col-md-4">
-                    <a  data-toggle="collapse" data-parent="#other" href="#collapseEight">
+                    <a  data-toggle="collapse" data-parent="#other" href="#collapseNine" class="service-click">
                         <div class="service-thumbnail">
                             <img id="remote_img" src="img/service2.png" alt="autre services"></img>
                         </div>
@@ -474,7 +473,7 @@
                                     Autres services
                                 </h3>
                             </div>
-                            <div id="collapseEight" class="panel-collapse collapse">
+                            <div id="collapseNine" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <h4>Chez Docteur Quantum, on grandit avec vous</h4>. Voici une liste non exhaustive de nos autres services:
                                     <ul>

@@ -36,7 +36,7 @@
 var modifyBgColor = function(elem, color1, stop1, color2, stop2) {
     var iconBg = $(elem).find('.service-thumbnail');
     if (typeof iconBg.prop('class') === "undefined") {
-        $('#video-bar div').css('background-color', color);
+        $('#video-bar div').css('background-color', color1);
     } else {
         var propVal = color1 + ' ' + stop1 + ',' + color2 + ' ' + stop2;
         iconBg.css('background-image', 'linear-gradient(to right bottom,' + propVal);
@@ -51,15 +51,15 @@ var modifyBgColor = function(elem, color1, stop1, color2, stop2) {
 var intro_video = "https://www.youtube.com/embed/qa66zO8JrdQ?feature=player_detailpage";
 
 var showVideo = function() {
-    $('#video_page').fadeIn(function() {
+    $('#video-page').fadeIn(function() {
         var url = intro_video + "&autoplay=1";
-        $('#video_iframe').attr('src', url)
+        $('#video-iframe').attr('src', url)
     });
 
 }
 
 var hideVideo = function() {
-    $('#video_page').fadeOut();
+    $('#video-page').fadeOut();
 
 }
 
@@ -283,13 +283,13 @@ function clickHandlers() {
         }, 500);
     })
 
-    $('.service_click').on('click', function() {
+    $('.service-click').on('click', function() {
         $('html,body').animate({
             scrollTop: $(this).offset().top - 10
         }, 800);
     });
 
-    $('#video_page button').on('click', function() {
+    $('#video-page button').on('click', function() {
         $('#top').removeClass("hide");
         $('#top').animate({
             opacity: 1
@@ -301,9 +301,9 @@ function clickHandlers() {
         }, 1000, 'swing', function() {
             $('#top').css('opacity', '');
             $('#top').removeAttr('style');
-            $('body > div:not(#video_page)').removeClass("hide");
-            var url = $('#video_iframe').attr('src');
-            $('#video_iframe').attr('src', '');
+            $('body > div:not(#video-page)').removeClass("hide");
+            var url = $('#video-iframe').attr('src');
+            $('#video-iframe').attr('src', '');
         });
     });
 
@@ -317,7 +317,7 @@ function clickHandlers() {
         $('body').animate({
             'background-color': '#000'
         }, 1000, 'swing', function() {
-            $('body > div:not(#video_page)').addClass("hide");
+            $('body > div:not(#video-page)').addClass("hide");
             showVideo();
         });
     });
