@@ -1,0 +1,30 @@
+/////////////////////////////////////////////////////////////////////
+// Lists styling
+/////////////////////////////////////////////////////////////////////
+
+li.list-group-item {
+   background-color: #fff;
+   border: none;
+   font-family: 'Dosis', sans-serif;
+
+    @media screen and (min-width: @screen-md-min) {
+      font-size: 13px;
+    }
+
+    @media screen and (min-width: @screen-lg-min) {
+      font-size: 16px;
+    }
+}
+
+
+ul.contact-type > li {
+  padding-left: 0px;
+}
+
+ul.contact-value > li:first-child > a {
+  color: @red !important;
+}
+
+ul.contact-value > li:nth-child(4) > a {
+  color: @purple !important;
+}

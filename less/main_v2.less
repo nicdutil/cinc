@@ -1,0 +1,539 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Top section
+//////////////////////////////////////////////////////////////////////////////////
+
+#top {
+  margin-top: 100px;
+
+  a {
+    color: #000;
+  }
+
+  a:hover{
+    color : @blue;
+    text-decoration: none;
+  }
+
+ #big-title {
+     & > div > div {
+        width:97%;
+        margin: 0 auto;
+    }
+
+    h1::before {
+        content:"";
+        height:20px;
+        display:block;
+    }
+
+    h1::after {
+        content:"";
+        height:20px;
+        display:block;
+    }
+
+    h1 {
+        .text(0%);
+        transform: scale(1, 1.5);
+        -ms-transform: scale(1, 1.5);
+        -webkit-transform: scale(1, 1.5);
+        font-size: 10em;
+        font-family:'Dosis', verdana;
+    }
+
+    img {
+        width: 185px;         
+        padding:10px 20px;
+        margin-top: 90px;
+    }
+ }
+
+ #social { 
+    margin-bottom:75px;
+
+    img {
+      padding-top:50px;
+    }
+ }
+
+ #video  {
+    @fg-color: #fcfcfe;
+    border:0px none;
+    color: @fg-color;
+    margin-right:5px;
+
+    a {
+      color:#fff;
+    }
+
+    &  .row > div {
+    background: #c0392b;
+    border-right:1px solid #fff;
+    padding-top: 18px;
+    padding-bottom: 17px;
+    text-align: center;
+    }
+
+    div h1 {
+
+        text-align: center;
+
+        font-family:"Open Sans", 'verdana';
+
+        font-weight: bold;
+        font-size: 22px;
+        -webkit-font-smoothing: antialiased;
+        letter-spacing: 0.3em;
+
+        // text-shadow: -1px 0 @fg-color, 0 1px @fg-color, 1px 0 @fg-color, 0 -1px @fg-color;
+        margin:5px 0px;
+    }
+
+    div img {
+        width:20px;
+        padding-top:6px;
+        padding-bottom: 5px;
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Intro Video Hidden Div 
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+#video_page > .row:first-child {
+  padding: 0;
+  margin-top: 100px;
+  padding-bottom: 10px;
+  & > div {
+    padding-right: 0px;
+    text-align: right;
+  }
+  button {
+    padding: 3px 6px;
+    font-weight: bold;
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Separators
+/////////////////////////////////////////////////////////////////////////////////////
+
+.jumbotron.separator {
+    background: #222;
+    padding: 90px 30px;
+    color: #fcfcfe;
+
+    h1 {
+      font-family:"Open Sans", Helvectica, sans-serif;
+      font-size:62px;
+      font-weight: bold;
+    }
+
+    &.footer {
+      padding:0px;
+      margin-bottom: 120px;
+    }
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////// 
+// How we work section 
+/////////////////////////////////////////////////////////////////////////////////////// 
+
+
+#method_top {
+  margin-top: 100px;
+
+  p {
+    font-family:'Open Sans Condensed', sans-serif;
+    font-size: 25px;
+    line-height: 1.6em;
+  }
+
+  #method_header {
+    font-family:'Open Sans Condensed', sans-serif;
+    font-size: 24px;
+    line-height: 1.2em;
+  }
+
+  img {
+    width:100%;
+  }
+
+  > div:first-child {
+    margin-bottom: 30px;
+  }
+
+
+  .panel-default {
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+
+    & > .panel-heading {
+      background: #fff;
+      border: none;
+
+      & > h3 {
+        font-weight: bold;
+        font-family:'Marvel', sans-serif;
+        font-size:22px;
+      }
+    }
+  }
+
+  .carousel {
+    height:650px;
+  }
+
+  .carousel-indicators li {
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 0px;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    bottom: 0px;
+    margin-left: 0px;
+    text-align: right;
+    width: 45%;
+  }
+
+  .carousel-control.left {
+    background-image: none;
+    filter: none;
+  }
+
+  .carousel-control.right {
+    background-image: none;
+    filter: none;
+  }
+
+  > div:last-child {
+    position: relative;
+    top: -20px;
+  }
+
+  #search_icon {
+   padding-top:60px;
+  }
+
+  #tasklist_icon {
+    padding-top: 60px;
+  }
+
+  #execute {
+    padding-top: 70px;
+  }
+
+  #handshake {
+    padding-top:70px;
+  }
+
+}
+
+
+/*.fade-in {
+    transition : opacity 1s ease, visibility 1s ease;
+}
+*/
+//////////////////////////////////////////////////////////////////////////////////////// 
+// Services section 
+//////////////////////////////////////////////////////////////////////////////////////// 
+
+
+#services_top {
+    margin-top:50px;
+
+    p {
+        font-family:'Open Sans Condensed', sans-serif;
+        font-size: 25px;
+        line-height: 1.6em;
+    }
+
+    ul {
+        padding-top:10px;
+        list-style-type: square;
+        color: @red;
+    }
+
+    .panel {
+       margin-bottom: 0px;
+    }
+
+    .panel-body {
+        font-family:'Open Sans Condensed', sans-serif;
+        font-size: 18px;
+        padding-top: 0px;
+        font-weight: normal;
+        border: none;
+        background: #fff;
+    }
+
+    #method_header {
+        font-family:'Open Sans Condensed', sans-serif;
+        font-size: 24px;
+        line-height: 1.2em;
+    }
+
+    img {
+        position: absolute;
+        top:0px;
+        left:0px;
+    }
+
+    img:first-child {
+        position: relative;
+    }
+
+    #service_icons > .row {
+        margin-bottom:30px;
+    }
+
+    > #services_desc  {
+      margin-bottom: 50px;
+    }
+
+    .panel {
+        color: #000;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .panel-default {
+        border: none;
+    }
+
+    .panel-heading {
+        text-align: center;
+        background: none;
+        border-radius: 0;
+        padding: 0px 15px;
+        border: none;
+    }
+
+    h4 {
+        display:inline-block;
+        font-family:'Orbitron', 'sans-serif';
+        font-size: 12px;
+        color: #000;
+        margin-top: 15px;
+    }
+
+    h5 {
+      &:extend(#services_top h4);
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    a:hover {
+        color: @blue;
+        text-decoration: none;
+    }
+
+    .service-thumbnail {
+      width: 147px;
+      height: 138px;
+      margin: 0 auto;
+      background: #C0392B;
+      border-radius: 24px 24px 24px 24px;
+      -moz-border-radius: 24px 24px 24px 24px;
+      -webkit-border-radius: 24px 24px 24px 24px;
+
+      line-height: 138px;
+      text-align: center;
+
+      background-image: -webkit-gradient(
+        linear,
+        left top,
+        right bottom,
+        color-stop(0, #8D0700),
+        color-stop(0.47, #C03A2B)
+       );
+      
+      background-image: -o-linear-gradient(right bottom, #8D0700 0%, #C03A2B 47%);
+      background-image: -moz-linear-gradient(right bottom, #8D0700 0%, #C03A2B 47%);
+      background-image: -webkit-linear-gradient(right bottom, #8D0700 0%, #C03A2B 47%);
+      background-image: -ms-linear-gradient(right bottom, #8D0700 0%, #C03A2B 47%);
+      background-image: linear-gradient(to right bottom, #8D0700 0%, #C03A2B 47%);
+
+      > img {
+        vertical-align: center;
+      }
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////// 
+// about section 
+/////////////////////////////////////////////////////////////////////////////////// 
+
+
+#apropos_top {
+    margin-top:50px;
+
+    .row:first-child {
+      margin-bottom: 50px;
+    }
+
+    p {
+        font-family:'Open Sans Condensed', 'sans-serif';
+        font-size: 20px;
+        color: #000;
+        text-align: justify;
+    }
+
+    p:first-child {
+        text-indent:20px;
+    }
+
+    .panel-default {
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+
+        & > .panel-heading {
+            background: #fff;
+            border: none;
+            padding: 0;
+
+            & > h3 {
+                font-weight: bold;
+                font-family:'Open Sans Condensed', sans-serif;
+                font-size:22px;
+            }
+        }
+
+        & > .panel-body {
+            padding: 0;
+            padding-top: 15px;
+        }
+    }
+
+    img {
+        width:70%;
+    }
+
+    > div:last-child {
+      position:relative;
+      top: -50px;
+    }
+
+    h6 {
+      font-size: 19px;
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Footer section
+///////////////////////////////////////////////////////////////////////////////
+
+.twitter {
+    &-block {
+        padding: 40px 0px !important;
+        background: #222 !important;
+
+        color: white;
+
+        -webkit-font-smoothing: antialiased;
+    }
+
+    &-text {
+        display: inline-block;
+        font: bold 35px Dosis;
+
+    }
+
+    &-logo {
+      float:left;
+      width: 20%;
+      padding-right:40px;
+      padding-top:60px;
+    }
+}
+
+#footer_top {
+
+  h3, h4 {
+    font-family: 'Open Sans Condensed', verdana;
+    font-size: 25px;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 50px;
+  }
+
+
+  h4 { 
+    font-size: 16px;
+    padding-bottom: 0px;
+  }
+
+
+  > #conception {
+    margin-bottom: 90px;
+    & > .row:first-child {
+      padding-top: 50px;
+      margin-bottom: 50px;
+    }
+  }
+
+  img {
+    width: 25%;
+  }
+  
+  #less-logo {
+    margin-top:30px;
+  }
+
+  > .row {
+     margin-top: 10px;
+     padding-top: 20px;
+     border-top: 1px solid @lightGray;
+  }
+
+  #brain-logo {
+    display:block;
+    width:50%;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  a {
+    color: #000;
+  }
+
+  a:hover {
+    color: @blue;
+    text-decoration: none;
+  }
+
+  .panel-default {
+     border:none;
+     box-shadow: none;
+     -webkit-box-shadow: none;
+     background-color: #fff;
+  }
+
+  .panel {
+     margin-bottom: 0;
+  }
+
+  .panel-body { 
+    padding-top: 0;
+    paddinb-bottom: 0;
+  }
+
+  .panel-heading { 
+    border: none;
+    background: #fff;
+  }
+}
+
+
+
+

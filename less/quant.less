@@ -1,0 +1,391 @@
+
+/* flat design color palette with dark bg */
+
+/////////////////////////////////////////////////////////////////////////////
+// CONSTANTS
+/////////////////////////////////////////////////////////////////////////////
+
+@black: #333333;
+@lightGray: #D4D8DE;
+@darkGray: #656565;
+@blue: #2980b9;
+@green: #52D273;
+@red: #C94F64;
+@orange: #C57254;
+@yellow: #E5C454;
+
+@bg: @lightGray;
+@bg: #ecf0f1;
+@tickerBg: @black;
+@tickerFg: @orange;
+@navColor: #2c3e50;
+
+
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+ html, button, input, select, textarea {
+    color: #222;
+}
+html, body {
+    font-size: 1em;
+    line-height: 1.4;
+    height:100%;
+}
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+ ::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+/*
+ * A better looking default horizontal rule
+ */
+ hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #888;
+    margin: 1em 0;
+    padding: 0;
+}
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+ audio, canvas, img, video {
+    vertical-align: middle;
+}
+/*
+ * Remove default fieldset styles.
+ */
+ fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+/*
+ * Allow only vertical resizing of textareas.
+ */
+ textarea {
+    resize: vertical;
+}
+
+/*////////////////////////////////////////////////////////////////////////
+// Custom Styles
+///////////////////////////////////////////////////////////////////////*/
+ 
+
+/*/////////////////////////////////////////
+// Helper Classes
+//////////////////////////////////////////*/
+ .fulldim() {
+    width:100%;
+    height:100%;
+}
+
+ .clearfix {    
+ 	&:before,&:after {
+ 		content: " ";
+ 		display: table;
+ 	}
+ 	&:after {
+ 		clear:both
+ 	}
+ }
+
+.nostyle { 
+ list-style: none;
+ }
+
+
+/*/////////////////////////////////////////
+// Containers
+//////////////////////////////////////////*/
+
+.fullpage {
+    position:relative;
+    .fulldim;
+    background: @bg;
+}
+
+.tickercontainer { 
+   width: 100%;
+   background: @tickerBg;
+   height: 35px;
+   margin: 0;
+   padding: 0px;
+   overflow: hidden;
+   /*
+   -moz-box-shadow: 0px 3px 1px ;
+   -webkit-box-shadow: 0px 3px 1px;
+   box-shadow: 0px 3px 1px;
+*/
+}
+
+.tickercontainer .mask { 
+  position: relative;
+}
+
+ul.newsticker { 
+  -webkit-transition: all 0s linear;
+  -moz-transition: all 0s linear;
+  -o-transition: all 0s linear;
+  transition: all 0s linear;
+  position: relative;
+  font-family: 'Marvel';
+  font-size: 26px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  color: @tickerFg;
+
+}
+
+
+ul.newsticker + li {
+  float: left;
+  margin: 0;
+  padding: 0 77px;
+  box-sizing:border-box;
+}
+
+ul.newsticker li {
+  float: left;
+  margin: 0;
+  padding: 0 27px;
+  box-sizing:border-box;
+}
+
+.block-array {
+    white-space:nowrap;
+
+   // mobile landscape and portrait
+    @media screen and (max-width : 1500px)
+    {
+      white-space:normal;
+    };
+
+    height:96%;
+}
+
+.inline-block() { 
+	position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;  
+  overflow:hidden;
+}
+
+.block-dim(@width:100%;@height:100%;@padding:0;@minwidth:0;@margin:0) {
+    width:@width;
+    height: @height;
+    padding-top: @padding;
+    min-width:@minwidth;
+    margin-left:@margin;
+}
+
+.block-hero {
+ 	.inline-block();
+     overflow: visible;
+    .block-dim(@height:40%,@padding:10px);  	
+    /* LG Optimus One */
+    @media screen  and (min-height:280px) {
+    	 .block-dim(@height:40%,@padding:42px);
+    }; 
+    /* iphone 4  height: 480 px */
+    @media screen  and (min-height:480px) {
+    	 .block-dim(@height:40%,@padding:82px);
+    };
+    /* desktop */
+    @media screen and (min-width:1500px){
+  	.block-dim(@width:40%,@padding:2%,@minwidth:450px,@margin:10%);
+    };
+
+
+}
+
+.block-img {
+	 background-image: url(file:///E:/Sandbox/homepage/img/treecircuit.png);
+     background-repeat: no-repeat;
+    .inline-block();
+     background-size: contain;
+     background-position: 50% bottom;
+     .block-dim(@height:60%);
+
+    /* desktop */
+    @media only screen and (min-width:1500px){
+      background-size: 80% 80%;	
+  	  .block-dim(@width:39%;@margin:10%);
+    };
+    
+}
+
+
+/*//////////////////////////////////////////////
+// Positioning
+///////////////////////////////////////////////*/
+
+.corner(@x; @y; @valx: 20px; @valy: 20px) {
+    @{x} : @valx;
+    @{y} : @valy;
+}
+
+
+.clock { 
+  position: absolute;
+  .corner(bottom,left);
+  display: none;  
+
+  @media screen and (min-width: 320px)  {
+  	display: block;
+  	.corner(bottom,left,10px,10px);
+   };
+}
+
+
+.relative {
+    position: relative
+}
+.absolute {
+    position: absolute
+}
+.fixed {
+    position: fixed;
+}
+.center {
+    margin-left:auto;
+    margin-right:auto;
+};
+
+/*///////////////////////////////////////////////
+// NAVIGATION 
+////////////////////////////////////////////////*/
+
+.hero-msgs {
+	display:block;
+	text-align: center;
+	width:100%;
+}
+.navbar {
+
+  .font(@size;@weight: normal;@topfont:'Archivo Narrow') { 
+   font-family: @topfont, sans-serif;
+   font-weight: @weight;
+    font-size:@size;
+    line-height: normal;
+    color: @navColor;
+  }
+
+  .text(@amount:0%) {
+    text-transform: none;
+    text-align: center;
+    color: #2c3e50;
+  }
+
+  &-container {
+    display:table;
+    margin:0 auto;
+  }
+
+
+  &-title {
+    .font(4.2em);
+    .text(10%);
+    margin: 0;
+
+    @media screen {
+    	line-height: 1.2em;
+        .font(1.5em);
+    };
+   
+    @media screen and (min-width:320px) and (min-height:480px) {
+    	.font(2.3em);
+    };
+
+    @media screen and (min-width:480px) {
+    	.font(2.6em);
+    };
+
+    @media screen and (min-width: 640px)  {
+    	.font(2.8em);
+  	};
+  	@media only screen and (min-width:800px) {
+  		.font(3.8em);
+  	}
+    @media only screen and (min-width:1500px){
+        .font(6em);
+    }
+
+  }
+
+  &-container > ul {
+   padding:0; /* ul have default padding and margin */
+   margin:0;
+  }
+
+  &-container > ul > li {
+    display:table-cell;
+    padding:0;
+  }
+
+
+  &-container > ul > li > span {
+	.font(2em);
+	.text(10%);
+	@media screen {
+
+    };
+    @media screen and (min-width: 213px)  {
+    	.font(1em);
+  	};
+    @media screen and (min-width:320px) {
+    	.font(1.3em);
+    };  	
+    @media screen and (min-width: 480px)  {
+    	.font(1.4em);
+  	};
+  	@media only screen and (min-width: 640px) {
+    	.font(1.6em);
+  	};
+    @media only screen and (min-width:1500px){
+        .font(3.2em);
+    }
+
+
+  }
+
+  &-container > ul > li > a[href='#'] {
+    cursor: text;
+  }
+
+
+  .clock  > &-container > ul > li > span {
+     text-align: left;
+    @media screen and (min-width: 320px) {
+    	.font(0.8em,bold, 'Economica');
+  	};
+  }
+}
+
+/*==============================================================================
+ Media Queries
+ ===============================================================================*/
+

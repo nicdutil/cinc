@@ -1,0 +1,660 @@
+
+
+@import  "variables.less";
+@import  "fonts.less";
+@import  "boilerplate.css";
+@import  "utils.less";
+@import  "modals.less";
+@import  "navigation.less";
+@import  "bs_overrides.less";
+@import  "lists.less";
+@import  "videos.less";
+@import  "gmap.less";
+
+// TODOS
+// 1. test fallback fonts
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+// Top section
+//////////////////////////////////////////////////////////////////////////////////
+
+body{
+ overflow-x: hidden;
+}
+
+#top {
+//  margin-top: 100px;
+
+
+ #main-title {
+   text-align: center;
+
+    h1::before {
+        content:"";
+        height:20px;  // not responsive
+        display:block;
+    }
+
+    h1::after {
+        content:"";
+        height:20px; // not responsive
+        display:block;
+    }
+
+    h1 {
+        transform: scale(1, 1.5);
+       -ms-transform: scale(1, 1.5);
+       -webkit-transform: scale(1, 1.5);
+    	line-height: 1.0;
+    	display:inline-block;
+        font-size: 140px; // fallback for old browser
+        font-size: 14rem ;  // not responsive
+
+        @media screen and (min-width: @screen-xs-min) {
+           font-size: 90px;
+        }
+
+        @media screen and (min-width: @screen-md-min) {
+           font-size: 110px;
+        }
+
+        @media screen and (min-width: @screen-lg-min) {
+           font-size: 140px;
+        }
+
+
+        font-family:'Dosis', verdana;
+    }
+
+   // not responsive
+   a {
+   	display: inline-block;
+   	position: relative;
+   	width: 15.811965%;
+   	padding:0px 1.7094017%;
+   }
+
+    img {
+      display:inline-block;
+      width: 100%;
+    }
+ }
+
+ #main-nav {
+ //	margin-top: 20px;
+    text-align: center;
+
+    h2 {
+
+    	 @media screen and (min-width: @screen-xs-min) {
+           font-size: 22px;
+        }
+
+        @media screen and (min-width: @screen-lg-min) {
+           font-size: 26px;
+        }
+    }
+ }
+
+
+ #social-icons { 
+ //   margin-bottom:75px;  // not responsive 
+ //   margin-top: 50px;
+    text-align: center;
+   
+    a, img {
+      display: inline-block;
+    }
+    a {
+      width: 25%;
+    }
+    img {
+      width: 80%;
+    }
+ }
+
+
+ #video-bar  {
+  //  margin-bottom: 200px;   // not responsive
+    text-align: center;
+   
+    > div {
+     background-color: @red;
+
+     height: 37px; // not responsive 
+
+     @media screen and (min-width: @screen-md-min) {
+       height: 50px;
+     }
+
+
+     @media screen and (min-width: @screen-lg-min) {
+       height: 60px;
+     }
+
+     
+     .row {
+     	height: 100%;
+     	
+     	div:first-child{
+     	  height: 100%;
+          border-right:1px solid #fff;
+        }
+         
+        h1 {
+        	color: @white;
+            font-family:"Open Sans", 'verdana';
+            font-weight: bold;
+            -webkit-font-smoothing: antialiased;
+     
+            margin-top: 0.67em;
+            font-size: 14px;  
+            letter-spacing: 0.2em;           
+           
+         @media screen and (min-width: @screen-md-min) {
+            font-size: 18px;  
+            letter-spacing: 0.3em;           
+          }
+        
+         @media screen and (min-width: @screen-lg-min) {
+            font-size: 22px;  
+            letter-spacing: 0.3em;           
+          }
+
+
+        }
+      }
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Intro Video Hidden Div 
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+#video_page > .row:first-child {
+  padding: 0;
+  margin-top: 100px;
+  padding-bottom: 10px;
+  & > div {
+    padding-right: 0px;
+    text-align: right;
+  }
+  button {
+    padding: 3px 6px;
+    font-weight: bold;
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Separators
+/////////////////////////////////////////////////////////////////////////////////////
+
+.jumbotron.separator {
+	position: relative;
+	z-index: 20;        // higher in stack order than sidebar
+    background: #222;
+  //  padding: 90px 30px;
+//    padding: 0px 30px;
+    color: #fcfcfe;
+    margin-bottom: 0px;
+
+//    margin-top: 200px;
+    h2 {
+      font-family:"Open Sans", Helvectica, sans-serif;
+      font-weight: bold;
+      margin: 0;
+
+     @media screen and (min-width: @screen-xs-min) {
+
+      
+     }
+
+     @media screen and (min-width: @screen-md-min) {
+        font-size: 51px;
+     }
+
+     @media screen and (min-width: @screen-lg-min) {
+     	font-size: 62px;
+     }
+
+    }
+
+    &.footer {
+      padding:0px;
+ //     margin-bottom: 120px;
+    }
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////// 
+// How we work section 
+/////////////////////////////////////////////////////////////////////////////////////// 
+
+
+#method_top {
+
+//  margin-top: 100px;
+  
+  > div:first-child {
+  //  margin-bottom: 30px;
+  }
+}
+
+
+#method-carousel {
+
+  p {
+    font-family:'Dosis', sans-serif;
+
+
+    @media screen and (min-width: @screen-md-min) {
+      font-size: 16px;
+    }
+
+    @media screen and (min-width: @screen-lg-min) {
+ 
+       font-size: 19px;
+    }
+  }
+
+
+  h3 {
+     font-weight: bold;
+     font-family:'Marvel', sans-serif;
+
+    @media screen and (min-width: @screen-md-min) {
+      font-size: 18px;
+    }
+
+    @media screen and (min-width: @screen-lg-min) {
+ 
+       font-size: 22px;
+    }
+
+  }
+  
+  .img-wrapper {
+  	text-align: center;
+    @media screen and (min-width: @screen-md-min) {
+      height: 415px;
+      line-height: 415px;	
+    }    
+
+    @media screen and (min-width: @screen-lg-min) {
+      height: 500px;
+      line-height: 500px;	
+    }
+  }
+
+
+  img {
+  	display: inline-block;
+  	vertical-align: center;
+    width: 80%;
+  }
+
+  .carousel-inner > .item {
+  	 -webkit-transition: all 0.5s linear;
+     -moz-transition: all 0.5s linear;
+     -o-transition: all 0.5s linear;
+     transition: all 0.5s linear;  	
+  }
+
+
+  .carousel-indicators {
+    bottom: 0px;
+  	li {
+  	  margin: 0 10px;
+
+     -webkit-transition: all 0.5s linear;
+     -moz-transition: all 0.5s linear;
+     -o-transition: all 0.5s linear;
+     transition: all 0.5s linear;  	
+
+  	 width: 20px;
+  	 height: 20px;
+     background-color: black;
+     border-radius: 5px;
+    }
+    li.active {
+      background-color: @red;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+
+  .carousel-control {
+    background-image: none;
+    filter: none;
+    width: 4%;
+  }
+
+  #search_icon {
+//   padding-top:60px;
+  }
+
+  #tasklist_icon {
+  	 width: 60%;
+//    padding-top: 60px;
+  }
+
+  #execute {
+ //   padding-top: 70px;
+  }
+
+  #handshake {
+  	width: 100%;
+ //   padding-top:70px;
+  }
+
+}
+
+
+/*.fade-in {
+    transition : opacity 1s ease, visibility 1s ease;
+}
+*/
+//////////////////////////////////////////////////////////////////////////////////////// 
+// Services section 
+//////////////////////////////////////////////////////////////////////////////////////// 
+
+
+
+#services_top {
+ //   margin-top:50px;
+
+    > #services_desc  {
+     // margin-bottom: 50px;
+    }
+
+    .service-hide {
+      @max: (@screen-md-min - 1px);
+      @media screen and (max-width:@max) {
+       display:none;
+      }
+    }
+
+    .service-display {
+      @media screen and (min-width:@screen-md-min) {
+       display:none;
+      }
+    }
+
+    ul {
+//        padding-top:10px;
+        list-style-type: square;
+        color: @red;
+    }
+
+    #service-icons {
+
+      @media screen and (min-width: @screen-md-min) {
+      	font-size: 10px;
+      }
+
+      @media screen and (min-width: @screen-lg-min) {
+      	font-size: 12px;
+      }
+
+      > .row {
+      	// margin-bottom: 30px;
+      }
+
+    }
+
+
+  .thumbnail(@radius, @width, @height) {
+      width: @width;
+      height: @height;
+      line-height: @height;
+      border-radius: @radius;
+      -moz-border-radius: @radius;
+      -webkit-border-radius: @radius;
+  }
+
+
+  .service-thumbnail {
+
+
+      @media screen and (min-width: @screen-md-min) {
+       .thumbnail(@radius:20px, @width: 122px, @height: 114px);
+      }
+
+      @media screen and (min-wdith: @screen-lg-min) {
+      	.thumbnail(@radius:24px,@width:147px,@height:137px);
+
+      }     
+
+      margin: 0 auto;
+      background: #C0392B;
+
+      text-align: center;
+
+      background-image: -webkit-gradient(
+        linear,
+        left top,
+        right bottom,
+        color-stop(0, #8D0700),
+        color-stop(0.47, #C03A2B)
+       );
+      
+      background-image: -o-linear-gradient(right bottom, #8D0700 0%, #C03A2B 47%);
+      background-image: -moz-linear-gradient(right bottom, #8D0700 0%, #C03A2B 47%);
+      background-image: -webkit-linear-gradient(right bottom, #8D0700 0%, #C03A2B 47%);
+      background-image: -ms-linear-gradient(right bottom, #8D0700 0%, #C03A2B 47%);
+      background-image: linear-gradient(to right bottom, #8D0700 0%, #C03A2B 47%);
+    }
+
+
+    .panel {
+       margin-bottom: 0px;
+    }
+
+
+    .panel-body {
+        font-family:'Open Sans Condensed', sans-serif;
+        font-size: 1.5em;
+        padding-top: 0px;
+        color: #000; // hack to prevent blue text when hovering over panel. 
+        text-align: justify;
+//        border: none;
+//        background: #fff;
+    }
+
+    .panel-heading {
+        text-align: center;
+ //       padding: 0px 15px;
+    }
+
+    h3 {
+        display:inline-block;
+        font-family:'Orbitron', 'sans-serif';
+        font-size: 1em;
+    }
+
+
+    h4 {
+      &:extend(#services_top h4);
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: bold;
+      text-align: center;
+      margin: 0;
+    }
+
+}
+
+  
+
+/////////////////////////////////////////////////////////////////////////////////// 
+// about section 
+/////////////////////////////////////////////////////////////////////////////////// 
+
+
+#apropos_top {
+ //   margin-top:50px;
+
+    .row:first-child {
+  //    margin-bottom: 50px;
+    }
+
+
+    p {
+
+        @media screen and (min-width:@screen-md-min) {
+           font-size: 17px;
+        }
+
+        @media screen and (min-width:@screen-lg-min) {
+           font-size: 20px;
+        }
+
+    }
+
+    p:first-child {
+        text-indent:4%;
+    }
+
+
+    .panel-heading {
+       padding: 0;
+
+       h5 {
+          font-weight: bold;
+          font-size:22px;
+
+          @media screen and (min-width:@screen-md-min) {
+            font-size: 18px;
+          }
+
+          @media screen and (min-width:@screen-lg-min) {
+           font-size: 22px;
+          }
+
+        }
+
+        .panel-body {
+          padding: 0;
+          padding-top: 15px;
+        }
+    }
+
+    img {
+        width:70%;
+    }
+
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Footer section
+///////////////////////////////////////////////////////////////////////////////
+
+#footer {
+   text-align: center;
+   img {
+     width: 18%;
+     vertical-align: top;
+   }
+
+   img, #twitter-text {
+   	display: inline-block;
+   	vertical-align: top;
+   }
+
+}
+.twitter {
+    &-block {
+        padding: 40px 0px !important;
+        background: #222 !important;
+
+        color: white;
+
+        -webkit-font-smoothing: antialiased;
+    }
+
+
+    &-logo {
+      float:left;
+      width: 20%;
+      padding-right:40px;
+      padding-top:60px;
+    }
+}
+
+#footer_top {
+
+  h2 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 0px;
+
+      @media screen and (min-width: @screen-md-min) {
+      	font-size: 13px;
+      }
+      @media screen and (min-width: @screen-lg-min) {
+      	font-size: 16px;
+      }
+  }
+
+  h5 {
+//      padding-bottom: 50px;
+
+      @media screen and (min-width: @screen-md-min) {
+      	font-size: 21px;
+      }
+      @media screen and (min-width: @screen-lg-min) {
+
+      	font-size: 25px;
+
+      }
+  }
+
+  .logo {
+  	width: 25%;
+  }
+  #less-logo {
+  //  margin-top:30px;
+  }
+
+  > #conception {
+ //   margin-bottom: 90px;
+    > .row:first-child {
+    //  padding-top: 50px;
+   //   margin-bottom: 50px;
+    }
+
+    #drquantum-img {
+      position: relative;
+      z-index: 20;
+      width: 100%;
+    }
+
+  }
+
+  > .row {
+//     margin-top: 10px;
+//     padding-top: 20px;
+     border-top: 1px solid @lightGray;
+  }
+
+
+  .panel {
+     margin-bottom: 0;
+  }
+
+  .panel-body { 
+    padding-top: 0;
+    paddinb-bottom: 0;
+  }
+
+}
+
+
+
+

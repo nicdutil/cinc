@@ -1,0 +1,70 @@
+///////////////////////////////////////////////////////////////////
+// Mixins 
+///////////////////////////////////////////////////////////////////
+
+.font(@size;@weight: normal;@topfont:'Dosis') {
+    font-family: @topfont, sans-serif;
+    font-weight: @weight;
+    font-size:@size;
+    color: @navColor;
+}
+
+.text(@amount:0%) {
+    text-transform: none;
+    text-align: center;
+    color:#000;
+}
+
+.subtitle {
+    .font(2em);
+    font-family:'Open Sans Condensed', 'sans-serif';
+    .text(0%);
+
+    /*
+    @media screen and (min-width:@screen-xs-min) {
+       .font(1.6em); 
+    };
+
+    @media screen and (min-width:@screen-sm-min) {
+       .font(2em); 
+    };
+    
+    @media screen and (min-width:@screen-md-min) {
+      .font(2.6em);
+    };
+   
+    @media screen and (min-width:@screen-lg-min) {
+      .font(1.8em);
+    };
+    */
+}
+
+#main-nav, #apropos_top p, #method_top  p, #services_top  p {
+   font-family: 'Open Sans Condensed', sans-serif;
+}
+
+p.text-header {
+    font-size: 24px;    
+
+
+    @media screen and (min-width: @screen-sm-min ) {
+
+    }
+
+    @media screen and (min-width: @screen-md-min) {
+      font-size: 20px;
+
+    }
+    @media screen and (min-width: @screen-lg-min) {
+     font-size: 24px;
+    }
+}
+
+
+
+/*  #method_header {
+    font-family:'Open Sans Condensed', sans-serif;
+    font-size: 24px;
+    line-height: 1.2em;
+  }
+*/
