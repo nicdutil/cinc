@@ -36,7 +36,7 @@
 var modifyBgColor = function(elem, color1, stop1, color2, stop2) {
     var iconBg = $(elem).find('.service-thumbnail');
     if (typeof iconBg.prop('class') === "undefined") {
-        $('#video-bar div').css('background-color', color1);
+        $('#video-bar div').css('background-color', color2);
     } else {
         var propVal = color1 + ' ' + stop1 + ',' + color2 + ' ' + stop2;
         iconBg.css('background-image', 'linear-gradient(to right bottom,' + propVal);
@@ -325,13 +325,13 @@ function clickHandlers() {
 
 function mouseOverHandlers() {
 
-    $('#video-bar a, #services_top a').on('mouseover', function() {
-        modifyBgColor(this, '#8D0700', '0%', '#8D0700', '100%');
+    $('#video-bar div, #services_top a').on('mouseover', function() {
+        modifyBgColor(this, '#aaa', '0%', '#aaa', '100%');
     });
 
 
-    $('#video-bar a, #services_top a').on('mouseout', function() {
-        modifyBgColor(this, '#8D0700', '0%', '#C03A2B', '47%');
+    $('#video-bar div, #services_top a').on('mouseout', function() {
+        modifyBgColor(this, '#fff', '0%', '#fff', '47%');
     });
 }
 
