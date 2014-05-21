@@ -17,7 +17,6 @@
   }
 }
 
-
 .hidebar {
   right: -10%;
 }
@@ -26,33 +25,55 @@
   background-color: @red !important;
 }
 
+.red-border {
+  border:1px solid @red;
+}
+.blue-border {
+  border:1px solid @blue;
+}
+.orange-border {
+  border:1px solid @orange;
+}
+
+
 .navigation {
    text-align: center;
    font-size: 12px !important;
 
    a {
-    .rotate(45deg);
+//    .rotate(45deg);
     display:block;
-    background-color: #222;
-    width: 10px;
-    height: 10px;
-    margin: 15px auto;
-
+    border: 1px solid;
+//   background-color: #222;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0px auto;
+    padding: 0;
+    
    -webkit-transition: -webkit-transform 250ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
    -moz-transition: -moz-transform 250ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
     -o-transition: -o-transform 250ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
     transition: transform 250ms cubic-bezier(0.250, 0.250, 0.750, 0.750); /* linear */
+    text-align: center;
+
+    span {
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
    }
 
-   a:hover {
+ /*  a:hover {
     .rotate(90deg, 2.2);
    }
-
+*/
    h6 {
     position: relative;
     font-family: 'Dosis', sans-serif;
-    font-size: 14px;
-    width: 60px;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 0.2em;
     }
 }
 

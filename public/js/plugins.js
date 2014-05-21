@@ -77,26 +77,34 @@ $("#webticker").webTicker({
 // Google Map
 ///////////////////////////////////////////////////////////////////////////////
 
-function initGoogleMap() {
+function initGoogleMap(mapId) {
     var myLatlng = new google.maps.LatLng(45.7145890, -73.6796590);
 
-    var map_canvas = document.getElementById('map_canvas');
+    var map_canvas = document.getElementById(mapId);
+
     var map_options = {
         center: myLatlng,
         zoom: 16,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
+
     var map = new google.maps.Map(map_canvas, map_options);
+
     var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
-        title: 'Docteur Quantum - Bureau',
+        title: 'CINC - Bureau',
         animation: google.maps.Animation.DROP,
         draggable: false
     });
+
+
     google.maps.event.addListener(marker, 'click', toggleBounce);
-    google.maps.event.trigger(map, 'resize');
+//    google.maps.event.trigger(map, 'resize');
 }
+
+initGoogleMap('map_canvas');
+initGoogleMap('map_canvas_2');
 
 function toggleBounce() {
 
@@ -107,10 +115,12 @@ function toggleBounce() {
     }
 }
 
-$('#contactMe').on('shown.bs.modal', function(event) {
-    initGoogleMap();
+/*$('#contactMe').on('shown.bs.modal', function(event) {
+    initGoogleMap('map_canvas_2');
 });
-
+initialize();
+initGoogleMap('map_canvas');
+*/
 
 ////////////////////////////////////////////////////////////////////
 // Responsive Buttons
@@ -262,8 +272,6 @@ $(footer_anchors.join()).scrollTo({
 function clickHandlers() {
 
 
-
-
     $('#sidebar a').on('click', function(event) {
         var id = event.target.id;
         $(waypointTriggers.join()).waypoint('destroy');
@@ -281,13 +289,8 @@ function clickHandlers() {
             opacity: 1,
             left: '0px'
         }, 500);
-    })
-
-    $('.service-click').on('click', function() {
-        $('html,body').animate({
-            scrollTop: $(this).offset().top - 10
-        }, 800);
     });
+
 
     $('#video-page button').on('click', function() {
         $('#top').removeClass("hide");
@@ -325,12 +328,12 @@ function clickHandlers() {
 
 function mouseOverHandlers() {
 
-    $('#video-bar div, #services_top a').on('mouseover', function() {
+    $('#services_top a').on('mouseover', function() {
         modifyBgColor(this, '#aaa', '0%', '#aaa', '100%');
     });
 
 
-    $('#video-bar div, #services_top a').on('mouseout', function() {
+    $('#services_top a').on('mouseout', function() {
         modifyBgColor(this, '#fff', '0%', '#fff', '47%');
     });
 }
@@ -339,13 +342,38 @@ function mouseOverHandlers() {
 $(document).ready(function() {
     clickHandlers();
     mouseOverHandlers();
+
 });
 
+////////////////////////////////////////////////////////////////////////
+// Collapse Event Handlers 
+///////////////////////////////////////////////////////////////////////
 
 // accordeon collapse handler 
+var selected;
+
 $(document).on("hide.bs.collapse", function(event) {
     $("#quirk_anchor").click();
 });
+
+
+$(document).on("show.bs.collapse", function(event) {
+    var target = '#' + event.target.id;
+
+    if (selected !== undefined) {
+        alert('hi');
+        $(selected).animate({
+            opacity: 0
+        }, function() {
+            //            $(target).css('opacity', '0');
+            $(target).addClass('in');
+            //            $(target).animate({'opacity' : 1});
+        });
+        event.preventDefault();
+    };
+    selected = target;
+});
+
 
 
 
@@ -359,4 +387,6 @@ $(window).resize(function() {});
 // Bootstrap Jquery overrides
 //////////////////////////////////////////////////////////////////////
 
-$('.carousel').carousel({interval:false});
+$('.carousel').carousel({
+    interval: false
+});
