@@ -6,8 +6,10 @@ li.list-group-item {
    background-color: #fff;
    border: none;
    font-family: 'Dosis', sans-serif;
-  font-size: 20px;
-//  .fontsize(16px);
+   font-size: 20px;
+   @media screen and (min-width:@screen-lg-min) {
+    font-size: 20px;
+   }
 }
 
 
@@ -15,10 +17,14 @@ ul.contact-type > li {
   padding-left: 0px;
 }
 
-ul.contact-value > li:first-child > a {
+/*ul.contact-type > li:first-child  {
   color: @red !important;
 }
+ul.contact-type > li:nth-child(1)  {
+  color: @blue;
+}
 
-ul.contact-value > li:nth-child(4) > a {
+ul.contact-type > li:nth-child(4)  {
   color: @purple !important;
 }
+*/

@@ -100,11 +100,10 @@ function initGoogleMap(mapId) {
 
 
     google.maps.event.addListener(marker, 'click', toggleBounce);
-//    google.maps.event.trigger(map, 'resize');
+    //    google.maps.event.trigger(map, 'resize');
 }
 
 initGoogleMap('map_canvas');
-initGoogleMap('map_canvas_2');
 
 function toggleBounce() {
 
@@ -115,12 +114,11 @@ function toggleBounce() {
     }
 }
 
-/*$('#contactMe').on('shown.bs.modal', function(event) {
+$('#contactMe').on('shown.bs.modal', function(event) {
     initGoogleMap('map_canvas_2');
 });
-initialize();
+
 initGoogleMap('map_canvas');
-*/
 
 ////////////////////////////////////////////////////////////////////
 // Responsive Buttons
@@ -156,25 +154,138 @@ enquire.register("screen and (min-width:992px)", {
 ///////////////////////////////////////////////////////////////////////
 
 var nav = {
-    sidebar_top: ['Accueil', '#top', '#services'],
-    sidebar_services: ['Services', '#services', '#method'],
-    sidebar_method: ['À propos', '#method', '#apropos'],
-    sidebar_apropos: ['Équipe', '#apropos', '#footer'],
-    sidebar_footer: ['Contact', '#footer', '#footer']
+    "sidebar-top": ['Accueil', '#top', '#services'],
+    "sidebar-services": ['Services', '#services', '#method'],
+    "sidebar-method": ['À propos', '#method', '#team'],
+    "sidebar-team": ['Équipe', '#team', '#page-footer'],
+    "sidebar-footer": ['Contact', '#page-footer', '#page-footer']
 };
 
-var nav_active = '#sidebar_top';
+var nav_active = '#sidebar-top';
+// accordeon collapse handler 
+var buttonSelected = new Array();
 
+
+//////////////////////////////////////////////////////////////////////
+// Service Carousel
+//////////////////////////////////////////////////////////////////////
+
+var Carousel = function Carousel() {
+    this.active = true;
+    this.currIndex = 0;
+    this.prevIndex = -1;
+    this.items;
+    this.id;
+};
+
+Carousel.prototype.disable = function() {
+    this.active = false;
+    var currButton = this.items.eq(this.prevIndex);
+    $(currButton).removeClass('selected-button');
+}
+Carousel.prototype.enable = function() {
+    this.active = true;
+    this.currIndex = 0;
+    this.prevIndex = -1;
+    $(buttonSelected[this.id]).removeClass('selected-button');
+}
+
+var carousels = new Array();
+
+
+function initCarousel(id) {
+
+    var c = new Carousel();
+
+    c.items = $('#' + id + ' ' + 'button');
+    c.id = id;
+    carousels[id] = c;
+
+    setTimeout(function() {
+        nextItem(id)
+    }, 200);
+}
+
+
+function nextItem(id) {
+    var c = carousels[id];
+    var currButton;
+
+    if (carousels[id].active == false) {
+        setTimeout(function() {
+            carousels[id].enable();
+            nextItem(id);
+        }, 10000);
+        return
+    }
+
+    if (c.prevIndex > -1) {
+        currButton = c.items.eq(c.prevIndex);
+        $(currButton).removeClass('selected-button');
+    }
+
+    currButton = c.items.eq(c.currIndex);
+    $(currButton).addClass('selected-button');
+
+    showPanel(id, currButton.prop('id'));
+
+    c.prevIndex = c.currIndex;
+    c.currIndex++;
+
+    if (c.currIndex == c.items.length) {
+        c.currIndex = 0;
+    }
+
+    setTimeout(function() {
+        nextItem(id)
+    }, 5000);
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// Screen Panel Display 
+/////////////////////////////////////////////////////////////////////////////
+
+/*function hidePanel(id, complete) {
+    var panelBodyId = id.split('-')[0] + '-body';
+    var screenPanelBodyId = 'screen-' + panelBodyId;
+    var screenSelector = '#' + screenPanelBodyId;
+    //    alert(screenSelector);
+    $(screenSelector).fadeOut(2000, function() {
+        $(screenSelector).addClass('desktop-hide');
+        //complete();
+    });
+}
+*/
+
+function showPanel(sectionId, buttonId) {
+    var panelBodyId = buttonId.split('-')[0] + '-body';
+    var panelBodyHtml = $('#' + panelBodyId).wrap('<div/>').parent().html();
+
+    var screenPanelBodyId = 'screen-' + panelBodyId;
+    var screenSelector = '#screen-' + sectionId + '-text';
+
+    panelBodyHtml = panelBodyHtml.replace(panelBodyId, screenPanelBodyId);
+    panelBodyHtml = panelBodyHtml.replace('desktop-hide', '');
+
+    $(screenSelector).fadeOut(function() {
+        $(screenSelector).html(panelBodyHtml);
+    });
+    $(screenSelector).fadeIn();
+    //     $(screenSelector).attr('id','screen-text-body');
+    //    $('#screen-text').fadeIn();
+
+}
 
 //////////////////////////////////////////////////////////////////////
 // Waypoints handlers
 //////////////////////////////////////////////////////////////////////
 
-var waypointTriggers = ['#services', '#method', '#apropos', '#footer'];
+var waypointTriggers = ['#services', '#method', '#team', '#page-footer'];
 
 
 function setNavActive(waypointid, i, textFlag) {
     var selected;
+
     $.each(nav, function(key, value) {
         if (waypointid === value[i]) {
             selected = key;
@@ -214,28 +325,94 @@ function showSideBar(direction) {
         $('#sidebar').addClass('hidebar');
 }
 
-$(waypointTriggers.join()).waypoint(navWithTextHandler);
+function carouselHandler(direction) {
 
+    var waypoint = this.id;
+    var panelDisplay = $('#' + waypoint + ' .row  > div:first-child .panel-body').css('display');
+
+    if (panelDisplay == 'none' && direction == "down" && carousels[waypoint] === undefined) {
+        initCarousel(waypoint);
+    }
+}
+
+$(waypointTriggers.join()).waypoint(navWithTextHandler);
 $(waypointTriggers[0]).waypoint(showSideBar);
+
+$('#services,#method,#team').waypoint(carouselHandler, {
+    offset: '50%'
+});
+
+
+////////////////////////////////////////////////////////////////////////////
+// img fader
+////////////////////////////////////////////////////////////////////////////
+
+var rollodex_curr = 1;
+var rollodex_length;
+
+$(document).ready(function() {
+    rollodex_length = $('.background-container img').length;
+    setTimeout(nextImage, 5000);
+});
+
+
+function getImgSelector(n) {
+    var selector = '.background-container > img:nth-child(' + n + ')';
+    return selector;
+}
+
+function hideImage(n) {
+    var selector = getImgSelector(n);
+
+    if ( (n+1) > rollodex_length){
+        rollodex_curr = n = 0;
+    }
+
+    showImage(n + 1 );
+    setTimeout(function() {
+    $(selector).animate({
+        'opacity': '0'
+    }, 1000, function() {
+        $(selector).addClass('hide');
+    });
+    },20);
+}
+
+function showImage(n) {
+
+    var selector = getImgSelector(n);
+    $(selector).css('opacity', '0');
+    $(selector).removeClass('hide');
+    $(selector).animate({
+        'opacity': '1'
+    }, 1000);
+    //    $(selector).fadeIn();
+}
+
+function nextImage() {
+    hideImage(rollodex_curr);
+    rollodex_curr = rollodex_curr + 1;
+    setTimeout(nextImage, 5000);
+}
 
 
 ///////////////////////////////////////////////////////////////////////////
 // Scroll Tos registering
 ///////////////////////////////////////////////////////////////////////////
 
-var nav_anchors = ['#sidebar_services', '#sidebar_method',
-    '#sidebar_apropos', '#sidebar_footer', '#sidebar_top'
+var nav_anchors = ['#sidebar-services', '#sidebar-method',
+    '#sidebar-team', '#sidebar-footer', '#sidebar-top'
 ];
 
 var hero_anchors = [
-    '#services_hero_anchor', '#method_hero_anchor',
-    '#apropos_hero_anchor', '#footer_hero_anchor'
+    '#services-hero-anchor', '#method-hero-anchor',
+    '#team-hero-anchor', '#footer-hero-anchor'
 ];
 
 var footer_anchors = [
-    '#hero_footer_anchor', '#services_footer_anchor',
-    '#apropos_footer_anchor', '#method_footer_anchor',
-    '#top_footer_anchor', '#quirk_anchor'
+    '#hero-footer-anchor', '#services-footer-anchor',
+    '#team-footer-anchor', '#method-footer-anchor',
+    '#top-footer-anchor', '#quirk-anchor'
 ];
 
 
@@ -271,6 +448,22 @@ $(footer_anchors.join()).scrollTo({
 
 function clickHandlers() {
 
+    function selectButton(sectionId, eventId) {
+        var c = carousels[sectionId];
+        var b = buttonSelected[sectionId];
+
+        if (c !== undefined) {
+            c.disable();
+        }
+
+        if (b !== undefined) {
+            $(b).removeClass('selected-button');
+        }
+
+        buttonSelected[sectionId] = eventId;
+        $(eventId).addClass('selected-button');
+    }
+
 
     $('#sidebar a').on('click', function(event) {
         var id = event.target.id;
@@ -289,6 +482,26 @@ function clickHandlers() {
             opacity: 1,
             left: '0px'
         }, 500);
+    });
+
+    $('#method button').on('click', function() {
+        selectButton('method', this);
+    });
+
+    $('#services button').on('click', function() {
+        selectButton('services', this);
+    });
+    $('#team button').on('click', function() {
+        selectButton('team', this);
+    })
+
+
+    $('.services-click,.method-click,.team-click').on('click', function(event) {
+        var buttonId = event.target.id;
+
+        var sectionId = $(this).closest('.container').prop('id');
+
+        showPanel(sectionId, buttonId);
     });
 
 
@@ -349,8 +562,6 @@ $(document).ready(function() {
 // Collapse Event Handlers 
 ///////////////////////////////////////////////////////////////////////
 
-// accordeon collapse handler 
-var selected;
 
 $(document).on("hide.bs.collapse", function(event) {
     $("#quirk_anchor").click();
