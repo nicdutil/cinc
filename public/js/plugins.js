@@ -103,7 +103,7 @@ function initGoogleMap(mapId) {
     //    google.maps.event.trigger(map, 'resize');
 }
 
-initGoogleMap('map_canvas');
+//initGoogleMap('map_canvas');
 
 function toggleBounce() {
 
@@ -118,7 +118,7 @@ $('#contactMe').on('shown.bs.modal', function(event) {
     initGoogleMap('map_canvas_2');
 });
 
-initGoogleMap('map_canvas');
+//initGoogleMap('map_canvas');
 
 ////////////////////////////////////////////////////////////////////
 // Responsive Buttons
@@ -154,11 +154,11 @@ enquire.register("screen and (min-width:992px)", {
 ///////////////////////////////////////////////////////////////////////
 
 var nav = {
-    "sidebar-top": ['Accueil', '#top', '#services'],
-    "sidebar-services": ['Services', '#services', '#method'],
-    "sidebar-method": ['À propos', '#method', '#team'],
-    "sidebar-team": ['Équipe', '#team', '#page-footer'],
-    "sidebar-footer": ['Contact', '#page-footer', '#page-footer']
+    "sidebar-top": '#margin-top',
+    "sidebar-services": '#services',
+    "sidebar-method": '#method',
+    "sidebar-team": '#team',
+    "sidebar-footer": '#page-footer'
 };
 
 var nav_active = '#sidebar-top';
@@ -175,6 +175,7 @@ var Carousel = function Carousel() {
     this.currIndex = 0;
     this.prevIndex = -1;
     this.items;
+    this.timeout;
     this.id;
 };
 
@@ -192,11 +193,11 @@ Carousel.prototype.enable = function() {
 
 var carousels = new Array();
 
-
-function initCarousel(id) {
+function initCarousel(id, timeout) {
 
     var c = new Carousel();
-
+    timeout = typeof timeout !== 'undefined' ? timeout : 10000;
+    c.timeout = timeout;
     c.items = $('#' + id + ' ' + 'button');
     c.id = id;
     carousels[id] = c;
@@ -215,7 +216,7 @@ function nextItem(id) {
         setTimeout(function() {
             carousels[id].enable();
             nextItem(id);
-        }, 10000);
+        }, 10 * c.timeout);
         return
     }
 
@@ -238,7 +239,7 @@ function nextItem(id) {
 
     setTimeout(function() {
         nextItem(id)
-    }, 5000);
+    }, c.timeout);
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -258,36 +259,46 @@ function nextItem(id) {
 */
 
 function showPanel(sectionId, buttonId) {
-    var panelBodyId = buttonId.split('-')[0] + '-body';
+    var prefix = buttonId.split('-')[0];
+    var panelBodyId = prefix + '-body';
+    var photoDivId = prefix + '-photo-div';
+
     var panelBodyHtml = $('#' + panelBodyId).wrap('<div/>').parent().html();
+    var photoDivHtml = $('#' + photoDivId).html();
 
     var screenPanelBodyId = 'screen-' + panelBodyId;
-    var screenSelector = '#screen-' + sectionId + '-text';
+    var screenTextSelector = '#screen-' + sectionId + '-text';
+    var screenPhotoSelector = '#screen-' + sectionId + '-photo';
 
     panelBodyHtml = panelBodyHtml.replace(panelBodyId, screenPanelBodyId);
     panelBodyHtml = panelBodyHtml.replace('desktop-hide', '');
+    photoDivHtml = photoDivHtml.replace('desktop-hide', '');
 
-    $(screenSelector).fadeOut(function() {
-        $(screenSelector).html(panelBodyHtml);
+    $(screenTextSelector).fadeOut(function() {
+        $(screenTextSelector).html(panelBodyHtml);
     });
-    $(screenSelector).fadeIn();
-    //     $(screenSelector).attr('id','screen-text-body');
-    //    $('#screen-text').fadeIn();
 
+    $(screenPhotoSelector).fadeOut(function() {
+        $(screenPhotoSelector).html(photoDivHtml);
+    });
+    $(screenPhotoSelector).fadeIn();
+
+
+    $(screenTextSelector).fadeIn();
 }
 
 //////////////////////////////////////////////////////////////////////
 // Waypoints handlers
 //////////////////////////////////////////////////////////////////////
 
-var waypointTriggers = ['#services', '#method', '#team', '#page-footer'];
+var waypointTriggers = ['#margin-top', '#services', '#method', '#team', '#page-footer'];
 
 
-function setNavActive(waypointid, i, textFlag) {
+
+function navCommonHandler(id) {
     var selected;
-
     $.each(nav, function(key, value) {
-        if (waypointid === value[i]) {
+        if (id === value) {
             selected = key;
             return false;
         }
@@ -296,51 +307,70 @@ function setNavActive(waypointid, i, textFlag) {
     $(nav_active).removeClass('nav-active');
     nav_active = '#' + selected;
     $(nav_active).addClass('nav-active');
-    if (textFlag === true) {
-        $('#sidebar h6').text(nav[selected][0]);
-    }
-};
-
-function navCommonHandler(id, direction, textFlag) {
-    if (direction === "down") {
-        setNavActive(id, 1, textFlag);
-    } else
-        setNavActive(id, 2, textFlag);
 }
 
 function navNoTextHandler(direction) {
     var waypointid = '#' + this.id;
-    navCommonHandler(waypointid, direction, false);
+    navCommonHandler(waypointid);
 }
 
-function navWithTextHandler(direction) {
-    var waypointid = '#' + this.id;
-    navCommonHandler(waypointid, direction, true);
-}
-
-function showSideBar(direction) {
-    if (direction === "down") {
-        $('#sidebar').removeClass('hidebar');
-    } else
-        $('#sidebar').addClass('hidebar');
-}
 
 function carouselHandler(direction) {
-
     var waypoint = this.id;
+    var timeout = 10000;
+    //    var timeout = (waypoint === '#team') ? 200 : 10000;
+
     var panelDisplay = $('#' + waypoint + ' .row  > div:first-child .panel-body').css('display');
 
     if (panelDisplay == 'none' && direction == "down" && carousels[waypoint] === undefined) {
-        initCarousel(waypoint);
+        initCarousel(waypoint, timeout);
     }
 }
 
-$(waypointTriggers.join()).waypoint(navWithTextHandler);
-$(waypointTriggers[0]).waypoint(showSideBar);
 
-$('#services,#method,#team').waypoint(carouselHandler, {
+function navBarResizeHandler(direction) {
+    if (direction === "down") {
+        $('#navbar').addClass('navbar-mini');
+        $('#main-title h2').css('display', 'none');
+        $('#navbar .container').css('border', 'none');
+    } else {
+        $('#navbar').removeClass('navbar-mini');
+        $('#main-title h2').css('display', 'block');
+        $('#navbar .container').css({
+            'border-top': '1px solid #ddd',
+            'border-bottom': '1px solid #ddd'
+        });
+    }
+}
+
+$(waypointTriggers.join()).waypoint(navNoTextHandler, {
+    offset: '-5%'
+});
+$(waypointTriggers.join()).waypoint(navNoTextHandler, {
     offset: '50%'
 });
+
+//$(waypointTriggers[0]).waypoint(showSideBar);
+
+$('#services,#method').waypoint(carouselHandler, {
+    offset: '50%'
+});
+
+
+$('#team').waypoint(function(direction) {
+    var length = $('#screen-team-photo').html().trim().length;
+
+    if (direction === "down" && length === 0) {
+        showPanel('team', 'nic-button');
+    }
+}, {
+    offset: '50%'
+});
+
+$('#services-banner').waypoint(navBarResizeHandler, {
+    offset: '50%'
+});
+
 
 
 ////////////////////////////////////////////////////////////////////////////
@@ -351,36 +381,36 @@ var rollodex_curr = 1;
 var rollodex_length;
 
 $(document).ready(function() {
-    rollodex_length = $('.background-container img').length;
-    setTimeout(nextImage, 5000);
+    rollodex_length = $('.slider .slide').length;
+    setTimeout(nextSlide, 5000);
 });
 
 
-function getImgSelector(n) {
-    var selector = '.background-container > img:nth-child(' + n + ')';
+function getSlideSelector(n) {
+    var selector = '.slider  .slide:nth-child(' + n + ')';
     return selector;
 }
 
-function hideImage(n) {
-    var selector = getImgSelector(n);
+function hideSlide(n) {
+    var selector = getSlideSelector(n);
 
-    if ( (n+1) > rollodex_length){
+    if ((n + 1) > rollodex_length) {
         rollodex_curr = n = 0;
     }
 
-    showImage(n + 1 );
+    showSlide(n + 1);
     setTimeout(function() {
-    $(selector).animate({
-        'opacity': '0'
-    }, 1000, function() {
-        $(selector).addClass('hide');
-    });
-    },20);
+        $(selector).animate({
+            'opacity': '0'
+        }, 1000, function() {
+            $(selector).addClass('hide');
+        });
+    }, 20);
 }
 
-function showImage(n) {
+function showSlide(n) {
 
-    var selector = getImgSelector(n);
+    var selector = getSlideSelector(n);
     $(selector).css('opacity', '0');
     $(selector).removeClass('hide');
     $(selector).animate({
@@ -389,10 +419,10 @@ function showImage(n) {
     //    $(selector).fadeIn();
 }
 
-function nextImage() {
-    hideImage(rollodex_curr);
+function nextSlide() {
+    hideSlide(rollodex_curr);
     rollodex_curr = rollodex_curr + 1;
-    setTimeout(nextImage, 5000);
+    setTimeout(nextSlide, 5000);
 }
 
 
@@ -415,28 +445,37 @@ var footer_anchors = [
     '#top-footer-anchor', '#quirk-anchor'
 ];
 
+var main_nav_anchors = ['#service-nav-anchor', '#method-nav-anchor', '#team-nav-anchor'];
+var main_nav_slide_anchors = ['#service-nav-slide-anchor', '#method-nav-slide-anchor', '#team-nav-slide-anchor'];
 
 
 $(nav_anchors.join()).scrollTo({
     speed: 2000,
-    offset: -20,
-    easing: 'easeInCubic',
-    callback: function() {
-        $(waypointTriggers.join()).waypoint('destroy');
-        $(waypointTriggers.join()).waypoint(navWithTextHandler);
-        $(waypointTriggers[0]).waypoint(showSideBar);
-    }
+    offset: 0,
+    easing: 'easeInCubic'
+});
+
+$(main_nav_slide_anchors.join()).scrollTo({
+    speed: 2000,
+    offset: 0,
+    easing: 'easeInCubic'
+});
+
+$(main_nav_anchors.join()).scrollTo({
+    speed: 2000,
+    offset: 0,
+    easing: 'easeInCubic'
 });
 
 $(hero_anchors.join()).scrollTo({
     speed: 2000,
-    offset: -20,
+    offset: 0,
     easing: 'easeInCubic'
 });
 
 $(footer_anchors.join()).scrollTo({
     speed: 1000,
-    offset: -10,
+    offset: 0,
     easing: 'easeOutCubic'
 });
 
@@ -467,22 +506,17 @@ function clickHandlers() {
 
     $('#sidebar a').on('click', function(event) {
         var id = event.target.id;
-        $(waypointTriggers.join()).waypoint('destroy');
-
         $('#sidebar h6').animate({
             opacity: 0,
             left: '50%'
-        }, 500, function() {
-            $(waypointTriggers[0]).waypoint(showSideBar);
-            $(waypointTriggers.join()).waypoint(navNoTextHandler);
-            $('#sidebar h6').text(nav[id][0]);
-        });
+        }, 500);
 
         $('#sidebar h6').animate({
             opacity: 1,
             left: '0px'
         }, 500);
     });
+
 
     $('#method button').on('click', function() {
         selectButton('method', this);
@@ -495,13 +529,43 @@ function clickHandlers() {
         selectButton('team', this);
     })
 
+    function hashTag(id) {
+        return '#' + id;
+    }
 
-    $('.services-click,.method-click,.team-click').on('click', function(event) {
-        var buttonId = event.target.id;
+    function prefix(prefix, id) {
+        return prefix + '-' + id;
+    }
 
+    var bgColorMap = {
+        'website-button': '#354774',
+        'scrape-button': '#f39c12',
+        'excel-button': '#65c6bb'
+    }
+
+        function changeBgColor(sectionId, targetId) {
+            var buttonId = $(hashTag(targetId)).closest('button').prop('id');
+            var bg = bgColorMap[buttonId];
+            var screenSelector = hashTag(prefix('screen', sectionId));
+            $(screenSelector).css('background-color', bg);
+
+            /*      screenId = '#screen-' + sectionId;
+      $(screenId).css('background-color',bgColorMap[buttonId]);
+*/
+        }
+
+    $('.services-click').on('click', function(event) {
+        var targetId = event.target.id;
         var sectionId = $(this).closest('.container').prop('id');
+        //    changeBgColor(sectionId,targetId);
+        showPanel(sectionId, targetId);
+    });
 
-        showPanel(sectionId, buttonId);
+    $('.method-click,.team-click').on('click', function(event) {
+        var targetId = event.target.id;
+        var sectionId = $(this).closest('.container-fluid').prop('id');
+        //    changeBgColor(sectionId,targetId);
+        showPanel(sectionId, targetId);
     });
 
 
@@ -558,12 +622,15 @@ $(document).ready(function() {
 
 });
 
+
+
+
 ////////////////////////////////////////////////////////////////////////
 // Collapse Event Handlers 
 ///////////////////////////////////////////////////////////////////////
 
 
-$(document).on("hide.bs.collapse", function(event) {
+/*$(document).on("hide.bs.collapse", function(event) {
     $("#quirk_anchor").click();
 });
 
@@ -584,20 +651,4 @@ $(document).on("show.bs.collapse", function(event) {
     };
     selected = target;
 });
-
-
-
-
-//////////////////////////////////////////////////////////////////////
-// Window resize events
-//////////////////////////////////////////////////////////////////////
-
-$(window).resize(function() {});
-
-//////////////////////////////////////////////////////////////////////
-// Bootstrap Jquery overrides
-//////////////////////////////////////////////////////////////////////
-
-$('.carousel').carousel({
-    interval: false
-});
+*/

@@ -74,7 +74,9 @@
 .blue {
     color:@blue !important;
 }
-
+.darkblue {
+  color: @darkBlue !important;
+}
 .red {
     color:@red !important;
 }
@@ -98,7 +100,9 @@
   &-lightGray-2 {
       background: @lightGray-2 !important
     }
-   
+    &-black {
+      background: #000 !important;
+    }
     &-dark {
         background: @dark !important;
     }
@@ -194,6 +198,9 @@
 
 .v-line {
   .line(@length:100px,@lineType:right)
+}
+.v-long-line {
+  .line(@length:200px,@lineType:right)
 }
 
 
