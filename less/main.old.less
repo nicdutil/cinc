@@ -1,0 +1,644 @@
+
+
+@import  "variables.less";
+@import  "fonts.less";
+@import  "boilerplate.css";
+@import  "utils.less";
+@import  "responsive.less";
+@import  "modals.less";
+@import  "navigation.less";
+@import  "bs_overrides.less";
+@import  "lists.less";
+@import  "videos.less";
+@import  "gmap.less";
+
+
+// TODOS
+// 1. test fallback fonts
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+// Top section
+//////////////////////////////////////////////////////////////////////////////////
+
+html, body{
+ overflow-x: hidden !important;
+ width: 100% !important;
+ height: 100% !important;
+ margin: 0px !important;
+ padding: 0px !important;
+ position: relative;
+ z-index: 10;
+}
+
+* {
+ -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+ -o-transition: all 0.5s linear;
+   transition: all 0.5s linear;   
+}
+
+#top {
+
+//.resize(margin-top, 150px);
+//.resize(margin-bottom, 300px);
+ margin-top: 20px;
+ @media screen and (min-width: @screen-sm-min) {
+  margin-top: 50px;
+ }
+ margin-bottom: 0px;
+
+ #main-title {
+    margin: 0 auto;
+/*    h1::before {
+        content:"";
+//        height:20px;  // not responsive
+        .resize(height, 20px, true);
+        display:block;
+    }
+
+    h1::after {
+        content:"";
+//        height:20px; // not responsive
+        .resize(height, 20px, true);
+        display:block;
+    }
+*/
+    h1 {
+      margin: 0;
+      padding: 0;
+      transform: scale(1, 1.5);
+       -ms-transform: scale(1, 1.5);
+       -webkit-transform: scale(1, 1.5);
+    //   	line-height: 1.4;
+      line-height: 0.9;
+      font-family:'Dosis', verdana;
+      text-align: center;    
+        font-size: 80px;
+     margin-bottom: 15px;
+
+      @media screen and (min-width: @screen-xs-min) {
+        font-size: 105px;
+      }
+
+      @media screen and (min-width: @screen-sm-min) {
+        font-size: 105px;
+      }
+
+      @media screen and (min-width: @screen-md-min) {
+        font-size: 110px;
+      }
+      @media screen and (min-width: @screen-lg-min) {
+        font-size: 130px;
+      }
+    }
+
+
+   // not responsive
+   a {
+//   	display: inline-block;
+   	position: relative;
+//   	width: 15.811965%;
+//   	padding:0px 1.7094017%;
+   }
+
+    img {
+ //     display:inline-block;
+      width: 120%;
+      position: relative;
+      left: -15px;
+
+      @media screen and (min-width: @screen-sm-min) {
+        width: 120%;
+      }
+
+      @media screen and (min-width: @screen-md-min) {
+        width: 90%;
+      }
+
+      @media screen and (min-width: @screen-lg-min) {
+        width: 100%;
+      }
+    }
+ }
+
+
+ #main-nav {
+    text-align: center;
+    margin-top: 30px;
+    @media screen and (min-width: @screen-lg-min) {
+      margin-top: 20px;
+    }
+
+    h2 {
+      font-size: 30px;
+      @media screen and (min-width: @screen-lg-min) {
+        font-size: 32px;
+      }
+
+     }     
+ }
+
+
+ #social-icons { 
+ //   margin-bottom:75px;  // not responsive 
+//   .resize(margin-top, 50px);
+    margin: 0 auto;
+    width: 145px;
+    margin-top: 20px;
+
+    @media screen and (min-width: @screen-sm-min) {
+      margin-top: 50px;
+      width: 280px;
+    }
+
+    padding: 0;
+    
+//    border: 1px solid red;
+
+    text-align: center;
+    div {
+      padding: 0;
+      text-align: center;
+    }
+ 
+    img {
+//      width: 80%;
+      width:70px;
+      padding: 5px 5px;
+
+/*      @media screen and (min-width:@screen-sm-min) {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      @media screen and (min-width:@screen-lg-min) {
+        width: 60%;
+        padding: 0;
+        margin: 0;
+      }
+*/
+    }
+ }
+
+
+ #video-bar  {
+    margin: 0 auto;
+    margin-top: 20px;
+
+  //  .resize(margin-top, 75px);
+  //  margin-bottom: 200px;   // not responsive
+    text-align: center;
+   
+    background-color: @red;
+    height: 70px;
+    width: 70px;
+    border-radius: 70px;
+
+    @media screen and (min-width: @screen-sm-min) {
+      width: 400px;
+      border-radius: 0px;
+    }
+
+    
+    // .resize(@prop: height, @size:60px);
+    div:first-child {
+      border-right:1px solid #fff;
+    }
+   	
+    h1 {
+      margin: 0;
+     	height: 100%;
+      font-family:"Open Sans", 'verdana';
+      font-weight: bold;
+      -webkit-font-smoothing: antialiased;
+    }
+         
+    h1,div:last-child {
+      margin: 0;
+      color: @white;    
+    //margin-top: 0.67em;
+      line-height: 70px;
+      vertical-align: middle;
+      font-size: 22px;
+         //  .fontsize(22px);
+         //  .resize(@prop: letter-spacing, @size: 0.25em);
+    }  
+  }
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Intro Video Hidden Div 
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+#video-page {
+  .resize(margin-top, 100px);
+ 
+  
+  .row:first-child {
+    padding: 0; 
+    padding-bottom: 10px;
+
+    > div {
+     padding-right: 0px !important;
+     text-align: right;
+    }
+
+    button {
+     padding: 3px 6px;
+     font-weight: bold;
+  }
+ }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Separators
+/////////////////////////////////////////////////////////////////////////////////////
+
+.jumbotron.separator {
+   	position: relative;
+  	z-index: 20;        // higher in stack order than sidebar
+    background: #222;
+    color: @white;
+
+    
+    h1 {
+      font-family:"Open Sans", Helvectica, sans-serif;
+      font-weight: bold;
+      .jumbosize(62px);
+    }
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////// 
+// Services section 
+//////////////////////////////////////////////////////////////////////////////////////// 
+
+.section-header {
+    margin-bottom: 20px;
+    h2,h3 {
+    text-align: center;
+    color: #000;
+    font-family: 'Dosis', sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-size: 30px;
+//    .jumbosize(40px);
+    }
+    h3 {
+      font-size: 23px;
+    }
+}
+
+.thumbnail(@radius, @width, @height) {
+    width: @width;
+    height: @height;
+    line-height: @height;
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+}
+
+.service-thumbnail {
+  text-align: center;
+  margin: 0 auto;
+  border: 1px solid @darkGray;
+
+  .thumbnail(@radius:18px, @width:150px , @height: 150px );
+
+  @media screen and (min-width: @screen-sm-min) {
+       .thumbnail(@radius:20px, @width: 250px, @height: 250px )
+    }
+  @media screen and (min-width: @screen-md-min) {
+       .thumbnail(@radius:20px, @width: 250px, @height: 250px);
+    }
+
+   @media screen and (min-width: @screen-lg-min) {
+     .thumbnail(@radius:24px,@width:147px,@height:147px);
+   }     
+
+  img {
+    width: 65%;
+  }
+  #tasks-icon {
+    width: 60%;
+  }
+  #execute-icon {
+    width: 70%;
+  }
+  #result-icon {
+    width: 80%;
+  }
+}
+
+
+.panel {
+     margin-bottom: 0px;
+
+    h3 {
+     font-family: 'Marvel', sans-serif;
+     letter-spacing: 0.3em;
+     font-size: 17px;
+    }
+
+    h4 {
+     display:inline-block;
+     font-family:'Dosis', 'sans-serif';
+     font-size: 15px;
+     font-weight: bold;
+    } 
+
+    p {
+      font-size: 16px;
+    }
+    ul {
+       padding: 0 5px;
+       list-style: none;
+       color: @red;
+       font-size: 16px;
+       li {
+        padding: 2px 0px;
+       }
+    }
+}
+
+.panel-body {
+    color: #000;
+    font-family: 'Open Sans Condensed', sans-serif;    
+    text-align: justify;
+    padding-top: 5px;
+}
+
+.panel-heading {
+    text-align: center;
+}
+
+
+#services_top {
+   margin-top: 0px;
+
+  
+  .service-hide {
+    @max: (@screen-lg-min - 1px);
+
+    @media screen and (max-width:@max) {
+    display:none;
+    }
+  }
+
+  .service-display {
+    @media screen and (min-width:@screen-lg-min) {
+       display:none;
+    }
+  }
+
+  .service-icons {
+   margin-bottom: 0px;
+  }
+
+  #flatliner-img, #remote-img {
+      width: 72%;
+  }
+
+  #excel-img {
+      width: 62%;
+  }
+
+  #website-img {
+      width: 69%;
+  }
+
+  #network-img {
+      width: 59%;
+  }
+
+
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////// 
+// How we work section 
+/////////////////////////////////////////////////////////////////////////////////////// 
+
+
+#method_top {
+  margin-top: 0;
+//  .resize(margin-top, 100px);
+//  .resize(margin-bottom, 30px);
+}
+
+
+#method-carousel {
+
+  .resize(margin-bottom,200px);
+
+  p {
+    font-family:'Dosis', sans-serif;
+     .fontsize(19px);
+  }
+
+  h3 {
+     font-weight: bold;
+     font-family:'Marvel', sans-serif;    
+     .fontsize(22px);
+  }
+
+  .container > .row {
+      .resize(height, 600px);
+  } 
+
+  .img-wrapper {
+    text-align: center;
+    height: 100%;
+//    padding-top: 60px;
+    .resize(padding-top, 60px);
+//    .resize(@prop: height, @size: 500px);
+    //  .resize(@prop: line-height, @size: 700px);    
+  }
+
+  img {
+    display: inline-block;
+    width: 80%;
+  }
+
+  #tasklist_icon {
+     width: 60%;
+  }
+
+  #handshake {
+    width: 100%;
+  }
+
+
+  .carousel-inner > .item {
+     -webkit-transition: all 0.5s linear;
+     -moz-transition: all 0.5s linear;
+     -o-transition: all 0.5s linear;
+     transition: all 0.5s linear;   
+  }
+
+  .carousel-indicators {
+    bottom: -20px;
+    li {
+     -webkit-transition: all 0.5s linear;
+     -moz-transition: all 0.5s linear;
+     -o-transition: all 0.5s linear;
+     transition: all 0.5s linear;   
+     background-color: black;
+
+      margin: 0 10px;
+     .resize(width, 20px);
+     .resize(height, 20px);
+     .resize(border-radius, 5px);
+    }
+
+    li.active {
+      background-color: @red;
+      .resize(width, 40px);
+      .resize(height, 40px);
+    }
+  }
+
+  .carousel-control {
+    background-image: none;
+    filter: none;
+    width: 4%;
+  }
+
+}
+
+  
+
+/////////////////////////////////////////////////////////////////////////////////// 
+// about section 
+/////////////////////////////////////////////////////////////////////////////////// 
+
+
+#apropos_top {
+ 
+    .resize(margin-top, 100px);
+    .resize(margin-bottom, 200px);
+
+    .row:first-child {
+      .resize(margin-bottom, 50px);
+//      margin-bottom: 50px;
+    }
+
+    p {
+      .fontsize(20px);
+    }
+
+    p:first-child {
+        text-indent:4%;
+    }
+
+
+    .panel-heading {
+       padding: 0;
+
+       h5 {
+          font-weight: bold;
+          .fontsize(22px);
+        }
+
+        .panel-body {
+          padding: 0;
+          padding-top: 15px;
+        }
+    }
+
+    img {
+        width:70%;
+    }
+
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Footer section
+///////////////////////////////////////////////////////////////////////////////
+
+#footer {
+   text-align: center;
+   img {
+     width: 18%;
+     vertical-align: top;
+   }
+
+   img, #twitter-text {
+   	display: inline-block;
+   	vertical-align: top;
+   }
+}
+
+
+#footer_top {
+  .resize(margin-top, 100px);
+
+  h2 {
+      font-family: 'Open Sans Condensed', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 0px;
+      .fontsize(16px);
+  }
+
+  h5 {
+    .fontsize(25px);
+  }
+
+  .brand-icons {
+     height: 100%;
+     line-height: 100px;
+     .resize(margin-top, 40px);
+  }
+
+  
+  .logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+
+  #drquantum-img {
+      position: relative;
+      z-index: 20;
+      width: 100%;
+  }
+  
+  #footer-contact {
+    .contact-type {
+      display: inline-block;
+      width: 60px;
+    }
+  }
+
+  > .row {
+     .resize(margin-top, 150px);
+     .resize(padding-top, 50px);
+     .resize(margin-bottom, 10px);
+     border-top: 1px solid @lightGray;
+  }
+  
+  
+  .panel {
+     margin-bottom: 0;
+  }
+
+  .panel-body { 
+    padding-top: 0;
+    paddinb-bottom: 0;
+  }
+
+   #footer-legal {
+     font-family: 'Dosis', sans-serif;
+     .fontsize(13px);
+     padding: 10px 15px;
+   }
+}
+
+
+
+

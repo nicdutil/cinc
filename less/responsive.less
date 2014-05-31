@@ -1,0 +1,81 @@
+
+
+
+.jumbosize(@size) {
+   @value: (@size / 1.2) ;
+   font-size: @value !important;   
+  
+/*  @media screen and (min-width: 320px) {
+   @value: (@size * 1.4) ;
+   font-size: @value !important;   
+  }
+
+  @media screen and (min-width: @screen-xs-min) {
+   @value: (@size * 1.3) ;
+   font-size: @value !important;   
+  }
+
+*/  /* ratio is computed using container fixed width */
+  /* 970 / 750 ~ 1.2933 */
+/*  @media screen and (min-width: @screen-sm-min) {
+   @value: (@size * 1.56) ;
+   font-size: @value !important;    
+  }
+*/  /* 1170 / 970 ~ 1.2062 */
+  //   @value: (@size / 1.2062) ;
+  @media screen and (min-width: @screen-sm-min) {
+   @value : (@size * 1.2062);
+   font-size: @value !important;
+  }
+
+  @media screen and (min-width: @screen-lg-min) {
+    font-size: @size !important;
+  }
+}
+
+
+
+.resize(@prop, @size, @smallbkpoints: true) when (@smallbkpoints = true) {
+  /* below 768px, container is fluid taking 100% */
+  /* we use 768 / 480 = 1.6 for our ratio */
+
+   @value: (@size / 5.681) ;
+   @{prop}: @value !important;   
+  
+  @media screen and (min-width: 320px) {
+   @value: (@size / 3.781635) ;
+   @{prop}: @value !important;   
+  }
+
+  @media screen and (min-width: @screen-xs-min) {
+   @value: (@size / 2.52109) ;
+   @{prop}: @value !important;   
+  }
+}
+
+.resize(@prop, @size, @smallbkpoints: true) {
+  /* ratio is computed using container fixed width */
+  /* 970 / 750 ~ 1.2933 */
+  @media screen and (min-width: @screen-sm-min) {
+   @value: (@size / 1.2933) ;
+   @{prop}: @value !important;    
+  }
+
+  /* 1170 / 970 ~ 1.2062 */
+  //   @value: (@size / 1.2062) ;
+  @media screen and (min-width: @screen-md-min) {
+   @value : (@size / 1.2062);
+   @{prop}: @value !important;
+  }
+
+  @media screen and (min-width: @screen-lg-min) {
+    @{prop}: @size !important;
+  }
+}
+
+
+.fontsize(@val) {
+   .resize(@prop: font-size, @size: @val);
+ }
+
+
