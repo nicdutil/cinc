@@ -221,7 +221,7 @@ a, button
 //////////////////////////////////////////////////////////////////////////////////////////
 
 .banner {
-  background: url('http://192.168.1.6:3000/img/tile.png') right top #fff;
+  background: url('http://192.168.1.6:3000/img/tile.png') right top #f2f4f7;
 
   h2 {
     padding:30px 0;
@@ -229,6 +229,7 @@ a, button
     color: @midnight;
     font-family: 'Lato', sans-serif;
     font-size: 30px;
+    color: #141c26;
   }
 
   p {
@@ -305,6 +306,8 @@ a, button
             box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
+
+
 #screen-services,#screen-team {
 /*   -webkit-transition: all 200ms linear;
 */   
@@ -316,6 +319,16 @@ a, button
     img {
        width: 80%;
     }
+
+    #screen-graph1 {
+      margin-top: 20px;
+    margin-left: 50px;
+      @media screen and (min-width:@screen-lg-min) {
+      margin-top: 50px;
+      margin-left: 100px;
+    }
+   }
+
   }
 
   height: 60em; 
@@ -427,17 +440,38 @@ a, button
   }
 }
 
+#screen-services {
+}
+
+
+#screen-canvas-wrapper {
+  position: absolute;
+  left:60px;
+  top: 80px;
+  -webkit-transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
+  -moz-transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
+  transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
+    -o-transition: opacity 1s cubic-bezier(.02, .01, .47, 1);
+
+}
 
 /////////////////////////////////////////////////////////////////////////////////////// 
 // How we work section 
 /////////////////////////////////////////////////////////////////////////////////////// 
 
+#bubbles-wrapper {
+  position: absolute;
+  left: 0%;
+  top: 0px;
+  width: 50%;
+  height: 100%;
+}
+
 #method {
   margin-top: 0;
   padding: 5em 0;
   height: 60em;
-
-  background: url('http://192.168.1.6:3000/img/rain.png') no-repeat;
+//  background: url('http://192.168.1.6:3000/img/rain.png') no-repeat;
   font-size: 6px;
 
   .panel-body {

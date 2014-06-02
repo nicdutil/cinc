@@ -333,10 +333,9 @@
 
             <div class="col-sm-4">
                 <button id="excel-button" type="button" class="noglow service-thumbnail services-click">
-                    <img id="excel-img" src="img/excel2.png" alt="integration de donnees excel"></img>
+                    <img id="excel-img" src="img/visualize.png" alt="integration de donnees excel"></img>
                 </button>
                 <div id="excel-photo-div" class="desktop-hide">
-                    <img id="excel-photo" src="img/excel3.png"></img>
                 </div>
 
                 <div id="excel" class="panel panel-default">
@@ -361,9 +360,13 @@
     </div>
     <div id='screen-services' class="container-fluid mobile-hide box">
         <div class="row">
-            <div id='screen-services-photo' class="col-sm-6"></div>
+            <div id='screen-services-photo' class="col-sm-6" >
+            </div>
+            <div id='screen-canvas-wrapper' style="opacity:0">
+                <canvas id='screen-canvas' width="500" height="400">   </canvas>
+            </div>
             <div class="col-md-6 col-lg-4 col-lg-offset-1">
-                <div id='screen-services-text' class="panel panel-default ">
+                <div id='screen-services-text' class="panel panel-default" >
                 </div>
             </div>
         </div>
@@ -409,9 +412,14 @@
         </div>
     </div>
 
+
     <div id="method" class="container-fluid box">
         <div class="row">
-            <div id="icons" class="col-sm-6">
+                        <div id="bubbles-wrapper">
+        <canvas id="bubbles" class="bubbles" width="1713" height="600"></canvas>
+    </div>
+
+            <div id="icons" class="col-sm-4">
                 <div class="row">
                     <div class="col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1">
                         <button id='observe-button' type="button" class="noglow method-thumbnail method-click">
@@ -527,7 +535,8 @@
                     </div>
                 </div>
             </div>
-            <div id='screen-method' class="col-sm-6 mobile-hide">
+
+            <div id='screen-method' class="col-sm-6 col-sm-offset-2 mobile-hide">
                 <div class="row">
                     <div class="col-md-offset-1 col-md-9 col-lg-8 col-lg-offset-2">
                         <div id='screen-method-text' class="panel panel-default "></div>
@@ -872,7 +881,7 @@
                     <h5>
                             <span><strong>CINC</strong> 
                     </h5>
-                    <span class="red"> Conception web aliment&eacutee par</span>
+                    <span class=""> Conception web aliment&eacutee par</span>
                     <div class="row brand-icons">
                         <div class="col-xs-3">
                             <a href="http://heroku.com" target="_blank">
@@ -984,6 +993,10 @@
     <script type="text/javascript" src="js/vendor/scrollTo.js"></script>
     <script type="text/javascript" src="js/vendor/enquire.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    
+     <!--[if IE]><script src="js/vendor/excanvas.js"></script><![endif]-->
+    <script src="js/vendor/barGraph.js"></script>
+
     <script src="js/plugins.js"></script>
     <!-- twitter button -->
     <script>

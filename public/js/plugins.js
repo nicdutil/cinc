@@ -242,21 +242,46 @@ function nextItem(id) {
     }, c.timeout);
 }
 
+////////////////////////////////////////////////////////////////////////
+// Bar Graph
+////////////////////////////////////////////////////////////////////////
+
+var graph, refreshIntervalId;
+
+
+function initBarGraph() {
+    var canvas = document.getElementById('screen-canvas');
+    if (typeof G_vmlCanvasManager != 'undefined') {
+        canvas = G_vmlCanvasManager.initElement(canvas);
+    }
+    barGraphCtx = canvas.getContext("2d");
+}
+
+
+function createBarGraph() {
+    graph = new BarGraph(barGraphCtx);
+    graph.margin = 5;
+
+    graph.width = barGraphCtx.canvas.width;
+    graph.height = barGraphCtx.canvas.height;
+
+    graph.xAxisLabelArr = ["A", "B", "C", "D", "E", "F"];
+    graph.update([Math.random() * 20, Math.random() * 20, Math.random() * 20, Math.random() * 20, Math.random() * 20, Math.random() * 20]);
+
+    refreshIntervalId = setInterval(function() {
+        graph.update([Math.random() * 20, Math.random() * 20, Math.random() * 20, Math.random() * 20, Math.random() * 20, Math.random() * 20]);
+    }, 4000);
+
+}
+
+$(function() {
+    initBarGraph();
+    createBarGraph();
+});
+
 /////////////////////////////////////////////////////////////////////////////
 // Screen Panel Display 
 /////////////////////////////////////////////////////////////////////////////
-
-/*function hidePanel(id, complete) {
-    var panelBodyId = id.split('-')[0] + '-body';
-    var screenPanelBodyId = 'screen-' + panelBodyId;
-    var screenSelector = '#' + screenPanelBodyId;
-    //    alert(screenSelector);
-    $(screenSelector).fadeOut(2000, function() {
-        $(screenSelector).addClass('desktop-hide');
-        //complete();
-    });
-}
-*/
 
 function showPanel(sectionId, buttonId) {
     var prefix = buttonId.split('-')[0];
@@ -274,17 +299,25 @@ function showPanel(sectionId, buttonId) {
     panelBodyHtml = panelBodyHtml.replace('desktop-hide', '');
     photoDivHtml = photoDivHtml.replace('desktop-hide', '');
 
-    $(screenTextSelector).fadeOut(function() {
+    $(screenTextSelector).fadeOut('linear',function() {
         $(screenTextSelector).html(panelBodyHtml);
     });
 
-    $(screenPhotoSelector).fadeOut(function() {
+
+    $(screenPhotoSelector).fadeOut('linear',function() {
         $(screenPhotoSelector).html(photoDivHtml);
     });
-    $(screenPhotoSelector).fadeIn();
 
 
-    $(screenTextSelector).fadeIn();
+    if (prefix === 'excel' ) {
+        $('#screen-canvas-wrapper').css('opacity','1'); 
+    } else if (sectionId === 'services') {
+        $('#screen-canvas-wrapper').css('opacity','0');
+    }
+    
+    $(screenPhotoSelector).fadeIn('linear');
+
+    $(screenTextSelector).fadeIn('linear');
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -487,7 +520,7 @@ $(footer_anchors.join()).scrollTo({
 
 function clickHandlers() {
 
-    function selectButton(sectionId, eventId) {
+    function selectButton(sectionId, buttonId) {
         var c = carousels[sectionId];
         var b = buttonSelected[sectionId];
 
@@ -499,8 +532,8 @@ function clickHandlers() {
             $(b).removeClass('selected-button');
         }
 
-        buttonSelected[sectionId] = eventId;
-        $(eventId).addClass('selected-button');
+        buttonSelected[sectionId] = buttonId;
+        $(buttonId).addClass('selected-button');
     }
 
 
@@ -624,6 +657,170 @@ $(document).ready(function() {
 
 
 
+////////////////////////////////////////////////////////////////////////
+// Bubbles 
+////////////////////////////////////////////////////////////////////////
+
+
+/***********************************************************************
+ * bubbles.js
+ * Written by Tara Mathers, 2010
+ * ---------------------------------------------------------------------
+ * Draws randomly generated bubbles floating up the screen to an HTML5
+ * canvas. Clicking on the bubbles pops them.
+ * Only runs on browsers which support the canvas element.
+ * *********************************************************************/
+
+
+
+/********************************
+ * Bubble()
+ * Creates a new bubble object
+ ********************************/
+
+function Bubble() {
+
+    this.x = Math.floor(Math.random() * CANVAS_WIDTH);
+    this.y = Math.floor(Math.random() * (CANVAS_HEIGHT));
+    this.radius = 5 + Math.floor(Math.random() * 5);
+
+    this.direction;
+    if (Math.random() * 2 >= 1)
+        this.direction = 0;
+    else this.direction = 1;
+
+    //this.amplitude = Math.round(this.radius / 9 * 5 + 2 * Math.random());
+    this.velocity = (1 / (this.radius + 0.1));
+    this.amplitude = 20 + Math.round(this.velocity * 20);
+
+}
+
+
+/******************************************
+ * initialize()
+ * Initial function called on page load
+ *****************************************/
+$(window).load(function() {
+    bubbleInit();
+})
+
+function bubbleInit() {
+    // Global variables:    
+    CANVAS_WIDTH = 1713;
+    CANVAS_HEIGHT = 600;
+    REFRESH_RATE = 40;
+    MAX_BUBBLES = 100;
+
+    t = 1; // current time step
+
+
+    // Array storing all bubble objects 
+    bubbles = new Array(MAX_BUBBLES);
+
+    for (var i = 0; i < MAX_BUBBLES; i++) {
+        bubbles[i] = new Bubble();
+    }
+
+    background = new Image();
+    background.src = "http://192.168.1.6:3000/img/rain.png";
+
+    // Create canvas and context objects
+    canvas = document.getElementById('bubbles');
+    context = canvas.getContext('2d');
+    context.drawImage(background, 0, 0);
+    // Call the draw() function at the specified refresh interval
+    setInterval(draw, REFRESH_RATE);
+
+}
+
+
+function drawEllipse(centerX, centerY, width, height) {
+
+    context.beginPath();
+
+    context.moveTo(centerX, centerY - height / 2); // A1
+
+    context.bezierCurveTo(
+        centerX + width / 2, centerY - height / 2, // C1
+        centerX + width / 2, centerY + height / 2, // C2
+        centerX, centerY + height / 2); // A2
+
+    context.bezierCurveTo(
+        centerX - width / 2, centerY + height / 2, // C3
+        centerX - width / 2, centerY - height / 2, // C4
+        centerX, centerY - height / 2); // A1
+}
+
+/******************************************************
+ * draw()
+ * draws each bubble at every frame
+ ******************************************************/
+
+function draw() {
+
+    // Update the position of each bubble
+    for (var i = 0; i < bubbles.length; i++) {
+
+        // Create a new bubble if one has gone off the screen
+        if (bubbles[i].y - bubbles[i].radius > CANVAS_HEIGHT) {
+            bubbles[i].x = Math.floor(Math.random() * CANVAS_WIDTH);
+            bubbles[i].y = -Math.floor(Math.random() * CANVAS_HEIGHT * 0.1);
+            bubbles[i].radius = 5 + Math.floor(Math.random() * 5);
+            bubbles[i].velocity = (1 / (bubbles[i].radius + 0.1));
+            bubbles[i].amplitude = Math.round(bubbles[i].velocity * 10);
+        }
+
+
+        if (t % bubbles[i].amplitude == 0) {
+
+            if (bubbles[i].direction == 0)
+                bubbles[i].direction = 1;
+            else
+                bubbles[i].direction = 0;
+        }
+
+        if (bubbles[i].direction == 0)
+            bubbles[i].x -= 0.01;
+
+        else
+            bubbles[i].x += 0.01;
+
+        bubbles[i].y += bubbles[i].velocity;
+
+    }
+
+    // Clear the previous canvas state
+    context.drawImage(background, 0, 0);
+
+    // Draw bubbles
+    for (var i = 0; i < bubbles.length; i++) {
+
+        context.lineWidth = 1;
+
+        gradObj = context.createRadialGradient(bubbles[i].x,
+            bubbles[i].y + bubbles[i].radius / 2.5, bubbles[i].radius / 1.8,
+            bubbles[i].x, bubbles[i].y,
+            bubbles[i].radius);
+
+        gradObj.addColorStop(0, "rgba(255, 255, 255, .7)");
+        gradObj.addColorStop(1, "rgba(220, 225, 223, .7)");
+
+        context.fillStyle = gradObj;
+
+        context.beginPath();
+        //        drawEllipse(bubbles[i].x,bubbles[i].y,bubbles[i].width,bubbles[i].width);
+
+        context.arc(bubbles[i].x, bubbles[i].y, bubbles[i].radius, 0, Math.PI * 2, true);
+
+        context.fill();
+        context.strokeStyle = "rgba(200,205,203,.2)";
+        context.stroke();
+
+    }
+
+    t++;
+
+}
 
 ////////////////////////////////////////////////////////////////////////
 // Collapse Event Handlers 

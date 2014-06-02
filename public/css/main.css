@@ -1022,14 +1022,14 @@ button {
   background: none !important;
 }
 .banner {
-  background: url('http://192.168.1.6:3000/img/tile.png') right top #ffffff;
+  background: url('http://192.168.1.6:3000/img/tile.png') right top #f2f4f7;
 }
 .banner h2 {
   padding: 30px 0;
   text-align: center;
-  color: #141c26;
   font-family: 'Lato', sans-serif;
   font-size: 30px;
+  color: #141c26;
 }
 .banner p {
   color: #444;
@@ -1098,6 +1098,18 @@ button {
 #screen-services #screen-services-photo img,
 #screen-team #screen-services-photo img {
   width: 80%;
+}
+#screen-services #screen-services-photo #screen-graph1,
+#screen-team #screen-services-photo #screen-graph1 {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+@media screen and (min-width: 1200px) {
+  #screen-services #screen-services-photo #screen-graph1,
+  #screen-team #screen-services-photo #screen-graph1 {
+    margin-top: 50px;
+    margin-left: 100px;
+  }
 }
 @media screen and (min-width: 992px) {
   #screen-services,
@@ -1199,11 +1211,26 @@ button {
 #services img {
   width: 100%;
 }
+#screen-canvas-wrapper {
+  position: absolute;
+  left: 60px;
+  top: 80px;
+  -webkit-transition: opacity 1s cubic-bezier(0.02, 0.01, 0.47, 1);
+  -moz-transition: opacity 1s cubic-bezier(0.02, 0.01, 0.47, 1);
+  transition: opacity 1s cubic-bezier(0.02, 0.01, 0.47, 1);
+  -o-transition: opacity 1s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+#bubbles-wrapper {
+  position: absolute;
+  left: 0%;
+  top: 0px;
+  width: 50%;
+  height: 100%;
+}
 #method {
   margin-top: 0;
   padding: 5em 0;
   height: 60em;
-  background: url('http://192.168.1.6:3000/img/rain.png') no-repeat;
   font-size: 6px;
 }
 #method .panel-body {
