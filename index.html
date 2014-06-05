@@ -45,66 +45,34 @@
     running the webticker, we set it back to default -->
 
     <!-- Video hidden section -->
-    <div id="video-page" class="container" style="display:none">
-        <div class="row">
-            <div class="col-xs-1 col-xs-offset-11">
-                <button type="button" class="btn btn-danger">X</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 flex-video widescreen">
-                <iframe id="video-iframe" allowfullscreen="" frameborder="0">
-                </iframe>
-            </div>
-        </div>
-    </div>
 
     <!-- Modals -->
     <div class="modal fade" id="contactMe" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="contactLabel">Contact</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;</button>
                 </div>
                 <div class="modal-body">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-xs-2">
-                                    <ul class="list-group contact-type">
-                                        <li class="list-group-item red">Email:</li>
-                                        <li class="list-group-item blue">Twitter:</li>
-                                        <li class="list-group-item orange">Mobile:</li>
-                                        <li class="list-group-item purple">Skype:</li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-xs-10">
-                                    <ul class="list-group contact-value">
-                                        <li class="list-group-item">
-                                            <a href="mailto:info@infocinc.com"> info@infocinc.com
-                                        </a> 
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="https://twitter.com/infoCinc" target="_blank"> @infoCinc</a>
-                                        </li>
-                                        <li class="list-group-item">438 496 6886</li>
-                                        <li class="list-group-item">infocinc
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div id="map_canvas_2" class="modal_gmap"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                    <ul class="text-center">
+                        <li class="list-group-item">
+                            <strong>CONTACT</strong>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="contact-type red">email</span><a href="mailto:cincinformatique@gmail.com">info@infocinc.com</a>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="contact-type blue">twitter</span><a href="https://twitter.com/InfoCinc" target="_blank"> @INFOCINC</a>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="contact-type orange">mobile</span>
+                            <span>438 496 6886</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="contact-type purple">skype</span> <a href="#" data-toggle="modal" data-target="#skypeMe">CINC </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -115,30 +83,25 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Skype</h4>
                 </div>
-                <div class="modal-body">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <strong>Attention!</strong>
-                            <p>Malheureusement, la communication par Skype
-                                <span class="red">ne fonctionne pas</span>sur tout les navigateurs:</p>
-                            <ul>
-                                <li>Vous devez avoir un client skype d'install&eacute sur votre appareil.</li>
+                <div class="modal-body text-center">
+                    <ul>
+                        <li class="list-group-item">
+                            <strong>PR&EacuteREQUIS!</strong>
+                        </li>
+                        <li>L'extension</span> <a href="http://www.skype.com/en/download-skype/click-to-call"> Skype click to call </a>
+                        </li>
 
-                                <li>Installez <a href="http://www.skype.com/en/download-skype/click-to-call"> Skype click to call. </a>
-                                </li>
-                            </ul>
-                            <p>
-                                Pour les utilisateurs de Windows 8, assurez vous d'avoir <a href="http://www.skype.com/en/download-skype/skype-for-computer"> l'application Skype desktop.</a> Le app integr&eacute Skype n'est pas detect&eacute par l'extension Skype click to call sur google chrome.
-                            </p>
-                            Tentez votre chance!
-                            <img src="img/skypelogo.jpg" id="skype-logo"></img> <a href="skype:DocteurQuantum?call">infocinc</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                        <li class="list-group-item">L'application skype</li>
+                        <hr></hr>
+                        <li class="list-group-item">
+                            Utilisateurs de Windows 8, telechargez</span> <a href="http://www.skype.com/en/download-skype/skype-for-computer"> Skype desktop.</a>
+                        </li>
+                        <li class="list-group-item">Le app integr&eacute Skype n'est pas detect&eacute par l'extension Skype click to call sur google chrome.
+                        </li>
+                        <li class="list-group-item">Tentez votre chance!</li>
+                    </ul>
+                    <img src="img/skypelogo.jpg" id="skype-logo"></img> <a href="skype:DocteurQuantum?call">infocinc</a>
                 </div>
             </div>
         </div>
@@ -147,7 +110,7 @@
 
 
     <!-- Nav side bar -->
-    <div id="sidebar" class="navigation sidebar">
+    <div id="sidebar" class="navigation sidebar mobile-hide">
         <a id="sidebar-top" class="nav-active " href="#margin-top">
         </a>
         <a id="sidebar-services" href="#services">
@@ -164,68 +127,60 @@
     <div id="navbar">
         <div class="container">
             <div class="row">
-                <div class="col-sm-2 " id="main-title">
+                <div id="main-title" class="col-xs-12 col-sm-2">
                     <div class="text-center">
                         <h1>[IN[</h1>
                         <h2>Competence Informatique Consultation</h2>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-2 mobile-hide" id="main-nav">
-                    <h2 class="col-xs-3"><a href="#services" id="services-hero-anchor">services</a>
+                <div id="main-nav" class="col-sm-6 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-2 mobile-hide">
+                    <h2 class="col-xs-3"><a id="services-hero-anchor" href="#services">services</a>
                     </h2>
-                    <h2 class="col-xs-3"><a href="#method" id="method-hero-anchor"> à propos </a>
+                    <h2 class="col-xs-3"><a id="method-hero-anchor" href="#method"> à propos </a>
                     </h2>
-                    <h2 class="col-xs-3"><a href="#team" id="team-hero-anchor">équipe</a>
+                    <h2 class="col-xs-3"><a id="team-hero-anchor" href="#team">équipe</a>
                     </h2>
-                    <h2 class="col-xs-3"><a href="#page-footer" id="footer-hero-anchor">contact</a>
+                    <h2 class="col-xs-3"><a id="footer-hero-anchor" href="#page-footer">contact</a>
                     </h2>
                 </div>
 
-                <div id="social-icons" class="col-sm-4 col-sm-offset-0 col-lg-offset-0 col-lg-3">
-                    <div class="float-right social-thumbnail">
-                        <a id="phone_anchor" href="#" data-target="#contactMe" data-toggle="modal">
-                            <img id="phone-logo" src="img/phone-logo.png">
-                        </a>
-                    </div>
-                    <div class="float-right">
-                        <a href="#" data-toggle="modal" data-target="#skypeMe">
-                            <img id="skype-logo" src="img/skype-logo.png">
-                        </a>
-                    </div>
-                    <div class="float-right">
-                        <a href="https://www.facebook.com/infocinc" target="_blank">
-                            <img src="img/facebook-logo.png">
-                        </a>
-                    </div>
-                    <div class="float-right">
-                        <a href="https://twitter.com/infoCinc" target="_blank">
-                            <img id="twitter-logo" src="img/twitter-logo.png">
-                        </a>
-                    </div>
+                <div id="social-icons" class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-lg-offset-0 col-lg-3 text-center">
+                    <a id="phone_anchor" href="#" data-target="#contactMe" data-toggle="modal" class="float-left">
+                        <img id="phone-logo" src="img/phonelogo_100dpi.png">
+                    </a>
+                    <a href="#" data-target="#skypeMe" data-toggle="modal" class="float-left">
+                        <img id="skype-logo" src="img/skypelogo_100dpi.png">
+                    </a>
+                    <a href="https://www.facebook.com/infocinc" target="_blank" class="float-left">
+                        <img src="img/facebooklogo_100dpi.png">
+                    </a>
+                    <a href="https://twitter.com/infoCinc" target="_blank" class="float-left">
+                        <img id="twitter-logo" src="img/twitterlogo_100dpi.png">
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="margin-top"></div>
+    <div id="margin-top" class="mobile-hide"></div>
     <div id="top" class="background-container container-fluid">
         <div class="row">
-            <div class="slider col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 midnight cadre">
+            <div class="slider col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 cadre text-center">
                 <div class="slide">
-                    <img src="img/town4.png"></img>
-                    <h3 class="text-center">Experience</h3>
+                    <img src="img/experience_100dpi.png"></img>
+                    <h3>Experience</h3>
                 </div>
                 <div class="slide hide">
-                    <img src="img/weird.png"></img>
-                    <h3 class="text-center">Creatif</h3>
+                    <img src="img/creative_100dpi.png"></img>
+                    <h3>Creatif</h3>
                 </div>
                 <div class="slide hide">
-                    <img src="img/modern.png"></img>
-                    <h3 class="text-center">Reflechi</h3>
+                    <img src="img/reflexive_100dpi.png"></img>
+                    <h3>Reflechi</h3>
                 </div>
                 <div class="slide hide">
-                    <img src="img/local.png"></img>
-                    <h3 class="text-center">A proximite</h3>
+                    <img src="img/origin_100dpi.png"></img>
+                    <h3>Origine</h3>
                 </div>
 
             </div>
@@ -242,11 +197,11 @@
     </div>
 
 
-    <div id="services-banner" class="container-fluid banner">
+    <div id="services-banner" class="container-fluid banner ">
         <div class="row">
             <div class="col-md-12 col-lg-6 col-lg-offset-3">
                 <h2>Nos services sont destin&eacutes aux entreprises</h2>
-                <p>Fonde en 2014, CINC est une petite firme informatique de la region de Montreal. Notre firme se specialise dans les technologies adaptif web, le minage et la visualisation de donnees. Nos projets en cours nous aident a evoluer et a vous offrir de meilleurs services a l'avenir.
+                <p>CINC est une petite firme informatique de la region de Montreal. Notre firme se specialise dans les technologies adaptif web, le minage et la visualisation de donnees. Nos projets en cours nous aident a evoluer et a vous offrir de meilleurs services a l'avenir.
                 </p>
                 <h2>Apprenez en plus sur nos services</h2>
             </div>
@@ -260,7 +215,8 @@
     </div>
 
 
-    <div id="services" class="container ">
+    <div id="services" class="container-fluid">
+
         <div class="slide-nav">
             <div class="v-line"></div>
             <div class="slide-box">
@@ -273,10 +229,8 @@
                 <button id="website-button" type="button" class="noglow service-thumbnail services-click">
                     <img id="website-img" src="img/www.png" alt="conception site web"></img>
                 </button>
-                <div id="website-photo-div" class="desktop-hide">
-                    <img id="website-photo" src="img/responsive.png"></img>
-                </div>
-                <div id="website" class="panel panel-default">
+
+                <div id="website" class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">
                             WEB
@@ -298,6 +252,9 @@
 
                     </div>
                 </div>
+                <div id="website-photo-div" class="desktop-hide">
+                    <img id="website-photo" src="img/responsive_150dpi.jpg"></img>
+                </div>
             </div>
 
 
@@ -305,11 +262,8 @@
                 <button id="scrape-button" type="button" class="noglow service-thumbnail services-click">
                     <img id="scrape-img" src="img/scrape.png" alt="minage de donnees web"></img>
                 </button>
-                <div id="scrape-photo-div" class="desktop-hide">
-                    <img id="scrape-photo" src="img/rover.png"></img>
-                </div>
 
-                <div id="scrape" class="panel panel-default">
+                <div id="scrape" class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">
                             MINAGE
@@ -329,16 +283,17 @@
                         </p>
                     </div>
                 </div>
+                <div id="scrape-photo-div" class="desktop-hide">
+                    <img id="scrape-photo" src="img/rover.jpg"></img>
+                </div>
             </div>
 
             <div class="col-sm-4">
                 <button id="excel-button" type="button" class="noglow service-thumbnail services-click">
                     <img id="excel-img" src="img/visualize.png" alt="integration de donnees excel"></img>
                 </button>
-                <div id="excel-photo-div" class="desktop-hide">
-                </div>
 
-                <div id="excel" class="panel panel-default">
+                <div id="excel" class="panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">
                             VISUALISATION
@@ -355,25 +310,29 @@
                         </p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div id='screen-services' class="container-fluid mobile-hide box">
-        <div class="row">
-            <div id='screen-services-photo' class="col-sm-6" >
-            </div>
-            <div id='screen-canvas-wrapper' style="opacity:0">
-                <canvas id='screen-canvas' width="500" height="400">   </canvas>
-            </div>
-            <div class="col-md-6 col-lg-4 col-lg-offset-1">
-                <div id='screen-services-text' class="panel panel-default" >
+
+                <div id="excel-photo-div" class="desktop-hide">
+                    <div id='excel-wrapper-canvas'>
+                        <canvas id='excel-canvas'></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-
+    <div id='screen-services' class="container-fluid mobile-hide box ">
+        <div class="row">
+            <div id='screen-services-photo' class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 text-center">
+            </div>
+            <div id='screen-canvas-wrapper' style="opacity:0">
+                <canvas id='screen-canvas'></canvas>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 col-lg-offset-1">
+                <div id='screen-services-text' class="panel">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="center-navigation">
         <div>
@@ -387,13 +346,13 @@
 
     <div id="method-banner" class="container-fluid banner">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-                <h2 class="text-center">Notre approche est scientifique
+            <div class="col-md-12 col-lg-6 col-lg-offset-3">
+                <h2>Notre approche est scientifique
                 </h2>
                 <p>
                     L'experience n'est pas une garantie de success. Notre ambition est de fabriquer des solutions services basee sur des donnees reels, et qui satisfait des criteres precis mis au point par notre interaction avec le client.
                 </p>
-                <h2 class="text-center">Voici comment on procede</h2>
+                <h2>Voici comment on procede</h2>
             </div>
         </div>
         <div class="row center-navigation">
@@ -413,23 +372,23 @@
     </div>
 
 
-    <div id="method" class="container-fluid box">
+    <div id='method' class="container-fluid box">
+
         <div class="row">
-                        <div id="bubbles-wrapper">
-        <canvas id="bubbles" class="bubbles" width="1713" height="600"></canvas>
-    </div>
 
-            <div id="icons" class="col-sm-4">
-                <div class="row">
-                    <div class="col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1">
+            <div id="bubbles-wrapper">
+                <canvas id="bubbles"></canvas>
+            </div>
+
+            <div id='icons' class="col-md-6">
+                <div class="row ">
+
+                    <div class="col-sm-2 col-sm-offset-2 col-md-4 col-md-offset-1 col-lg-3">
                         <button id='observe-button' type="button" class="noglow method-thumbnail method-click">
-                            <img id="observe-img" src="img/search.png" alt="observation"></img>
+                            <img id="observe-img" src="img/data.png" alt="observation"></img>
                         </button>
-                        <div id="observe-photo-div" class="desktop-hide">
-                            <img id="observe-photo" src="img/bits.png"></img>
-                        </div>
 
-                        <div id="observe" class="panel panel-default">
+                        <div id="observe" class="panel">
                             <div class="panel-heading">
                                 <h3 class="panel-title">
                                     DATA
@@ -437,65 +396,63 @@
                             </div>
 
                             <div id="observe-body" class="panel-body text-center desktop-hide">
-                                <h4>Notre matiere premiere</h4>
-                                <p>A chaque minute, il y a</p>
+                                <h4>NOTRE MATIERE PREMIERE</h4>
+                                <span>A chaque minute, il y a</span>
                                 <ul>
-                                    <li>48 heures de videos transferer sur youtube.</li>
+                                    <li>48 heures de videos transferer sur youtube</li>
                                     <li>272,070$ genere par le commerce en ligne</li>
                                     <li>571 nouveaux site webs sont cree</li>
                                     <li>217 nouveaux utilisateurs sur le web mobile</li>
                                     <li>684,478 de contenu partage sur facebook</li>
                                 </ul>
-
                             </div>
                         </div>
+                        <div id="observe-photo-div" class="desktop-hide">
+                        </div>
+
                     </div>
-                    <div class="col-md-3 col-lg-3">
+                    <div class="col-sm-2 col-md-4 col-lg-5 ">
                         <button type="button" id="tasks-button" class="noglow method-click method-thumbnail">
-                            <img id="tasks-img" src="img/task.png" alt="execution"></img>
+                            <img id="tasks-img" src="img/plan.png" alt="execution"></img>
                         </button>
 
-                        <div id="tasks" class="panel panel-default">
+                        <div id="tasks" class="panel">
                             <div class="panel-heading">
                                 <h3 class="panel-title">
                                     PLAN
                                 </h3>
                             </div>
                             <div id="tasks-photo-div" class="desktop-hide">
-                                <img id="tasks-photo" src="img/plans.png"></img>
                             </div>
 
                             <div id="tasks-body" class="panel-body text-center desktop-hide">
-                                <h4>Le moment strategique</h4>
-                                <p>Un plan d'action inclue</p`>
-                                    <ul>
-                                        <li>les exigeances du client</li>
-                                        <li>les contraintes du projet</li>
-                                        <li>un estime du temps d'execution</li>
-                                        <li>une prevision des resultats</li>
-                                    </ul>
+                                <h4>LE MOMENT STRATEGIQUE</h4>
+                                <span>Un plan d'action inclue</span>
+                                <ul>
+                                    <li>les exigeances du client</li>
+                                    <li>les contraintes du projet</li>
+                                    <li>un estime du temps d'execution</li>
+                                    <li>une prevision des resultats</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1">
+                    <div class="col-sm-2 col-md-4 col-md-offset-1 col-lg-offset-1 col-lg-3">
                         <button type="button" id="execute-button" class="noglow method-click method-thumbnail">
                             <img id="execute-img" src="img/execute.png" alt="execution"></img>
                         </button>
-                        <div id="execute" class="panel panel-default">
+                        <div id="execute" class="panel">
                             <div class="panel-heading">
                                 <h3 class="panel-title">
                                     EXECUTION
                                 </h3>
                             </div>
                             <div id="execute-photo-div" class="desktop-hide">
-                                <img id="execute-photo" src="img/execute4.png"></img>
                             </div>
 
                             <div id="execute-body" class="panel-body desktop-hide text-center">
-                                <h4>La phase laboratoire</h4>
-                                <p>Un cycle repetitif de</p>
+                                <h4>LA PHASE LABORATOIRE</h4>
+                                <span>Un cycle repetitif de</span>
                                 <ul>
                                     <li>design de patrons</li>
                                     <li>codage des exigeances</li>
@@ -508,22 +465,21 @@
                         </div>
 
                     </div>
-                    <div class="col-md-3 col-lg-3">
+                    <div class="col-sm-2 col-md-4 col-lg-5">
                         <button type="button" id="result-button" class="noglow method-click method-thumbnail">
-                            <img id="result-img" src="img/result.png" alt="execution"></img>
+                            <img id="result-img" src="img/analyze.png" alt="execution"></img>
                         </button>
-                        <div id="result" class="panel panel-default">
+                        <div id="result" class="panel">
                             <div class="panel-heading">
                                 <h3 class="panel-title">
                                     ANALYSE
                                 </h3>
                             </div>
                             <div id="result-photo-div" class="desktop-hide">
-                                <img id="result-photo" src="img/boat.png"></img>
                             </div>
                             <div id="result-body" class="panel-body desktop-hide text-center">
-                                <h4>L'etape critique</h4>
-                                <p>Une analyse complete scrute</p>
+                                <h4>L'ETAPE CRITIQUE</h4>
+                                <span>Une analyse complete scrute</span>
                                 <ul>
                                     <li>les previsions vs resultats</li>
                                     <li>l'experience utilisateur (UAT)</li>
@@ -535,11 +491,10 @@
                     </div>
                 </div>
             </div>
-
-            <div id='screen-method' class="col-sm-6 col-sm-offset-2 mobile-hide">
+            <div id='screen-method' class="col-sm-12 col-md-6 mobile-hide">
                 <div class="row">
-                    <div class="col-md-offset-1 col-md-9 col-lg-8 col-lg-offset-2">
-                        <div id='screen-method-text' class="panel panel-default "></div>
+                    <div class="col-md-11">
+                        <div id='screen-method-text' class="panel"></div>
                     </div>
                 </div>
             </div>
@@ -579,7 +534,7 @@
     </div>
 
 
-    <div id="team" class="container-fluid" style="width:90%">
+    <div id="team" class="container-fluid">
         <div class="slide-nav">
             <div class="v-line"></div>
             <div class="slide-box">
@@ -588,124 +543,87 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-1">
-                <div class="team-profile-wrapper">
-                    <button id='nic-button' type="button" class="noglow team-click img-profile team-thumbnail">
-                        <img id='nic-img' src="img/nic2.png"></img>
-                    </button>
-                </div>
+            <div class="col-sm-2">
+                <button id='nic-button' type="button" class="noglow team-click team-thumbnail mobile-hide">
+                    <img id='nic-img' src="img/nic2.png"></img>
+                </button>
 
                 <div id="nic-photo-div" class="desktop-hide">
-                    <div class="row text-center">
-                        <div class="col-sm-4 col-sm-offset-4">
-                            <img id="mel-1" src="img/nico.png"></img>
-                        </div>
-
-                    </div>
-                    <div class="row text-center">
-                        <ul>
-                            <li>
-                                <h4>Nicolas Dutil</h4>
-                            </li>
-                            <li>
-                                <span>Fondateur</span>
-                            </li>
-                            <li>
-                                <span>Role:PDG, Programmeur</span>
-                            </li>
-                        </ul>
-                        <span>Contact:</span>
-                        <span>Nicolas.Dutil@infocinc.com</span>
-                    </div>
+                    <img id="nic-1" src="img/nico.png"></img>
+                    <ul>
+                        <li>
+                            <h4>Nicolas Dutil</h4>
+                        </li>
+                        <li>
+                            <span>Fondateur</span>
+                        </li>
+                        <li>
+                            <span>Ph.D. Informatique</span>
+                        </li>
+                    </ul>
+                    <span>Contact:</span>
+                    <span>Nicolas.Dutil@infocinc.com</span>
                 </div>
 
-                <div id="nic" class="panel panel-default">
+                <div id="nic" class="panel">
                     <div id="nic-body" class="panel-body desktop-hide">
-                        <p>
+                        <p class="text-center">
                             Nicolas a fonde cette compagnie pour creer un environnement de travail a la mesure de ses talents. Il possede une maitrise en bioinformatique et un doctorat en sciences informatiques de l'universite Mcgill. Durant ces derni&egraveres ann&eacutees, il a compl&eacutemente ses connaissances acad&eacutemiques en travaillant dans divers domaines de l'informatique d'affaires. Il aime relever de nouveaux defis et travaille avec rigueur et discipline pour s'assurer de la satisfaction compl&egravete de ses clients.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-sm-1">
-                <div class="team-profile-wrapper">
-                    <button id="mel-button" class="noglow team-click img-profile team-thumbnail">
-                        <img id="mel-img" src="img/mel3.jpg"></img>
-                    </button>
-                </div>
+            <div class="col-sm-2">
+                <button id="mel-button" class="noglow team-click img-profile team-thumbnail mobile-hide">
+                    <img id="mel-img" src="img/face_mel.jpg"></img>
+                </button>
                 <div id="mel-photo-div" class="desktop-hide">
-                    <div class="row text-center">
-                        <div class="col-sm-4 col-sm-offset-4">
-                            <img id="mel-1" src="img/photmel7.jpg"></img>
-                        </div>
-                    </div>
-                    <div class="row text-center">
-                        <ul>
-                            <li>
-                                <h4>Melanie Bertrand</h4>
-                            </li>
-                            <li>
-                                <span></span>
-                                <span>Service a clientele</span>
-                            </li>
-                            <li>
-                                <span>Experience:</span>
-                                <span>15 ans</span>
-                            </li>
-                        </ul>
-                        <span>Contact:</span>
-                        <span>Melanie.Bertrand@infocinc.com</span>
-                    </div>
+                    <img id="mel-1" src="img/portrait_mel.jpg"></img>
+                    <ul>
+                        <li>
+                            <h4>Melanie Bertrand</h4>
+                        </li>
+                        <li>
+                            <span></span>
+                            <span>Service a clientele</span>
+                        </li>
+                        <li>
+                            <span>Experience:</span>
+                            <span>15 ans</span>
+                        </li>
+                    </ul>
+                    <span>Contact:</span>
+                    <span>Melanie.Bertrand@infocinc.com</span>
                 </div>
-                <div id="mel" class="panel panel-default">
+                <div id="mel" class="panel">
                     <div id="mel-body" class="panel-body desktop-hide text-center">
-                        <p>
+                        <p class="text-center">
                             Mélanie a un r&ocircle grandissant au sein de notre &eacutequipe. Active sur les reseaux sociaux, elle promouvoit notre entreprise et nos services offerts. Elle s'occupe aussi des suivis avec les clients. Son empathie pour les autres est une qualite exceptionnelle qui nous sert de guide pour ameliorer la presentation de nos services. Melanie est appr&eacuteci&eacutee pour sa douceur et son calme. Ces aptitudes font d’elle une ressource indispensable pour le bon fonctionnement de notre entreprise.
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-2 col-lg-1">
+            <div class="col-sm-2 mobile-hide">
                 <div class="team-thumbnail img-placeholder" style="opacity:0.9"></div>
             </div>
-            <div class="col-sm-2 col-lg-1">
-                <div class="team-thumbnail img-placeholder" style="opacity:0.8"></div>
-            </div>
-            <div class="col-sm-2 col-lg-1">
+            <div class="col-sm-2 mobile-hide">
                 <div class="team-thumbnail img-placeholder" style="opacity:0.7"></div>
             </div>
-            <div class="col-sm-2 col-lg-1">
-                <div class="team-thumbnail img-placeholder" style="opacity:0.6"></div>
-            </div>
-            <div class="col-sm-2 col-lg-1">
+            <div class="col-sm-2 mobile-hide">
                 <div class="team-thumbnail img-placeholder" style="opacity:0.5"></div>
             </div>
-            <div class="col-sm-2 col-lg-1">
-                <div class="team-thumbnail img-placeholder" style="opacity:0.4"></div>
-            </div>
-            <div class="col-sm-1 col-lg-1 mobile-hide">
+            <div class="col-sm-2 mobile-hide">
                 <div class="team-thumbnail img-placeholder" style="opacity:0.3"></div>
-            </div>
-            <div class="col-sm-1 col-lg-1 mobile-hide">
-                <div class="team-thumbnail img-placeholder" style="opacity:0.2"></div>
-            </div>
-            <div class="col-sm-1 col-lg-1 mobile-hide">
-                <div class="team-thumbnail img-placeholder" style="opacity:0.1"></div>
-            </div>
-            <div class="col-sm-1 col-lg-1 mobile-hide">
-                <div class="team-thumbnail img-placeholder" style="opacity:0.1"></div>
             </div>
         </div>
     </div>
     <div id='screen-team' class="mobile-hide container-fluid box">
-        <div class="row">
-            <div id='screen-team-photo' class="col-sm-6">
-
+        <div id='screen-team-wrapper' class="row">
+            <div id='screen-team-photo' class="col-md-5 col-lg-5">
             </div>
-            <div class="col-sm-4 col-sm-offset-1">
-                <div id='screen-team-text' class="panel panel-default ">
-
+            <div class="col-md-6">
+                <div id='screen-team-text' class="panel">
                 </div>
             </div>
         </div>
@@ -724,15 +642,14 @@
 
     <div id="project-banner" class="container-fluid banner">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-                <h2 class="text-center">
+            <div class="col-md-12 col-lg-6 col-lg-offset-3">
+                <h2>
                     Contactez nous
-
                 </h2>
                 <p>
                     Laisser nous un couriel ou telephonez nous si vous voulez discuter de la facon dont on peut aider vos affaires
                 </p>
-                <h2 class="text-center">
+                <h2>
                     Realisations et projets en cours
                 </h2>
             </div>
@@ -751,282 +668,289 @@
         </div>
     </div>
 
-    <div id='project' class="container-fluid box">
+
+    <div id='project-screen' class="container-fluid box ">
         <div class="row">
-            <div class="col-sm-3 col-lg-3">
-                <div class="project-thumbnail">
-                    <img src="img/nuayre.png"></img>
+            <div class="col-sm-4 col-md-3 project">
+                <div class="project-wrapper">
+                    <img src="img/itilogo_100dpi.png"></img>
+                    <h3> <a href="http://itibiotech.com/">ITI Biotech International </a>
+                    </h3>
+                    <h5>Tags: UX Design, Site Web Adaptif, E-Commerce</h5>
                 </div>
-
-                <h3> <a href="http://itibiotech.com/">ITI Biotech International </a>
-                </h3>
-                <h5>Tags: UX Design, Site Web Adaptif, E-Commerce
             </div>
-            <div class="col-sm-3 col-lg-3">
-                <div class="project-thumbnail">
-                    <img src="img/cdm.gif"></img>
+            <div class="col-sm-4 col-md-3 project">
+                <div class="project-wrapper">
+                    <img src="img/cdm_100dpi.png"></img>
+                    <h3> <a href="http://centredentairemartindutil.com/">Centre Dentaire Martin Dutil </a>
+                    </h3>
+                    <h5>Tags: UX Design, Reusinage Mobile</h5>
                 </div>
-                <h3> <a href="http://centredentairemartindutil.com/">
-                Centre Dentail Martin Dutil </a>
-                </h3>
-                <h5>Tags: UX Design, Reusinage Mobile
             </div>
 
-            <div class="col-sm-3 col-lg-3">
-                <div class="project-thumbnail img-placeholder"></div>
+            <div class="col-sm-4 col-md-3 mobile-hide project">
+                <div class="project-wrapper img-placeholder">
+                    <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                </div>
             </div>
-            <div class="col-sm-3 col-lg-3">
-                <div class="project-thumbnail img-placeholder"></div>
+
+            <div class="col-sm-4 col-md-3 mobile-hide project">
+                <div class="project-wrapper img-placeholder">
+                    <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-3 mobile-hide project">
+                <div class="project-wrapper img-placeholder">
+                    <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-3 mobile-hide project">
+                <div class="project-wrapper img-placeholder">
+                    <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-3 mobile-hide project">
+                <div class="project-wrapper img-placeholder">
+                    <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-3 mobile-hide project">
+                <div class="project-wrapper img-placeholder">
+                    <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                </div>
+            </div>
+
+
+            <div class="col-sm-4 col-md-3 mobile-hide project landscape-hide">
+                <div class="project-wrapper img-placeholder">
+                    <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                </div>
             </div>
         </div>
+    </div>
+
+
+    <div class="footer-background ">
         <div class="row">
-            <div class="col-sm-3 col-lg-3">
-                <div class="project-thumbnail img-placeholder"></div>
+        </div>
+    </div>
+
+    <div id="social-ads" class="container-fluid">
+        <div id="social-ads-wrapper" class="row">
+            <div class="social-banner background-red col-sm-6 col-lg-3">
+                <div class="social-banner-wrapper">
+                    <div class="social-logos-wrapper">
+                        <img src="img/google-plus.png"></img>
+                    </div>
+                    <div class="social-text">
+                        <h3>RECOMMENDEZ CINC SUR GOOGLE+</h3>
+                    </div>
+                    <div class="social-button-wrapper">
+                        <div class="g-plusone" data-annotation="bubble" data-width="300"></div>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-3 col-lg-3">
-                <div class="project-thumbnail img-placeholder"></div>
+
+            <div class="social-banner background-blue col-sm-6 col-lg-3">
+                <div class="social-banner-wrapper">
+                    <div class="social-logos-wrapper">
+                        <img src="img/ilike_90dpi.png"></img>
+                    </div>
+                    <div class="social-text">
+                        <h3>RECOMMENDEZ CINC SUR FACEBOOK</h3>
+                    </div>
+                    <div class="social-button-wrapper">
+                        <div class="fb-like" data-href="http://www.cincinfo.com" data-width="20" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-3 col-lg-3 mobile-hide">
-                <div class="project-thumbnail img-placeholder"></div>
+
+            <div class="social-banner  background-dark col-sm-6 col-lg-3">
+                <div class="social-banner-wrapper">
+                    <div class="social-logos-wrapper">
+                        <img src="img/Twitter_logo_white.png"></img>
+                    </div>
+                    <div class="social-text">
+                        <h3>TWEETEZ VOS QUESTIONS
+                            <a href="http://twitter.com/infoCinc" target="_blank"> @INFOCINC</a>
+                        </h3>
+                    </div>
+                    <div class="social-button-wrapper">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://infocinc.com" data-text="Tweeter vos questions" data-via="infoCinc" data-lang="fr">Tweeter</a>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-3 col-lg-3 mobile-hide">
-                <div class="project-thumbnail img-placeholder"></div>
+            <div class="social-banner background-red col-sm-6 col-lg-3 mobile-hide">
             </div>
         </div>
     </div>
 
+    <div id="footer" class="container-fluid">
+        <div id="footer-wrapper" class="row">
+            <div class="col-sm-6 col-lg-3">
+                <ul id="footer-contact" class="list-group text-center">
+                    <li class="list-group-item">
+                        <strong>CONTACT</strong>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="contact-type red">email</span>
+                        <a href="mailto:cincinformatique@gmail.com">info@infocinc.com</a>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="contact-type blue">twitter</span>
+                        <a href="https://twitter.com/InfoCinc" target="_blank">@INFOCINC</a>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="contact-type purple">skype</span>
+                        <a href="#" data-toggle="modal" data-target="#skypeMe">CINC</a>
+                    </li>
 
-    <div class="footer-background">
-        <div class="row"></div>
-    </div>
-
-    <div id="social">
-        <div id="social-ads" class="container-fluid">
-            <div class="row">
-                <div class="social-banner jumbotron background-red separator col-sm-3">
-                    <div class="container">
-                        <div>
-                            <img src="img/google-plus-xxl.png"></img>
-                        </div>
-                        <div id="gplus-ad" class="row">
-                            <div class="text-center white">
-                                <h3>RECOMMENDEZ NOUS SUR GOOGLE+</h3>
-                                <div class="g-plusone" data-annotation="bubble" data-width="300"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="social-banner jumbotron separator  background-blue col-sm-3">
-                    <div class="container">
-                        <div>
-                            <img src="img/ilike.png"></img>
-                        </div>
-                        <div>
-                            <div>
-                                <h3 >APPUYEZ NOUS SUR FACEBOOK</h3>
-                                <h3><a href="https://www.facebook.com/infocinc" target="_blank">CINC</a>
-                                </h3>
-                                <div class="fb-like" data-href="http://www.cincinfo.com" data-width="20" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="social-banner jumbotron separator background-dark col-sm-3">
-                    <div class="container">
-                        <div>
-                            <img src="img/Twitter_logo_white.png"></img>
-                        </div>
-                        <div>
-                            <div>
-                                <h3>TWEETER VOS QUESTIONS</h3>
-                                <h3><a href="http://twitter.com/infoCinc" target="_blank"> @INFOCINC</a>
-                                </h3>
-                                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://infocinc.com" data-text="Tweeter vos questions" data-via="infoCinc" data-lang="fr">Tweeter</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="social-banner jumbotron separator background-red col-sm-3">
-                </div>
+                    <li class="list-group-item">
+                        <span class="contact-type orange">mobile</span>
+                        <span>438 496 6886</span>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </div>
-    <div id="footer">
-        <div id="footer-links" class="container-fluid">
-            <div class="row">
-                <div class="col-sm-3">
-                    <ul id="footer-contact" class="list-group text-center">
-                        <li class="list-group-item">
-                            <strong>CONTACT</strong>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="contact-type red">email</span><a href="mailto:cincinformatique@gmail.com">info@infocinc.com</a>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="contact-type blue">twitter</span><a href="https://twitter.com/InfoCinc" target="_blank"> @INFOCINC</a>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="contact-type orange">mobile</span>
-                            <span>438 496 6886</span>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="contact-type purple">skype</span> <a href="#" data-toggle="modal" data-target="#skypeMe">CINC </a>
-                        </li>
-                    </ul>
-                </div>
 
-                <div id='cinc-ad' class="col-sm-3">
-                    <h5>
-                            <span><strong>CINC</strong> 
-                    </h5>
-                    <span class=""> Conception web aliment&eacutee par</span>
-                    <div class="row brand-icons">
-                        <div class="col-xs-3">
-                            <a href="http://heroku.com" target="_blank">
-                                <img src="img/heroku.png" class="logo">
-                            </a>
-                        </div>
-                        <div class="col-xs-3">
-                            <a href="http://expressjs.com" target="_blank">
-                                <img src="img/expressjs.png" class="logo">
-                            </a>
-                        </div>
-                        <div class="col-xs-3">
-                            <a href="http://jquery.com" target="_blank">
-                                <img src="img/jquery.png" class="logo">
-                            </a>
-                        </div>
-                        <div class="col-xs-3">
-                            <a href="http://www.w3.org/TR/html5/" target="_blank">
-                                <img src="img/html5.png" class="logo">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row brand-icons">
-                        <div class="col-xs-3">
-                            <a href="http://nodejs.org" target="_blank">
-                                <img src="img/js.png" class="logo">
-                            </a>
-                        </div>
-                        <div class="col-xs-3">
-                            <a href="http://getbootstrap.com" target="_blank">
-                                <img src="img/bs.png" class="logo">
-                            </a>
-                        </div>
-                        <div class="col-xs-3">
-                            <a id="less-anchor" href="http://lesscss.org" target="_blank">
-                                <img id="less-logo" src="img/less.png" class="logo">
-                            </a>
-                        </div>
-                        <div class="col-xs-3">
-                            <a href="http://www.w3.org/Style/CSS/Overview.en.html" target="_blank">
-                                <img id="css-logo" src="img/css3.png" class="logo">
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div id='cinc-ad' class="col-sm-6 col-lg-3">
+                <ul class="list-group text-center">
+                    <li class="list-group-item">
+                        <strong>CINC</strong>
+                    </li>
 
-                <div class="col-md-3 portrait-hide">
-                    <ul class="list-group text-center">
-                        <li class="list-group-item ">
-                            <strong>NAVIGATION</strong>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#top" id="top-footer-anchor">accueil</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#method" id="method-footer-anchor"> &agrave propos</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#services" id="services-footer-anchor"> services</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#team" id="team-footer-anchor"> &eacutequipe</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <ul class="list-group text-center">
-                        <li class="list-group-item ">
-                            <strong>COMMUNAUT&Eacute</strong>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="https://www.facebook.com/infocinc" target="_blank" class="blue">
+                    <li class="list-group-item">
+                        Conception web aliment&eacutee par
+                    </li>
+
+                    <li class="row brand-icons">
+                        <a href="http://heroku.com" target="_blank">
+                            <img src="img/heroku.png" class="logo "></img>
+                        </a>
+                        <a href="http://expressjs.com" target="_blank">
+                            <img src="img/expressjs.png" class="logo"></img>
+                        </a>
+                        <a href="http://jquery.com" target="_blank">
+                            <img src="img/jquery.png" class="logo"></img>
+                        </a>
+                        <a href="http://www.w3.org/TR/html5/" target="_blank">
+                            <img src="img/html5.png" class="logo"></img>
+                        </a>
+                    </li>
+                    <li class="row brand-icons">
+                        <a href="http://nodejs.org" target="_blank">
+                            <img src="img/js.png" class="logo"></img>
+                        </a>
+                        <a href="http://getbootstrap.com" target="_blank">
+                            <img src="img/bs.png" class="logo"></img>
+                        </a>
+                        <a id="less-anchor" href="http://lesscss.org" target="_blank">
+                            <img id="less-logo" src="img/less.png" class="logo"></img>
+                        </a>
+                        <a href="http://www.w3.org/Style/CSS/Overview.en.html" target="_blank">
+                            <img id="css-logo" src="img/css3.png" class="logo ">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 ">
+                <ul class="list-group text-center">
+                    <li class="list-group-item ">
+                        <strong>NAVIGATION</strong>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#top" id="top-footer-anchor">accueil</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#method" id="method-footer-anchor"> &agrave propos</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#services" id="services-footer-anchor"> services</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#team" id="team-footer-anchor"> &eacutequipe</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <ul class="list-group text-center">
+                    <li class="list-group-item ">
+                        <strong>COMMUNAUT&Eacute</strong>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="https://www.facebook.com/infocinc" target="_blank">
                                 facebook</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="https://twitter.com/infoCinc" target="_blank">
+                    </li>
+                    <li class="list-group-item">
+                        <a href="https://twitter.com/infoCinc" target="_blank">
                              twitter
                              </a>
-                        </li>
-                        <li class="list-group-item"><a href="https://www.youtube.com/channel/" target="_blank" class="red"> youtube </a>
-                        </li>
-                        <li class="list-group-item"><a href="https://plus.google.com/u/1/107272868165552202206/posts"> google+</a>
-                        </li>
-                    </ul>
-                </div>
-
+                    </li>
+                    <li class="list-group-item"><a href="https://plus.google.com/u/1/107272868165552202206/posts"> google+</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-12 text-center">
+                <hr></hr>
+                <img src="img/cinc-logo.png"></img>
+                <span>Copyright &copy 2014 CINC, Certains droits r&eacuteserv&eacutes.</span>
             </div>
         </div>
-        <div id="footer-legal" class="container-fluid">
-            <div class="col-sm-3 text-center">
-                Copyright &copy 2014 CINC, Tous droits r&eacuteserv&eacutes.
-            </div>
-        </div>
-    </div>
 
 
 
 
 
-    <script src="https://code.jquery.com/jquery-2.1.0.min.js" type="text/javascript"></script>
-    <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-2.1.0.min.js"><\/script>')
-    </script>
-    <script type="text/javascript" src="js/vendor/waypoints.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.0.min.js" type="text/javascript"></script>
+        <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-2.1.0.min.js"><\/script>')
+        </script>
+        <script type="text/javascript" src="js/vendor/waypoints.min.js"></script>
 
-    <script type="text/javascript" src="js/vendor/jquery-ui-1.10.4.custom.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/vendor/jquery.webticker.min.js"></script>
-    <script type="text/javascript" src="js/vendor/scrollTo.js"></script>
-    <script type="text/javascript" src="js/vendor/enquire.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    
-     <!--[if IE]><script src="js/vendor/excanvas.js"></script><![endif]-->
-    <script src="js/vendor/barGraph.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery-ui-1.10.4.custom.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.webticker.min.js"></script>
+        <script type="text/javascript" src="js/vendor/scrollTo.js"></script>
+        <script type="text/javascript" src="js/vendor/enquire.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-    <script src="js/plugins.js"></script>
-    <!-- twitter button -->
-    <script>
-    ! function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0],
-            p = /^http:/.test(d.location) ? 'http' : 'https';
-        if (!d.getElementById(id)) {
-            js = d.createElement(s);
-            js.id = id;
-            js.src = p + '://platform.twitter.com/widgets.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }
-    }(document, 'script', 'twitter-wjs');
-    </script>
+        <!--[if IE]><script src="js/vendor/excanvas.js"></script><![endif]-->
+        <script src="js/vendor/barGraph.js"></script>
 
-    <!------------- Google+1 Button Script ---->
-    <script type="text/javascript">
-    window.___gcfg = {
-        lang: 'fr-CA',
-        parsetags: 'onload'
-    };
-    (function() {
-        var po = document.createElement('script');
-        po.type = 'text/javascript';
-        po.async = true;
-        po.src = 'https://apis.google.com/js/plusone.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(po, s);
-    })();
-    </script>
+        <script src="js/plugins.js"></script>
+        <!-- twitter button -->
+        <script>
+        ! function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                p = /^http:/.test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + '://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'twitter-wjs');
+        </script>
+
+        <!------------- Google+1 Button Script ---->
+        <script type="text/javascript">
+        window.___gcfg = {
+            lang: 'fr-CA',
+            parsetags: 'onload'
+        };
+        (function() {
+            var po = document.createElement('script');
+            po.type = 'text/javascript';
+            po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(po, s);
+        })();
+        </script>
 </body>
 
 </html>

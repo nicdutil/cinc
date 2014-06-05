@@ -114,10 +114,10 @@ function toggleBounce() {
     }
 }
 
-$('#contactMe').on('shown.bs.modal', function(event) {
+/*$('#contactMe').on('shown.bs.modal', function(event) {
     initGoogleMap('map_canvas_2');
 });
-
+*/
 //initGoogleMap('map_canvas');
 
 ////////////////////////////////////////////////////////////////////
@@ -249,11 +249,21 @@ function nextItem(id) {
 var graph, refreshIntervalId;
 
 
-function initBarGraph() {
-    var canvas = document.getElementById('screen-canvas');
+function initBarGraph(canvasId) {
+    var canvas = document.getElementById(canvasId);
     if (typeof G_vmlCanvasManager != 'undefined') {
         canvas = G_vmlCanvasManager.initElement(canvas);
     }
+    var selector = '#' + canvasId;
+    var w = $(selector).css('width');
+    var h = $(selector).css('height');
+
+    $(selector).attr({
+        width: w,
+        height: h
+
+    });
+
     barGraphCtx = canvas.getContext("2d");
 }
 
@@ -266,16 +276,22 @@ function createBarGraph() {
     graph.height = barGraphCtx.canvas.height;
 
     graph.xAxisLabelArr = ["A", "B", "C", "D", "E", "F"];
-    graph.update([Math.random() * 20, Math.random() * 20, Math.random() * 20, Math.random() * 20, Math.random() * 20, Math.random() * 20]);
+    graph.update([Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10]);
 
     refreshIntervalId = setInterval(function() {
-        graph.update([Math.random() * 20, Math.random() * 20, Math.random() * 20, Math.random() * 20, Math.random() * 20, Math.random() * 20]);
+        graph.update([Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10]);
     }, 4000);
 
 }
 
 $(function() {
-    initBarGraph();
+    // FIXME: fails for browser resizing.. 
+   if ($('#excel-photo-div').css('display') === 'none') {
+     initBarGraph('screen-canvas');
+   } else {
+    initBarGraph('excel-canvas');
+   }
+
     createBarGraph();
 });
 
@@ -362,6 +378,10 @@ function carouselHandler(direction) {
 
 
 function navBarResizeHandler(direction) {
+    var fixedFlag = 'fixed' === $('#navbar').css('position') ;
+    if (!fixedFlag) 
+            return;
+
     if (direction === "down") {
         $('#navbar').addClass('navbar-mini');
         $('#main-title h2').css('display', 'none');
@@ -383,7 +403,6 @@ $(waypointTriggers.join()).waypoint(navNoTextHandler, {
     offset: '50%'
 });
 
-//$(waypointTriggers[0]).waypoint(showSideBar);
 
 $('#services,#method').waypoint(carouselHandler, {
     offset: '50%'
@@ -587,14 +606,8 @@ function clickHandlers() {
 */
         }
 
-    $('.services-click').on('click', function(event) {
-        var targetId = event.target.id;
-        var sectionId = $(this).closest('.container').prop('id');
-        //    changeBgColor(sectionId,targetId);
-        showPanel(sectionId, targetId);
-    });
 
-    $('.method-click,.team-click').on('click', function(event) {
+    $('.services-click,.method-click,.team-click').on('click', function(event) {
         var targetId = event.target.id;
         var sectionId = $(this).closest('.container-fluid').prop('id');
         //    changeBgColor(sectionId,targetId);
@@ -679,7 +692,6 @@ $(document).ready(function() {
  ********************************/
 
 function Bubble() {
-
     this.x = Math.floor(Math.random() * CANVAS_WIDTH);
     this.y = Math.floor(Math.random() * (CANVAS_HEIGHT));
     this.radius = 5 + Math.floor(Math.random() * 5);
@@ -690,7 +702,7 @@ function Bubble() {
     else this.direction = 1;
 
     //this.amplitude = Math.round(this.radius / 9 * 5 + 2 * Math.random());
-    this.velocity = (1 / (this.radius + 0.1));
+    this.velocity = (5 / (this.radius + 0.1));
     this.amplitude = 20 + Math.round(this.velocity * 20);
 
 }
@@ -700,35 +712,50 @@ function Bubble() {
  * initialize()
  * Initial function called on page load
  *****************************************/
-$(window).load(function() {
-    bubbleInit();
+/*$(window).load(function() {
+   var hideBubblesFlag = 'none' === $('#bubbles-wrapper').css('display');
+   
+   if (!hideBubblesFlag) {
+     bubbleInit();
+   }
 })
-
+*/
 function bubbleInit() {
-    // Global variables:    
-    CANVAS_WIDTH = 1713;
-    CANVAS_HEIGHT = 600;
+    // Global variables: 
+
     REFRESH_RATE = 40;
-    MAX_BUBBLES = 100;
-
     t = 1; // current time step
-
-
+    MAX_BUBBLES = 90;
     // Array storing all bubble objects 
+
+    background = new Image();
+    background.src = "http://192.168.1.6:3000/img/rain2.png";
+
+    // Create canvas and context objects
+    canvas = document.getElementById('bubbles');
+
+    var selector = '#bubbles';
+    
+    var w = $('#method').css('width');
+    var h = $('#method').css('height');
+
+    $(selector).attr({
+        width: w,
+        height: h
+    });
+
+    CANVAS_WIDTH = parseInt(w,10);
+    CANVAS_HEIGHT = parseInt(h,10);
+    context = canvas.getContext('2d');
+    context.drawImage(background, 0, 0);
+
+    // Call the draw() function at the specified refresh interval
     bubbles = new Array(MAX_BUBBLES);
 
     for (var i = 0; i < MAX_BUBBLES; i++) {
         bubbles[i] = new Bubble();
     }
 
-    background = new Image();
-    background.src = "http://192.168.1.6:3000/img/rain.png";
-
-    // Create canvas and context objects
-    canvas = document.getElementById('bubbles');
-    context = canvas.getContext('2d');
-    context.drawImage(background, 0, 0);
-    // Call the draw() function at the specified refresh interval
     setInterval(draw, REFRESH_RATE);
 
 }
@@ -756,7 +783,23 @@ function drawEllipse(centerX, centerY, width, height) {
  * draws each bubble at every frame
  ******************************************************/
 
+window.addEventListener('resize',resize,false);
+
+function resize() {
+//    alert($('#method').width());
+
+    var w = $('#bubbles-wrapper').width();
+    var h = $('#bubbles-wrapper').height();
+    CANVAS_WIDTH = parseInt(w,10);
+    CANVAS_HEIGHT = parseInt(h,10);
+    context.canvas.width = CANVAS_WIDTH;
+    context.canvas.height = CANVAS_HEIGHT;
+}
+
 function draw() {
+
+    // refresh canvas size
+ 
 
     // Update the position of each bubble
     for (var i = 0; i < bubbles.length; i++) {
@@ -766,7 +809,7 @@ function draw() {
             bubbles[i].x = Math.floor(Math.random() * CANVAS_WIDTH);
             bubbles[i].y = -Math.floor(Math.random() * CANVAS_HEIGHT * 0.1);
             bubbles[i].radius = 5 + Math.floor(Math.random() * 5);
-            bubbles[i].velocity = (1 / (bubbles[i].radius + 0.1));
+            bubbles[i].velocity = (5 / (bubbles[i].radius + 0.1));
             bubbles[i].amplitude = Math.round(bubbles[i].velocity * 10);
         }
 
@@ -790,7 +833,7 @@ function draw() {
     }
 
     // Clear the previous canvas state
-    context.drawImage(background, 0, 0);
+     context.drawImage(background, 0, 0);
 
     // Draw bubbles
     for (var i = 0; i < bubbles.length; i++) {
@@ -804,6 +847,7 @@ function draw() {
 
         gradObj.addColorStop(0, "rgba(255, 255, 255, .7)");
         gradObj.addColorStop(1, "rgba(220, 225, 223, .7)");
+
 
         context.fillStyle = gradObj;
 

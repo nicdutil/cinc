@@ -20,6 +20,7 @@ function BarGraph(ctx) {
     var startArr;
     var endArr;
     var looping = false;
+    var barMax = 0;
 
     // Loop method adjusts the height of bar and redraws if neccessary
     var loop = function() {
@@ -45,13 +46,129 @@ function BarGraph(ctx) {
             looping = false;
         } else {
             // Draw and call loop again
-            draw(that.curArr);
+            drawHorizontal(that.curArr);
             setTimeout(loop, that.animationInterval / that.animationSteps);
         }
     };
 
     // Draw method updates the canvas with the current display
-    var draw = function(arr) {
+
+	drawHorizontal = function (arr) {
+	
+			var numOfBars = arr.length,
+				barWidth,
+				barHeight,
+				border = 2,
+				ratio,
+				maxBarHeight,
+				gradient,
+				largestValue,
+				graphAreaX = 0,
+				graphAreaY = 0,
+				graphAreaWidth = that.width,
+				graphAreaHeight = that.height,
+				i;
+			
+			// Update the dimensions of the canvas only if they have changed
+			if (ctx.canvas.width !== that.width || ctx.canvas.height !== that.height) {
+				ctx.canvas.width = that.width;
+				ctx.canvas.height = that.height;
+			}
+			
+			// Draw the background color
+			ctx.fillStyle = that.backgroundColor;
+			ctx.fillRect(0, 0, that.width, that.height);
+				
+			// If x axis labels exist then make room	
+			if (that.xAxisLabelArr.length) {
+				graphAreaHeight -= 40;
+			}
+			
+			// Calculate dimensions of the bar
+			barWidth = graphAreaWidth / numOfBars - that.margin * 2;
+			maxBarHeight = graphAreaHeight - 25;
+			
+			// Determine the largest value in the bar array
+			var largestValue = 0;
+			for (i = 0; i < arr.length; i += 1) {
+				if (arr[i] > largestValue) {
+					largestValue = arr[i];	
+				}
+			}
+			
+			// For each bar
+			for (i = 0; i < arr.length; i += 1) {
+				
+				// Set the ratio of current bar compared to the maximum
+				if (that.maxValue) {
+					ratio = arr[i] / that.maxValue;
+				} else {
+					ratio = arr[i] / largestValue;
+				}
+				
+				barHeight = ratio * maxBarHeight;
+				
+				// Turn on shadow
+				ctx.shadowOffsetX = 2;
+				ctx.shadowOffsetY = 2;
+				ctx.shadowBlur = 2;
+				ctx.shadowColor = "#999";
+					
+				// Draw bar background
+				ctx.fillStyle = "#333";			
+				ctx.fillRect(that.margin + i * that.width / numOfBars,
+					graphAreaHeight - barHeight,
+					barWidth,
+					barHeight);
+		
+				// Turn off shadow
+				ctx.shadowOffsetX = 0;
+				ctx.shadowOffsetY = 0;
+				ctx.shadowBlur = 0;
+				
+				// Draw bar color if it is large enough to be visible
+				if (barHeight > border * 2) {
+				
+					// Create gradient
+					gradient = ctx.createLinearGradient(0, 0, 0, graphAreaHeight);
+					gradient.addColorStop(1 - ratio, that.colors[i % that.colors.length]);
+					gradient.addColorStop(1, "#ffffff");
+					ctx.fillStyle = gradient;
+					
+					// Fill rectangle with gradient
+					ctx.fillRect(that.margin + i * that.width / numOfBars + border,
+						graphAreaHeight - barHeight + border,
+						barWidth - border * 2,
+						barHeight - border * 2);
+				}
+				
+				// Write bar value
+				ctx.fillStyle = "#333";
+				ctx.font = "bold 12px sans-serif";
+				ctx.textAlign = "center";
+				// Use try / catch to stop IE 8 from going to error town
+				try{
+					ctx.fillText(parseInt(arr[i], 10), i * that.width / numOfBars + (that.width / numOfBars) / 2, graphAreaHeight - barHeight - 10);
+				} catch (ex) {}
+				
+				// Draw bar label if it exists
+				if (that.xAxisLabelArr[i]) {
+					
+					// Use try / catch to stop IE 8 from going to error town
+					
+					ctx.fillStyle = "#333";
+					ctx.font = "bold 12px sans-serif";
+					ctx.textAlign = "center";
+					try{
+						ctx.fillText(that.xAxisLabelArr[i],
+						i * that.width / numOfBars + (that.width / numOfBars) / 2,
+						that.height - 10);
+					} catch (ex) {}
+				}
+			}
+		};
+
+    var drawVertical = function(arr) {
 
         var numOfBars = arr.length;
         var barWidth;
@@ -59,23 +176,9 @@ function BarGraph(ctx) {
         var border = 2;
         var ratio;
         var maxBarHeight;
-        var gradient;
         var largestValue;
-        var graphAreaX = 0;
-        var graphAreaY = 0;
-        var graphAreaWidth = that.width;
-        var graphAreaHeight = that.height;
         var i;
-
-        // Update the dimensions of the canvas only if they have changed
-        if (ctx.canvas.width !== that.width || ctx.canvas.height !== that.height) {
-            ctx.canvas.width = that.width;
-            ctx.canvas.height = that.height;
-        }
-
-        // Draw the background color
-        ctx.fillStyle = that.backgroundColor;
-        ctx.fillRect(0, 0, that.width, that.height);
+        var graphAreaHeight = that.height;	
 
         // If x axis labels exist then make room	
         if (that.xAxisLabelArr.length) {
@@ -84,18 +187,12 @@ function BarGraph(ctx) {
 
         // Calculate dimensions of the bar
         barHeight = graphAreaHeight / numOfBars - that.margin * 2;
-        maxBarWidth = graphAreaWidth - 25;
-        //	  barWidth = graphAreaWidth / numOfBars - that.margin * 2;
+        maxBarWidth = that.width - 40;
+        // Draw the background color
+        ctx.fillStyle = that.backgroundColor;
+        ctx.fillRect(0, 0, that.width, that.height);
 
-        //	  maxBarHeight = graphAreaHeight - 25;
-
-        // Determine the largest value in the bar array
-        var largestValue = 0;
-        for (i = 0; i < arr.length; i += 1) {
-            if (arr[i] > largestValue) {
-                largestValue = arr[i];
-            }
-        }
+        var largestValue = barMax = Math.max.apply(Math,arr);
 
         // For each bar
         for (i = 0; i < arr.length; i += 1) {
@@ -109,13 +206,13 @@ function BarGraph(ctx) {
             barWidth = ratio * maxBarWidth;
 
 
-            if (barWidth > border * 2) {
+            if (barWidth > 0) {
                 ctx.fillStyle = that.colors[i % that.colors.length];
 
                 ctx.fillRect(15,
-                    that.margin + i * that.height / numOfBars + border,
-                    barWidth - border * 2,
-                    barHeight - border * 2);
+                    that.margin + i * that.height / numOfBars,
+                    barWidth,
+                    barHeight);
             }
 
             // Write bar value
@@ -148,17 +245,19 @@ function BarGraph(ctx) {
 
 
 
-    this.width = 300;
-    this.height = 150;
+    this.width;
+    this.height;
     this.maxValue;
     this.margin = 5;
+//    this.colors = ["#354774", "#C0392B", "#27AE60", "#E5C454"];
     this.colors = ["#354774", "#C0392B", "#27AE60", "#E5C454"];
+//    this.colors = ["purple", "red","green" ,"yellow"];
     this.curArr = [];
     this.backgroundColor = "#fff";
     this.xAxisLabelArr = [];
     this.yAxisLabelArr = [];
     this.animationInterval = 400;
-    this.animationSteps = 20;
+    this.animationSteps = 40;
 
     // Update method sets the end bar array and starts the animation
     this.update = function(newArr) {
@@ -166,7 +265,7 @@ function BarGraph(ctx) {
         // If length of target and current array is different 
         if (that.curArr.length !== newArr.length) {
             that.curArr = newArr;
-            draw(newArr);
+            drawHorizontal(newArr);
         } else {
             // Set the starting array to the current array
             startArr = that.curArr;

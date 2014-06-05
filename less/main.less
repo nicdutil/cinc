@@ -20,6 +20,7 @@ html, body{
  height: 100% !important;
  margin: 0px !important;
  padding: 0px !important;
+ font-size: 10px !important;
  position: relative;
  z-index: 10;
 }
@@ -39,28 +40,15 @@ a, button
   border: none;
  }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 /////////////////////////////////////////////////////////////////////////////////////
 // Separators
 /////////////////////////////////////////////////////////////////////////////////////
 
-.jumbotron.separator {
-    position: relative;
-    z-index: 20;        // higher in stack order than sidebar
-    //background: #222;
-    color: @white;
-    border-radius: 0 !important;
-    padding-top: 30px;
-    h1 {
-      font-family:"Open Sans", Helvectica, sans-serif;
-      font-weight: bold;
-      font-size: 27px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-  //    .jumbosize(62px);
-    }
-
-
-}
 
 //////////////////////////////////////////////////////////////////////////////////////// 
 // Thumbnail Stylings
@@ -68,152 +56,130 @@ a, button
 
 
 .thumbnail(@radius, @width, @height) {
-    border-radius: @radius;
-    -moz-border-radius: @radius;
-    -webkit-border-radius: @radius;
-    width: @width;
-    height: @height;
-//    line-height: @height;
+  margin: 0 auto;
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  width: @width;
+  height: @height;
 }
 
 .square-thumbnail {
-  margin: 0 auto;
-  margin-bottom: 0px;
 
-  text-align: center;
- .thumbnail(@radius:0px, @width:150px , @height: 150px );
+ .thumbnail(@radius:0px, @width:12em , @height: 12em );
 
   @media screen and (min-width: @screen-sm-min) {
-       .thumbnail(@radius:0px, @width: 120px, @height: 120px )
     }
   @media screen and (min-width: @screen-md-min) {
-       .thumbnail(@radius:0px, @width: 100px, @height: 100px);
     }
   @media screen and (min-width: @screen-lg-min) {
-     .thumbnail(@radius:0px,@width:120px,@height:120px);
     }     
 }
 
 .rounded-thumbnail {
   margin: 0 auto;
-  margin-bottom: 20px;
   border: 1px solid;
   text-align: center;
 
- .thumbnail(@radius:18px, @width:150px , @height: 150px );
+// .thumbnail(@radius:18px, @width:150px , @height: 150px );
+     .thumbnail(@radius:2.4em,@width:13em,@height:13em);
   @media screen and (min-width: @screen-sm-min) {
-       .thumbnail(@radius:20px, @width: 120px, @height: 120px )
+  //     .thumbnail(@radius:20px, @width: 120px, @height: 120px )
     }
   @media screen and (min-width: @screen-md-min) {
-       .thumbnail(@radius:20px, @width: 150px, @height: 150px);
+    //   .thumbnail(@radius:20px, @width: 150px, @height: 150px);
     }
   @media screen and (min-width: @screen-lg-min) {
-     .thumbnail(@radius:24px,@width:130px,@height:130px);
-     margin-bottom: 0px;
     }     
 }
 
-.circle-thumbnail {
-  margin: 0 auto;
-  border: 1px solid;
-  text-align: center;
- .thumbnail(@radius:150px, @width:150px , @height: 150px );
-  @media screen and (min-width: @screen-sm-min) {
-       .thumbnail(@radius:250px, @width: 120px, @height: 120px )
-    }
-  @media screen and (min-width: @screen-md-min) {
-       .thumbnail(@radius:250px, @width: 150px, @height: 150px);
-    }
-  @media screen and (min-width: @screen-lg-min) {
-     .thumbnail(@radius:147px,@width:147px,@height:147px);
-    }     
-}
-
-.method-thumbnail {
+.method-thumbnail,.service-thumbnail {
  .square-thumbnail;
- img {
-  width: 100%;
- }
 }
 
 .team-thumbnail {
-  .thumbnail(0px,100px,100px);
+  .thumbnail(0px,10em,10em);
 //  .square-thumbnail;
 }
 
-.service-thumbnail {
-  .square-thumbnail; 
-}
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // Panel Styling
 /////////////////////////////////////////////////////////////////////////////////////////////////
-/*  h3 {
-    text-align: center;
-    font-family: 'Marvel', sans-serif;
-    letter-spacing: 0.3em;
-    font-size: 17px;
 
-    @media screen and (min-width: @screen-sm-min) {
-      font-size: 12px;
-    }
-    @media screen and (min-width:@screen-lg-min) {
-      font-size: 15px;
-     }
-  }
-*/ 
 
 .panel {
   margin-bottom: 0px !important;
   background: none !important;
-  font-size: 6px;
+  font-size: 8px;
   letter-spacing: 0.1em;
 
   h4 {
     font-family:'Lato', 'sans-serif';
     font-weight: bold;
-    color: #000;
     font-size: 2.3em;
-   } 
-    h3 {
-      font-family: 'Dosis', sans-serif;
-      font-size: 2em;
-    }
+    color: @black;
+  } 
+  
+  h3 {
+    font-family: 'Dosis', sans-serif;
+    font-size: 2em;
+  }
 
   p {
-    color: #000;
+    color: @black;
     font-size: 2.2em;
   }
+
+ // remove when removing bootstrap h1 stylings
+
+  @media screen and (min-width: @screen-sm-min) {
+    font-size: 8px;
+  }
+
   @media screen and (min-width: @screen-md-min) {
-    font-size: 6px;
+    font-size: 8px;
   }
   @media screen and (min-width:@screen-lg-min) {
     font-size: 10px;
   }
+
 }
 
 .panel-body {
-    padding-top: 5px;
-    color: #000;
+    padding-top: 0.5em;
     font-family: 'Dosis', sans-serif;    
+    color: @black;
+
     ul {
-      list-style: none;
-      font-size: 2.5em;
-      margin: 15px 0;
+      margin: 0.5em 0;
+      font-size: 2.2em;
       text-align: center;
       letter-spacing: 0.1em;
-      padding: 0;
     }
+
     li {
-      margin: 15px 0;
+      margin: 1em 0;
     }
 }
 
 .panel-heading {
-  padding: 5px 15px;
+  padding: 0.5em 1.5em !important;
   text-align: center;
   background: none !important;
+  .panel-title {
+    font-size: 3em;
+    @media screen and (min-width:@screen-sm-min) {
+      font-size: 2em;
+    }
+/*    @media screen and (min-width:@screen-md-min) {
+      font-size: 2em;
+    }
+    @media screen and (min-width:@screen-lg-min) {
+      font-size: 2em;
+    }
+*/  }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -224,55 +190,39 @@ a, button
   background: url('http://192.168.1.6:3000/img/tile.png') right top #f2f4f7;
 
   h2 {
-    padding:30px 0;
+    padding:1em 0;
     text-align: center;
-    color: @midnight;
     font-family: 'Lato', sans-serif;
-    font-size: 30px;
+    font-size: 4.5em;
     color: #141c26;
   }
 
   p {
-    color: #444;
-    font-family: 'Dosis',sans-serif;
     text-align: center;
-    font-size: 40px;
+    margin: 0;
+    font-family: 'Dosis',sans-serif;
+    color: #444;
+    font-size: 4em;
     letter-spacing: 0.1em;
+  }
+  
+  font-size: 5px;
+
+  @media screen and (min-width:@screen-sm-min) {
+    font-size: 8px;
   }
 
   @media screen and (min-width:@screen-md-min) {
-    h2 {
-      font-size: 40px;
-    }
+    font-size: 9px;
   }
   
   @media screen and (min-width:@screen-lg-min)  {
-    h2 {
-      font-size: 45px;
-    }
+    font-size: 10px;
   }
-}
-
-.social-banner {
-   text-align: center;
-   img {
-     width: 40%;
-   }
-   h3 {
-    color:#fff;
-   }
-   height: 350px;
-   a {
-    color: #fff !important;
-   }
-
-  .section-headings h3 {
-        color: #fff;
-        margin: 10px 2%;
-   }
-
 
 }
+
+
 //////////////////////////////////////////////////////////////////////////////////////
 // Button styling for services, method, team sections
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -286,6 +236,18 @@ a, button
     display: block;
     background: none !important;
   }
+
+  
+  @media screen and (min-width: @screen-sm-min) {
+    font-size: 8px;
+  }
+
+  @media screen and (min-width: @screen-md-min) {
+    font-size: 8px;
+  }
+  @media screen and (min-width:@screen-lg-min) {
+    font-size: 10px;
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -295,52 +257,75 @@ a, button
 
 /* This code is tested with latest version of Firefox and Chrome */
 .box {
-  position: relative;
-  width: 90%;
-  background-color: #fff;
-//  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 0 50px rgba(0,0,0,0.1) inset;
-//  border-radius: 1%     1%     1%     1% /     1%     1%     1%     1%;
-    position:relative;       
+  @media screen and (min-width:@screen-sm-min) {
+    position: relative;
+    width: 90%;
+    background-color: @white;
     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  }
 }
 
 
+#screen-canvas-wrapper {
+  position: absolute;
 
-#screen-services,#screen-team {
-/*   -webkit-transition: all 200ms linear;
-*/   
+  -webkit-transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
+  -moz-transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
+  transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
+  -o-transition: opacity 1s cubic-bezier(.02, .01, .47, 1);
+
+  left: 60px;
+  top: 40%;
+  @media screen and (min-width:@screen-md-min) {
+  left:60px;
+  top: 80px;
+}
+
+}
+
+#services canvas {
+  width: 100%;
+  height: 20em;
+}
+
+
+#screen-services,#screen-team,#project {
   margin-top: 6em;
   padding-top: 2em;
+
   font-size: 6px;
   
-  #screen-services-photo{
-    img {
+/*  img {
        width: 80%;
-    }
+  }
+*/  
 
-    #screen-graph1 {
-      margin-top: 20px;
-    margin-left: 50px;
-      @media screen and (min-width:@screen-lg-min) {
-      margin-top: 50px;
-      margin-left: 100px;
-    }
-   }
-
+  canvas {
+    width: 50em;
+    height: 40em;
   }
 
-  height: 60em; 
+  @media screen and (min-width: @screen-xs-min) {
+    font-size: 10px;
+    height: 80em;
+  }
+  
+  @media screen and (min-width: @screen-sm-min) {
+    font-size: 8px;
+    height: 80em;
+  }
+
   @media screen and (min-width: @screen-md-min) {
-    img {
-      width: 80%;
-    }
-    font-size: 6px;
+    font-size: 7px;
+    height: 60em; 
   }
+
   @media screen and (min-width:@screen-lg-min) {
     font-size: 10px;
   }
+
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -359,50 +344,55 @@ a, button
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 .cadre {
-  margin: 10px 10px;
-  border-radius: 20px;
-  border: 1px solid #000;
   padding: 0 !important;
+
   position: relative;
-  height: 390px;
-
-  @media screen and (min-width:@screen-md-min) {
-    height: 360px;
-    margin: 10px 0;
-  }
-  @media screen and (min-width:@screen-lg-min) {
-   height: 560px;
-  }
-
 
   h3 {
     font-family: 'Open Sans Condensed', sans-serif;
     letter-spacing: 0.2em;
-    font-size: 25px;
-    @media screen and (min-width: @screen-lg-min) {
-    font-size: 40px;
-    }
+    font-size: 4em;
+    margin: 0.4em 0;
+  } 
+
+  font-size: 6px;
+  height:36em;
+
+  @media screen and (min-width:@screen-sm-min) {
+    border-radius: 2em;
+    border: 1px solid #000;
+    width: 95%;
+    margin:0 auto;
+    font-size: 7px;
+    height: 56em;
   }
+  
+  @media screen and (min-width:@screen-md-min) {
+   margin: 0;
+   width: 100%;
+   font-size: 8px;
+  }
+
+  @media screen and (min-width:@screen-lg-min) {
+   font-size: 10px;
+  }
+
 }
 
 
 .slide {
-  margin: 0 auto;
-  padding: 15px 15px;
+//  margin: 0 auto;
+  padding: 0.5em;
   position:absolute;
-
+  
+  height: 30em; // take into account width = 100%
+  width: 100%;
   @media screen and (min-width:@screen-sm-min) {
-   height: 350px;
+
+    padding: 1.5em;
+    height: 50em;
   }
 
-  @media screen and (min-width:@screen-md-min) {
-    height: 320px;
-    width: 100%;
-  }
-  @media screen and (min-width: @screen-lg-min) {
-    height: 500px;
-    width: 100%;
-  }
 
   img {
     height: 100%;
@@ -414,8 +404,15 @@ a, button
 // Services Stylings
 /////////////////////////////////////////////////////////////////////////////////////////
 
+#services.container-fluid {
+  @media screen and (min-width:@screen-sm-min) {
+    width:80%;
+  }
+}
+
 #services {
- .service-hide {
+
+/* .service-hide {
     @max: (@screen-lg-min - 1px);
     @media screen and (max-width:@max) {
     display:none;
@@ -435,25 +432,14 @@ a, button
    }
   }
 
+*/  
+
   img {
     width: 100%
   }
 }
 
-#screen-services {
-}
 
-
-#screen-canvas-wrapper {
-  position: absolute;
-  left:60px;
-  top: 80px;
-  -webkit-transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
-  -moz-transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
-  transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
-    -o-transition: opacity 1s cubic-bezier(.02, .01, .47, 1);
-
-}
 
 /////////////////////////////////////////////////////////////////////////////////////// 
 // How we work section 
@@ -461,44 +447,43 @@ a, button
 
 #bubbles-wrapper {
   position: absolute;
-  left: 0%;
+  left: 0px;
   top: 0px;
-  width: 50%;
-  height: 100%;
+  bottom: 0px;
+  right: 0px;
+//  width: 100%;
+//   height: 100%;
 }
 
 #method {
   margin-top: 0;
-  padding: 5em 0;
-  height: 60em;
-//  background: url('http://192.168.1.6:3000/img/rain.png') no-repeat;
-  font-size: 6px;
+  position:relative;
+//  padding: 0; 
+ // padding causes bug in dolphin 
 
-  .panel-body {
-      color: #000 !important;
-     h4 {
-      color: #000;
-      font-size: 4em;
-     }
-     p {
-      color: #000;
-      font-size: 4em;
-     }
+  font-size: 10px;
+
+  .panel-body span {
+    font-size: 3em;
+  }  
+
+  > .row {
+    margin-top: 4em;
   }
-
-  #icons {
-   padding-top: 5em;
-   padding-bottom: 5em;
-   > .row {
-    margin-bottom: 5em;
-   }
-  } 
-
+  #icons > .row > div {
+    margin-bottom: 2em;
+  }
+  
   img {
     width: 100%;
   }
 
+  @media screen and (min-width:@screen-sm-min) {
+    height: 72em;
+    font-size: 8px;
+  }
   @media screen and (min-width:@screen-md-min) {
+    height: 60em;
     font-size: 8px;
   }
   @media screen and (min-width:@screen-lg-min) {
@@ -506,293 +491,417 @@ a, button
   }
 }
 
+///////////////////////////////////////////////////////////////////////////////////
+// Team Stlings
+///////////////////////////////////////////////////////////////////////////////////
 
+// Common stylings 
 
-////////////////////////////////////////////////////////////////////////////////////
-// Team Video 
-////////////////////////////////////////////////////////////////////////////////////
-
-video {
-  margin-top: 40px;
-  padding-left: 30px;
- width: 100%;
-  @media screen and (min-width:@screen-md-min) {
-    height:300px;
-  }
-
-  @media screen and (min-width:@screen-lg-min) {
-   height: 300px;
-  }
-}
-.video-box {
-
-}
-
-/////////////////////////////////////////////////////////////////////////////////// 
-// team section 
-/////////////////////////////////////////////////////////////////////////////////// 
-
-
-#screen-team {
+#screen-team,#team {
   p {
-    margin-top: 60px;
     font-family: 'Marck Script', cursive;
-
   }
+
   li {
     font-family: 'Dancing Script', cursive;
-    h4 {
-      font-size: 40px;
-    }
   }
-  #screen-team-photo {
-    padding-left:60px;
-    margin-bottom:30px;
-    margin-top:60px;
-  }
+
   ul {
-    list-style: none;
     font-size: 2.5em;
-    margin: 15px 0;
+    margin: 1em 0;
     text-align: center;
     letter-spacing: 0.1em;
     padding: 0;
   }
 
+  div > span {
+    font-family: 'Dosis', sans-serif;
+    font-size: 2em;
+  }
+
+
+  font-size: 7px;
+
+  @media screen and (min-width:@screen-xs-min) {
+    font-size: 9px;
+  }
+
+  @media screen and (min-width:@screen-sm-min) {
+    font-size: 10px;
+  }
+
+  @media screen and (min-width:@screen-md-min) {
+    font-size: 8px;
+  }
+ 
+  @media screen and (min-width:@screen-lg-min) { 
+    font-size: 10px;
+  }
 }
+
 
 #team {
-  
-  .row:last-child {
-    @media screen and (min-width:@screen-lg-min) {
-      margin-top: 30px;
-    }
-  }
-
-  .panel-body {
-    padding-top: 5px;
-  }
-
-  .team-profile-wrapper {
-    h3 {
-      margin: 0;
-      padding: 5px 0;
-      text-align: center;
-      color: @midnight;
-      font-family: 'Open Sans Condensed', sans-serif;
-      font-size: 23px;
-      @media screen and (min-width:@screen-lg-min) {
-        font-size: 20px;
-      }   
-    }
-  }
-
-  .img-profile {
-    text-align: center;
-    padding: 0;
-  }
-
-  img {
-    width: 100%;
-  }
-}
-
-  .img-placeholder {
-    padding:15px;
-    background: url('http://192.168.1.6:3000/img/polka-1-2.png') #fff;
-  }
-
-////////////////////////////////////////////////////////////////////////////////
-// Project section
-////////////////////////////////////////////////////////////////////////////////
-
-#project {
-  margin-top: 100px;
-  margin-bottom: 300px;
+  width: 90%;
   .row {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    text-align: center;
+    margin-top: 3em;
+
+    > div {
+      text-align: center;
+      > button {
+        padding: 0;
+        display: none;
+        @media screen and (min-width:@screen-sm-min) {
+          display: block;
+        }
+        > img {
+          width: 100%;
+        }
+      }
+
+      .img-placeholder {
+        padding:1.5em;
+        background: url('http://192.168.1.6:3000/img/polka-1-2.png') @white;
+      }
+      h4 {
+        font-size: 2em;
+      }
+      img {
+        width: 150px;
+      }
+    }
   }
-  img {
+
+  @media screen and (min-width:@screen-xs-min) {
+    img {
+      width: 170px;
+    }    
+  }
+
+}
+
+#screen-team {
+
+  #screen-team-wrapper {
     display: inline-block;
-    width: 80%;
     vertical-align: middle;
+    #screen-team-photo {
+      text-align: center;
+      img {
+        width: 20%;    
+      }
+      h4 {
+       font-size: 1.5em;
+      }
+      > div:last-child {
+        margin-left: 3em;
+      }
+    }
   }
-  h3 {
-   font-family: 'Dosis', sans-serif;
-   font-size: 20px;
+
+  &:before {
+    content:'';
+    height:100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: -0.5em;
+  }
+
+
+  #screen-team-text {
+    p {
+      margin-top: 0em;
+    }
+  }
+
+  @media screen and (min-width:@screen-sm-min) {
+    #screen-team-wrapper #screen-team-photo img {
+      width: 130px;
+    }    
+  }
+
+  @media screen and (min-width:@screen-md-min) {
+  }
+
+  @media screen and (min-width:@screen-lg-min) {
+    #screen-team-wrapper #screen-team-photo img {
+      width: 140px;
+    }
+    font-size: 10px;
   }
 
 }
 
-.project-thumbnail:before {
-  content:'';
-  height: 100%;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: -0.25em;
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Project Stylings
+////////////////////////////////////////////////////////////////////////////////
+
+#project-screen {
+  .row {
+    margin-top: 5em;
+    text-align: center;
+    > .project {
+      height: 22em;
+      margin-top: 2em;
+      margin-bottom: 2em;
+
+     .project-wrapper {
+        display: inline-block;
+        vertical-align: middle;
+        h3 {
+          margin: 0;
+          margin-top: 1em;
+          font-family: 'Dosis', sans-serif;
+          font-size: 2em;
+        }
+        img {
+          width: 200px;
+        }
+      }
+    }
+
+    .img-placeholder {
+      padding:0em;
+      background: url('http://192.168.1.6:3000/img/polka-1-2.png') @white;
+      vertical-align: top !important;
+    }
+
+    .project:before {    
+      content:'';
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: -0.5em;    
+    }
+  }
+
+  font-size: 10px;
+// column display 
+  @media screen and (min-width:@screen-xs-min) {
+    .row > .project > .project-wrapper > img {
+      width: 270px;
+    }
+    font-size: 12px;
+  }
+
+  @media screen and (min-width:@screen-sm-min) {
+    .row > .project > .project-wrapper > img {
+      width: 190px;
+    }
+    font-size: 8px;
+  }
+
+/*  @media screen and (min-width:@screen-md-min) {
+    .project > .project-wrapper > img {
+      width: 190px;
+    }
+    font-size: 8px;
+  }
+*/
+  @media screen and (min-width:@screen-lg-min) {
+    .row > .project > .project-wrapper > img {
+      width: 237px;
+    }
+    font-size: 10px;
+  }
 }
 
- .project-thumbnail {
-   margin: 0 auto;
-
-   @media screen and (min-width:@screen-md-min){
-   .thumbnail(0px,250px,200px);
- }
-
-   @media screen and (min-width:@screen-lg-min){
-   .thumbnail(0px,350px,200px);
- }
-
- }
 
 ///////////////////////////////////////////////////////////////////////////////
 // Footer section
 ///////////////////////////////////////////////////////////////////////////////
 
 .footer-background {
-  margin: 0 auto;
-  bottom: 0px;
-  width:100%;
-  height: 350px;
-  background: url('http://192.168.1.6:3000/img/stripe2.png') fixed;
-
+  padding: 0;
+  height: 400px;
+  background: url('http://192.168.1.6:3000/img/stripe2.png');
   .row {
+    position:relative;
+    z-index: 10;
     margin: 0;
-    padding: 0 15px;
+    padding: 0;
     height: 100%;
     opacity: 0.9;
-
-    background-color: #fff;
+    background: @white;
   }
-
 }
 
 
-#social,#footer {
-  margin: 0 auto;
-  background: url('http://192.168.1.6:3000/img/stripe.png') fixed;
-  width: 100%;
-  position:relative;  
-  
+//////////////////////////////////////////////////////////////////////////////////
+// Social ads Stylings
+//////////////////////////////////////////////////////////////////////////////////
 
- h5 {
-    text-align: center;
-    margin: 0;
-    color: @midnight;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 22px;
-    height: 40px;
-  }
+#social-ads {
+  background: url('http://192.168.1.6:3000/img/stripe.png');
 
-  h3 {
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-size: 30px;
-  }
-
-  #social-ads {
-    background-color: #fff;
+  #social-ads-wrapper {
+    background-color: @white;
     opacity: 0.9;
 
-    > .row > div {
-     height: 350px;
+    .social-banner {
+      text-align: center;
+      height: 50em;
+      padding: 0 1.5em;
+      padding-top: 3em;
+      img {
+        width: 205px;
+      }
+      h3, a {
+        color: @white !important;
+      }  
+      h3 {
+        margin: 0;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        font-family: 'Lato', sans-serif;
+        font-size: 3em;
+      }
+  
+      .social-logos-wrapper {
+        text-align: center;
+      }
+
+      .social-button-wrapper {
+        margin-top: 20px;
+        height: 5em;
+      }
+
+      .social-banner-wrapper {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    .social-banner:before {
+      content:'';
+      height: 100%;
+      margin-left: -1em;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  
+  @media screen and (min-width:@screen-xs-min) {
+    #social-ads-wrapper .social-banner img {
+       width: 220px;
+    }
+    font-size: 8px;
+  }
+
+  @media screen and (min-width:@screen-sm-min) {
+    #social-ads-wrapper .social-banner img {
+      width: 192px;
+    }
+    font-size: 8px;
+  }
+
+  @media screen and (min-width:@screen-md-min) {
+    #social-ads-wrapper .social-banner img {
+       width: 220px;
+    }
+    font-size: 10px;
+  }
+
+  @media screen and (min-width:@screen-lg-min) {
+    #social-ads-wrapper .social-banner img {
+       width: 170px;
+    }
+    font-size: 10px;
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+// Footer Stylings
+/////////////////////////////////////////////////////////////////////////////////
+
+
+#footer {
+  position:relative;  
+  background: url('http://192.168.1.6:3000/img/stripe.png') ;
+
+  #footer-wrapper {
+    background-color: @white;
+    opacity: 0.95;
+    > div > ul > li {
+      background: none; // fix for Dolphin browser
+    }
+    > div:last-child {
+      height: 8em;
+      font-family: 'Dosis', sans-serif;
+      font-size: 1.5em;
+      span {
+         padding: 1em 1.5em;
+      }
+    }
+
+    .contact-type {
+     display: block;
+     width: 6em;
+     margin: 0 auto;
+    }
+  
+    .logo {
+      display: inline-block;
+      vertical-align: middle;
+      width: 52px;
+      padding: 0 0.5em;
+    }
+  
+    #cinc-ad {
+      > ul > li:first-child {
+      display: none;      
+      }
     }
 
     .brand-icons {
-      height: 80px;
-    }
-  
-    #less-anchor {
-     line-height: 52px;
-     vertical-align: middle;
+      margin: 4em 0; 
+      margin-top: 0;
+      height: 8em;
     }
 
-    #gplus-ad {
-      div {
-        position:relative;
-        left: 5%;   
-        h3 {
-         color: #fff;
-         margin-top: 20px;
-         margin: 10px 10%;
-        }
-      }
-    }
-
-    @media screen and (min-width:@screen-lg-min) {
-     .brand-icons {
-       height: 80px;
-       margin-top: 0px;
-      }
-      #gplus-ad {
-       height: 150px;
-      }
+    .brand-icons:before {
+      content:'';
+      height:100%;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: -0.5em;
     }
   }
 
 
-  #footer-links {
-    background-color: #fff;
-    opacity: 0.95;
-    height: 450px;
-    li {
-      background-color: #fff;
-      color: #000;
+  @media screen and (min-width:@screen-xs-min) {
+    #footer-wrapper .logo {
+        width:75px;
     }
-    a {
-      color: #000 !important;
-    }
-    #cinc-ad {
-              text-align: center;
+  }
 
-      h5,span {
-        font-family: 'Dosis', sans-serif;
-        font-size: 20px;
+  @media screen and (min-width:@screen-sm-min) {
+    #footer-wrapper {
+      > div {
+        height: 35em;
       }
 
-    }
-  }
-  
+      #cinc-ad .brand-icons {
+        margin: 3em 0;
+      }
 
-  .logo {
-    display: inline-block;
-    vertical-align: middle;
-    width: 100%;
-    @media screen and (min-width: @screen-lg-min) {
-      width: 80%;
-    }
-  }
-  
-  #footer-contact {
-    .contact-type {
-      display: block;
-      width: 60px;
-      margin: 0 auto;
+      .logo {
+        width:65px;
+      }
     }
   }
 
-
-  #footer-legal {
-    background-color: #fff;
-    opacity: 0.95;
-    font-family: 'Dosis', sans-serif;
-    font-size: 15px;
-    padding: 10px 15px;
-
-  }
-  #cinc-ad {
-    h5 {
-      margin-top: 10px;
+  @media screen and (min-width:@screen-lg-min) {
+    #footer-wrapper .logo {
+      width:70px;
     }
-    .row {
-      margin-top: 50px;
-      margin-bottom: 50px;
-    }
+    font-size: 10px;
   }
 }
-#footer {
-  background: url('http://192.168.1.6:3000/img/stripe2.png') fixed;
-}
+
+
+
 
