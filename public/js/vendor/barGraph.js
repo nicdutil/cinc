@@ -15,7 +15,6 @@
 function BarGraph(ctx) {
 
     // Private properties and methods
-
     var that = this;
     var startArr;
     var endArr;
@@ -41,19 +40,20 @@ function BarGraph(ctx) {
                 animationComplete = false;
             }
         }
+
         // If no change was made to any bars then we are done
         if (animationComplete) {
             looping = false;
         } else {
             // Draw and call loop again
-            drawHorizontal(that.curArr);
+            draw(that.curArr);
             setTimeout(loop, that.animationInterval / that.animationSteps);
         }
     };
 
     // Draw method updates the canvas with the current display
 
-	drawHorizontal = function (arr) {
+	draw = function (arr) {
 	
 			var numOfBars = arr.length,
 				barWidth,
@@ -61,7 +61,6 @@ function BarGraph(ctx) {
 				border = 2,
 				ratio,
 				maxBarHeight,
-				gradient,
 				largestValue,
 				graphAreaX = 0,
 				graphAreaY = 0,
@@ -89,13 +88,7 @@ function BarGraph(ctx) {
 			maxBarHeight = graphAreaHeight - 25;
 			
 			// Determine the largest value in the bar array
-			var largestValue = 0;
-			for (i = 0; i < arr.length; i += 1) {
-				if (arr[i] > largestValue) {
-					largestValue = arr[i];	
-				}
-			}
-			
+			var largestValue = barMax = Math.max.apply(Math,arr);
 			// For each bar
 			for (i = 0; i < arr.length; i += 1) {
 				
@@ -107,35 +100,10 @@ function BarGraph(ctx) {
 				}
 				
 				barHeight = ratio * maxBarHeight;
+									
+				if (barHeight > border * 2) {				
+					ctx.fillStyle = that.colors[i % that.colors.length];
 				
-				// Turn on shadow
-				ctx.shadowOffsetX = 2;
-				ctx.shadowOffsetY = 2;
-				ctx.shadowBlur = 2;
-				ctx.shadowColor = "#999";
-					
-				// Draw bar background
-				ctx.fillStyle = "#333";			
-				ctx.fillRect(that.margin + i * that.width / numOfBars,
-					graphAreaHeight - barHeight,
-					barWidth,
-					barHeight);
-		
-				// Turn off shadow
-				ctx.shadowOffsetX = 0;
-				ctx.shadowOffsetY = 0;
-				ctx.shadowBlur = 0;
-				
-				// Draw bar color if it is large enough to be visible
-				if (barHeight > border * 2) {
-				
-					// Create gradient
-					gradient = ctx.createLinearGradient(0, 0, 0, graphAreaHeight);
-					gradient.addColorStop(1 - ratio, that.colors[i % that.colors.length]);
-					gradient.addColorStop(1, "#ffffff");
-					ctx.fillStyle = gradient;
-					
-					// Fill rectangle with gradient
 					ctx.fillRect(that.margin + i * that.width / numOfBars + border,
 						graphAreaHeight - barHeight + border,
 						barWidth - border * 2,
@@ -167,6 +135,7 @@ function BarGraph(ctx) {
 				}
 			}
 		};
+
 
     var drawVertical = function(arr) {
 
@@ -241,23 +210,21 @@ function BarGraph(ctx) {
         }
     };
 
+
     // Public properties and methods
-
-
-
     this.width;
     this.height;
     this.maxValue;
     this.margin = 5;
-//    this.colors = ["#354774", "#C0392B", "#27AE60", "#E5C454"];
     this.colors = ["#354774", "#C0392B", "#27AE60", "#E5C454"];
-//    this.colors = ["purple", "red","green" ,"yellow"];
     this.curArr = [];
     this.backgroundColor = "#fff";
     this.xAxisLabelArr = [];
     this.yAxisLabelArr = [];
     this.animationInterval = 400;
     this.animationSteps = 40;
+    this.orientation = 'horizontal';
+
 
     // Update method sets the end bar array and starts the animation
     this.update = function(newArr) {

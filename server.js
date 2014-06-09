@@ -4,7 +4,7 @@ var express = require('express'),
 app.use(express.logger());
 
 
-app.set('title', 'Docteur Quantum - Votre specialiste des sciences et technologies');
+app.set('title', 'Cinc - Firme Informatique - Technologie Web - Minage - Visualisation');
 
 
 app.get('/', function(req, res){

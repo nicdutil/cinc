@@ -1,59 +1,134 @@
 
 
 @import  "variables.less";
-@import  "fonts.less";
-@import  "boilerplate.css";
 @import  "utils.less";
 @import  "navbar.less";
-@import  "responsive.less";
 @import  "modals.less";
 @import  "navigation.less";
 @import  "bs_overrides.less";
 @import  "lists.less";
-@import  "videos.less";
-@import  "gmap.less";
 
 
-html, body{
-// overflow-x: hidden !important;
- width: 100% !important;
- height: 100% !important;
- margin: 0px !important;
- padding: 0px !important;
- font-size: 10px !important;
- position: relative;
- z-index: 10;
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// Boileplate Stylings 
+/////////////////////////////////////////////////////////////////////////////////////////////
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
 }
 
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #888;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+audio, canvas, img, video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical;
+}
 ///////////////////////////////////////////////////////////////////////////////////////////
-// html stylings
+// Additional html stylings
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+a {
+  text-decoration: none !important;
+}
 a, button
 {
     -ms-touch-action: manipulation; /* IE10  */
     touch-action: manipulation;     /* IE11+ */
 }
 
- button {
-  padding-bottom: 10px;
+button {
+  padding: 0;
   border: none;
- }
+}
 
 ul {
   list-style: none;
   padding: 0;
 }
 
+h1,h2,h3,h4,h5,h6 {
+  font-weight: normal;
+  margin: 0;
+}
+
+html, body{
+// overflow-x: hidden !important;
+ position: relative;
+ z-index: 10;
+ width: 100% !important;
+ height: 100% !important;
+ margin: 0px !important;
+ padding: 0px !important;
+}
+
 /////////////////////////////////////////////////////////////////////////////////////
-// Separators
+// Font Sizes 
 /////////////////////////////////////////////////////////////////////////////////////
 
+// mobile 
+body {
+  font-size: 6px !important;
+  // single column display, landscape mobile screen 
+  @media screen and (min-width:@screen-xs-min) {
+    font-size: 8px !important;
+  }
+  // tablet portrait and landscape  
+  @media screen and (min-width:@screen-sm-min) {
+    font-size: 8px !important;
+  }
+  // laptop, desktop 
+  @media screen and (min-width:@screen-lg-min) {
+    font-size: 10px !important;
+  }
+}
 
 //////////////////////////////////////////////////////////////////////////////////////// 
 // Thumbnail Stylings
 //////////////////////////////////////////////////////////////////////////////////////// 
-
 
 .thumbnail(@radius, @width, @height) {
   margin: 0 auto;
@@ -65,129 +140,108 @@ ul {
 }
 
 .square-thumbnail {
-
- .thumbnail(@radius:0px, @width:12em , @height: 12em );
-
-  @media screen and (min-width: @screen-sm-min) {
-    }
-  @media screen and (min-width: @screen-md-min) {
-    }
-  @media screen and (min-width: @screen-lg-min) {
-    }     
+ .thumbnail(@radius:0px, @width:10em , @height: 10em );
 }
 
-.rounded-thumbnail {
-  margin: 0 auto;
-  border: 1px solid;
-  text-align: center;
-
-// .thumbnail(@radius:18px, @width:150px , @height: 150px );
-     .thumbnail(@radius:2.4em,@width:13em,@height:13em);
-  @media screen and (min-width: @screen-sm-min) {
-  //     .thumbnail(@radius:20px, @width: 120px, @height: 120px )
-    }
-  @media screen and (min-width: @screen-md-min) {
-    //   .thumbnail(@radius:20px, @width: 150px, @height: 150px);
-    }
-  @media screen and (min-width: @screen-lg-min) {
-    }     
+.mobile-thumbnail {
+  .thumbnail(@radius:0px, @width:25em, @height: 25em);
 }
 
 .method-thumbnail,.service-thumbnail {
- .square-thumbnail;
+ .mobile-thumbnail;
+ @media screen and (min-width:@screen-sm-min) {
+   .square-thumbnail
+ }
 }
 
 .team-thumbnail {
-  .thumbnail(0px,10em,10em);
-//  .square-thumbnail;
+  .square-thumbnail;
 }
-
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // Panel Styling
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-.panel {
-  margin-bottom: 0px !important;
-  background: none !important;
-  font-size: 8px;
+.content-block {
+  padding-top: 0.5em;
+  color: @black;
   letter-spacing: 0.1em;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
 
+  h3,h4,p,ul, li {
+    text-align: center;
+  }
+
+  span {
+    display: inline-block;
+    font-size: 3.8em;
+    padding-top: 0.5em;
+  }
   h4 {
     font-family:'Lato', 'sans-serif';
     font-weight: bold;
-    font-size: 2.3em;
-    color: @black;
+    font-size: 4em;
+    letter-spacing: 0.1em
   } 
   
   h3 {
-    font-family: 'Dosis', sans-serif;
     font-size: 2em;
   }
 
   p {
-    color: @black;
-    font-size: 2.2em;
+    font-size: 3.8em;
+
   }
 
- // remove when removing bootstrap h1 stylings
-
-  @media screen and (min-width: @screen-sm-min) {
-    font-size: 8px;
+  > div.text-title {
+    font-family: 'Lato', 'sans-serif';
+    font-size: 4em;
   }
-
-  @media screen and (min-width: @screen-md-min) {
-    font-size: 8px;
+  ul {
+    margin: 0.5em 0;
+    font-size: 3.6em;
+    letter-spacing: 0.1em;
   }
-  @media screen and (min-width:@screen-lg-min) {
-    font-size: 10px;
-  }
+  li {
+    margin: 0.5em 0;
+  }  
 
-}
-
-.panel-body {
-    padding-top: 0.5em;
-    font-family: 'Dosis', sans-serif;    
-    color: @black;
-
-    ul {
-      margin: 0.5em 0;
+  @media screen and (min-width:@screen-sm-min) {
+     ul {
+      font-size: 2.4em;
+     }
+     p {
       font-size: 2.2em;
-      text-align: center;
-      letter-spacing: 0.1em;
-    }
-
-    li {
-      margin: 1em 0;
-    }
+     }
+     span {
+      font-size: 2.8em;
+     }
+     h4 {
+      font-size: 2.4em;
+     }
+  }
 }
 
-.panel-heading {
-  padding: 0.5em 1.5em !important;
+.button-caption {
   text-align: center;
-  background: none !important;
-  .panel-title {
-    font-size: 3em;
-    @media screen and (min-width:@screen-sm-min) {
-      font-size: 2em;
-    }
-/*    @media screen and (min-width:@screen-md-min) {
-      font-size: 2em;
-    }
-    @media screen and (min-width:@screen-lg-min) {
-      font-size: 2em;
-    }
-*/  }
+  font-family: 'Dosis', sans-serif;    
+  font-size: 4em;   
+  margin: 0;
+
+  @media screen and (min-width:@screen-sm-min) {
+    font-size: 2em;
+  }
 }
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Banner Ads Styling
 //////////////////////////////////////////////////////////////////////////////////////////
 
 .banner {
-  background: url('http://192.168.1.6:3000/img/tile.png') right top #f2f4f7;
+  background: url('../img/tile.png') right top #f2f4f7;
 
   h2 {
     padding:1em 0;
@@ -206,8 +260,7 @@ ul {
     letter-spacing: 0.1em;
   }
   
-  font-size: 5px;
-
+/*  font-size: 5px;
   @media screen and (min-width:@screen-sm-min) {
     font-size: 8px;
   }
@@ -219,7 +272,7 @@ ul {
   @media screen and (min-width:@screen-lg-min)  {
     font-size: 10px;
   }
-
+*/
 }
 
 
@@ -227,7 +280,8 @@ ul {
 // Button styling for services, method, team sections
 ////////////////////////////////////////////////////////////////////////////////////////
 
-#services, #method, #team {
+#services, #screen-method, #team {
+
   .selected-button {
     border-bottom: 2px solid @blue;
   }
@@ -235,10 +289,14 @@ ul {
   button {
     display: block;
     background: none !important;
+    padding: 0.8em;
+    img {
+      width: 100%;
+    }
   }
 
   
-  @media screen and (min-width: @screen-sm-min) {
+/*  @media screen and (min-width: @screen-sm-min) {
     font-size: 8px;
   }
 
@@ -248,6 +306,7 @@ ul {
   @media screen and (min-width:@screen-lg-min) {
     font-size: 10px;
   }
+*/
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -269,20 +328,10 @@ ul {
 
 
 #screen-canvas-wrapper {
-  position: absolute;
-
   -webkit-transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
   -moz-transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
   transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
   -o-transition: opacity 1s cubic-bezier(.02, .01, .47, 1);
-
-  left: 60px;
-  top: 40%;
-  @media screen and (min-width:@screen-md-min) {
-  left:60px;
-  top: 80px;
-}
-
 }
 
 #services canvas {
@@ -291,42 +340,23 @@ ul {
 }
 
 
-#screen-services,#screen-team,#project {
-  margin-top: 6em;
+#screen-services,#screen-team,#screen-project {
+  margin-top: 2em;
   padding-top: 2em;
-
-  font-size: 6px;
-  
-/*  img {
-       width: 80%;
-  }
-*/  
-
-  canvas {
-    width: 50em;
-    height: 40em;
-  }
-
-  @media screen and (min-width: @screen-xs-min) {
-    font-size: 10px;
-    height: 80em;
-  }
-  
+    
   @media screen and (min-width: @screen-sm-min) {
-    font-size: 8px;
-    height: 80em;
+    height: 640px;
   }
 
   @media screen and (min-width: @screen-md-min) {
-    font-size: 7px;
-    height: 60em; 
+    height: 420px; 
   }
 
   @media screen and (min-width:@screen-lg-min) {
-    font-size: 10px;
+    height: 600px;
   }
-
 }
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Top padding div 
@@ -343,56 +373,86 @@ ul {
 // Top div styling
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-.cadre {
-  padding: 0 !important;
+#top.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
 
+  @media screen and (min-width:@screen-sm-min) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.cadre {
+  margin: 0 auto;
+  padding: 0 !important;
   position: relative;
 
   h3 {
     font-family: 'Open Sans Condensed', sans-serif;
     letter-spacing: 0.2em;
-    font-size: 4em;
+    font-size: 3.5em;
     margin: 0.4em 0;
   } 
 
-  font-size: 6px;
-  height:36em;
+  height:211px;
+  width: 100%;
+
+  @media screen and (min-width:@screen-xs-min) {
+   height: 274px;
+  }
 
   @media screen and (min-width:@screen-sm-min) {
     border-radius: 2em;
     border: 1px solid #000;
-    width: 95%;
-    margin:0 auto;
-    font-size: 7px;
-    height: 56em;
+    height: 311px;
+    width: 744px;
   }
   
   @media screen and (min-width:@screen-md-min) {
-   margin: 0;
-   width: 100%;
-   font-size: 8px;
+   width: 900px;
+   height: 382px;
   }
 
   @media screen and (min-width:@screen-lg-min) {
-   font-size: 10px;
+    height: 451px;
+    width: 1088px;
+  }
+
+  @media screen and (min-width:@screen-wide-min) {
+    height: 520px;
+    width: 1311px;
   }
 
 }
 
 
 .slide {
-//  margin: 0 auto;
-  padding: 0.5em;
   position:absolute;
+  padding: 2px;
   
-  height: 30em; // take into account width = 100%
+  height: 144px; // take into account width = 100%
   width: 100%;
-  @media screen and (min-width:@screen-sm-min) {
 
-    padding: 1.5em;
-    height: 50em;
+  @media screen and (min-width:@screen-xs-min) {
+    height: 224px;
   }
 
+  @media screen and (min-width:@screen-sm-min) {
+    padding: 1.5em;
+    height: 266px;
+  }
+
+  @media screen and (min-width:@screen-md-min) {
+    height: 322px;
+  }
+
+  @media screen and (min-width:@screen-lg-min) {
+    height: 391px;
+  }
+
+  @media screen and (min-width:@screen-wide-min) {
+    height: 460px;
+  }
 
   img {
     height: 100%;
@@ -404,39 +464,81 @@ ul {
 // Services Stylings
 /////////////////////////////////////////////////////////////////////////////////////////
 
-#services.container-fluid {
-  @media screen and (min-width:@screen-sm-min) {
-    width:80%;
-  }
-}
-
 #services {
-
-/* .service-hide {
-    @max: (@screen-lg-min - 1px);
-    @media screen and (max-width:@max) {
-    display:none;
+    #website-photo {
+      position: relative;
+      left: -1%;
     }
-  }
- 
- .service-display {
-    @media screen and (min-width:@screen-lg-min) {
-       display:none;
+    img {
+      width: 100%;
     }
   }
 
- .service-icons {
-   margin-bottom: 0px;
-   @media screen and (min-width:@screen-lg-min) {
-    height: 100%;
-   }
+
+#screen-services {
+  
+  #screen-services-visual {
+    margin-top: 2em;
   }
 
-*/  
+  #screen-services-text {
+    margin-top: 2em;
+  }
 
+  #screen-services-visual #website-photo {
+    position:relative;
+    left: -20px;
+  }
   img {
-    width: 100%
+      width: 600px;
+    }
+
+  @media screen and (min-width:@screen-md-min) {
+    #screen-services-visual #website-photo {
+      left: 0px;
+    }
+
+    #screen-services-visual {
+      margin-top: 5em;
+    }
+    #screen-services-text {
+      margin-top: 5em;
+    }
+    img { 
+      width: 450px;
+    }
   }
+
+  @media screen and (min-width:@screen-lg-min) {
+    #screen-services-visual #website-photo {
+      left: -10px;
+    }
+
+  #screen-services-visual {
+    margin-top: 8em;
+  }
+  #screen-services-text {
+    margin-top: 8em;
+  }
+
+    img { 
+      width: 600px;
+    }
+  }
+
+  @media screen and (min-width:@screen-wide-min) {
+
+  #screen-services-visual {
+    margin-top: 8em;
+  }
+  #screen-services-text {
+    margin-top: 8em;
+  }
+    img { 
+      width: 700px;
+    }
+  }
+
 }
 
 
@@ -455,23 +557,24 @@ ul {
 //   height: 100%;
 }
 
-#method {
+
+#screen-method {
   margin-top: 0;
   position:relative;
+//  width: 100%;
 //  padding: 0; 
  // padding causes bug in dolphin 
-
-  font-size: 10px;
-
-  .panel-body span {
-    font-size: 3em;
-  }  
-
-  > .row {
-    margin-top: 4em;
+ // font-size: 10px;
+  
+  #screen-method-text,#icons {
+    margin-top: 80px;
   }
+/*  #icons {
+    margin-top: 80px;
+  }  
+*/
   #icons > .row > div {
-    margin-bottom: 2em;
+    margin-bottom: 16px;
   }
   
   img {
@@ -479,17 +582,39 @@ ul {
   }
 
   @media screen and (min-width:@screen-sm-min) {
-    height: 72em;
-    font-size: 8px;
+    #icons {
+      margin-top: 50px;
+    }
+    #screen-method-text {
+      margin-top: 40px;
+    }
+    height: 576px;
+
   }
   @media screen and (min-width:@screen-md-min) {
-    height: 60em;
-    font-size: 8px;
+        #icons {
+      margin-top: 80px;
+    }
+    #screen-method-text {
+      margin-top: 80px;
+      margin-left: -20px;
+    }
+    height: 480px;
   }
   @media screen and (min-width:@screen-lg-min) {
-    font-size: 10px;
+    #icons {
+      margin-top: 140px;
+    }
+    #screen-method-text {
+      margin-top: 120px;
+      margin-left: -20px;
+    }    
+    height: 600px;
   }
+
+
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Team Stlings
@@ -497,45 +622,22 @@ ul {
 
 // Common stylings 
 
+
 #screen-team,#team {
   p {
     font-family: 'Marck Script', cursive;
   }
 
-  li {
+  ul li {
     font-family: 'Dancing Script', cursive;
   }
 
   ul {
     font-size: 2.5em;
-    margin: 1em 0;
+    margin: 0.5em 0;
     text-align: center;
     letter-spacing: 0.1em;
     padding: 0;
-  }
-
-  div > span {
-    font-family: 'Dosis', sans-serif;
-    font-size: 2em;
-  }
-
-
-  font-size: 7px;
-
-  @media screen and (min-width:@screen-xs-min) {
-    font-size: 9px;
-  }
-
-  @media screen and (min-width:@screen-sm-min) {
-    font-size: 10px;
-  }
-
-  @media screen and (min-width:@screen-md-min) {
-    font-size: 8px;
-  }
- 
-  @media screen and (min-width:@screen-lg-min) { 
-    font-size: 10px;
   }
 }
 
@@ -560,43 +662,37 @@ ul {
 
       .img-placeholder {
         padding:1.5em;
-        background: url('http://192.168.1.6:3000/img/polka-1-2.png') @white;
+        background: url('../img/polka-1-2.png') @white;
       }
       h4 {
         font-size: 2em;
       }
-      img {
-        width: 150px;
+      span {
+        font-size: 1.5em;
       }
+      p {
+        // diminimish because of cursive family
+        font-size: 3em;   
+      }
+      .member-photo {
+        max-width: 205px;
+        width: 40%;
+      }
+      .email-icon {
+        width: 50px;
+      }
+
     }
   }
+}
 
-  @media screen and (min-width:@screen-xs-min) {
-    img {
-      width: 170px;
-    }    
-  }
-
+.screen-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  width:100%;
 }
 
 #screen-team {
-
-  #screen-team-wrapper {
-    display: inline-block;
-    vertical-align: middle;
-    #screen-team-photo {
-      text-align: center;
-      img {
-        width: 20%;    
-      }
-      h4 {
-       font-size: 1.5em;
-      }
-      > div:last-child {
-        margin-left: 3em;
-      }
-    }
-  }
 
   &:before {
     content:'';
@@ -606,29 +702,46 @@ ul {
     margin-left: -0.5em;
   }
 
+  #screen-team-photo {
+    text-align: center;
+    .member-photo {
+        width: 20%;    
+    }
+    .email-icon {
+      width: 40px;
+    }
+    h4 {
+      font-size: 1.5em;
+    }
+  }
 
   #screen-team-text {
     p {
-      margin-top: 0em;
+      margin-top: 1em;
     }
-  }
-
-  @media screen and (min-width:@screen-sm-min) {
-    #screen-team-wrapper #screen-team-photo img {
-      width: 130px;
-    }    
   }
 
   @media screen and (min-width:@screen-md-min) {
+    #screen-team-text p {
+      margin-top: 0;
+    }
+    #screen-team-photo .member-photo {
+      width: 30%;
+    }
   }
 
   @media screen and (min-width:@screen-lg-min) {
+    #screen-team-wrapper #screen-team-photo .member-photo {
+      width: 40%;
+    }
+  }
+
+/*  @media screen and (min-width:@screen-lg-min) {
     #screen-team-wrapper #screen-team-photo img {
       width: 140px;
     }
-    font-size: 10px;
   }
-
+*/
 }
 
 
@@ -637,33 +750,42 @@ ul {
 // Project Stylings
 ////////////////////////////////////////////////////////////////////////////////
 
-#project-screen {
+#screen-project {
+  &:before {
+    content:'';
+    height:100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: -0.5em;
+  }
+
   .row {
-    margin-top: 5em;
     text-align: center;
     > .project {
-      height: 22em;
-      margin-top: 2em;
-      margin-bottom: 2em;
 
      .project-wrapper {
         display: inline-block;
         vertical-align: middle;
+        margin-bottom: 40px;
         h3 {
           margin: 0;
           margin-top: 1em;
           font-family: 'Dosis', sans-serif;
-          font-size: 2em;
+          font-size: 4em;
+        }
+        h5 {
+          margin-top: 0.5em;
+          font-size: 3em;
         }
         img {
-          width: 200px;
+          width: 100%;
         }
       }
     }
 
     .img-placeholder {
       padding:0em;
-      background: url('http://192.168.1.6:3000/img/polka-1-2.png') @white;
+      background: url('../img/polka-1-2.png') @white;
       vertical-align: top !important;
     }
 
@@ -676,34 +798,33 @@ ul {
     }
   }
 
-  font-size: 10px;
-// column display 
-  @media screen and (min-width:@screen-xs-min) {
-    .row > .project > .project-wrapper > img {
-      width: 270px;
-    }
-    font-size: 12px;
-  }
-
   @media screen and (min-width:@screen-sm-min) {
-    .row > .project > .project-wrapper > img {
-      width: 190px;
+    .row > .project {
+      height: 176px;
+      margin-top: 2em;
+      margin-bottom: 2em;
+      > .project-wrapper {
+        margin-bottom: 0em;
+        img {
+          width: 190px;
+        }
+        h3 {
+          font-size: 2em;
+        }
+        h5 {
+          font-size: 1.5em;
+        }
+      }
     }
-    font-size: 8px;
   }
-
-/*  @media screen and (min-width:@screen-md-min) {
-    .project > .project-wrapper > img {
-      width: 190px;
-    }
-    font-size: 8px;
-  }
-*/
+  
   @media screen and (min-width:@screen-lg-min) {
-    .row > .project > .project-wrapper > img {
-      width: 237px;
+    .row > .project {
+      height: 220px;
+      > .project-wrapper > img {
+        width: 237px;
+      }
     }
-    font-size: 10px;
   }
 }
 
@@ -715,7 +836,7 @@ ul {
 .footer-background {
   padding: 0;
   height: 400px;
-  background: url('http://192.168.1.6:3000/img/stripe2.png');
+  background: url('../img/stripe2.png');
   .row {
     position:relative;
     z-index: 10;
@@ -733,7 +854,7 @@ ul {
 //////////////////////////////////////////////////////////////////////////////////
 
 #social-ads {
-  background: url('http://192.168.1.6:3000/img/stripe.png');
+  background: url('../img/stripe.png');
 
   #social-ads-wrapper {
     background-color: @white;
@@ -741,17 +862,15 @@ ul {
 
     .social-banner {
       text-align: center;
-      height: 50em;
-      padding: 0 1.5em;
-      padding-top: 3em;
+      padding: 3em 1.5em;
       img {
-        width: 205px;
+        width: 60%;
       }
       h3, a {
         color: @white !important;
       }  
+
       h3 {
-        margin: 0;
         display: inline-block;
         vertical-align: middle;
         text-align: center;
@@ -759,13 +878,37 @@ ul {
         font-size: 3em;
       }
   
-      .social-logos-wrapper {
-        text-align: center;
+      #gplus {
+        position:relative;
+        left: 5%;
+
+        @media screen and (min-width:@screen-sm-min) {
+          left: 7%;
+        }
+
+        @media screen and (min-width:@screen-md-min) {
+          left: 5%;
+        }
       }
 
       .social-button-wrapper {
         margin-top: 20px;
-        height: 5em;
+      }
+
+      .iframe-offset {
+        position:relative;
+
+        left: 4%;
+       @media screen and (min-width:@screen-sm-min) {
+        left: 5%;
+       }
+
+        @media screen and (min-width:@screen-md-min) {
+        left: 3%;
+       }
+        @media screen and (min-width:@screen-lg-min) {
+        left: 5%;
+      }
       }
 
       .social-banner-wrapper {
@@ -783,33 +926,34 @@ ul {
     }
   }
 
-  
-  @media screen and (min-width:@screen-xs-min) {
-    #social-ads-wrapper .social-banner img {
-       width: 220px;
-    }
-    font-size: 8px;
-  }
-
   @media screen and (min-width:@screen-sm-min) {
-    #social-ads-wrapper .social-banner img {
-      width: 192px;
+    #social-ads-wrapper .social-banner {
+      height: 400px;
+      .social-button-wrapper {
+        margin-top: 20px;
+        height: 5em;
+      }
+      img {
+        width: 192px;
+      }
     }
-    font-size: 8px;
   }
 
   @media screen and (min-width:@screen-md-min) {
-    #social-ads-wrapper .social-banner img {
+    #social-ads-wrapper .social-banner  {
+      height: 500px;
+      img {
        width: 220px;
+      }
     }
-    font-size: 10px;
   }
 
   @media screen and (min-width:@screen-lg-min) {
-    #social-ads-wrapper .social-banner img {
+    #social-ads-wrapper .social-banner {
+      img {
        width: 170px;
+      }
     }
-    font-size: 10px;
   }
 }
 
@@ -820,21 +964,13 @@ ul {
 
 #footer {
   position:relative;  
-  background: url('http://192.168.1.6:3000/img/stripe.png') ;
+  background: url('../img/stripe2.png') ;
 
   #footer-wrapper {
     background-color: @white;
     opacity: 0.95;
     > div > ul > li {
       background: none; // fix for Dolphin browser
-    }
-    > div:last-child {
-      height: 8em;
-      font-family: 'Dosis', sans-serif;
-      font-size: 1.5em;
-      span {
-         padding: 1em 1.5em;
-      }
     }
 
     .contact-type {
@@ -850,7 +986,7 @@ ul {
       padding: 0 0.5em;
     }
   
-    #cinc-ad {
+    #footer-cinc {
       > ul > li:first-child {
       display: none;      
       }
@@ -869,25 +1005,56 @@ ul {
       vertical-align: middle;
       margin-left: -0.5em;
     }
+
+    #small-prints {
+     margin: 0;
+     padding: 0;
+     font-family: 'Dosis', sans-serif;
+     font-size: 2em;
+     height: 5em;
+     img {
+      width: 30px;
+     }
+     hr {
+      margin-top: 0;
+     }
+     span {
+      padding: 1em 1.5em;
+    }
   }
 
+  }
 
   @media screen and (min-width:@screen-xs-min) {
-    #footer-wrapper .logo {
+    #footer-wrapper {
+      .logo {
         width:75px;
+      }
+      #small-prints {
+        font-size: 2em;
+        img {
+         width: 50px;
+        }
+      }
     }
   }
 
   @media screen and (min-width:@screen-sm-min) {
+    li.list-group-item {
+      font-size: 2em;
+    }
     #footer-wrapper {
-      > div {
-        height: 35em;
+      #footer-contact,#footer-cinc {
+        height: 270px;
       }
-
-      #cinc-ad .brand-icons {
-        margin: 3em 0;
+      #footer-cinc {
+        > ul > li:first-child {
+          display: block;
+        }
+        .brand-icons {
+          margin: 3em 0;
+        }
       }
-
       .logo {
         width:65px;
       }
@@ -895,10 +1062,17 @@ ul {
   }
 
   @media screen and (min-width:@screen-lg-min) {
-    #footer-wrapper .logo {
-      width:70px;
+    #footer-wrapper {
+      >div:not(#small-prints) {
+        height: auto;
+      }
+      .logo {
+      width:64px;
+      }
+      #small-prints {
+        font-size: 1.5em;
+      }
     }
-    font-size: 10px;
   }
 }
 

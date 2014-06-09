@@ -1,125 +1,3 @@
-///////////////////////////////
-
-(function() {
-    var method;
-    var noop = function() {};
-    var methods = [
-        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
-        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
-        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
-        'timeStamp', 'trace', 'warn'
-    ];
-    var length = methods.length;
-    var console = (window.console = window.console || {});
-
-    while (length--) {
-        method = methods[length];
-
-        // Only stub undefined methods.
-        if (!console[method]) {
-            console[method] = noop;
-        }
-    }
-}());
-
-/////////////////////////////////////////////////////////////////////////////////
-// Variables
-/////////////////////////////////////////////////////////////////////////////////
-
-
-
-////////////////////////////////////////////////////////////////////////////////
-// Utilities
-////////////////////////////////////////////////////////////////////////////////
-
-
-var modifyBgColor = function(elem, color1, stop1, color2, stop2) {
-    var iconBg = $(elem).find('.service-thumbnail');
-    if (typeof iconBg.prop('class') === "undefined") {
-        $('#video-bar div').css('background-color', color2);
-    } else {
-        var propVal = color1 + ' ' + stop1 + ',' + color2 + ' ' + stop2;
-        iconBg.css('background-image', 'linear-gradient(to right bottom,' + propVal);
-    }
-}
-
-
-///////////////////////////////////////////////////////////////////////
-// Video 
-///////////////////////////////////////////////////////////////////////
-
-var intro_video = "https://www.youtube.com/embed/qa66zO8JrdQ?feature=player_detailpage";
-
-var showVideo = function() {
-    $('#video-page').fadeIn(function() {
-        var url = intro_video + "&autoplay=1";
-        $('#video-iframe').attr('src', url)
-    });
-
-}
-
-var hideVideo = function() {
-    $('#video-page').fadeOut();
-
-}
-
-//////////////////////////////////////////////////////////////////////////////
-// Ticker
-//////////////////////////////////////////////////////////////////////////////
-
-$("#webticker").css("display", "default");
-
-$("#webticker").webTicker({
-    speed: 100
-});
-
-///////////////////////////////////////////////////////////////////////////////
-// Google Map
-///////////////////////////////////////////////////////////////////////////////
-
-function initGoogleMap(mapId) {
-    var myLatlng = new google.maps.LatLng(45.7145890, -73.6796590);
-
-    var map_canvas = document.getElementById(mapId);
-
-    var map_options = {
-        center: myLatlng,
-        zoom: 16,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-
-    var map = new google.maps.Map(map_canvas, map_options);
-
-    var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        title: 'CINC - Bureau',
-        animation: google.maps.Animation.DROP,
-        draggable: false
-    });
-
-
-    google.maps.event.addListener(marker, 'click', toggleBounce);
-    //    google.maps.event.trigger(map, 'resize');
-}
-
-//initGoogleMap('map_canvas');
-
-function toggleBounce() {
-
-    if (marker.getAnimation() != null) {
-        marker.setAnimation(null);
-    } else {
-        marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-}
-
-/*$('#contactMe').on('shown.bs.modal', function(event) {
-    initGoogleMap('map_canvas_2');
-});
-*/
-//initGoogleMap('map_canvas');
-
 ////////////////////////////////////////////////////////////////////
 // Responsive Buttons
 ////////////////////////////////////////////////////////////////////
@@ -134,7 +12,7 @@ enquire.register("screen and (min-width:992px)", {
         $("#phone_anchor").prop('href', '#');
 
         $("#phone_anchor").attr({
-            "data-target": '#contactMe',
+            "data-target": '#telCinc',
             "data-toggle": 'modal'
         });
     },
@@ -149,16 +27,18 @@ enquire.register("screen and (min-width:992px)", {
 });
 
 
+
 ///////////////////////////////////////////////////////////////////////
 // Globals
 ///////////////////////////////////////////////////////////////////////
 
 var nav = {
-    "sidebar-top": '#margin-top',
-    "sidebar-services": '#services',
-    "sidebar-method": '#method',
-    "sidebar-team": '#team',
-    "sidebar-footer": '#page-footer'
+    "sidebar-top": ['#margin-top', '#margin-top'],
+    "sidebar-services": ['#services-banner', '#screen-services'],
+    "sidebar-method": ['#method-banner', '#screen-method'],
+    "sidebar-team": ['#team-banner', '#screen-team'],
+    "sidebar-project": ['#project-banner', '#screen-project'],
+    "sidebar-footer": ['#social-ads', '#social-ads']
 };
 
 var nav_active = '#sidebar-top';
@@ -170,39 +50,74 @@ var buttonSelected = new Array();
 // Service Carousel
 //////////////////////////////////////////////////////////////////////
 
+function secToMillis(s) {
+    return s * 1000
+};
+
+function minToMillis(m) {
+    return m * secToMillis(60)
+};
+
+var carousels = new Array();
+var CAROUSEL_WAIT = minToMillis(1);
+var CAROUSEL_TIMEOUT = secToMillis(10);
+
 var Carousel = function Carousel() {
     this.active = true;
     this.currIndex = 0;
     this.prevIndex = -1;
     this.items;
     this.timeout;
+    this.timerId;
     this.id;
 };
 
-Carousel.prototype.disable = function() {
+Carousel.prototype.pause = function() {
+    var that = this;
+    this.stop();
+    this.timerId = setTimeout(function() {
+        that.start();
+    }, CAROUSEL_WAIT);
+}
+
+Carousel.prototype.stop = function() {
     this.active = false;
     var currButton = this.items.eq(this.prevIndex);
     $(currButton).removeClass('selected-button');
-}
-Carousel.prototype.enable = function() {
-    this.active = true;
-    this.currIndex = 0;
-    this.prevIndex = -1;
-    $(buttonSelected[this.id]).removeClass('selected-button');
+    clearTimeout(this.timerId);
 }
 
-var carousels = new Array();
+Carousel.prototype.start = function() {
+    var id = this.id;
+    var currIndex = 0;
+    this.active = true;
+  
+    $.each(this.items, function(key, value) {
+        if (value === buttonSelected[id]) {
+            currIndex = key+1;
+            return false;
+        }
+    });
+    this.prevIndex = currIndex - 1;
+    if (currIndex == this.items.length) {
+        currIndex = 0;
+    }
+    this.currIndex = currIndex;
+       
+    $(buttonSelected[this.id]).removeClass('selected-button');
+
+    nextItem(this.id);
+}
+
 
 function initCarousel(id, timeout) {
-
     var c = new Carousel();
-    timeout = typeof timeout !== 'undefined' ? timeout : 10000;
+    timeout = typeof timeout !== 'undefined' ? timeout : CAROUSEL_TIMEOUT;
     c.timeout = timeout;
     c.items = $('#' + id + ' ' + 'button');
     c.id = id;
     carousels[id] = c;
-
-    setTimeout(function() {
+    c.timerId = setTimeout(function() {
         nextItem(id)
     }, 200);
 }
@@ -211,14 +126,6 @@ function initCarousel(id, timeout) {
 function nextItem(id) {
     var c = carousels[id];
     var currButton;
-
-    if (carousels[id].active == false) {
-        setTimeout(function() {
-            carousels[id].enable();
-            nextItem(id);
-        }, 10 * c.timeout);
-        return
-    }
 
     if (c.prevIndex > -1) {
         currButton = c.items.eq(c.prevIndex);
@@ -237,7 +144,7 @@ function nextItem(id) {
         c.currIndex = 0;
     }
 
-    setTimeout(function() {
+    c.timerId = setTimeout(function() {
         nextItem(id)
     }, c.timeout);
 }
@@ -250,13 +157,20 @@ var graph, refreshIntervalId;
 
 
 function initBarGraph(canvasId) {
+    var w, h;
     var canvas = document.getElementById(canvasId);
     if (typeof G_vmlCanvasManager != 'undefined') {
         canvas = G_vmlCanvasManager.initElement(canvas);
     }
     var selector = '#' + canvasId;
-    var w = $(selector).css('width');
-    var h = $(selector).css('height');
+
+    if (canvasId === 'screen-canvas') {
+        w = 0.4 * $('#screen-services').width();
+        h = 0.5 * $('#screen-services').height();
+    } else {
+        w = $(selector).css('width');
+        h = $(selector).css('height');
+    }
 
     $(selector).attr({
         width: w,
@@ -281,73 +195,143 @@ function createBarGraph() {
     refreshIntervalId = setInterval(function() {
         graph.update([Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10]);
     }, 4000);
-
 }
 
 $(function() {
-    // FIXME: fails for browser resizing.. 
-   if ($('#excel-photo-div').css('display') === 'none') {
-     initBarGraph('screen-canvas');
-   } else {
-    initBarGraph('excel-canvas');
-   }
+    $('#screen-canvas-wrapper').fadeOut(function() {
+        // FIXME: fails for browser resizing.. 
+        if ($('#excel-photo').css('display') === 'none') {
+            initBarGraph('screen-canvas');
+        } else {
+            initBarGraph('excel-canvas');
+        }
+        createBarGraph();
 
-    createBarGraph();
+        $(screenTriggers.join()).waypoint(navNoTextHandler, {
+            offset: '-10%'
+        });
+
+        $(bannerTriggers.join()).waypoint(navNoTextHandler, {
+            offset: '30%'
+        });
+
+
+        $('#services,#screen-method').waypoint(carouselHandler, {
+            offset: '50%'
+        });
+
+
+        $('#team').waypoint(function(direction) {
+            var length = $('#screen-team-photo').html().trim().length;
+
+            if (direction === "down" && length === 0) {
+                showPanel('team', 'nic-button');
+            }
+        }, {
+            offset: '50%'
+        });
+
+        $('#services-banner').waypoint(navBarResizeHandler, {
+            offset: '50%'
+        });
+
+    });
+
 });
 
 /////////////////////////////////////////////////////////////////////////////
 // Screen Panel Display 
 /////////////////////////////////////////////////////////////////////////////
 
-function showPanel(sectionId, buttonId) {
-    var prefix = buttonId.split('-')[0];
-    var panelBodyId = prefix + '-body';
-    var photoDivId = prefix + '-photo-div';
+function prefix(id) {
+    return id.split('-')[0].trim()
+};
 
-    var panelBodyHtml = $('#' + panelBodyId).wrap('<div/>').parent().html();
-    var photoDivHtml = $('#' + photoDivId).html();
-
-    var screenPanelBodyId = 'screen-' + panelBodyId;
-    var screenTextSelector = '#screen-' + sectionId + '-text';
-    var screenPhotoSelector = '#screen-' + sectionId + '-photo';
-
-    panelBodyHtml = panelBodyHtml.replace(panelBodyId, screenPanelBodyId);
-    panelBodyHtml = panelBodyHtml.replace('desktop-hide', '');
-    photoDivHtml = photoDivHtml.replace('desktop-hide', '');
-
-    $(screenTextSelector).fadeOut('linear',function() {
-        $(screenTextSelector).html(panelBodyHtml);
-    });
-
-
-    $(screenPhotoSelector).fadeOut('linear',function() {
-        $(screenPhotoSelector).html(photoDivHtml);
-    });
-
-
-    if (prefix === 'excel' ) {
-        $('#screen-canvas-wrapper').css('opacity','1'); 
-    } else if (sectionId === 'services') {
-        $('#screen-canvas-wrapper').css('opacity','0');
+function fadeHtml(obj, direction, complete) {
+    if (direction === 'in') {
+        $(obj['selector']).fadeIn('linear');
+    } else {
+        $(obj.selector).fadeOut('linear', function() {
+            complete(obj);
+        });
     }
-    
-    $(screenPhotoSelector).fadeIn('linear');
+}
 
-    $(screenTextSelector).fadeIn('linear');
+function parse(sectionId, buttonId, suffix) {
+    var pre = prefix(buttonId);
+    var o = {};
+
+    o['id'] = '#' + pre + '-' + suffix;
+    o['html'] = $(o['id']).html().trim();
+    o['selector'] = '#' + sectionId + '-' + suffix;
+
+    if (prefix(sectionId) === sectionId) {
+        o['selector'] = '#screen-' + sectionId + '-' + suffix;
+    }
+    return o;
+}
+
+
+function showPanel(sectionId, buttonId) {
+
+
+    var o = parse(sectionId, buttonId, 'text');
+    var p = parse(sectionId, buttonId, 'photo');
+    var buttonPrefix = prefix(buttonId);
+
+    var mycallback = function(ob) {
+        $(ob['selector']).html(ob['html']);
+    }
+
+    var photoCallBack = function(ob) {
+        if (buttonPrefix === 'excel') {
+            $(ob['selector']).html(ob['html']);
+            $('#screen-canvas-wrapper').fadeIn();
+        } else {
+            $(ob['selector']).html(ob['html']);
+        }
+    }
+
+    fadeHtml(o, 'out', mycallback);
+    canvasHide = 'none' !== $('#screen-canvas-wrapper').css('display');
+
+    if (canvasHide) {
+        $('#screen-canvas-wrapper').fadeOut(function() {
+            fadeHtml(p, 'out', mycallback);
+            fadeHtml(p, 'in');
+        });
+    } else {
+        fadeHtml(p, 'out', photoCallBack);
+        if (buttonPrefix !== 'excel') {
+            fadeHtml(p, 'in');
+        }
+    }
+
+    fadeHtml(o, 'in');
 }
 
 //////////////////////////////////////////////////////////////////////
 // Waypoints handlers
 //////////////////////////////////////////////////////////////////////
 
-var waypointTriggers = ['#margin-top', '#services', '#method', '#team', '#page-footer'];
+var bannerTriggers = [
+    '#margin-top', '#services-banner',
+    '#method-banner', '#project-banner',
+    '#team-banner', '#social-ads'
+];
+
+var screenTriggers = [
+    '#margin-top', '#screen-services',
+    '#screen-method', '#screen-project',
+    '#screen-team'
+];
 
 
 
 function navCommonHandler(id) {
     var selected;
     $.each(nav, function(key, value) {
-        if (id === value) {
+        if (id === value[0] || id === value[1]) {
             selected = key;
             return false;
         }
@@ -366,21 +350,18 @@ function navNoTextHandler(direction) {
 
 function carouselHandler(direction) {
     var waypoint = this.id;
-    var timeout = 10000;
-    //    var timeout = (waypoint === '#team') ? 200 : 10000;
-
-    var panelDisplay = $('#' + waypoint + ' .row  > div:first-child .panel-body').css('display');
+    var panelDisplay = $('#' + waypoint + ' .content-block').css('display');
 
     if (panelDisplay == 'none' && direction == "down" && carousels[waypoint] === undefined) {
-        initCarousel(waypoint, timeout);
+        initCarousel(waypoint);
     }
 }
 
 
 function navBarResizeHandler(direction) {
-    var fixedFlag = 'fixed' === $('#navbar').css('position') ;
-    if (!fixedFlag) 
-            return;
+    var fixedFlag = 'fixed' === $('#navbar').css('position');
+    if (!fixedFlag)
+        return;
 
     if (direction === "down") {
         $('#navbar').addClass('navbar-mini');
@@ -396,32 +377,6 @@ function navBarResizeHandler(direction) {
     }
 }
 
-$(waypointTriggers.join()).waypoint(navNoTextHandler, {
-    offset: '-5%'
-});
-$(waypointTriggers.join()).waypoint(navNoTextHandler, {
-    offset: '50%'
-});
-
-
-$('#services,#method').waypoint(carouselHandler, {
-    offset: '50%'
-});
-
-
-$('#team').waypoint(function(direction) {
-    var length = $('#screen-team-photo').html().trim().length;
-
-    if (direction === "down" && length === 0) {
-        showPanel('team', 'nic-button');
-    }
-}, {
-    offset: '50%'
-});
-
-$('#services-banner').waypoint(navBarResizeHandler, {
-    offset: '50%'
-});
 
 
 
@@ -483,7 +438,7 @@ function nextSlide() {
 ///////////////////////////////////////////////////////////////////////////
 
 var nav_anchors = ['#sidebar-services', '#sidebar-method',
-    '#sidebar-team', '#sidebar-footer', '#sidebar-top'
+    '#sidebar-team', '#sidebar-project', '#sidebar-footer', '#sidebar-top'
 ];
 
 var hero_anchors = [
@@ -503,7 +458,7 @@ var main_nav_slide_anchors = ['#service-nav-slide-anchor', '#method-nav-slide-an
 
 $(nav_anchors.join()).scrollTo({
     speed: 2000,
-    offset: 0,
+    offset: -20,
     easing: 'easeInCubic'
 });
 
@@ -515,13 +470,13 @@ $(main_nav_slide_anchors.join()).scrollTo({
 
 $(main_nav_anchors.join()).scrollTo({
     speed: 2000,
-    offset: 0,
+    offset: -20,
     easing: 'easeInCubic'
 });
 
 $(hero_anchors.join()).scrollTo({
     speed: 2000,
-    offset: 0,
+    offset: -20,
     easing: 'easeInCubic'
 });
 
@@ -532,29 +487,77 @@ $(footer_anchors.join()).scrollTo({
 });
 
 
-
 /////////////////////////////////////////////////////////////////////////////
 // Mouser event registering
 /////////////////////////////////////////////////////////////////////////////
 
-function clickHandlers() {
+function selectButton(sectionId, buttonId) {
+    var c = carousels[sectionId];
+    var b = buttonSelected[sectionId];
 
-    function selectButton(sectionId, buttonId) {
-        var c = carousels[sectionId];
-        var b = buttonSelected[sectionId];
-
-        if (c !== undefined) {
-            c.disable();
-        }
-
-        if (b !== undefined) {
-            $(b).removeClass('selected-button');
-        }
-
-        buttonSelected[sectionId] = buttonId;
-        $(buttonId).addClass('selected-button');
+    if (c !== undefined) {
+        c.pause();
     }
 
+    if (b !== undefined) {
+        $(b).removeClass('selected-button');
+    }
+
+    buttonSelected[sectionId] = buttonId;
+    $(buttonId).addClass('selected-button');
+}
+
+enquire.register("screen and (min-width:768px)", {
+
+    unmatch: function() {
+        // add no pointer to buttons. 
+
+        $('#services button').removeClass('selected-button');
+        $('#screen-method button').removeClass('selected-button');
+        $.each(carousels, function(key, value) {
+            value.stop()
+        });
+
+        $('#screen-method button').unbind('click');
+        $('#services button').unbind('click');
+        $('#team button').unbind('click');
+        $('.services-click,.method-click,.team-click').unbind('click');
+    },
+
+    match: function() {
+        $('#screen-method button').on('click', function() {
+            selectButton('screen-method', this);
+        });
+
+        $('#services button').on('click', function() {
+            selectButton('services', this);
+        });
+
+        $('#team button').on('click', function() {
+            selectButton('team', this);
+        });
+
+        $('.services-click,.method-click,.team-click').on('click', function(event) {
+            var targetId = event.target.id;
+            var sectionId = $(this).closest('.container-fluid').prop('id');
+            //    changeBgColor(sectionId,targetId);
+            showPanel(sectionId, targetId);
+        });
+    }
+});
+
+
+function clickHandlers() {
+
+    function hashTag(id) {
+        return '#' + id;
+    }
+
+    // FIXME: change function name
+
+    function prefix(prefix, id) {
+        return prefix + '-' + id;
+    }
 
     $('#sidebar a').on('click', function(event) {
         var id = event.target.id;
@@ -568,52 +571,6 @@ function clickHandlers() {
             left: '0px'
         }, 500);
     });
-
-
-    $('#method button').on('click', function() {
-        selectButton('method', this);
-    });
-
-    $('#services button').on('click', function() {
-        selectButton('services', this);
-    });
-    $('#team button').on('click', function() {
-        selectButton('team', this);
-    })
-
-    function hashTag(id) {
-        return '#' + id;
-    }
-
-    function prefix(prefix, id) {
-        return prefix + '-' + id;
-    }
-
-    var bgColorMap = {
-        'website-button': '#354774',
-        'scrape-button': '#f39c12',
-        'excel-button': '#65c6bb'
-    }
-
-        function changeBgColor(sectionId, targetId) {
-            var buttonId = $(hashTag(targetId)).closest('button').prop('id');
-            var bg = bgColorMap[buttonId];
-            var screenSelector = hashTag(prefix('screen', sectionId));
-            $(screenSelector).css('background-color', bg);
-
-            /*      screenId = '#screen-' + sectionId;
-      $(screenId).css('background-color',bgColorMap[buttonId]);
-*/
-        }
-
-
-    $('.services-click,.method-click,.team-click').on('click', function(event) {
-        var targetId = event.target.id;
-        var sectionId = $(this).closest('.container-fluid').prop('id');
-        //    changeBgColor(sectionId,targetId);
-        showPanel(sectionId, targetId);
-    });
-
 
     $('#video-page button').on('click', function() {
         $('#top').removeClass("hide");
@@ -655,7 +612,6 @@ function mouseOverHandlers() {
         modifyBgColor(this, '#aaa', '0%', '#aaa', '100%');
     });
 
-
     $('#services_top a').on('mouseout', function() {
         modifyBgColor(this, '#fff', '0%', '#fff', '47%');
     });
@@ -665,7 +621,6 @@ function mouseOverHandlers() {
 $(document).ready(function() {
     clickHandlers();
     mouseOverHandlers();
-
 });
 
 
@@ -683,8 +638,6 @@ $(document).ready(function() {
  * canvas. Clicking on the bubbles pops them.
  * Only runs on browsers which support the canvas element.
  * *********************************************************************/
-
-
 
 /********************************
  * Bubble()
@@ -712,14 +665,14 @@ function Bubble() {
  * initialize()
  * Initial function called on page load
  *****************************************/
-/*$(window).load(function() {
-   var hideBubblesFlag = 'none' === $('#bubbles-wrapper').css('display');
-   
-   if (!hideBubblesFlag) {
-     bubbleInit();
-   }
+$(window).load(function() {
+    var hideBubblesFlag = 'none' === $('#bubbles-wrapper').css('display');
+
+    if (!hideBubblesFlag) {
+        bubbleInit();
+    }
 })
-*/
+
 function bubbleInit() {
     // Global variables: 
 
@@ -729,23 +682,27 @@ function bubbleInit() {
     // Array storing all bubble objects 
 
     background = new Image();
-    background.src = "http://192.168.1.6:3000/img/rain2.png";
+    if ($('#observe-text').css('display') === 'none') {
+        background.src = "../img/rain_90dpi.png";
+    } else {
+        background.src = "../img/rainlong_90dpi.png";
+    }
 
     // Create canvas and context objects
     canvas = document.getElementById('bubbles');
 
     var selector = '#bubbles';
-    
-    var w = $('#method').css('width');
-    var h = $('#method').css('height');
+
+    var w = $('#screen-method').css('width');
+    var h = $('#screen-method').css('height');
 
     $(selector).attr({
         width: w,
         height: h
     });
 
-    CANVAS_WIDTH = parseInt(w,10);
-    CANVAS_HEIGHT = parseInt(h,10);
+    CANVAS_WIDTH = parseInt(w, 10);
+    CANVAS_HEIGHT = parseInt(h, 10);
     context = canvas.getContext('2d');
     context.drawImage(background, 0, 0);
 
@@ -783,23 +740,39 @@ function drawEllipse(centerX, centerY, width, height) {
  * draws each bubble at every frame
  ******************************************************/
 
-window.addEventListener('resize',resize,false);
+
+window.addEventListener('resize', resize, false);
 
 function resize() {
-//    alert($('#method').width());
+    //    alert($('#method').width());
 
+    // resize bubble canvas
     var w = $('#bubbles-wrapper').width();
     var h = $('#bubbles-wrapper').height();
-    CANVAS_WIDTH = parseInt(w,10);
-    CANVAS_HEIGHT = parseInt(h,10);
+    CANVAS_WIDTH = parseInt(w, 10);
+    CANVAS_HEIGHT = parseInt(h, 10);
     context.canvas.width = CANVAS_WIDTH;
     context.canvas.height = CANVAS_HEIGHT;
+
+    // resize bargraphcanvas 
+    w = 0.4 * $('#screen-services').width();
+    h = 0.5 * $('#screen-services').height();
+    barGraphCtx.canvas.width = w;
+    barGraphCtx.canvas.height = h;
+    graph.width = barGraphCtx.canvas.width;
+    graph.height = barGraphCtx.canvas.height;
+
+    if ($('#observe-text').css('display') === 'none') {
+        background.src = "../img/rain_90dpi.png";
+    } else {
+        background.src = "../img/rainlong_90dpi.png";
+    }
 }
 
 function draw() {
 
     // refresh canvas size
- 
+
 
     // Update the position of each bubble
     for (var i = 0; i < bubbles.length; i++) {
@@ -833,7 +806,7 @@ function draw() {
     }
 
     // Clear the previous canvas state
-     context.drawImage(background, 0, 0);
+    context.drawImage(background, 0, 0);
 
     // Draw bubbles
     for (var i = 0; i < bubbles.length; i++) {
@@ -865,31 +838,3 @@ function draw() {
     t++;
 
 }
-
-////////////////////////////////////////////////////////////////////////
-// Collapse Event Handlers 
-///////////////////////////////////////////////////////////////////////
-
-
-/*$(document).on("hide.bs.collapse", function(event) {
-    $("#quirk_anchor").click();
-});
-
-
-$(document).on("show.bs.collapse", function(event) {
-    var target = '#' + event.target.id;
-
-    if (selected !== undefined) {
-        alert('hi');
-        $(selected).animate({
-            opacity: 0
-        }, function() {
-            //            $(target).css('opacity', '0');
-            $(target).addClass('in');
-            //            $(target).animate({'opacity' : 1});
-        });
-        event.preventDefault();
-    };
-    selected = target;
-});
-*/

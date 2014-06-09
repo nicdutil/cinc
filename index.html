@@ -9,13 +9,13 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>CINC - Firme Informatique</title>
-    <meta name="description" content="CINC est une firme informatique qui offre des services destinés aux enterprises. Nos services sur mesure sont variées: design de site web intelligent, web scrapping et tableaux de bord, automatisation excel." />
+    <title>CINC - Firme Informatique - Technologies Web - Minage - Visualisation</title>
+    <meta name="description" content="CINC est une firme informatique qui offre des services destinés aux enterprises. Nos services sur mesure sont variés: UX Design, Réusinage de code html pour appareils mobile et tablette, conception de grattoir, intégration de donnéees dans base de donnéees vectoriel, analyse de donnéees, tableaux de bord, automatisation excel." />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- replace with web font loader at some point -->
     <link rel="canonical" href="http://infocinc.com" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Dosis|Open+Sans+Condensed:300|Open+Sans:400,700|Orbitron:500|Lato:900|Dancing+Script|Marck+Script" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Dosis|Open+Sans+Condensed:300|Open+Sans:400,700|Lato:900|Dancing+Script|Marck+Script" />
     <link rel="stylesheet" href="css/normalize.min.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -41,13 +41,9 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <!-- display is set to none initially, before 
-    running the webticker, we set it back to default -->
-
-    <!-- Video hidden section -->
 
     <!-- Modals -->
-    <div class="modal fade" id="contactMe" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+    <div class="modal fade" id="telCinc" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -70,7 +66,7 @@
                             <span>438 496 6886</span>
                         </li>
                         <li class="list-group-item">
-                            <span class="contact-type purple">skype</span> <a href="#" data-toggle="modal" data-target="#skypeMe">CINC </a>
+                            <span class="contact-type purple">skype</span> <a href="#" data-toggle="modal" data-target="#skypeCinc">CINC </a>
                         </li>
                     </ul>
                 </div>
@@ -78,7 +74,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="skypeMe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="skypeCinc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -89,19 +85,23 @@
                         <li class="list-group-item">
                             <strong>PR&EacuteREQUIS!</strong>
                         </li>
-                        <li>L'extension</span> <a href="http://www.skype.com/en/download-skype/click-to-call"> Skype click to call </a>
+                        <li class="list-group-item">L'extension</span> <a href="http://www.skype.com/en/download-skype/click-to-call"> Skype click to call </a>
                         </li>
 
                         <li class="list-group-item">L'application skype</li>
                         <hr></hr>
                         <li class="list-group-item">
-                            Utilisateurs de Windows 8, telechargez</span> <a href="http://www.skype.com/en/download-skype/skype-for-computer"> Skype desktop.</a>
+                            Utilisateurs de Windows 8 sur desktop, t&eacutel&eacutechargez</span> <a href="http://www.skype.com/en/download-skype/skype-for-computer"> Skype desktop.</a>
                         </li>
                         <li class="list-group-item">Le app integr&eacute Skype n'est pas detect&eacute par l'extension Skype click to call sur google chrome.
                         </li>
                         <li class="list-group-item">Tentez votre chance!</li>
                     </ul>
-                    <img src="img/skypelogo.jpg" id="skype-logo"></img> <a href="skype:DocteurQuantum?call">infocinc</a>
+                    <div class="skype-call-wrapper text-center">
+                        <a href="skype:infoCinc?call">
+                            <span>APPELEZ INFOCINC</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -110,16 +110,18 @@
 
 
     <!-- Nav side bar -->
-    <div id="sidebar" class="navigation sidebar mobile-hide">
+    <div id="sidebar" class="navigation sidebar hide">
         <a id="sidebar-top" class="nav-active " href="#margin-top">
         </a>
-        <a id="sidebar-services" href="#services">
+        <a id="sidebar-services" href="#services-banner">
         </a>
-        <a id="sidebar-method" href="#method">
+        <a id="sidebar-method" href="#method-banner">
         </a>
-        <a id="sidebar-team" href="#team">
+        <a id="sidebar-team" href="#team-banner">
         </a>
-        <a id="sidebar-footer" href="#page-footer">
+        <a id="sidebar-project" href="#project-banner">
+        </a>
+        <a id="sidebar-footer" href="#social-ads">
         </a>
     </div>
     <!-- end of nav side bar -->
@@ -130,25 +132,25 @@
                 <div id="main-title" class="col-xs-12 col-sm-2">
                     <div class="text-center">
                         <h1>[IN[</h1>
-                        <h2>Competence Informatique Consultation</h2>
+                        <h2>Comp&eacutetence Informatique Consultation</h2>
                     </div>
                 </div>
                 <div id="main-nav" class="col-sm-6 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-2 mobile-hide">
-                    <h2 class="col-xs-3"><a id="services-hero-anchor" href="#services">services</a>
+                    <h2 class="col-xs-3"><a id="services-hero-anchor" href="#services-banner">services</a>
                     </h2>
-                    <h2 class="col-xs-3"><a id="method-hero-anchor" href="#method"> à propos </a>
+                    <h2 class="col-xs-3"><a id="method-hero-anchor" href="#method-banner"> à propos </a>
                     </h2>
-                    <h2 class="col-xs-3"><a id="team-hero-anchor" href="#team">équipe</a>
+                    <h2 class="col-xs-3"><a id="team-hero-anchor" href="#team-banner">équipe</a>
                     </h2>
-                    <h2 class="col-xs-3"><a id="footer-hero-anchor" href="#page-footer">contact</a>
+                    <h2 class="col-xs-3"><a id="footer-hero-anchor" href="#social-ads">contact</a>
                     </h2>
                 </div>
 
                 <div id="social-icons" class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-lg-offset-0 col-lg-3 text-center">
-                    <a id="phone_anchor" href="#" data-target="#contactMe" data-toggle="modal" class="float-left">
+                    <a id="phone_anchor" href="#" data-target="#telCinc" data-toggle="modal" class="float-left">
                         <img id="phone-logo" src="img/phonelogo_100dpi.png">
                     </a>
-                    <a href="#" data-target="#skypeMe" data-toggle="modal" class="float-left">
+                    <a href="#" data-target="#skypeCinc" data-toggle="modal" class="float-left">
                         <img id="skype-logo" src="img/skypelogo_100dpi.png">
                     </a>
                     <a href="https://www.facebook.com/infocinc" target="_blank" class="float-left">
@@ -164,25 +166,22 @@
 
     <div id="margin-top" class="mobile-hide"></div>
     <div id="top" class="background-container container-fluid">
-        <div class="row">
-            <div class="slider col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 cadre text-center">
-                <div class="slide">
-                    <img src="img/experience_100dpi.png"></img>
-                    <h3>Experience</h3>
-                </div>
-                <div class="slide hide">
-                    <img src="img/creative_100dpi.png"></img>
-                    <h3>Creatif</h3>
-                </div>
-                <div class="slide hide">
-                    <img src="img/reflexive_100dpi.png"></img>
-                    <h3>Reflechi</h3>
-                </div>
-                <div class="slide hide">
-                    <img src="img/origin_100dpi.png"></img>
-                    <h3>Origine</h3>
-                </div>
-
+        <div class="slider cadre text-center">
+            <div class="slide">
+                <img src="img/experience_100dpi.png"></img>
+                <h3>Exp&eacuterience</h3>
+            </div>
+            <div class="slide hide">
+                <img src="img/creative_100dpi.png"></img>
+                <h3>Cr&eacuteativit&eacute</h3>
+            </div>
+            <div class="slide hide">
+                <img src="img/reflexive_100dpi.png"></img>
+                <h3>R&eacuteflexion</h3>
+            </div>
+            <div class="slide hide">
+                <img src="img/origin_100dpi.png"></img>
+                <h3>Origine</h3>
             </div>
         </div>
     </div>
@@ -199,9 +198,9 @@
 
     <div id="services-banner" class="container-fluid banner ">
         <div class="row">
-            <div class="col-md-12 col-lg-6 col-lg-offset-3">
+            <div class="col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
                 <h2>Nos services sont destin&eacutes aux entreprises</h2>
-                <p>CINC est une petite firme informatique de la region de Montreal. Notre firme se specialise dans les technologies adaptif web, le minage et la visualisation de donnees. Nos projets en cours nous aident a evoluer et a vous offrir de meilleurs services a l'avenir.
+                <p>CINC est une petite firme informatique de la r&eacutegion de Montr&eacuteal. Notre firme se sp&eacutecialise dans les technologies adaptif web, le minage et la visualisation de donn&eacutees. Nos projets en cours nous aident &agrave &eacutevoluer et &agrave vous offrir de meilleurs services &agrave l'avenir.
                 </p>
                 <h2>Apprenez en plus sur nos services</h2>
             </div>
@@ -230,30 +229,25 @@
                     <img id="website-img" src="img/www.png" alt="conception site web"></img>
                 </button>
 
-                <div id="website" class="panel">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            WEB
-                        </h3>
-                    </div>
-                    <div id="website-body" class="panel-body desktop-hide text-center">
-                        <h4>Design web adapte pour le client (UX Design)</h4>
-                        <p>
-                            L'interface virtuel de votre commerce peut repousser ou attirer des clients
-                        </p>
-                        <h4>Reusinage de code html pour appareil mobile et tablette</h4>
-                        <p>
-                            Les appareils mobiles et tablettes sont maintenant des sources de revenus majeure pour plusieurs compagnie
-                        </p>
-                        <h4>Strategie de ventes pour commerce en ligne</h4>
-                        <p>
-                            Un fait connu, les clients preferent payer plus pour un produit que pour les frais de transports
-                        </p>
+                <h3 class="button-caption">WEB</h3>
 
-                    </div>
+                <div id="website-text" class="content-block desktop-hide text-center">
+                    <h4>Design web adapt&eacute pour le client (UX Design)</h4>
+                    <p>
+                        Le portail virtuel de votre commerce peut repousser ou attirer des clients
+                    </p>
+                    <h4>Reusinage de code html pour appareil mobile et tablette</h4>
+                    <p>
+                        Les appareils mobiles et tablettes sont maintenant des sources de revenues majeure pour plusieurs compagnies
+                    </p>
+                    <!--                     <h4>Strategies de ventes pour commerce en ligne</h4>
+                    <p>
+                        Un fait connu, les clients pr&eacuteferent payer plus pour un produit que pour les frais de transports
+                    </p>
+ -->
                 </div>
-                <div id="website-photo-div" class="desktop-hide">
-                    <img id="website-photo" src="img/responsive_150dpi.jpg"></img>
+                <div id="website-photo" class="desktop-hide text-center">
+                    <img id="website-photo" src="img/responsive_150dpi.png"></img>
                 </div>
             </div>
 
@@ -263,28 +257,24 @@
                     <img id="scrape-img" src="img/scrape.png" alt="minage de donnees web"></img>
                 </button>
 
-                <div id="scrape" class="panel">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            MINAGE
-                        </h3>
-                    </div>
-                    <div id="scrape-body" class="panel-body desktop-hide text-center">
-                        <h4>Conception de grattoir (Web Scrapers)</h4>
-                        <p>Une collecte manuel et periodique des donnees peut s'averer couteuse en productivite
-                        </p>
-                        <h4>Integration des donnees dans une base de donnees vectoriel</h4>
-                        <p>
-                            Selon le type de donnees receuillis par nos grattoirs, une base de donnees vectoriel peut s'averer un choix judicieux
-                        </p>
-                        <h4>Analyse de donnees</h4>
-                        <p>
-                            Ajouter de la transparence a vos activitees d'affaires en utilisant des requetes sophistiquees SQL ou des algorithmes d'apprentissage machine
-                        </p>
-                    </div>
+                <h3 class="button-caption">MINAGE</h3>
+
+                <div id="scrape-text" class="content-block desktop-hide text-center">
+                    <h4>Conception de grattoir (Web Scrapers)</h4>
+                    <p>Une collecte manuel et p&eacuteriodique des donn&eacutees peut s'av&eacuterer co&ucircteuse en productivit&eacutee
+                    </p>
+                    <!--                     <h4>Int&eacutegration des donn&eacutees dans une base de donn&eacutees vectoriel</h4>
+                    <p>
+                        Selon le type de donn&eacutees receuillies par nos grattoirs, une base de donn&eacutees vectoriel peut s'averer un choix judicieux
+                    </p>
+ -->
+                    <h4>Analyse de donn&eacutees</h4>
+                    <p>
+                        Ajouter de la transparence &agrave vos activit&eacutees d'affaires en utilisant des requ&ecirctes sophistiqu&eacutees SQL ou des algorithmes d'apprentissage machine
+                    </p>
                 </div>
-                <div id="scrape-photo-div" class="desktop-hide">
-                    <img id="scrape-photo" src="img/rover.jpg"></img>
+                <div id="scrape-photo" class="desktop-hide text-center">
+                    <img id="scrape-photo" src="img/rover_90dpi.png"></img>
                 </div>
             </div>
 
@@ -293,27 +283,23 @@
                     <img id="excel-img" src="img/visualize.png" alt="integration de donnees excel"></img>
                 </button>
 
-                <div id="excel" class="panel">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            VISUALISATION
-                        </h3>
-                    </div>
-                    <div id="excel-body" class="panel-body desktop-hide text-center">
-                        <h4>Conception de tableaux de bords intelligent</h4>
-                        <p>
-                            Une representation graphique intelligente de vos donnees peut eliminer plusieurs dimensions qui n'ont pas d'impacte majeur sur vos objectifs
-                        </p>
-                        <h4>Automatisation de rapports Excel</h4>
-                        <p>
-                            Les donnees de sources externe collecte par nos grattoirs peuvent apporter une autre dimension a vos rapports
-                        </p>
-                    </div>
+                <h3 class="button-caption">VISUALISATION</h3>
+
+                <div id="excel-text" class="content-block desktop-hide text-center">
+                    <h4>Conception de tableaux de bords intelligents</h4>
+                    <p>
+                        Une repr&eacutesentation graphique intelligente de vos donn&eacutees peut &eacuteliminer plusieurs dimensions qui n'ont pas d'impacte majeur sur vos objectifs
+                    </p>
+                    <h4>Automatisation de rapports Excel</h4>
+                    <p>
+                        Les donn&eacutees de sources externes collect&eacutees par nos grattoirs peuvent enrichir vos rapports
+                    </p>
                 </div>
 
-                <div id="excel-photo-div" class="desktop-hide">
+                <div id="excel-photo" class="desktop-hide text-center">
                     <div id='excel-wrapper-canvas'>
-                        <canvas id='excel-canvas'></canvas>
+                        <canvas id='excel-canvas'>
+                        </canvas>
                     </div>
                 </div>
             </div>
@@ -322,14 +308,15 @@
 
     <div id='screen-services' class="container-fluid mobile-hide box ">
         <div class="row">
-            <div id='screen-services-photo' class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 text-center">
-            </div>
-            <div id='screen-canvas-wrapper' style="opacity:0">
-                <canvas id='screen-canvas'></canvas>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-4 col-lg-offset-1">
-                <div id='screen-services-text' class="panel">
+            <div id='screen-services-visual' class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-7 text-center">
+                <div id='screen-services-photo'>
                 </div>
+                <div id='screen-canvas-wrapper'>
+                    <canvas id='screen-canvas'></canvas>
+                </div>
+
+            </div>
+            <div id='screen-services-text' class="content-block col-sm-10 col-sm-offset-1 col-md-offset-0 col-md-6 col-lg-4 ">
             </div>
         </div>
     </div>
@@ -346,17 +333,17 @@
 
     <div id="method-banner" class="container-fluid banner">
         <div class="row">
-            <div class="col-md-12 col-lg-6 col-lg-offset-3">
+            <div class="col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
                 <h2>Notre approche est scientifique
                 </h2>
                 <p>
-                    L'experience n'est pas une garantie de success. Notre ambition est de fabriquer des solutions services basee sur des donnees reels, et qui satisfait des criteres precis mis au point par notre interaction avec le client.
+                    L'exp&eacuterience n'est pas une garantie de succ&egraves. Notre ambition est de fabriquer des solutions services bas&eacutees sur des donn&eacutees cr&eacutedibles, et qui satisfait des crit&egraveres pr&eacutecis mis au point par notre interaction avec le client.
                 </p>
-                <h2>Voici comment on procede</h2>
+                <h2>Voici comment on proc&egravede</h2>
             </div>
         </div>
         <div class="row center-navigation">
-            <a id="method-nav-slide-anchor" href="#method" class="btn border">
+            <a id="method-nav-slide-anchor" href="#slide-two" class="btn border">
                 <span class="glyphicon glyphicon-play rotate-90 black "></span>
             </a>
             <div class="v-long-line "></div>
@@ -364,146 +351,120 @@
     </div>
 
 
-    <div class="slide-nav">
+
+    <div id="slide-two" class="slide-nav ">
         <div class="v-line"></div>
         <div class="slide-box">
             <span>2</span>
         </div>
     </div>
 
+    <div id='screen-method' class="container-fluid box ">
 
-    <div id='method' class="container-fluid box">
-
-        <div class="row">
-
+        <div class="row ">
             <div id="bubbles-wrapper">
                 <canvas id="bubbles"></canvas>
             </div>
 
             <div id='icons' class="col-md-6">
-                <div class="row ">
-
+                <div class="row">
                     <div class="col-sm-2 col-sm-offset-2 col-md-4 col-md-offset-1 col-lg-3">
                         <button id='observe-button' type="button" class="noglow method-thumbnail method-click">
                             <img id="observe-img" src="img/data.png" alt="observation"></img>
                         </button>
 
-                        <div id="observe" class="panel">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    DATA
-                                </h3>
-                            </div>
+                        <h3 class="button-caption">DATA</h3>
 
-                            <div id="observe-body" class="panel-body text-center desktop-hide">
-                                <h4>NOTRE MATIERE PREMIERE</h4>
-                                <span>A chaque minute, il y a</span>
-                                <ul>
-                                    <li>48 heures de videos transferer sur youtube</li>
-                                    <li>272,070$ genere par le commerce en ligne</li>
-                                    <li>571 nouveaux site webs sont cree</li>
-                                    <li>217 nouveaux utilisateurs sur le web mobile</li>
-                                    <li>684,478 de contenu partage sur facebook</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="observe-photo-div" class="desktop-hide">
-                        </div>
+                        <div id="observe-text" class="content-block text-center desktop-hide">
 
+                            <div class='text-title'>La Mati&egravere premi&egravere</div>
+                            <span>&Agrave chaque minute, il y a</span>
+                            <ul>
+                                <li>48hrs de vid&eacuteos transf&eacuter&eacutes sur youtube</li>
+                                <li>272,070$ gener&eacutes par le e-commerce</li>
+                                <li>571 sites webs sont cr&eacutees</li>
+                                <li>217 nouveaux utilisateurs sur le web mobile</li>
+                                <li>684,478 de contenu partag&eacutes sur facebook</li>
+                            </ul>
+                        </div>
+                        <div id="observe-photo" class="desktop-hide">
+                        </div>
                     </div>
                     <div class="col-sm-2 col-md-4 col-lg-5 ">
                         <button type="button" id="tasks-button" class="noglow method-click method-thumbnail">
                             <img id="tasks-img" src="img/plan.png" alt="execution"></img>
                         </button>
 
-                        <div id="tasks" class="panel">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    PLAN
-                                </h3>
-                            </div>
-                            <div id="tasks-photo-div" class="desktop-hide">
-                            </div>
+                        <h3 class="button-caption">PLAN</h3>
 
-                            <div id="tasks-body" class="panel-body text-center desktop-hide">
-                                <h4>LE MOMENT STRATEGIQUE</h4>
-                                <span>Un plan d'action inclue</span>
-                                <ul>
-                                    <li>les exigeances du client</li>
-                                    <li>les contraintes du projet</li>
-                                    <li>un estime du temps d'execution</li>
-                                    <li>une prevision des resultats</li>
-                                </ul>
-                            </div>
+                        <div id="tasks-text" class="content-block text-center desktop-hide">
+                            <div class='text-title'>Le moment strat&eacutegique</div>
+                            <span>Un plan d'action inclue</span>
+                            <ul>
+                                <li>les exigeances du client</li>
+                                <li>les contraintes du projet</li>
+                                <li>un estim&eacute du temps d'execution</li>
+                                <li>une pr&eacutevision des r&eacutesultats</li>
+                            </ul>
+                        </div>
+
+                        <div id="tasks-photo" class="desktop-hide">
                         </div>
                     </div>
-                    <div class="col-sm-2 col-md-4 col-md-offset-1 col-lg-offset-1 col-lg-3">
+                    <div class="col-sm-2 col-md-push-4 col-md-4 col-md-offset-1 col-lg-3">
                         <button type="button" id="execute-button" class="noglow method-click method-thumbnail">
                             <img id="execute-img" src="img/execute.png" alt="execution"></img>
                         </button>
-                        <div id="execute" class="panel">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    EXECUTION
-                                </h3>
-                            </div>
-                            <div id="execute-photo-div" class="desktop-hide">
-                            </div>
+                        <h3 class="button-caption">EX&EacuteCUTION</h3>
 
-                            <div id="execute-body" class="panel-body desktop-hide text-center">
-                                <h4>LA PHASE LABORATOIRE</h4>
-                                <span>Un cycle repetitif de</span>
-                                <ul>
-                                    <li>design de patrons</li>
-                                    <li>codage des exigeances</li>
-                                    <li>gestion des versions</li>
-                                    <li>revision des lignes de code</li>
-                                    <li>testing des processus</li>
-                                    <li>reusinage du code</li>
-                                </ul>
-                            </div>
+                        <div id="execute-text" class="content-block text-center desktop-hide">
+                            <div class='text-title'>La phase laboratoire</div>
+                            <span>Un cycle r&eacutep&eacutetitif de</span>
+                            <ul>
+                                <li>design de patrons</li>
+                                <li>codage des exigeances</li>
+                                <li>r&eacutevision des lignes de code</li>
+                                <li>testing des processus</li>
+                                <li>r&eacuteusinage du code</li>
+                            </ul>
                         </div>
 
+                        <div id="execute-photo" class="desktop-hide">
+                        </div>
                     </div>
-                    <div class="col-sm-2 col-md-4 col-lg-5">
+
+                    <div class="col-sm-2 col-md-pull-4 col-md-4 col-lg-5">
                         <button type="button" id="result-button" class="noglow method-click method-thumbnail">
                             <img id="result-img" src="img/analyze.png" alt="execution"></img>
                         </button>
-                        <div id="result" class="panel">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    ANALYSE
-                                </h3>
-                            </div>
-                            <div id="result-photo-div" class="desktop-hide">
-                            </div>
-                            <div id="result-body" class="panel-body desktop-hide text-center">
-                                <h4>L'ETAPE CRITIQUE</h4>
-                                <span>Une analyse complete scrute</span>
-                                <ul>
-                                    <li>les previsions vs resultats</li>
-                                    <li>l'experience utilisateur (UAT)</li>
-                                    <li>le feedback client</li>
-                                    <li>les failles a ameliorer</li>
-                                </ul>
-                            </div>
+
+                        <h3 class="button-caption">ANALYSE</h3>
+                        <div id="result-text" class="content-block text-center desktop-hide">
+                            <div class='text-title'>L'&eacutetape critique</div>
+                            <span>Une analyse compl&egravete scrute</span>
+                            <ul>
+                                <li>les pr&eacutevisions vs r&eacutesultats</li>
+                                <li>l'exp&eacuterience utilisateur (UAT)</li>
+                                <li>le feedback client</li>
+                                <li>les failles &agrave am&eacuteliorer</li>
+                            </ul>
+                        </div>
+                        <div id="result-photo" class="desktop-hide">
                         </div>
                     </div>
+
                 </div>
             </div>
-            <div id='screen-method' class="col-sm-12 col-md-6 mobile-hide">
-                <div class="row">
-                    <div class="col-md-11">
-                        <div id='screen-method-text' class="panel"></div>
-                    </div>
-                </div>
+            <div id='screen-method-text' class="col-sm-12 col-md-6 mobile-hide content-block">
             </div>
+
         </div>
     </div>
 
+
     <div class="center-navigation">
         <div>
-            <h6>QUELLE EST NOTRE EQUIPE ?</h6>
+            <h6>QUELLE EST NOTRE &EacuteQUIPE ?</h6>
             <a id="team-nav-anchor" href="#team-banner" class="btn btn-default">
                 <span class="glyphicon glyphicon-play rotate-90 white"></span>
             </a>
@@ -515,10 +476,10 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
                 <h2 class="text-center">
-                    Une equipe performante
+                    Une &eacutequipe performante
                 </h2>
                 <p>
-                    Nos membres actuels travaillent plusieurs heures par jour pour completer nos projets en cours. Chaque employee excelle dans un ou plusieurs domaines particuliers.
+                    Nos membres actuels travaillent plusieurs heures par jour pour compl&eacuteter nos projets en cours. Chaque individu excelle dans un ou plusieurs domaines particuliers.
                 </p>
                 <h2 class="text-center">
                     Voici nos membres actuels
@@ -548,8 +509,8 @@
                     <img id='nic-img' src="img/nic2.png"></img>
                 </button>
 
-                <div id="nic-photo-div" class="desktop-hide">
-                    <img id="nic-1" src="img/nico.png"></img>
+                <div id="nic-photo" class="desktop-hide">
+                    <img class='member-photo' id="nic-1" src="img/nico.png"></img>
                     <ul>
                         <li>
                             <h4>Nicolas Dutil</h4>
@@ -561,16 +522,15 @@
                             <span>Ph.D. Informatique</span>
                         </li>
                     </ul>
-                    <span>Contact:</span>
-                    <span>Nicolas.Dutil@infocinc.com</span>
+                    <a href="mailto:Nicolas.Dutil@infocinc.com">
+                        <img class='email-icon' src="img/mail.png"></img>
+                    </a>
                 </div>
 
-                <div id="nic" class="panel">
-                    <div id="nic-body" class="panel-body desktop-hide">
-                        <p class="text-center">
-                            Nicolas a fonde cette compagnie pour creer un environnement de travail a la mesure de ses talents. Il possede une maitrise en bioinformatique et un doctorat en sciences informatiques de l'universite Mcgill. Durant ces derni&egraveres ann&eacutees, il a compl&eacutemente ses connaissances acad&eacutemiques en travaillant dans divers domaines de l'informatique d'affaires. Il aime relever de nouveaux defis et travaille avec rigueur et discipline pour s'assurer de la satisfaction compl&egravete de ses clients.
-                        </p>
-                    </div>
+                <div id="nic-text" class="content-block text-center desktop-hide">
+                    <p>
+                        Nicolas a fond&eacute cette compagnie pour cr&eacuteer un environnement de travail &agrave la mesure de ses talents. Il poss&egravede une ma&icirctrise en bioinformatique et un doctorat en sciences informatiques de l'universit&eacute Mcgill. Durant ces derni&egraveres ann&eacutees, il a compl&eacutement&eacute ses connaissances acad&eacutemiques en travaillant dans les secteurs financiers et technologiques. Il aime relever de nouveaux defis et travaille avec rigueur et discipline pour s'assurer de la satisfaction compl&egravete de ses clients.
+                    </p>
                 </div>
             </div>
 
@@ -578,30 +538,29 @@
                 <button id="mel-button" class="noglow team-click img-profile team-thumbnail mobile-hide">
                     <img id="mel-img" src="img/face_mel.jpg"></img>
                 </button>
-                <div id="mel-photo-div" class="desktop-hide">
-                    <img id="mel-1" src="img/portrait_mel.jpg"></img>
+                <div id="mel-photo" class="desktop-hide">
+                    <img id="mel-1" class='member-photo' src="img/portrait_mel.jpg"></img>
                     <ul>
                         <li>
                             <h4>Melanie Bertrand</h4>
                         </li>
                         <li>
                             <span></span>
-                            <span>Service a clientele</span>
+                            <span>Service &agrave client&egravele</span>
                         </li>
                         <li>
-                            <span>Experience:</span>
+                            <span>Exp&eacuterience:</span>
                             <span>15 ans</span>
                         </li>
                     </ul>
-                    <span>Contact:</span>
-                    <span>Melanie.Bertrand@infocinc.com</span>
+                    <a href="mailto:Melanie.Bertrand@infocinc.com">
+                        <img class='email-icon' src="img/mail.png"></img>
+                    </a>
                 </div>
-                <div id="mel" class="panel">
-                    <div id="mel-body" class="panel-body desktop-hide text-center">
-                        <p class="text-center">
-                            Mélanie a un r&ocircle grandissant au sein de notre &eacutequipe. Active sur les reseaux sociaux, elle promouvoit notre entreprise et nos services offerts. Elle s'occupe aussi des suivis avec les clients. Son empathie pour les autres est une qualite exceptionnelle qui nous sert de guide pour ameliorer la presentation de nos services. Melanie est appr&eacuteci&eacutee pour sa douceur et son calme. Ces aptitudes font d’elle une ressource indispensable pour le bon fonctionnement de notre entreprise.
-                        </p>
-                    </div>
+                <div id="mel-text" class="content-block desktop-hide text-center">
+                    <p>
+                        M&eacutelanie &agrave un r&ocircle grandissant au sein de notre &eacutequipe. Active sur les r&eacuteseaux sociaux, elle promouvoit notre entreprise et nos services offerts. Elle s'occupe aussi des suivis avec les clients. Son empathie pour les autres est une qualit&eacute exceptionnelle qui nous sert de guide pour ameliorer la pr&eacutesentation de nos services. M&eacutelanie est appr&eacuteci&eacutee pour sa douceur et son calme. Ces aptitudes font d’elle une ressource indispensable pour le bon fonctionnement de notre entreprise.
+                    </p>
                 </div>
             </div>
             <div class="col-sm-2 mobile-hide">
@@ -618,13 +577,11 @@
             </div>
         </div>
     </div>
-    <div id='screen-team' class="mobile-hide container-fluid box">
-        <div id='screen-team-wrapper' class="row">
+    <div id='screen-team' class="mobile-hide container-fluid box ">
+        <div class="screen-wrapper row">
             <div id='screen-team-photo' class="col-md-5 col-lg-5">
             </div>
-            <div class="col-md-6">
-                <div id='screen-team-text' class="panel">
-                </div>
+            <div id='screen-team-text' class="col-sm-10 col-sm-offset-1 col-md-6 col-lg-5 content-block">
             </div>
         </div>
     </div>
@@ -633,35 +590,35 @@
     <div class="center-navigation">
         <div>
             <h6>NOS PROJETS EN COURS</h6>
-            <a id="team-nav-anchor" href="#team-banner" class="btn btn-default">
+            <a id="team-nav-anchor" href="#project-banner" class="btn btn-default">
                 <span class="glyphicon glyphicon-play rotate-90 white"></span>
             </a>
             <div class="v-line"></div>
         </div>
     </div>
 
-    <div id="project-banner" class="container-fluid banner">
+    <div id="project-banner" class="container-fluid banner ">
         <div class="row">
-            <div class="col-md-12 col-lg-6 col-lg-offset-3">
+            <div class="col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
                 <h2>
                     Contactez nous
                 </h2>
                 <p>
-                    Laisser nous un couriel ou telephonez nous si vous voulez discuter de la facon dont on peut aider vos affaires
+                    Laissez nous un couriel ou t&eacutel&eacutephonez nous pour discuter de la fa&ccedilon dont on peut aider vos affaires
                 </p>
                 <h2>
-                    Realisations et projets en cours
+                    R&eacutealisations et projets en cours
                 </h2>
             </div>
         </div>
         <div class="row center-navigation">
-            <a id="team-nav-slide-anchor" href="#team" class="btn border">
+            <a id="team-nav-slide-anchor" href="#slide-four" class="btn border">
                 <span class="glyphicon glyphicon-play rotate-90 black "></span>
             </a>
             <div class="v-long-line "></div>
         </div>
     </div>
-    <div class="slide-nav">
+    <div id="slide-four" class="slide-nav">
         <div class="v-line"></div>
         <div class="slide-box">
             <span>4</span>
@@ -669,72 +626,74 @@
     </div>
 
 
-    <div id='project-screen' class="container-fluid box ">
-        <div class="row">
-            <div class="col-sm-4 col-md-3 project">
-                <div class="project-wrapper">
-                    <img src="img/itilogo_100dpi.png"></img>
-                    <h3> <a href="http://itibiotech.com/">ITI Biotech International </a>
-                    </h3>
-                    <h5>Tags: UX Design, Site Web Adaptif, E-Commerce</h5>
+    <div id='screen-project' class="container-fluid box">
+        <div class="screen-wrapper">
+            <div class="row">
+                <div class="col-sm-4 col-md-3 project">
+                    <div class="project-wrapper">
+                        <img src="img/itilogo_100dpi.png"></img>
+                        <h3> <a href="http://itibiotech.com/">ITI Biotech International </a>
+                        </h3>
+                        <h5>Tags: UX Design, Site Web Adaptif, E-Commerce</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-4 col-md-3 project">
-                <div class="project-wrapper">
-                    <img src="img/cdm_100dpi.png"></img>
-                    <h3> <a href="http://centredentairemartindutil.com/">Centre Dentaire Martin Dutil </a>
-                    </h3>
-                    <h5>Tags: UX Design, Reusinage Mobile</h5>
+                <div class="col-sm-4 col-md-3 project">
+                    <div class="project-wrapper">
+                        <img src="img/cdm_100dpi.png"></img>
+                        <h3> <a href="http://centredentairemartindutil.com/">Centre Dentaire Martin Dutil </a>
+                        </h3>
+                        <h5>Tags: UX Design, Reusinage Mobile</h5>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-sm-4 col-md-3 mobile-hide project">
-                <div class="project-wrapper img-placeholder">
-                    <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                <div class="col-sm-4 col-md-3 mobile-hide project">
+                    <div class="project-wrapper img-placeholder">
+                        <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-sm-4 col-md-3 mobile-hide project">
-                <div class="project-wrapper img-placeholder">
-                    <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                <div class="col-sm-4 col-md-3 mobile-hide project">
+                    <div class="project-wrapper img-placeholder">
+                        <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-sm-4 col-md-3 mobile-hide project">
-                <div class="project-wrapper img-placeholder">
-                    <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                <div class="col-sm-4 col-md-3 mobile-hide project">
+                    <div class="project-wrapper img-placeholder">
+                        <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-sm-4 col-md-3 mobile-hide project">
-                <div class="project-wrapper img-placeholder">
-                    <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                <div class="col-sm-4 col-md-3 mobile-hide project">
+                    <div class="project-wrapper img-placeholder">
+                        <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-sm-4 col-md-3 mobile-hide project">
-                <div class="project-wrapper img-placeholder">
-                    <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                <div class="col-sm-4 col-md-3 mobile-hide project">
+                    <div class="project-wrapper img-placeholder">
+                        <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-sm-4 col-md-3 mobile-hide project">
-                <div class="project-wrapper img-placeholder">
-                    <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                <div class="col-sm-4 col-md-3 mobile-hide project">
+                    <div class="project-wrapper img-placeholder">
+                        <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                    </div>
                 </div>
-            </div>
 
 
-            <div class="col-sm-4 col-md-3 mobile-hide project landscape-hide">
-                <div class="project-wrapper img-placeholder">
-                    <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                <div class="col-sm-4 col-md-3 mobile-hide project landscape-hide">
+                    <div class="project-wrapper img-placeholder">
+                        <img src="img/cdm_100dpi.png" style="opacity:0"></img>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div class="footer-background ">
+    <div class="footer-background">
         <div class="row">
         </div>
     </div>
@@ -743,13 +702,13 @@
         <div id="social-ads-wrapper" class="row">
             <div class="social-banner background-red col-sm-6 col-lg-3">
                 <div class="social-banner-wrapper">
-                    <div class="social-logos-wrapper">
+                    <div id='gplus' class="text-center">
                         <img src="img/google-plus.png"></img>
                     </div>
                     <div class="social-text">
                         <h3>RECOMMENDEZ CINC SUR GOOGLE+</h3>
                     </div>
-                    <div class="social-button-wrapper">
+                    <div class="social-button-wrapper iframe-offset">
                         <div class="g-plusone" data-annotation="bubble" data-width="300"></div>
                     </div>
                 </div>
@@ -757,7 +716,7 @@
 
             <div class="social-banner background-blue col-sm-6 col-lg-3">
                 <div class="social-banner-wrapper">
-                    <div class="social-logos-wrapper">
+                    <div class="text-center">
                         <img src="img/ilike_90dpi.png"></img>
                     </div>
                     <div class="social-text">
@@ -771,7 +730,7 @@
 
             <div class="social-banner  background-dark col-sm-6 col-lg-3">
                 <div class="social-banner-wrapper">
-                    <div class="social-logos-wrapper">
+                    <div class="text-center">
                         <img src="img/Twitter_logo_white.png"></img>
                     </div>
                     <div class="social-text">
@@ -779,7 +738,7 @@
                             <a href="http://twitter.com/infoCinc" target="_blank"> @INFOCINC</a>
                         </h3>
                     </div>
-                    <div class="social-button-wrapper">
+                    <div class="social-button-wrapper iframe-offset">
                         <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://infocinc.com" data-text="Tweeter vos questions" data-via="infoCinc" data-lang="fr">Tweeter</a>
                     </div>
                 </div>
@@ -791,7 +750,7 @@
 
     <div id="footer" class="container-fluid">
         <div id="footer-wrapper" class="row">
-            <div class="col-sm-6 col-lg-3">
+            <div id='footer-contact' class="col-sm-6 col-lg-3">
                 <ul id="footer-contact" class="list-group text-center">
                     <li class="list-group-item">
                         <strong>CONTACT</strong>
@@ -806,7 +765,7 @@
                     </li>
                     <li class="list-group-item">
                         <span class="contact-type purple">skype</span>
-                        <a href="#" data-toggle="modal" data-target="#skypeMe">CINC</a>
+                        <a href="#" data-toggle="modal" data-target="#skypeCinc">CINC</a>
                     </li>
 
                     <li class="list-group-item">
@@ -816,7 +775,7 @@
                 </ul>
             </div>
 
-            <div id='cinc-ad' class="col-sm-6 col-lg-3">
+            <div id='footer-cinc' class="col-sm-6 col-lg-3">
                 <ul class="list-group text-center">
                     <li class="list-group-item">
                         <strong>CINC</strong>
@@ -857,26 +816,26 @@
                 </ul>
             </div>
 
-            <div class="col-sm-6 col-lg-3 ">
+            <div id="footer-nav" class="col-sm-6 col-lg-3 ">
                 <ul class="list-group text-center">
                     <li class="list-group-item ">
                         <strong>NAVIGATION</strong>
                     </li>
                     <li class="list-group-item">
-                        <a href="#top" id="top-footer-anchor">accueil</a>
+                        <a href="#margin-top" id="top-footer-anchor">accueil</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#method" id="method-footer-anchor"> &agrave propos</a>
+                        <a href="#method-banner" id="method-footer-anchor"> &agrave propos</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#services" id="services-footer-anchor"> services</a>
+                        <a href="#services-banner" id="services-footer-anchor"> services</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#team" id="team-footer-anchor"> &eacutequipe</a>
+                        <a href="#team-banner" id="team-footer-anchor"> &eacutequipe</a>
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-6 col-lg-3">
+            <div id="footer-community" class="col-sm-6 col-lg-3">
                 <ul class="list-group text-center">
                     <li class="list-group-item ">
                         <strong>COMMUNAUT&Eacute</strong>
@@ -894,63 +853,64 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-12 text-center">
+            <div id='small-prints' class="col-sm-12 text-center">
                 <hr></hr>
                 <img src="img/cinc-logo.png"></img>
                 <span>Copyright &copy 2014 CINC, Certains droits r&eacuteserv&eacutes.</span>
             </div>
         </div>
+    </div>
 
 
 
 
 
-        <script src="https://code.jquery.com/jquery-2.1.0.min.js" type="text/javascript"></script>
-        <script>
-        window.jQuery || document.write('<script src="js/vendor/jquery-2.1.0.min.js"><\/script>')
-        </script>
-        <script type="text/javascript" src="js/vendor/waypoints.min.js"></script>
 
-        <script type="text/javascript" src="js/vendor/jquery-ui-1.10.4.custom.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/vendor/jquery.webticker.min.js"></script>
-        <script type="text/javascript" src="js/vendor/scrollTo.js"></script>
-        <script type="text/javascript" src="js/vendor/enquire.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="https://code.jquery.com/jquery-2.1.0.min.js" type="text/javascript"></script>
+    <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-2.1.0.min.js"><\/script>')
+    </script>
+    <script type="text/javascript" src="js/vendor/waypoints.min.js"></script>
 
-        <!--[if IE]><script src="js/vendor/excanvas.js"></script><![endif]-->
-        <script src="js/vendor/barGraph.js"></script>
+    <script type="text/javascript" src="js/vendor/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/vendor/scrollTo.js"></script>
+    <script type="text/javascript" src="js/vendor/enquire.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-        <script src="js/plugins.js"></script>
-        <!-- twitter button -->
-        <script>
-        ! function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0],
-                p = /^http:/.test(d.location) ? 'http' : 'https';
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = p + '://platform.twitter.com/widgets.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }(document, 'script', 'twitter-wjs');
-        </script>
+    <!--[if IE]><script src="js/vendor/excanvas.js"></script><![endif]-->
+    <script src="js/vendor/barGraph.js"></script>
 
-        <!------------- Google+1 Button Script ---->
-        <script type="text/javascript">
-        window.___gcfg = {
-            lang: 'fr-CA',
-            parsetags: 'onload'
-        };
-        (function() {
-            var po = document.createElement('script');
-            po.type = 'text/javascript';
-            po.async = true;
-            po.src = 'https://apis.google.com/js/plusone.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(po, s);
-        })();
-        </script>
+    <script src="js/plugins.js"></script>
+    <!-- twitter button -->
+    <script>
+    ! function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!------------- Google+1 Button Script ---->
+    <script type="text/javascript">
+    window.___gcfg = {
+        lang: 'fr-CA',
+        parsetags: 'onload'
+    };
+    (function() {
+        var po = document.createElement('script');
+        po.type = 'text/javascript';
+        po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(po, s);
+    })();
+    </script>
 </body>
 
 </html>
