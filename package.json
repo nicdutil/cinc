@@ -1,7 +1,7 @@
 {
   "name": "826094",
   "version": "0.0.0",
-  "description": "HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.",
+  "description": "Info CINC Home Page | Web Technologies | Mining and Visualization"
   "main": "server.js",
   "dependencies": {
     "express": "~3.5.1"
@@ -13,11 +13,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/drquantum/homepage.git"
+    "url": "git://github.com/infocinc/homepage.git"
   },
-  "author": "",
-  "license": "BSD-2-Clause",
+  "author": "Nicolas Dutil",
+  "license": "",
   "bugs": {
-    "url": "https://github.com/drquantum/homepage/issues"
+    "url": "https://github.com/infocinc/homepage/issues"
   }
 }
