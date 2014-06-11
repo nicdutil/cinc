@@ -7,7 +7,7 @@
 @import  "navigation.less";
 @import  "bs_overrides.less";
 @import  "lists.less";
-
+@import  "preloader.less";
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,6 +25,14 @@
  * These selection rule sets have to be separate.
  * Customize the background color to match your design.
  */
+
+ .chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -114,7 +122,7 @@ body {
   font-size: 6px !important;
   // single column display, landscape mobile screen 
   @media screen and (min-width:@screen-xs-min) {
-    font-size: 8px !important;
+    font-size: 6px !important;
   }
   // tablet portrait and landscape  
   @media screen and (min-width:@screen-sm-min) {
@@ -126,6 +134,38 @@ body {
   }
 }
 
+////////////////////////////////////////////////////////////////////////////////////////
+// CSS transitions
+////////////////////////////////////////////////////////////////////////////////////////
+
+body {
+ -webkit-transition: all 500ms ease 0s;
+    -moz-transition: all 500ms ease 0s;
+    -o-transition: all 500ms ease 0s;
+    transition: all 500ms ease 0s;
+}
+
+#main {
+   -webkit-transition: opacity 500ms ease 0s;
+    -moz-transition: opacity 500ms ease 0s;
+    -o-transition: opacity 500ms ease 0s;
+    transition: opacity 500ms ease 0s;  
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+// Box Shadows
+////////////////////////////////////////////////////////////////////////////////////////
+.service-mobile-shadow {
+  -webkit-box-shadow: 0px 1px 8px 2px rgba(50, 50, 50, 0.88);
+  -moz-box-shadow:    0px 1px 8px 2px rgba(50, 50, 50, 0.88);
+  box-shadow:         0px 1px 8px 2px rgba(50, 50, 50, 0.88);
+  @media screen and (min-width:@screen-sm-min) {
+    box-shadow: none;
+  }
+}
+.button-padding {
+  height: 75px;
+}
 //////////////////////////////////////////////////////////////////////////////////////// 
 // Thumbnail Stylings
 //////////////////////////////////////////////////////////////////////////////////////// 
@@ -140,7 +180,12 @@ body {
 }
 
 .square-thumbnail {
- .thumbnail(@radius:0px, @width:10em , @height: 10em );
+  @media screen and (min-width:@screen-sm-min) {
+   .thumbnail(@radius:0px, @width:80px , @height: 80px );
+  }
+  @media screen and (min-width:@screen-lg-min) {
+   .thumbnail(@radius:0px, @width:100px , @height: 100px );  
+  }
 }
 
 .mobile-thumbnail {
@@ -149,9 +194,7 @@ body {
 
 .method-thumbnail,.service-thumbnail {
  .mobile-thumbnail;
- @media screen and (min-width:@screen-sm-min) {
-   .square-thumbnail
- }
+ .square-thumbnail;
 }
 
 .team-thumbnail {
@@ -242,37 +285,68 @@ body {
 
 .banner {
   background: url('../img/tile.png') right top #f2f4f7;
+  .row:first-child {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 
   h2 {
-    padding:1em 0;
+    padding:6px 0;
     text-align: center;
     font-family: 'Lato', sans-serif;
-    font-size: 4.5em;
+    font-size: 4em;
     color: #141c26;
   }
 
   p {
     text-align: center;
-    margin: 0;
+    margin: 5px auto;
     font-family: 'Dosis',sans-serif;
     color: #444;
-    font-size: 4em;
+    font-size: 3.5em;
     letter-spacing: 0.1em;
   }
-  
-/*  font-size: 5px;
+
+  min-height: 610px;
+
   @media screen and (min-width:@screen-sm-min) {
-    font-size: 8px;
+    h2 {
+      font-size: 4.5em;
+    }
+    p {
+      font-size: 4em;
+    }
+
+    .row:first-child { 
+      padding-top: 100px;
+    }
+    p {
+      padding: 60px 0;
+    }
+    min-height: 940px;
   }
 
   @media screen and (min-width:@screen-md-min) {
-    font-size: 9px;
+    .row:first-child {
+      padding-top: 50px;
+     padding-bottom: 30px;
+    }
+    p {
+      padding: 20px 0;
+    }
+    min-height: 692px;
   }
-  
-  @media screen and (min-width:@screen-lg-min)  {
-    font-size: 10px;
+
+  @media screen and (min-width:@screen-lg-min) {
+    .row:first-child {
+      padding-top: 150px;
+      padding-bottom: 50px;
+    }
+    p {
+      padding: 60px 0;
+    }
+    min-height:1021px;
   }
-*/
 }
 
 
@@ -319,6 +393,7 @@ body {
   @media screen and (min-width:@screen-sm-min) {
     position: relative;
     width: 90%;
+    max-width: 1713px;
     background-color: @white;
     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -334,11 +409,11 @@ body {
   -o-transition: opacity 1s cubic-bezier(.02, .01, .47, 1);
 }
 
-#services canvas {
+/*#services canvas {
   width: 100%;
   height: 20em;
 }
-
+*/
 
 #screen-services,#screen-team,#screen-project {
   margin-top: 2em;
@@ -404,13 +479,12 @@ body {
   @media screen and (min-width:@screen-sm-min) {
     border-radius: 2em;
     border: 1px solid #000;
-    height: 311px;
+    height: 382px;
     width: 744px;
   }
   
   @media screen and (min-width:@screen-md-min) {
    width: 900px;
-   height: 382px;
   }
 
   @media screen and (min-width:@screen-lg-min) {
@@ -439,10 +513,6 @@ body {
 
   @media screen and (min-width:@screen-sm-min) {
     padding: 1.5em;
-    height: 266px;
-  }
-
-  @media screen and (min-width:@screen-md-min) {
     height: 322px;
   }
 
@@ -478,17 +548,18 @@ body {
 #screen-services {
   
   #screen-services-visual {
-    margin-top: 2em;
+    margin-top: 12px;
   }
 
   #screen-services-text {
-    margin-top: 2em;
+    margin-top: 12px;
   }
 
   #screen-services-visual #website-photo {
     position:relative;
     left: -20px;
   }
+
   img {
       width: 600px;
     }
@@ -499,10 +570,10 @@ body {
     }
 
     #screen-services-visual {
-      margin-top: 5em;
+      margin-top: 40px;
     }
     #screen-services-text {
-      margin-top: 5em;
+      margin-top: 40px;
     }
     img { 
       width: 450px;
@@ -513,27 +584,18 @@ body {
     #screen-services-visual #website-photo {
       left: -10px;
     }
-
-  #screen-services-visual {
-    margin-top: 8em;
-  }
-  #screen-services-text {
-    margin-top: 8em;
-  }
-
+    #screen-services-visual {
+     margin-top: 80px;
+    }
+    #screen-services-text {
+     margin-top: 80px;
+    }
     img { 
       width: 600px;
     }
   }
 
   @media screen and (min-width:@screen-wide-min) {
-
-  #screen-services-visual {
-    margin-top: 8em;
-  }
-  #screen-services-text {
-    margin-top: 8em;
-  }
     img { 
       width: 700px;
     }
@@ -561,18 +623,11 @@ body {
 #screen-method {
   margin-top: 0;
   position:relative;
-//  width: 100%;
-//  padding: 0; 
- // padding causes bug in dolphin 
- // font-size: 10px;
-  
+
   #screen-method-text,#icons {
     margin-top: 80px;
   }
-/*  #icons {
-    margin-top: 80px;
-  }  
-*/
+
   #icons > .row > div {
     margin-bottom: 16px;
   }
@@ -582,16 +637,18 @@ body {
   }
 
   @media screen and (min-width:@screen-sm-min) {
+    margin-top: 70px;
     #icons {
       margin-top: 50px;
     }
     #screen-method-text {
       margin-top: 40px;
     }
-    height: 576px;
+    height: 676px;
 
   }
   @media screen and (min-width:@screen-md-min) {
+    margin-top: 60px;
         #icons {
       margin-top: 80px;
     }
@@ -602,6 +659,7 @@ body {
     height: 480px;
   }
   @media screen and (min-width:@screen-lg-min) {
+    margin-top: 128px;
     #icons {
       margin-top: 140px;
     }
@@ -644,6 +702,7 @@ body {
 
 #team {
   width: 90%;
+  max-width: 1713px;
   .row {
     margin-top: 3em;
 
@@ -690,6 +749,7 @@ body {
   display: inline-block;
   vertical-align: middle;
   width:100%;
+  margin: 0 auto !important;
 }
 
 #screen-team {
@@ -759,47 +819,45 @@ body {
     margin-left: -0.5em;
   }
 
-  .row {
-    text-align: center;
-    > .project {
+  text-align: center;
 
-     .project-wrapper {
-        display: inline-block;
-        vertical-align: middle;
-        margin-bottom: 40px;
-        h3 {
-          margin: 0;
-          margin-top: 1em;
-          font-family: 'Dosis', sans-serif;
-          font-size: 4em;
-        }
-        h5 {
-          margin-top: 0.5em;
-          font-size: 3em;
-        }
-        img {
-          width: 100%;
-        }
-      }
+  .project-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 40px;
+    h3 {
+      margin: 0;
+      margin-top: 1em;
+      font-family: 'Dosis', sans-serif;
+      font-size: 4em;
     }
-
-    .img-placeholder {
-      padding:0em;
-      background: url('../img/polka-1-2.png') @white;
-      vertical-align: top !important;
+    h5 {
+      margin-top: 0.5em;
+      font-size: 3em;
     }
-
-    .project:before {    
-      content:'';
-      height: 100%;
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: -0.5em;    
+    img {
+      width: 100%;
     }
   }
+  
 
+  .img-placeholder {
+    padding:0em;
+    background: url('../img/polka-1-2.png') @white;
+    vertical-align: top !important;
+  }
+
+  .project:before {    
+    content:'';
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: -0.5em;    
+  }
+  
   @media screen and (min-width:@screen-sm-min) {
-    .row > .project {
+    margin-top: 70px;
+    .project {
       height: 176px;
       margin-top: 2em;
       margin-bottom: 2em;
@@ -817,9 +875,13 @@ body {
       }
     }
   }
+  @media screen and (min-width:@screen-md-min) {
+    margin-top: 60px;
+  }
   
   @media screen and (min-width:@screen-lg-min) {
-    .row > .project {
+    margin-top: 128px;
+    .project {
       height: 220px;
       > .project-wrapper > img {
         width: 237px;
@@ -834,15 +896,23 @@ body {
 ///////////////////////////////////////////////////////////////////////////////
 
 .footer-background {
+  position: relative;
   padding: 0;
   height: 400px;
-  background: url('../img/stripe2.png');
+  //width: 100%;
+  background: url('../img/stripe2.png') repeat;
+  max-width:1920px;
+//  margin: 0 auto;
+
   .row {
-    position:relative;
-    z-index: 10;
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    right:0;
+  //  width: 100%;
     margin: 0;
     padding: 0;
-    height: 100%;
     opacity: 0.9;
     background: @white;
   }
@@ -855,11 +925,11 @@ body {
 
 #social-ads {
   background: url('../img/stripe.png');
-
+  max-width:1920px;
+  margin: 0 auto;
   #social-ads-wrapper {
     background-color: @white;
     opacity: 0.9;
-
     .social-banner {
       text-align: center;
       padding: 3em 1.5em;
@@ -869,7 +939,6 @@ body {
       h3, a {
         color: @white !important;
       }  
-
       h3 {
         display: inline-block;
         vertical-align: middle;
@@ -965,6 +1034,8 @@ body {
 #footer {
   position:relative;  
   background: url('../img/stripe2.png') ;
+  max-width:1920px;
+  margin: 0 auto;
 
   #footer-wrapper {
     background-color: @white;
@@ -975,7 +1046,7 @@ body {
 
     .contact-type {
      display: block;
-     width: 6em;
+     width: 36px;
      margin: 0 auto;
     }
   
@@ -993,9 +1064,9 @@ body {
     }
 
     .brand-icons {
-      margin: 4em 0; 
+      margin: 32px 0; 
       margin-top: 0;
-      height: 8em;
+      height: 48px;
     }
 
     .brand-icons:before {
@@ -1007,24 +1078,23 @@ body {
     }
 
     #small-prints {
-     margin: 0;
-     padding: 0;
-     font-family: 'Dosis', sans-serif;
-     font-size: 2em;
-     height: 5em;
-     img {
-      width: 30px;
-     }
-     hr {
-      margin-top: 0;
-     }
-     span {
-      padding: 1em 1.5em;
+      margin: 0;
+      padding: 0;
+      font-family: 'Dosis', sans-serif;
+      font-size: 2em;
+      height: 80px;
+      img {
+       width: 30px;
+      }
+      hr {
+       margin-top: 0;
+      }
+      span {
+       padding: 1em 1.5em;
+      }
     }
   }
-
-  }
-
+  
   @media screen and (min-width:@screen-xs-min) {
     #footer-wrapper {
       .logo {
@@ -1052,11 +1122,14 @@ body {
           display: block;
         }
         .brand-icons {
-          margin: 3em 0;
+          margin: 24px 0;
         }
       }
       .logo {
         width:65px;
+      }
+      #small-prints {
+        height: 80px;
       }
     }
   }

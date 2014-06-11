@@ -38,9 +38,20 @@
   border:1px solid @orange;
 }
 
+#main-nav-1 {
+  margin-top: 50px;  
+}
+
+#main-nav-2,#main-nav-3,#main-nav-4,#main-nav-5 {
+  margin-top: 30px;
+}
+#main-nav-2 {
+  margin-top: 20px;
+}
+
+
 
 .center-navigation {
-  margin-top: 5em;
 
   position:relative;
   z-index: 15;
@@ -48,7 +59,7 @@
 
   h6 {
    font-family: 'Open Sans', sans-serif;
-   font-size: 1.3em;
+   font-size: 2em;
    letter-spacing: 0.1em;
    margin-bottom: 1em;
   }
@@ -67,6 +78,11 @@
       font-size: 12px;
     }
   }  
+  @media screen and (min-width:@screen-sm-min) {
+    h6 {
+      font-size: 1.3em;
+    }
+  }
 }
 
 
