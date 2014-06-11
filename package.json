@@ -1,7 +1,7 @@
 {
   "name": "826094",
   "version": "0.0.0",
-  "description": "Info CINC Home Page | Web Technologies | Mining and Visualization"
+  "description": "Info CINC Home Page | Web Technologies | Mining and Visualization",
   "main": "server.js",
   "dependencies": {
     "express": "~3.5.1"
