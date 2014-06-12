@@ -12,12 +12,11 @@
     <title>CINC - Firme Informatique - Technologies Web - Minage - Visualisation</title>
     <meta name="description" content="CINC est une firme informatique qui offre des services destinés aux enterprises. Nos services sur mesure sont variés: UX Design, Réusinage de code html pour appareils mobile et tablette, conception de grattoir, intégration de donnéees dans base de donnéees vectoriel, analyse de donnéees, tableaux de bord, automatisation excel." />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- replace with web font loader at some point -->
     <link rel="canonical" href="http://infocinc.com" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Dosis|Open+Sans+Condensed:300|Open+Sans:400,700|Lato:900|Dancing+Script|Marck+Script" />
+    <!--     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Dosis|Open+Sans+Condensed:300|Lato:900|Dancing+Script|Marck+Script" />
+ -->
     <link rel="stylesheet" href="css/normalize.min.css" />
-    <link rel="stylesheet" href="css/main.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -28,6 +27,14 @@
 
 <body>
 
+    <!--[if lt IE 9]>
+            <p class="chromeframe" >You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+    <!--[if IE 9]>
+      <div id='gif-spinner'></div>
+    <![endif]-->
+
     <div id='loader'>
         <div id="blockG_1" class="loader_blockG background-blue">
         </div>
@@ -36,10 +43,6 @@
         <div id="blockG_3" class="loader_blockG background-blue">
         </div>
     </div>
-    <!--[if lt IE 9]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-
 
     <!-- Modals -->
     <div class="modal fade" id="telCinc" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
@@ -109,7 +112,7 @@
 
     <!-- Loader icon !-->
 
-    <div id='main' style='opacity:0'>
+    <div id='main' class="invisible">
         <div id="fb-root"></div>
         <script>
         (function(d, s, id) {
@@ -142,34 +145,37 @@
         <div id="navbar">
             <div class="container">
                 <div class="row">
-                    <div id="main-title" class="col-xs-12 col-sm-2">
+                    <div id="main-title" class="nav-item">
                         <div class="text-center">
-                            <h1>[IN[</h1>
+                            <h1>
+                                <a id="top-hero-anchor" href="#margin-top">[IN[</a>
+                            </h1>
                             <h2>Comp&eacutetence Informatique Consultation</h2>
                         </div>
                     </div>
-                    <div id="main-nav" class="col-sm-6 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-2 mobile-hide">
-                        <h2 class="col-xs-3"><a id="services-hero-anchor" href="#services-banner">services</a>
+                    <div id="main-nav" class="nav-item">
+                        <h2 class="nav-item"><a id="services-hero-anchor" href="#services-banner">services</a>
                         </h2>
-                        <h2 class="col-xs-3"><a id="method-hero-anchor" href="#method-banner"> à propos </a>
+                        <h2 class="nav-item"><a id="method-hero-anchor" href="#method-banner">&agrave propos </a>
                         </h2>
-                        <h2 class="col-xs-3"><a id="team-hero-anchor" href="#team-banner">équipe</a>
+                        <h2 class="nav-item"><a id="team-hero-anchor" href="#team-banner">équipe</a>
                         </h2>
-                        <h2 class="col-xs-3"><a id="footer-hero-anchor" href="#social-ads">contact</a>
+                        <h2 class="nav-item"><a id="project-hero-anchor" href="#project-banner">projets</a>
+                        </h2>
+                        <h2 class="nav-item"><a id="contact-hero-anchor" href="#social-ads">contact</a>
                         </h2>
                     </div>
-
-                    <div id="social-icons" class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-lg-offset-0 col-lg-3 text-center">
-                        <a id="phone_anchor" href="tel:+14384966886" class="float-left">
+                    <div id="social-icons" class="nav-item">
+                        <a id="phone_anchor" href="tel:+14384966886" class="nav-item">
                             <img id="phone-logo" src="img/phonelogo_100dpi.png">
                         </a>
-                        <a href="#" data-target="#skypeCinc" data-toggle="modal" class="float-left">
+                        <a href="#" data-target="#skypeCinc" data-toggle="modal" class="nav-item">
                             <img id="skype-logo" src="img/skypelogo_100dpi.png">
                         </a>
-                        <a href="https://www.facebook.com/infocinc" target="_blank" class="float-left">
+                        <a href="https://www.facebook.com/infocinc" target="_blank" class="nav-item">
                             <img src="img/facebooklogo_100dpi.png">
                         </a>
-                        <a href="https://twitter.com/infoCinc" target="_blank" class="float-left">
+                        <a href="https://twitter.com/infoCinc" target="_blank" class="nav-item">
                             <img id="twitter-logo" src="img/twitterlogo_100dpi.png">
                         </a>
                     </div>
@@ -180,11 +186,7 @@
         <div id="margin-top" class="mobile-hide"></div>
         <div id="top" class="background-container container-fluid">
             <div class="slider cadre text-center">
-                <div class="slide">
-                    <img src="img/experience_100dpi.jpg"></img>
-                    <h3>Exp&eacuterience</h3>
-                </div>
-                <div class="slide hide">
+                <div class="slide ">
                     <img src="img/creative_100dpi.jpg"></img>
                     <h3>Cr&eacuteativit&eacute</h3>
                 </div>
@@ -200,7 +202,6 @@
         </div>
         <div id="main-nav-1" class="center-navigation">
             <div>
-                <h6>QUELS SONT NOS SERVICES ?</h6>
                 <a id="service-nav-anchor" href="#services-banner" class="btn btn-default">
                     <span class="glyphicon glyphicon-play rotate-90 white "></span>
                 </a>
@@ -240,14 +241,13 @@
                 </div>
 
                 <div id='services-icons' class="row ">
-                    <div class="col-sm-4 service-mobile-shadow">
+                    <div class="col-sm-4">
                         <div class="button-padding desktop-hide"></div>
                         <button id="website-button" type="button" class="noglow service-thumbnail services-click">
                             <img id="website-img" src="img/www.png" alt="conception site web"></img>
                         </button>
 
                         <h3 class="button-caption">WEB</h3>
-
                         <div id="website-text" class="content-block desktop-hide text-center">
                             <h4>Design web adapt&eacute pour le client (UX Design)</h4>
                             <p>
@@ -268,8 +268,9 @@
                         </div>
                     </div>
 
+                    <div class='mobile-break desktop-hide'></div>
 
-                    <div class="col-sm-4 service-mobile-shadow">
+                    <div class="col-sm-4 ">
                         <div class="button-padding desktop-hide"></div>
 
                         <button id="scrape-button" type="button" class="noglow service-thumbnail services-click">
@@ -296,8 +297,9 @@
                             <img id="scrape-photo" src="img/rover_90dpi.jpg"></img>
                         </div>
                     </div>
+                    <div class='mobile-break desktop-hide'></div>
 
-                    <div class="col-sm-4 service-mobile-shadow">
+                    <div class="col-sm-4 ">
                         <div class="button-padding desktop-hide"></div>
 
                         <button id="excel-button" type="button" class="noglow service-thumbnail services-click">
@@ -324,6 +326,8 @@
                             </div>
                         </div>
                     </div>
+                    <div class='mobile-break desktop-hide'></div>
+
                 </div>
             </div>
         </div>
@@ -345,7 +349,6 @@
 
         <div id="main-nav-2" class="center-navigation">
             <div>
-                <h6>COMMENT FONCTIONNE-ON ?</h6>
 
                 <a id="method-nav-anchor" href="#method-banner" class="btn btn-default">
                     <span class="glyphicon glyphicon-play rotate-90 white"></span>
@@ -490,7 +493,6 @@
 
         <div id="main-nav-3" class="center-navigation">
             <div>
-                <h6>QUELLE EST NOTRE &EacuteQUIPE ?</h6>
                 <a id="team-nav-anchor" href="#team-banner" class="btn btn-default">
                     <span class="glyphicon glyphicon-play rotate-90 white"></span>
                 </a>
@@ -618,7 +620,6 @@
 
         <div id="main-nav-4" class="center-navigation">
             <div>
-                <h6>NOS PROJETS EN COURS</h6>
                 <a id="team-nav-anchor" href="#project-banner" class="btn btn-default">
                     <span class="glyphicon glyphicon-play rotate-90 white"></span>
                 </a>
@@ -679,7 +680,7 @@
 
                 <div class="col-sm-4 col-md-3 mobile-hide project">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/cdm_100dpi.jpg" style="opacity:0"></img>
+                        <img></img>
                     </div>
                 </div>
 
@@ -859,13 +860,17 @@
                             <a href="#margin-top" id="top-footer-anchor">accueil</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="#method-banner" id="method-footer-anchor"> &agrave propos</a>
-                        </li>
-                        <li class="list-group-item">
                             <a href="#services-banner" id="services-footer-anchor"> services</a>
                         </li>
                         <li class="list-group-item">
+                            <a href="#method-banner" id="method-footer-anchor"> &agrave propos</a>
+                        </li>
+
+                        <li class="list-group-item">
                             <a href="#team-banner" id="team-footer-anchor"> &eacutequipe</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#project-banner" id="project-footer-anchor"> projets </a>
                         </li>
                     </ul>
                 </div>
@@ -904,11 +909,29 @@
     <script type="text/javascript" src="js/vendor/jquery-ui-1.10.4.custom.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/vendor/scrollTo.min.js"></script>
-    <script type="text/javascript" src="js/vendor/enquire.min.js"></script>
     <!--[if IE]><script src="js/vendor/excanvas.js"></script><![endif]-->
+
+    <!--     <script type="text/javascript" src="js/vendor/enquire.min.js"></script>
     <script src="js/plugins.min.js"></script>
-    <script src="js/main.min.js"></script>
+    <script src="js/main.js"></script>
+ -->
     <!-- twitter button -->
+
+    <script>
+    var load = [
+        //first test need for polyfill
+        {
+            test: window.matchMedia,
+            nope: "js/vendor/media.match.min.js"
+        },
+
+        //and then load enquire
+        "js/vendor/enquire.min.js",
+        "js/plugins.min.js",
+        "js/main.js"
+    ];
+    Modernizr.load(load);
+    </script>
     <script>
     ! function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],

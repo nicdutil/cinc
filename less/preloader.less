@@ -1,4 +1,4 @@
-#loader {
+.spinnerxy {
   color: @blue;
   position: fixed;
   width: 90px;
@@ -7,6 +7,18 @@
   margin-left: -45px; margin-top: -45px;
 }
 
+#gif-spinner {
+  .spinnerxy;
+  position: relative;
+  z-index: 15;
+  background:url('../img/spinner.gif') center no-repeat #fff;
+}
+
+#loader {
+  position:relative;
+  z-index: -15;
+  .spinnerxy;
+}
 
 .animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
 	-webkit-animation: @name @duration @delay @ease;
@@ -22,7 +34,6 @@
 	-o-transform: 		 scale(@factor);
 	transform:           scale(@factor);
 }
-
 
 .loader_blockG{
   float:left;

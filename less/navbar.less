@@ -18,15 +18,22 @@
 
 #navbar {
  padding: 1.5em 1.5em;
- font-size: 10px;
  background: @black;
- .nav-transition;
+ text-align: center;
+ a {
+  color: @white !important;
+ }
 
-  h1 {
-    margin: 0 !important;
+ .nav-item {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 8px;
   }
 
+ .nav-transition;
+
   h2 {
+    font-family: 'Open Sans Condensed', sans-serif;
     &:extend(#navbar h1);
     text-align: center;
   }
@@ -38,51 +45,41 @@
 
 
  #main-title {
+    width: 100%;
     color: @white;
     h1 {
       margin-bottom: 15px;
       font-family:'Lato', verdana;
-      font-size: 8em;
+      font-size: 80px;
       line-height: 1.1em;
     }
-
     h2 {
-      padding-top: 5px;
-      font-family: 'Open Sans Condensed', sans-serif;
-      font-size: 1.7em;
+      padding-top:10px;
+      font-size: 17px;
+
     }
   }
 
+  
+  #main-nav,#social-icons {
+    text-align: center;
+  }
 
   #main-nav {
-   a {
-    color: @white !important;
-    }
-    h2 {
-      font-family: 'Open Sans Condensed', sans-serif;
+    display: none;
+  }
+
+  #main-nav h2 {
       font-size: 2.5em;
-     }
   }
 
-  #social-icons {
-    a {
-      width: 25%;
-    }
-    img {
-//      width: 2.7em;
-      width: 50%;
-    }
-  }
-  
-
-  #social-icons {
-    margin-top: 12px;
-    margin-bottom: 12px;
+  #social-icons img {
+    width: 30px;
   }
 
   @media screen and (min-width:@screen-xs-min) {
     #social-icons img {
-      width: 30%;
+      width: 42px;
     }
   }
 
@@ -92,57 +89,46 @@
     top: 0px;
     left: 0px;
     z-index: 100;
-    font-size: 7.5px;
-    #social-icons img {
-      width: 50%;
-    }
-
     #main-title {
-      position: relative;
-      top: -5px;
-      left: 5px;
+      h1 { 
+        font-size: 8em;
+      }
       h2 {
-        font-size: 1.3em;
+        padding-top: 5px;
+        font-size: 1.7em;
       }
-    }
-
-  }
-
-  @media screen and (min-width:@screen-sm-min) {
-     #social-icons {
-      margin-top: 32px;
-      margin-bottom: 0;
-     }
-     #main-nav {
-      margin-top: 32px;
-      margin-bottom: 0;
-     }
-   }
-
-  @media screen and (min-width:@screen-md-min) {
-    #social-icons {
-      margin-top: 30px;
-      img {
-        width: 40%;
-      }
+      width: auto;
     }
     #main-nav {
-     margin-top: 29px;
+      display: inline-block;
     }
-    font-size: 8px;
+    .nav-item {
+      padding: 0 8px;
+    }
+
+    #social-icons img {
+      width: 30px;
+    }
+
+    #main-title h2 {
+        font-size: 1.3em;
+    }
+  }
+
+  @media screen and (min-width:@screen-md-min) {
+    .nav-item {
+      padding: 0 15px;
+    }
   }
 
   @media screen and (min-width:@screen-lg-min) {
-    #social-icons {
-      margin-top: 43px;
-      img {
-        width: 50%;
-      }
+    #social-icons img {
+      width: 35px;
     }
-    #main-nav {
-     margin-top: 39px;
-    }    
-    font-size: 10px;
+
+    .nav-item {
+      padding: 0 22px;
+    }
   }
 }
 
@@ -152,33 +138,20 @@
   padding: 0 !important;
   margin-bottom: 0 !important;
   opacity: 0.8;
+  #main-title h1 {
+    line-height: 1em !important;
+  }
   @media screen and (min-width:@screen-sm-min) {
-    #social-icons {
-      margin-top: 16px !important;
-      img {
-        width: 30% !important;
-      }
-    }
-    #main-nav {
-      margin-top: 14px !important;
+    #social-icons  img {
+        width: 20px !important;
     }
     font-size: 6px !important;
   }
 
   @media screen and (min-width:@screen-md-min) {
-    #social-icons {
-      margin-top: 13px !important;
-    }    
     font-size: 5px !important;
   }
   @media screen and (min-width:@screen-lg-min) {
-    #social-icons {
-      margin-top: 14px !important;
-    }
-    #main-nav {
-      margin-top: 14px !important;
-    }
-
     font-size: 6px !important;
   }
 }

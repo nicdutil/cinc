@@ -52,27 +52,27 @@ function registerMediaCallbacks() {
     mediaSwitch = false;
 
     enquire.register("screen and (min-width:992px)", {
-    	unmatch: function() {
-    		graph.orientation = 'horizontal';
+        unmatch: function() {
+            graph.orientation = 'horizontal';
             graph.update([Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10]);
-    	},
-    	match: function() {
-    		graph.orientation = 'vertical';
-    		graph.update([Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10]);
-    	}
+        },
+        match: function() {
+            graph.orientation = 'vertical';
+            graph.update([Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10]);
+        }
     });
 
     enquire.register("screen and (min-width:768px)", {
 
         unmatch: function() {
-        	mediaSwitch = true;
+            mediaSwitch = true;
             $("#phone_anchor").prop('href', 'tel:+14384966886');
             $("#phone_anchor").removeAttr('data-target');
             $("#phone_anchor").removeAttr('data-toggle');
 
             // add no pointer to buttons. 
             $('#services button,#screen-method button').removeClass('selected-button');
-            $('#services button,#screen-method button').css('cursor','default');
+            $('#services button,#screen-method button').css('cursor', 'default');
             // stop carousels 
             $.each(carousels, function(key, value) {
                 value.stop();
@@ -94,16 +94,16 @@ function registerMediaCallbacks() {
             });
 
             if (mediaSwitch) {
-              $.each(carousels, function(key, value) {
-                	if (typeof value !== "undefined") {
-	                  value.start();
-	             }
-              });
-              clearInterval(refreshIntervalId);
-              setBarGraph();
+                $.each(carousels, function(key, value) {
+                    if (typeof value !== "undefined") {
+                        value.start();
+                    }
+                });
+                clearInterval(refreshIntervalId);
+                setBarGraph();
             }
 
-            $('#services button,#screen-method button').css('cursor','pointer');
+            $('#services button,#screen-method button').css('cursor', 'pointer');
 
             $('#screen-method button').on('click', function() {
                 selectButton('screen-method', this);
@@ -160,10 +160,10 @@ function setBarGraphCtx(canvasId) {
 
 
 function createBarGraph() {
-	var lastOrientation = 'horizontal';
-	
-	if (typeof graph !== "undefined" && graphCanvasId !== 'excel-canvas') {
-	  lastOrientation = graph.orientation;
+    var lastOrientation = 'horizontal';
+
+    if (typeof graph !== "undefined" && graphCanvasId !== 'excel-canvas') {
+        lastOrientation = graph.orientation;
     }
 
     graph = new BarGraph(barGraphCtx);
@@ -301,14 +301,15 @@ var nav_anchors = ['#sidebar-services', '#sidebar-method',
 ];
 
 var hero_anchors = [
-    '#services-hero-anchor', '#method-hero-anchor',
+    '#top-hero-anchor', '#services-hero-anchor', '#method-hero-anchor', '#project-hero-anchor',
     '#team-hero-anchor', '#footer-hero-anchor'
 ];
 
 var footer_anchors = [
     '#hero-footer-anchor', '#services-footer-anchor',
     '#team-footer-anchor', '#method-footer-anchor',
-    '#top-footer-anchor', '#quirk-anchor'
+    '#top-footer-anchor', '#project-footer-anchor',
+    '#contact-hero-anchor'
 ];
 
 var main_nav_anchors = [
@@ -480,16 +481,16 @@ function setBannerHeight() {
     var banners = ['#services-banner', '#method-banner',
         '#team-banner', '#project-banner'
     ];
-    var bannerHeight = parseInt($('.banner').css('height'),10);
+    var bannerHeight = parseInt($('.banner').css('height'), 10);
     // subtract 30px from line height because of box preceding 
     var textHeight;
     var selector;
     for (var i = 0; i < banners.length; i++) {
         selector = banners[i] + ' ' + '.row:first-child';
-        textHeight = parseInt($(selector).css('height'),10);
+        textHeight = parseInt($(selector).css('height'), 10);
         selector = banners[i] + ' ' + '.v-long-line';
         $(selector).css({
-           'height': (bannerHeight - textHeight - 30) + 'px'
+            'height': (bannerHeight - textHeight - 30) + 'px'
         });
     }
 }
@@ -505,18 +506,38 @@ function init() {
     setBannerHeight();
 }
 
+function detectIE(callback) {
+    'use strict';
+    // Detecting IE
+    var oldIE;
+    if ($('html').is('.lt-ie9')) {
+        oldIE = true;
+    }
+    if (oldIE) {
+        // do nothing which will prevent content from being shown 
+    } else {
+        callback();
+    }
+}
+
 // on document ready... 
 $(function() {
-    $('#screen-canvas-wrapper').fadeOut(function() {
-        init();
-    });
+    var callback = function() {
+        $('#screen-canvas-wrapper').fadeOut(function() {
+            init();
+        });
+    }
+    detectIE(callback);
 });
+
 
 // on window load 
 $(window).load(function() {
-    $('#loader').css('display','none');
-    $('#main').css('opacity','1');
-    initDrops();
-})
-
-
+    var callback = function() {
+        $('#loader').css('display', 'none');
+        $('#gif-spinner').css('display', 'none');
+        $('#main').removeClass('invisible');
+        initDrops();
+    };
+    detectIE(callback);
+});

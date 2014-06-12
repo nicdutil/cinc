@@ -28,10 +28,13 @@
 
  .chromeframe {
     margin: 0.2em 0;
-    background: #ccc;
+    background: url('../img/oldcomputer.jpg') no-repeat center center;
+    height: 100%;
     color: #000;
     padding: 0.2em 0;
+    font-size:16px;
 }
+
 
 ::-moz-selection {
   background: #b3d4fc;
@@ -100,7 +103,7 @@ ul {
 
 h1,h2,h3,h4,h5,h6 {
   font-weight: normal;
-  margin: 0;
+  margin: 0 !important;
 }
 
 html, body{
@@ -114,7 +117,7 @@ html, body{
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
-// Font Sizes 
+// Fonts
 /////////////////////////////////////////////////////////////////////////////////////
 
 // mobile 
@@ -134,16 +137,72 @@ body {
   }
 }
 
+@font-face {
+    font-family: 'Dosis';
+    src: url('../fonts/dosis-regular-webfont.eot');
+    src: url('../fonts/dosis-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url(https://themes.googleusercontent.com/static/fonts/dosis/v2/xIAtSaglM8LZOYdGmG1JqQ.woff) format('woff'),
+         url('../fonts/dosis-regular-webfont.svg#dosisregular') format('svg'),
+         url('../fonts/dosis-regular-webfont.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans Condensed';
+    src: url('opensans-condlight-webfont.eot');
+    src: url('opensans-condlight-webfont.eot?#iefix') format('embedded-opentype'),
+         url(https://themes.googleusercontent.com/static/fonts/opensanscondensed/v7/gk5FxslNkTTHtojXrkp-xF1YPouZEKgzpqZW9wN-3Ek.woff) format('woff'),
+         url('opensans-condlight-webfont.svg#open_sanscondensed_light') format('svg'),
+         url('opensans-condlight-webfont.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Marck Script';
+    src: url('marckscript-regular-webfont.eot');
+    src: url('marckscript-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url(https://themes.googleusercontent.com/static/fonts/marckscript/v5/O_D1NAZVOFOobLbVtW3bcnhCUOGz7vYGh680lGh-uXM.woff) format('woff'),
+         url('marckscript-regular-webfont.svg#marck_scriptregular') format('svg'),
+         url('marckscript-regular-webfont.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('lato-black-webfont.eot');
+    src: url('lato-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url(https://themes.googleusercontent.com/static/fonts/lato/v7/BVtM30trf7q_jfqYeHfjtA.woff) format('woff'),
+         url('lato-black-webfont.svg#latoblack') format('svg'),
+         url('lato-black-webfont.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Dancing Script';
+    src: url('dancingscript-regular-webfont.eot');
+    src: url('dancingscript-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url(https://themes.googleusercontent.com/static/fonts/dancingscript/v4/DK0eTGXiZjN6yA8zAEyM2VhlQWQpSCpzb2Peu3I-Q34.woff) format('woff'),
+         url('dancingscript-regular-webfont.svg#dancing_scriptregular') format('svg'),
+         url('dancingscript-regular-webfont.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////
 // CSS transitions
 ////////////////////////////////////////////////////////////////////////////////////////
 
 body {
- -webkit-transition: all 500ms ease 0s;
+/* -webkit-transition: all 500ms ease 0s;
     -moz-transition: all 500ms ease 0s;
     -o-transition: all 500ms ease 0s;
     transition: all 500ms ease 0s;
-}
+*/}
 
 #main {
    -webkit-transition: opacity 500ms ease 0s;
@@ -155,16 +214,19 @@ body {
 ////////////////////////////////////////////////////////////////////////////////////////
 // Box Shadows
 ////////////////////////////////////////////////////////////////////////////////////////
-.service-mobile-shadow {
-  -webkit-box-shadow: 0px 1px 8px 2px rgba(50, 50, 50, 0.88);
-  -moz-box-shadow:    0px 1px 8px 2px rgba(50, 50, 50, 0.88);
-  box-shadow:         0px 1px 8px 2px rgba(50, 50, 50, 0.88);
-  @media screen and (min-width:@screen-sm-min) {
-    box-shadow: none;
-  }
+
+.mobile-break {
+  border-top: 1px solid @lightGray;
+  border-bottom: 1px solid @lightGray;
+  width: 100%;
+  padding: 0;
+  margin: 20px 0;
+  background: url('../img/tile.png');
+  height:75px;
 }
+
 .button-padding {
-  height: 75px;
+  height: 20px;
 }
 //////////////////////////////////////////////////////////////////////////////////////// 
 // Thumbnail Stylings
@@ -364,6 +426,7 @@ body {
     display: block;
     background: none !important;
     padding: 0.8em;
+    overflow: hidden !important;
     img {
       width: 100%;
     }
@@ -1046,8 +1109,6 @@ body {
 
     .contact-type {
      display: block;
-     width: 36px;
-     margin: 0 auto;
     }
   
     .logo {

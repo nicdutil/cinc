@@ -270,8 +270,8 @@
 }
 #navbar {
   padding: 1.5em 1.5em;
-  font-size: 10px;
   background: #000000;
+  text-align: center;
   -webkit-transition: all 500ms cubic-bezier(0, 1, 0.56, 0.92);
   /* older webkit */
   -webkit-transition: all 500ms cubic-bezier(0, 1.22, 0.56, 0.92);
@@ -287,11 +287,16 @@
   transition-timing-function: cubic-bezier(0, 1.22, 0.56, 0.92);
   /* custom */
 }
-#navbar h1,
-#navbar h2 {
-  margin: 0 !important;
+#navbar a {
+  color: #ffffff !important;
+}
+#navbar .nav-item {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 8px;
 }
 #navbar h2 {
+  font-family: 'Open Sans Condensed', sans-serif;
   text-align: center;
 }
 #navbar .container {
@@ -299,39 +304,35 @@
   border-bottom: 1px solid #ddd;
 }
 #navbar #main-title {
+  width: 100%;
   color: #ffffff;
 }
 #navbar #main-title h1 {
   margin-bottom: 15px;
   font-family: 'Lato', verdana;
-  font-size: 8em;
+  font-size: 80px;
   line-height: 1.1em;
 }
 #navbar #main-title h2 {
-  padding-top: 5px;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 1.7em;
+  padding-top: 10px;
+  font-size: 17px;
 }
-#navbar #main-nav a {
-  color: #ffffff !important;
+#navbar #main-nav,
+#navbar #social-icons {
+  text-align: center;
+}
+#navbar #main-nav {
+  display: none;
 }
 #navbar #main-nav h2 {
-  font-family: 'Open Sans Condensed', sans-serif;
   font-size: 2.5em;
 }
-#navbar #social-icons a {
-  width: 25%;
-}
 #navbar #social-icons img {
-  width: 50%;
-}
-#navbar #social-icons {
-  margin-top: 12px;
-  margin-bottom: 12px;
+  width: 30px;
 }
 @media screen and (min-width: 480px) {
   #navbar #social-icons img {
-    width: 30%;
+    width: 42px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -341,56 +342,41 @@
     top: 0px;
     left: 0px;
     z-index: 100;
-    font-size: 7.5px;
-  }
-  #navbar #social-icons img {
-    width: 50%;
   }
   #navbar #main-title {
-    position: relative;
-    top: -5px;
-    left: 5px;
+    width: auto;
+  }
+  #navbar #main-title h1 {
+    font-size: 8em;
+  }
+  #navbar #main-title h2 {
+    padding-top: 5px;
+    font-size: 1.7em;
+  }
+  #navbar #main-nav {
+    display: inline-block;
+  }
+  #navbar .nav-item {
+    padding: 0 8px;
+  }
+  #navbar #social-icons img {
+    width: 30px;
   }
   #navbar #main-title h2 {
     font-size: 1.3em;
   }
 }
-@media screen and (min-width: 768px) {
-  #navbar #social-icons {
-    margin-top: 32px;
-    margin-bottom: 0;
-  }
-  #navbar #main-nav {
-    margin-top: 32px;
-    margin-bottom: 0;
-  }
-}
 @media screen and (min-width: 992px) {
-  #navbar {
-    font-size: 8px;
-  }
-  #navbar #social-icons {
-    margin-top: 30px;
-  }
-  #navbar #social-icons img {
-    width: 40%;
-  }
-  #navbar #main-nav {
-    margin-top: 29px;
+  #navbar .nav-item {
+    padding: 0 15px;
   }
 }
 @media screen and (min-width: 1200px) {
-  #navbar {
-    font-size: 10px;
-  }
-  #navbar #social-icons {
-    margin-top: 43px;
-  }
   #navbar #social-icons img {
-    width: 50%;
+    width: 35px;
   }
-  #navbar #main-nav {
-    margin-top: 39px;
+  #navbar .nav-item {
+    padding: 0 22px;
   }
 }
 .navbar-mini {
@@ -398,37 +384,25 @@
   margin-bottom: 0 !important;
   opacity: 0.8;
 }
+.navbar-mini #main-title h1 {
+  line-height: 1em !important;
+}
 @media screen and (min-width: 768px) {
   .navbar-mini {
     font-size: 6px !important;
   }
-  .navbar-mini #social-icons {
-    margin-top: 16px !important;
-  }
   .navbar-mini #social-icons img {
-    width: 30% !important;
-  }
-  .navbar-mini #main-nav {
-    margin-top: 14px !important;
+    width: 20px !important;
   }
 }
 @media screen and (min-width: 992px) {
   .navbar-mini {
     font-size: 5px !important;
   }
-  .navbar-mini #social-icons {
-    margin-top: 13px !important;
-  }
 }
 @media screen and (min-width: 1200px) {
   .navbar-mini {
     font-size: 6px !important;
-  }
-  .navbar-mini #social-icons {
-    margin-top: 14px !important;
-  }
-  .navbar-mini #main-nav {
-    margin-top: 14px !important;
   }
 }
 .modal-header {
@@ -562,7 +536,7 @@ button.close {
   text-align: center;
 }
 .center-navigation h6 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
   font-size: 2em;
   letter-spacing: 0.1em;
   margin-bottom: 1em;
@@ -598,7 +572,7 @@ button.close {
   text-align: center;
 }
 .slide-box span {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
   font-size: 14px;
   font-weight: bold;
   line-height: 30px;
@@ -692,7 +666,32 @@ li.list-group-item {
 ul.contact-type > li {
   padding-left: 0px;
 }
+.spinnerxy {
+  color: #2980b9;
+  position: fixed;
+  width: 90px;
+  height: 90px;
+  top: 50%;
+  left: 50%;
+  margin-left: -45px;
+  margin-top: -45px;
+}
+#gif-spinner {
+  color: #2980b9;
+  position: fixed;
+  width: 90px;
+  height: 90px;
+  top: 50%;
+  left: 50%;
+  margin-left: -45px;
+  margin-top: -45px;
+  position: relative;
+  z-index: 15;
+  background: url('../img/spinner.gif') center no-repeat #ffffff;
+}
 #loader {
+  position: relative;
+  z-index: -15;
   color: #2980b9;
   position: fixed;
   width: 90px;
@@ -803,9 +802,11 @@ ul.contact-type > li {
  */
 .chromeframe {
   margin: 0.2em 0;
-  background: #ccc;
+  background: url('../img/oldcomputer.jpg') no-repeat center center;
+  height: 100%;
   color: #000;
   padding: 0.2em 0;
+  font-size: 16px;
 }
 ::-moz-selection {
   background: #b3d4fc;
@@ -872,7 +873,7 @@ h4,
 h5,
 h6 {
   font-weight: normal;
-  margin: 0;
+  margin: 0 !important;
 }
 html,
 body {
@@ -901,11 +902,47 @@ body {
     font-size: 10px !important;
   }
 }
+@font-face {
+  font-family: 'Dosis';
+  src: url('../fonts/dosis-regular-webfont.eot');
+  src: url('../fonts/dosis-regular-webfont.eot?#iefix') format('embedded-opentype'), url(https://themes.googleusercontent.com/static/fonts/dosis/v2/xIAtSaglM8LZOYdGmG1JqQ.woff) format('woff'), url('../fonts/dosis-regular-webfont.svg#dosisregular') format('svg'), url('../fonts/dosis-regular-webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Open Sans Condensed';
+  src: url('opensans-condlight-webfont.eot');
+  src: url('opensans-condlight-webfont.eot?#iefix') format('embedded-opentype'), url(https://themes.googleusercontent.com/static/fonts/opensanscondensed/v7/gk5FxslNkTTHtojXrkp-xF1YPouZEKgzpqZW9wN-3Ek.woff) format('woff'), url('opensans-condlight-webfont.svg#open_sanscondensed_light') format('svg'), url('opensans-condlight-webfont.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Marck Script';
+  src: url('marckscript-regular-webfont.eot');
+  src: url('marckscript-regular-webfont.eot?#iefix') format('embedded-opentype'), url(https://themes.googleusercontent.com/static/fonts/marckscript/v5/O_D1NAZVOFOobLbVtW3bcnhCUOGz7vYGh680lGh-uXM.woff) format('woff'), url('marckscript-regular-webfont.svg#marck_scriptregular') format('svg'), url('marckscript-regular-webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('lato-black-webfont.eot');
+  src: url('lato-black-webfont.eot?#iefix') format('embedded-opentype'), url(https://themes.googleusercontent.com/static/fonts/lato/v7/BVtM30trf7q_jfqYeHfjtA.woff) format('woff'), url('lato-black-webfont.svg#latoblack') format('svg'), url('lato-black-webfont.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Dancing Script';
+  src: url('dancingscript-regular-webfont.eot');
+  src: url('dancingscript-regular-webfont.eot?#iefix') format('embedded-opentype'), url(https://themes.googleusercontent.com/static/fonts/dancingscript/v4/DK0eTGXiZjN6yA8zAEyM2VhlQWQpSCpzb2Peu3I-Q34.woff) format('woff'), url('dancingscript-regular-webfont.svg#dancing_scriptregular') format('svg'), url('dancingscript-regular-webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
 body {
-  -webkit-transition: all 500ms ease 0s;
-  -moz-transition: all 500ms ease 0s;
-  -o-transition: all 500ms ease 0s;
-  transition: all 500ms ease 0s;
+  /* -webkit-transition: all 500ms ease 0s;
+    -moz-transition: all 500ms ease 0s;
+    -o-transition: all 500ms ease 0s;
+    transition: all 500ms ease 0s;
+*/
 }
 #main {
   -webkit-transition: opacity 500ms ease 0s;
@@ -913,18 +950,17 @@ body {
   -o-transition: opacity 500ms ease 0s;
   transition: opacity 500ms ease 0s;
 }
-.service-mobile-shadow {
-  -webkit-box-shadow: 0px 1px 8px 2px rgba(50, 50, 50, 0.88);
-  -moz-box-shadow: 0px 1px 8px 2px rgba(50, 50, 50, 0.88);
-  box-shadow: 0px 1px 8px 2px rgba(50, 50, 50, 0.88);
-}
-@media screen and (min-width: 768px) {
-  .service-mobile-shadow {
-    box-shadow: none;
-  }
+.mobile-break {
+  border-top: 1px solid #f2f4f7;
+  border-bottom: 1px solid #f2f4f7;
+  width: 100%;
+  padding: 0;
+  margin: 20px 0;
+  background: url('../img/tile.png');
+  height: 75px;
 }
 .button-padding {
-  height: 75px;
+  height: 20px;
 }
 @media screen and (min-width: 768px) {
   .square-thumbnail {
@@ -1163,6 +1199,7 @@ body {
   display: block;
   background: none !important;
   padding: 0.8em;
+  overflow: hidden !important;
 }
 #services button img,
 #screen-method button img,
@@ -1741,8 +1778,6 @@ body {
 }
 #footer #footer-wrapper .contact-type {
   display: block;
-  width: 36px;
-  margin: 0 auto;
 }
 #footer #footer-wrapper .logo {
   display: inline-block;
