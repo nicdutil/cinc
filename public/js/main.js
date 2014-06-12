@@ -500,13 +500,13 @@ function setBannerHeight() {
 
 
 function init() {
-    setBannerHeight();
     initSlider();
     setBarGraph();
     registerMediaCallbacks();
     initWayPoints();
     registerScrollsTo();
     resizeHandlers();
+    setBannerHeight();
 }
 
 function detectIE(callback) {
