@@ -484,10 +484,10 @@ function setBannerHeight() {
         '#team-banner', '#project-banner'
     ];
     var bannerHeight = parseInt($('.banner').css('height'), 10);
+        selector = banners[i] + ' ' + '.row:first-child';
     var textHeight;
     var selector;
     for (var i = 0; i < banners.length; i++) {
-        selector = banners[i] + ' ' + '.row:first-child';
         textHeight = parseInt($(selector).css('height'), 10);
         selector = banners[i] + ' ' + '.v-long-line';
         // subtract 30px from line height because of box preceding 

@@ -116,6 +116,11 @@ html, body{
  padding: 0px !important;
 }
 
+img {
+ image-rendering:optimizeQuality !important;
+}
+
+
 /////////////////////////////////////////////////////////////////////////////////////
 // Fonts
 /////////////////////////////////////////////////////////////////////////////////////
@@ -799,6 +804,7 @@ body {
         width: 40%;
       }
       .email-icon {
+        -ms-interpolation-mode: bicubic;
         width: 50px;
       }
 
@@ -1112,6 +1118,7 @@ body {
     .logo {
       display: inline-block;
       vertical-align: middle;
+      image-rendering:optimizeQuality;
       width: 52px;
       padding: 0 0.5em;
     }

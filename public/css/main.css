@@ -329,6 +329,9 @@
 }
 #navbar #social-icons img {
   width: 30px;
+  /* fix for firefox cutting image*/
+  image-rendering: optimizeQuality;
+  -ms-interpolation-mode: bicubic;
 }
 @media screen and (min-width: 480px) {
   #navbar #social-icons img {
@@ -888,6 +891,9 @@ body {
   height: 100% !important;
   margin: 0px !important;
   padding: 0px !important;
+}
+img {
+  image-rendering: optimizeQuality !important;
 }
 body {
   font-size: 6px !important;
@@ -1521,6 +1527,7 @@ body {
   width: 40%;
 }
 #team .row > div .email-icon {
+  -ms-interpolation-mode: bicubic;
   width: 50px;
 }
 .screen-wrapper {
@@ -1786,6 +1793,7 @@ body {
 #footer #footer-wrapper .logo {
   display: inline-block;
   vertical-align: middle;
+  image-rendering: optimizeQuality;
   width: 52px;
   padding: 0 0.5em;
 }

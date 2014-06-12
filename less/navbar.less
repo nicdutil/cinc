@@ -75,6 +75,9 @@
 
   #social-icons img {
     width: 30px;
+    /* fix for firefox cutting image*/
+   image-rendering:optimizeQuality;
+   -ms-interpolation-mode: bicubic;
   }
 
   @media screen and (min-width:@screen-xs-min) {
