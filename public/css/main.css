@@ -178,7 +178,7 @@
   margin-top: 0px;
   margin-bottom: 0px;
   border-right: 1px solid;
-  height: 190px;
+  height: 0px;
 }
 .v-md-line {
   display: inline-block;
@@ -406,7 +406,7 @@
   }
 }
 .modal-header {
-  background: url('http://192.168.1.6:3000/img/tile.png') #ffffff !important;
+  background: url('../img/tile.png') #ffffff !important;
   font-size: 2.5em;
   color: #000000;
 }
@@ -471,7 +471,7 @@ button.close {
   border: 1px solid #aaa;
   border-radius: 5px;
   padding: 5px;
-  background: url('http://192.168.1.6:3000/img/tile.png');
+  background: url('../img/tile.png');
 }
 @media screen and (min-width: 480px) {
   #telCinc .skype-call-wrapper,
@@ -519,7 +519,12 @@ button.close {
   border: 1px solid #f39c12;
 }
 #main-nav-1 {
-  margin-top: 50px;
+  margin-top: 15px;
+}
+@media screen and (min-height: 481px) {
+  #main-nav-1 {
+    margin-top: 50px;
+  }
 }
 #main-nav-2,
 #main-nav-3,
@@ -1279,7 +1284,7 @@ body {
   margin: 0 auto;
   padding: 0 !important;
   position: relative;
-  height: 211px;
+  height: 174px;
   width: 100%;
 }
 .cadre h3 {
@@ -1321,33 +1326,32 @@ body {
 .slide {
   position: absolute;
   padding: 2px;
+  width: 100%;
+}
+.slide img {
   height: 144px;
   width: 100%;
 }
 @media screen and (min-width: 480px) {
-  .slide {
+  .slide img {
     height: 224px;
   }
 }
 @media screen and (min-width: 768px) {
-  .slide {
+  .slide img {
     padding: 1.5em;
     height: 322px;
   }
 }
 @media screen and (min-width: 1200px) {
-  .slide {
+  .slide img {
     height: 391px;
   }
 }
 @media screen and (min-width: 1600px) {
-  .slide {
+  .slide img {
     height: 460px;
   }
-}
-.slide img {
-  height: 100%;
-  width: 100%;
 }
 #services #website-photo {
   position: relative;
