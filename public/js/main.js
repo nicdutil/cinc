@@ -484,10 +484,11 @@ function setBannerHeight() {
         '#team-banner', '#project-banner'
     ];
     var bannerHeight = parseInt($('.banner').css('height'), 10);
-        selector = banners[i] + ' ' + '.row:first-child';
     var textHeight;
     var selector;
+
     for (var i = 0; i < banners.length; i++) {
+        selector = banners[i] + ' ' + '.row:first-child';
         textHeight = parseInt($(selector).css('height'), 10);
         selector = banners[i] + ' ' + '.v-long-line';
         // subtract 30px from line height because of box preceding 
@@ -505,8 +506,8 @@ function init() {
     registerMediaCallbacks();
     initWayPoints();
     registerScrollsTo();
-    resizeHandlers();
     setBannerHeight();
+    resizeHandlers();
 }
 
 function detectIE(callback) {
@@ -525,10 +526,11 @@ function detectIE(callback) {
 
 function display() {
     var callback = function() {
-        initDrops();
         $('#loader').css('display', 'none');
         $('#gif-spinner').css('display', 'none');
         $('#main').removeClass('invisible');
+        initDrops();
+
     };
     // hack to make sure v-long-line is set properly.
     if (bannerReady) {
