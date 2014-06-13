@@ -226,17 +226,8 @@
 }
 
 .responsive-line {
-   .line(@length:10em, @lineType:right);
-  @media screen and (min-width:@screen-sm-min) {
-    .line(@length:50em, @lineType:right);
-  }
- @media screen and (min-width:@screen-md-min) {
-    .line(@length:15em, @lineType:right);
-  }
- @media screen and (min-width:@screen-lg-min) {
-    .line(@length:20em, @lineType:right);
- }
-   
+  .line(@length:0px, @lineType:right);
+  /* line lenght determined by javascript */
 }
 
 

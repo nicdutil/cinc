@@ -27,7 +27,7 @@
  .nav-item {
     display: inline-block;
     vertical-align: middle;
-    padding: 8px;
+    padding: 5px;
   }
 
  .nav-transition;
@@ -50,12 +50,12 @@
     h1 {
       margin-bottom: 15px;
       font-family:'Lato', verdana;
-      font-size: 80px;
+      font-size: 60px;
       line-height: 1.1em;
     }
     h2 {
       padding-top:10px;
-      font-size: 17px;
+      font-size: 15px;
 
     }
   }
@@ -80,7 +80,32 @@
    -ms-interpolation-mode: bicubic;
   }
 
+  @media screen and (min-height: 481px) {
+    .nav-item {
+      padding: 8px;
+    }
+    #main-title {
+      h1 {
+      font-size: 80px;
+      line-height: 1.1em;
+      }
+      h2 {
+        font-size: 17px;
+      }
+    }
+
+  }
+
   @media screen and (min-width:@screen-xs-min) {
+    #main-title {
+      h1 {
+      font-size: 80px;
+      line-height: 1.1em;
+      }
+      h2 {
+        font-size: 17px;
+      }
+    }    
     #social-icons img {
       width: 42px;
     }
@@ -130,7 +155,7 @@
     }
 
     .nav-item {
-      padding: 0 22px;
+      padding: 0 20px;
     }
   }
 }

@@ -273,7 +273,28 @@ function carouselHandler(direction) {
     }
 }
 
+function sizeIcons(format) {
+    var imgs = $('#social-icons img');
+	var tkn;
+	var modifier;
+
+	if (format === 'mini') {
+		tkn = '_';
+		modifier = 'mini';
+	} else {
+		tkn = 'mini_';
+		modifier = '';
+	}
+
+    $.each(imgs, function(k, v) {
+        src = $('#' + v.id).attr('src').split(tkn);
+        src = src[0] + modifier + '_150dpi.png';
+        $('#' + v.id).attr('src', src);
+    });
+}
+
 function navBarResizeHandler(direction) {
+    var src;
     var fixedFlag = 'fixed' === $('#navbar').css('position');
     if (!fixedFlag)
         return;
@@ -282,8 +303,10 @@ function navBarResizeHandler(direction) {
         $('#navbar').addClass('navbar-mini');
         $('#main-title h2').css('display', 'none');
         $('#navbar .container').css('border', 'none');
+        sizeIcons('mini');
     } else {
         $('#navbar').removeClass('navbar-mini');
+        sizeIcons('full');
         $('#main-title h2').css('display', 'block');
         $('#navbar .container').css({
             'border-top': '1px solid #ddd',
@@ -386,7 +409,6 @@ function resize() {
         graph.height = barGraphCtx.canvas.height;
     }
     setBannerHeight();
-
 }
 
 function selectButton(sectionId, buttonId) {
@@ -477,7 +499,6 @@ function initDrops() {
     setInterval(drawDrops, REFRESH_RATE);
 }
 
-var bannerReady = false;
 
 function setBannerHeight() {
     var banners = ['#services-banner', '#method-banner',
@@ -496,18 +517,40 @@ function setBannerHeight() {
             'height': (bannerHeight - textHeight - 30) + 'px'
         });
     }
-    bannerReady = true;
 }
 
 
+function setResponsiveLine(id) {
+    var offset = $(id).offset();
+    var windowHeight = $(window).height();
+    var boxHeight = parseInt($(id + ' a').css('height'), 10);
+
+    var delta = windowHeight - (offset.top + boxHeight);
+    if (delta > 0) {
+        $(id + ' .responsive-line').css({
+            'height': delta + 'px'
+        });
+    } else {
+        $(id + ' .responsive-line').css({
+            'height': '80px'
+        });
+    }
+}
+
 function init() {
+    setResponsiveLine('#main-nav-1');
+    setBannerHeight();
     initSlider();
     setBarGraph();
     registerMediaCallbacks();
     initWayPoints();
     registerScrollsTo();
-    setBannerHeight();
     resizeHandlers();
+    display();
+    initDrops();
+    $('body').imagesLoaded(function() {
+    	display();
+    });
 }
 
 function detectIE(callback) {
@@ -529,15 +572,8 @@ function display() {
         $('#loader').css('display', 'none');
         $('#gif-spinner').css('display', 'none');
         $('#main').removeClass('invisible');
-        initDrops();
-
     };
-    // hack to make sure v-long-line is set properly.
-    if (bannerReady) {
-        detectIE(callback);
-    } else {
-    	setTimeout(function() {display()}, 50);
-    }
+    detectIE(callback);
 }
 
 // on document ready... 
@@ -548,10 +584,4 @@ $(function() {
         });
     }
     detectIE(callback);
-});
-
-
-// on window load 
-$(window).load(function() {
-	display();
 });

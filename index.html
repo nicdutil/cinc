@@ -1,3 +1,17 @@
+<!-- Copyright 2014 CINC (www.infocinc.com)
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+-->
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -16,7 +30,7 @@
     <!--     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Dosis|Open+Sans+Condensed:300|Lato:900|Dancing+Script|Marck+Script" />
  -->
     <link rel="stylesheet" href="css/normalize.min.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main.min.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -150,17 +164,16 @@
                     </div>
                     <div id="social-icons" class="nav-item">
                         <a id="phone_anchor" href="tel:+14384966886" class="nav-item">
-                            <img id="phone-logo" src="img/phonelogo_100dpi.png">
+                            <img id="phone-logo" src="img/phonelogo_150dpi.png">
                         </a>
                         <a href="#" data-target="#skypeCinc" data-toggle="modal" class="nav-item">
-                            <img id="skype-logo" src="img/skypelogo_100dpi.png">
-                            <img id="skype-logo-mini" src="img/skypelogomini_100dpi.png" class='hide'>                         
+                            <img id="skype-logo" src="img/skypelogo_150dpi.png">
                         </a>
                         <a href="https://www.facebook.com/infocinc" target="_blank" class="nav-item">
-                            <img src="img/facebooklogo_100dpi.png">
+                            <img id='facebook-logo' src="img/facebooklogo_150dpi.png">
                         </a>
                         <a href="https://twitter.com/infoCinc" target="_blank" class="nav-item">
-                            <img id="twitter-logo" src="img/twitterlogo_100dpi.png">
+                            <img id="twitter-logo" src="img/twitterlogo_150dpi.png">
                         </a>
                     </div>
                 </div>
@@ -189,7 +202,7 @@
                 <a id="service-nav-anchor" href="#services-banner" class="btn btn-default">
                     <span class="glyphicon glyphicon-play rotate-90 white "></span>
                 </a>
-                <div class="responsive-line "></div>
+                <div class="responsive-line"></div>
             </div>
         </div>
 
@@ -538,7 +551,7 @@
                             </li>
                         </ul>
                         <a href="mailto:Nicolas.Dutil@infocinc.com">
-                            <img class='email-icon' src="img/mail.png"></img>
+                            <img class='email-icon' src="img/mail_150dpi.png"></img>
                         </a>
                     </div>
 
@@ -569,7 +582,7 @@
                             </li>
                         </ul>
                         <a href="mailto:Melanie.Bertrand@infocinc.com">
-                            <img class='email-icon' src="img/mail.png"></img>
+                            <img class='email-icon' src="img/mail_150dpi.png"></img>
                         </a>
                     </div>
                     <div id="mel-text" class="content-block desktop-hide text-center">
@@ -718,50 +731,39 @@
         </div>
         <div id="social-ads" class="container-fluid ">
             <div id="social-ads-wrapper">
-                <div class="social-banner background-red col-sm-6 col-lg-3">
+                <div class="social-banner  background-red col-sm-6 col-lg-3">
                     <div class="social-banner-wrapper">
                         <div id='gplus' class="text-center">
                             <img src="img/google-plus.png"></img>
                         </div>
-                        <div class="social-text">
-                            <h3>RECOMMENDEZ CINC SUR GOOGLE+</h3>
-                        </div>
+                        <h3>RECOMMENDEZ CINC SUR GOOGLE+</h3>
                         <div class="social-button-wrapper iframe-offset">
                             <div class="g-plusone" data-annotation="bubble" data-width="300"></div>
                         </div>
                     </div>
                 </div>
-
                 <div class="social-banner background-blue col-sm-6 col-lg-3">
                     <div class="social-banner-wrapper">
-                        <div class="text-center">
-                            <img src="img/ilike_90dpi.png"></img>
-                        </div>
-                        <div class="social-text">
-                            <h3>RECOMMENDEZ CINC SUR FACEBOOK</h3>
-                        </div>
+                        <img src="img/ilike_90dpi.png"></img>
+                        <h3>RECOMMENDEZ CINC SUR FACEBOOK</h3>
                         <div class="social-button-wrapper">
                             <div class="fb-like" data-href="http://www.cincinfo.com" data-width="20" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="social-banner background-dark col-sm-6 col-lg-3">
+                <div class="social-banner  background-dark col-sm-6 col-lg-3">
                     <div class="social-banner-wrapper">
-                        <div class="text-center">
-                            <img src="img/Twitter_logo_white.png"></img>
-                        </div>
-                        <div class="social-text">
-                            <h3>TWEETEZ VOS QUESTIONS
-                                <a href="http://twitter.com/infoCinc" target="_blank"> @INFOCINC</a>
-                            </h3>
-                        </div>
+                        <img src="img/Twitter_logo_white.png"></img>
+                        <h3>TWEETEZ VOS QUESTIONS
+                            <a href="http://twitter.com/infoCinc" target="_blank"> @INFOCINC</a>
+                        </h3>
                         <div class="social-button-wrapper iframe-offset">
                             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://infocinc.com" data-text="Tweeter vos questions" data-via="infoCinc" data-lang="fr">Tweeter</a>
                         </div>
                     </div>
                 </div>
-                <div class="social-banner background-red col-sm-6 col-lg-3 mobile-hide">
+                <div class="social-banner  col-sm-6 col-lg-3 mobile-hide">
                 </div>
             </div>
         </div>
@@ -893,6 +895,8 @@
     <script type="text/javascript" src="js/vendor/jquery-ui-1.10.4.custom.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/vendor/scrollTo.min.js"></script>
+    <script type="text/javascript" src="js/vendor/imagesloaded.pkgd.min.js"></script>
+    
     <!--[if IE]><script src="js/vendor/excanvas.js"></script><![endif]-->
 
     <!--     <script type="text/javascript" src="js/vendor/enquire.min.js"></script>
@@ -912,7 +916,7 @@
         //and then load enquire
         "js/vendor/enquire.min.js",
         "js/plugins.min.js",
-        "js/main.js"
+        "js/main.min.js"
     ];
     Modernizr.load(load);
     </script>
