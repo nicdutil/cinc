@@ -16,7 +16,7 @@
 ///////////////////////////////////////////////////////////////////////
 // Globals
 ///////////////////////////////////////////////////////////////////////
-
+var CANVAS_RATIO;
 
 ///////////////////////////////////////////////////////////////////////
 // Utilities
@@ -54,11 +54,21 @@ function registerMediaCallbacks() {
     enquire.register("screen and (min-width:992px)", {
         unmatch: function() {
             graph.orientation = 'horizontal';
-            graph.update([Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10]);
+            graph.update([Math.random() * 10, Math.random() * 10,
+                Math.random() * 10, Math.random() * 10,
+                Math.random() * 10, Math.random() * 10,
+                Math.random() * 10
+            ]);
+            CANVAS_RATIO = 0.5;
         },
         match: function() {
             graph.orientation = 'vertical';
-            graph.update([Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10]);
+            graph.update([Math.random() * 10, Math.random() * 10,
+                Math.random() * 10, Math.random() * 10,
+                Math.random() * 10, Math.random() * 10,
+                Math.random() * 10
+            ]);
+            CANVAS_RATIO = 0.62;
         }
     });
 
@@ -87,6 +97,7 @@ function registerMediaCallbacks() {
         },
 
         match: function() {
+        	 CANVAS_RATIO = 0.5;
             $("#phone_anchor").prop('href', '#');
             $("#phone_anchor").attr({
                 "data-target": '#telCinc',
@@ -127,6 +138,22 @@ function registerMediaCallbacks() {
     });
 }
 
+function queryMediaState() {
+  var size = parseInt($('#media-state').css('font-size'),10);
+  var site_shape;
+  if (size === 1) {
+  	site_shape = "MOBILE";
+  } else if (size === 2) {
+  	site_shape = "TABLET-PORTRAIT";
+  } else if (size === 3) {
+  	site_shape = "TABLET-LANDSCAPE";
+  } else if (size === 4) {
+  	site_shape = "DESKTOP-LG";
+  } else {
+  	site_shape = "DESKTOP-WIDE";
+  }
+  return site_shape;
+}
 ////////////////////////////////////////////////////////////////////////
 // Bar Graph
 ////////////////////////////////////////////////////////////////////////
@@ -144,7 +171,7 @@ function setBarGraphCtx(canvasId) {
 
     if (canvasId === 'screen-canvas') {
         w = 0.4 * $('#screen-services').width();
-        h = 0.5 * $('#screen-services').height();
+        h = CANVAS_RATIO * $('#screen-services').height();
     } else {
         w = 0.8 * $('#services').width();
         h = 200;
@@ -172,11 +199,19 @@ function createBarGraph() {
     graph.width = barGraphCtx.canvas.width;
     graph.height = barGraphCtx.canvas.height;
 
-    graph.xAxisLabelArr = ["A", "B", "C", "D", "E", "F"];
-    graph.update([Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10]);
+    graph.xAxisLabelArr = ["A", "B", "C", "D", "E", "F", "G"];
+    graph.update([Math.random() * 10, Math.random() * 10,
+        Math.random() * 10, Math.random() * 10,
+        Math.random() * 10, Math.random() * 10,
+        Math.random() * 10
+    ]);
 
     refreshIntervalId = setInterval(function() {
-        graph.update([Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10]);
+        graph.update([Math.random() * 10, Math.random() * 10,
+            Math.random() * 10, Math.random() * 10,
+            Math.random() * 10, Math.random() * 10,
+            Math.random() * 10
+        ]);
     }, 4000);
 }
 
@@ -190,7 +225,11 @@ function prefix(id) {
 
 function fadeHtml(obj, direction, complete) {
     if (direction === 'in') {
-        $(obj['selector']).fadeIn('linear');
+        $(obj['selector']).fadeIn('linear', function() {
+            if (complete) {
+                complete();
+            }
+        });
     } else {
         $(obj.selector).fadeOut('linear', function() {
             complete(obj);
@@ -244,7 +283,6 @@ function showPanel(sectionId, buttonId) {
             fadeHtml(p, 'in');
         }
     }
-
     fadeHtml(o, 'in');
 }
 //////////////////////////////////////////////////////////////////////
@@ -275,16 +313,16 @@ function carouselHandler(direction) {
 
 function sizeIcons(format) {
     var imgs = $('#social-icons img');
-	var tkn;
-	var modifier;
+    var tkn;
+    var modifier;
 
-	if (format === 'mini') {
-		tkn = '_';
-		modifier = 'mini';
-	} else {
-		tkn = 'mini_';
-		modifier = '';
-	}
+    if (format === 'mini') {
+        tkn = '_';
+        modifier = 'mini';
+    } else {
+        tkn = 'mini_';
+        modifier = '';
+    }
 
     $.each(imgs, function(k, v) {
         src = $('#' + v.id).attr('src').split(tkn);
@@ -319,9 +357,6 @@ function navBarResizeHandler(direction) {
 // Scroll Tos registering
 ///////////////////////////////////////////////////////////////////////////
 
-var nav_anchors = ['#sidebar-services', '#sidebar-method',
-    '#sidebar-team', '#sidebar-project', '#sidebar-footer', '#sidebar-top'
-];
 
 var hero_anchors = [
     '#top-hero-anchor', '#services-hero-anchor', '#method-hero-anchor', '#project-hero-anchor',
@@ -347,34 +382,28 @@ var main_nav_slide_anchors = [
 
 function registerScrollsTo() {
 
-    $(nav_anchors.join()).scrollTo({
-        speed: 2000,
-        offset: 0,
-        easing: 'easeInCubic'
-    });
-
     $(main_nav_slide_anchors.join()).scrollTo({
-        speed: 2000,
+        speed: 800,
         offset: 77,
-        easing: 'easeInCubic'
+        easing: 'easeInOutCubic'
     });
 
     $(main_nav_anchors.join()).scrollTo({
-        speed: 2000,
+        speed: 800,
         offset: 0,
-        easing: 'easeInCubic'
+        easing: 'easeInOutCubic'
     });
 
     $(hero_anchors.join()).scrollTo({
-        speed: 2000,
+        speed: 800,
         offset: 0,
-        easing: 'easeInCubic'
+        easing: 'easeInOutCubic'
     });
 
     $(footer_anchors.join()).scrollTo({
-        speed: 1000,
+        speed: 800,
         offset: 0,
-        easing: 'easeOutCubic'
+        easing: 'easeInOutCubic'
     });
 }
 
@@ -390,13 +419,13 @@ function resize() {
     if (context.canvas.width !== CANVAS_WIDTH || context.canvas.height !== CANVAS_HEIGHT) {
         context.canvas.width = CANVAS_WIDTH;
         context.canvas.height = CANVAS_HEIGHT;
-        background.src = "../img/rainlong_90dpi.jpg";
+        background.src = "../img/rainlong.jpg";
     }
 
     // resize bargraphcanvas 
     if ($('#excel-text').css('display') === 'none') {
         w = 0.4 * $('#screen-services').width();
-        h = 0.5 * $('#screen-services').height();
+        h = CANVAS_RATIO * $('#screen-services').height();
     } else {
         w = 0.8 * $('#services').width();
         h = 200;
@@ -409,6 +438,19 @@ function resize() {
         graph.height = barGraphCtx.canvas.height;
     }
     setBannerHeight();
+    setTeamTextOffset();
+    centerScreenImg('#screen-services-visual', '#screen-services-text');
+}
+
+
+function centerScreenImg(visualId, refId) {
+    var refHeight = parseInt($(refId).css('height'),10);
+    var visualHeight = parseInt($(visualId).css('height'),10);
+    var delta = refHeight - visualHeight;
+
+    if (delta > 0) {
+     $(visualId).css('margin-top', delta*0.5 + 'px');
+   }
 }
 
 function selectButton(sectionId, buttonId) {
@@ -436,6 +478,12 @@ function resizeHandlers() {
 //////////////////////////////////////////////////////////////////////
 
 function setBarGraph() {
+	var site_state = queryMediaState();
+	if (site_state === 'TABLET-PORTRAIT') {
+		CANVAS_RATIO = 0.5;
+	} else {
+		CANVAS_RATIO = 0.62;
+	}
     if ($('#excel-photo').css('display') === 'none') {
         setBarGraphCtx('screen-canvas');
     } else {
@@ -473,7 +521,7 @@ function initDrops() {
     // Array storing all bubble objects 
     background = new Image();
 
-    background.src = "../img/rainlong_90dpi.jpg";
+    background.src = "../img/rainlong.jpg";
 
     // Create canvas and context objects
     canvas = document.getElementById('bubbles');
@@ -519,6 +567,14 @@ function setBannerHeight() {
     }
 }
 
+function setTeamTextOffset() {
+
+    /*    var photoHeight = parseInt($('#screen-team-photo').css('height'), 10);
+    $('#screen-team-text p').css({
+        'margin-top': ((photoHeight) * 0.1) + 'px'
+    });
+*/
+}
 
 function setResponsiveLine(id) {
     var offset = $(id).offset();
@@ -541,15 +597,14 @@ function init() {
     setResponsiveLine('#main-nav-1');
     setBannerHeight();
     initSlider();
-    setBarGraph();
-    registerMediaCallbacks();
     initWayPoints();
     registerScrollsTo();
     resizeHandlers();
-    display();
+    setBarGraph();
+    registerMediaCallbacks();
     initDrops();
     $('body').imagesLoaded(function() {
-    	display();
+        display();
     });
 }
 

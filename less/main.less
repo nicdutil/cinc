@@ -50,6 +50,7 @@
 }
 
 
+
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -104,7 +105,9 @@ a, button
     -ms-touch-action: manipulation; /* IE10  */
     touch-action: manipulation;     /* IE11+ */
 }
-
+a:visited {
+  color: #000 !important;
+}
 button {
   padding: 0;
   border: none;
@@ -157,7 +160,7 @@ body {
     font-size: 8px !important;
   }
   // laptop, desktop 
-  @media screen and (min-width:@screen-lg-min) {
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
     font-size: 10px !important;
   }
 }
@@ -270,7 +273,7 @@ body {
   @media screen and (min-width:@screen-sm-min) {
    .thumbnail(@radius:0px, @width:80px , @height: 80px );
   }
-  @media screen and (min-width:@screen-lg-min) {
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
    .thumbnail(@radius:0px, @width:100px , @height: 100px );  
   }
 }
@@ -373,8 +376,8 @@ body {
 .banner {
   background: url('../img/tile.png') right top #f2f4f7;
   .row:first-child {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 
   h2 {
@@ -395,7 +398,12 @@ body {
   }
 
   min-height: 610px;
-
+  @media screen and (min-width: 481px) {
+    .rw:first-child {
+      padding-bottom: 20px;
+      padding-top: 20px;
+    }
+  }
   @media screen and (min-width:@screen-sm-min) {
     h2 {
       font-size: 4.5em;
@@ -424,7 +432,7 @@ body {
     min-height: 692px;
   }
 
-  @media screen and (min-width:@screen-lg-min) {
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
     .row:first-child {
       padding-top: 150px;
       padding-bottom: 50px;
@@ -465,7 +473,7 @@ body {
   @media screen and (min-width: @screen-md-min) {
     font-size: 8px;
   }
-  @media screen and (min-width:@screen-lg-min) {
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
     font-size: 10px;
   }
 */
@@ -480,8 +488,8 @@ body {
 .box {
   @media screen and (min-width:@screen-sm-min) {
     position: relative;
-    width: 90%;
-    max-width: 1713px;
+    width: 95%;
+    max-width: 1807px;
     background-color: @white;
     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -515,7 +523,7 @@ body {
     height: 420px; 
   }
 
-  @media screen and (min-width:@screen-lg-min) {
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
     height: 600px;
   }
 }
@@ -527,7 +535,7 @@ body {
 
 #margin-top {
   height: 160px;
-  @media screen and (min-width:@screen-lg-min) {
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
    height: 180px;
   }
 }
@@ -575,12 +583,12 @@ body {
    width: 900px;
   }
 
-  @media screen and (min-width:@screen-lg-min) {
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide)  {
     height: 451px;
     width: 1088px;
   }
 
-  @media screen and (min-width:@screen-wide-min) {
+  @media screen and (min-width:@screen-wide-min) and (min-height:@screen-height-wide)  {
     height: 520px;
     width: 1311px;
   }
@@ -605,11 +613,11 @@ body {
     height: 322px;
   }
 
-  @media screen and (min-width:@screen-lg-min) {
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
     height: 391px;
   }
 
-  @media screen and (min-width:@screen-wide-min) {
+  @media screen and (min-width:@screen-wide-min) and (min-height:@screen-height-wide) {
     height: 460px;
   }
 
@@ -621,24 +629,33 @@ body {
 /////////////////////////////////////////////////////////////////////////////////////////
 
 #services {
-    #website-photo {
-      position: relative;
-      left: -1%;
-    }
-    img {
-      width: 100%;
-    }
+  #website-photo {
+    position: relative;
+    left: -1%;
   }
+  img {
+      width: 100%;
+      max-width: 450px;
+  }
+}
+
+.before {
+  content:'';
+  height: 100%;
+  margin-left: -0.5em;
+  display: inline-block;
+  vertical-align: middle; 
+}
 
 
 #screen-services {
-  
-  #screen-services-visual {
-    margin-top: 12px;
-  }
 
-  #screen-services-text {
-    margin-top: 12px;
+  padding: 0;
+  display: table;
+
+  .row {
+    display: table-cell;
+    vertical-align: middle;
   }
 
   #screen-services-visual #website-photo {
@@ -647,43 +664,51 @@ body {
   }
 
   img {
-      width: 600px;
-    }
+    width: 564px;
+  }
 
   @media screen and (min-width:@screen-md-min) {
+
+    #screen-services-visual img {
+      vertical-align: middle;
+    }
+    #screen-services-text {
+      padding-right: 30px;
+      padding-left: 30px;
+    }
+
     #screen-services-visual #website-photo {
       left: 0px;
     }
 
-    #screen-services-visual {
-      margin-top: 40px;
-    }
-    #screen-services-text {
-      margin-top: 40px;
-    }
     img { 
       width: 450px;
     }
   }
 
-  @media screen and (min-width:@screen-lg-min) {
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
+/*    #screen-services-text {
+      padding-left: 30px;
+    }
+*/
     #screen-services-visual #website-photo {
-      left: -10px;
+      left: -15px;
     }
-    #screen-services-visual {
-     margin-top: 80px;
-    }
-    #screen-services-text {
-     margin-top: 80px;
-    }
+
     img { 
-      width: 600px;
+      width: 100%;
+      max-width: 600px;
     }
   }
 
-  @media screen and (min-width:@screen-wide-min) {
+  @media screen and (min-width:@screen-wide-min) and (min-height:@screen-height-wide) {
+    #screen-services-visual #website-photo {
+      left: -40px;
+    }
+
     img { 
-      width: 700px;
+      width: 100%;
+      max-width: 700px;
     }
   }
 
@@ -744,7 +769,7 @@ body {
     }
     height: 480px;
   }
-  @media screen and (min-width:@screen-lg-min) {
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
     margin-top: 128px;
     #icons {
       margin-top: 140px;
@@ -837,6 +862,7 @@ body {
   vertical-align: middle;
   width:100%;
   margin: 0 auto !important;
+  position:relative;
 }
 
 #screen-team {
@@ -852,7 +878,8 @@ body {
   #screen-team-photo {
     text-align: center;
     .member-photo {
-        width: 20%;    
+        width: 20%;
+        max-width: 141px;    
     }
     .email-icon {
       width: 40px;
@@ -862,24 +889,26 @@ body {
     }
   }
 
-  #screen-team-text {
-    p {
-      margin-top: 1em;
-    }
+  #screen-team-text p{
+    position:relative;
+    margin-top: 1em;
   }
 
   @media screen and (min-width:@screen-md-min) {
-    #screen-team-text p {
-      margin-top: 0;
+
+    #screen-team-text {
+      left: -30px;
     }
     #screen-team-photo .member-photo {
       width: 30%;
+      max-width:113px;
     }
   }
 
-  @media screen and (min-width:@screen-lg-min) {
-    #screen-team-wrapper #screen-team-photo .member-photo {
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
+    #screen-team-photo .member-photo {
       width: 40%;
+      max-width:154px;
     }
   }
 
@@ -913,13 +942,12 @@ body {
     vertical-align: middle;
     margin-bottom: 40px;
     h3 {
-      margin: 0;
-      margin-top: 1em;
+      padding-top: 1em;
       font-family: 'Dosis', sans-serif;
       font-size: 4em;
     }
     h5 {
-      margin-top: 0.5em;
+      padding-top: 0.5em;
       font-size: 3em;
     }
     img {
@@ -966,7 +994,7 @@ body {
     margin-top: 60px;
   }
   
-  @media screen and (min-width:@screen-lg-min) {
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
     margin-top: 128px;
     .project {
       height: 220px;
@@ -1065,7 +1093,7 @@ body {
         @media screen and (min-width:@screen-md-min) {
          left: 3%;
         }
-        @media screen and (min-width:@screen-lg-min) {
+        @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
          left: 5%;
         }
       }
@@ -1109,7 +1137,7 @@ body {
     }
   }
 
-  @media screen and (min-width:@screen-lg-min) {
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
     #social-ads-wrapper .social-banner {
       img {
        width: 170px;
@@ -1225,7 +1253,7 @@ body {
     }
   }
 
-  @media screen and (min-width:@screen-lg-min) {
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
     #footer-wrapper {
       >div:not(#small-prints) {
         height: auto;

@@ -172,6 +172,22 @@
     border-radius: 5px;
 }
 
+.media-state {
+  color: #000;
+  font-size: 1px;
+  @media screen and (min-width:@screen-sm-min) {
+    font-size: 2px;
+  }
+ @media screen and (min-width:@screen-md-min) {
+   font-size: 3px;
+  }
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
+    font-size: 4px;
+  }
+  @media screen and (min-width:@screen-wide-min) and (min-height:@screen-height-wide) {
+    font-size: 5px;
+  }
+}
 
 .float-left {
     float: left;

@@ -20,7 +20,7 @@ var carousels = {};
 var buttonSelected = {};
 
 var CAROUSEL_WAIT = minToMillis(1);
-var CAROUSEL_TIMEOUT = secToMillis(10);
+var CAROUSEL_TIMEOUT = secToMillis(30);
 // accordeon collapse handler 
 
 function secToMillis(s) {
@@ -194,7 +194,7 @@ function Bubble() {
     else this.direction = 1;
 
     //this.amplitude = Math.round(this.radius / 9 * 5 + 2 * Math.random());
-    this.velocity = (5 / (this.radius + 0.1));
+    this.velocity = (4 / (this.radius + 0.1));
     this.amplitude = 20 + Math.round(this.velocity * 20);
 
 }
@@ -216,8 +216,8 @@ function drawDrops() {
             bubbles[i].x = Math.floor(Math.random() * CANVAS_WIDTH);
             bubbles[i].y = -Math.floor(Math.random() * CANVAS_HEIGHT * 0.1);
             bubbles[i].radius = 5 + Math.floor(Math.random() * 5);
-            bubbles[i].velocity = (5 / (bubbles[i].radius + 0.1));
-            bubbles[i].amplitude = Math.round(bubbles[i].velocity * 10);
+            bubbles[i].velocity = (4 / (bubbles[i].radius + 0.1));
+            bubbles[i].amplitude = 20 + Math.round(bubbles[i].velocity * 10);
         }
         if (t % bubbles[i].amplitude == 0) {
 
