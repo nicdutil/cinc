@@ -419,7 +419,7 @@ function resize() {
     if (context.canvas.width !== CANVAS_WIDTH || context.canvas.height !== CANVAS_HEIGHT) {
         context.canvas.width = CANVAS_WIDTH;
         context.canvas.height = CANVAS_HEIGHT;
-        background.src = "../img/rainlong.jpg";
+        background.src = "../img/rainlong1.jpg";
     }
 
     // resize bargraphcanvas 
@@ -521,7 +521,7 @@ function initDrops() {
     // Array storing all bubble objects 
     background = new Image();
 
-    background.src = "../img/rainlong.jpg";
+    background.src = "../img/rainlong1.jpg";
 
     // Create canvas and context objects
     canvas = document.getElementById('bubbles');

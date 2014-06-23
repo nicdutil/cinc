@@ -120,6 +120,7 @@
     #main-title {
       h1 { 
         font-size: 8em;
+        line-height: 1em;
       }
       h2 {
         padding-top: 5px;
@@ -160,23 +161,26 @@
 
 
 .navbar-mini {
-  padding: 0 !important;
   margin-bottom: 0 !important;
   opacity: 0.8;
   #main-title h1 {
     line-height: 1em !important;
+    margin-top: -5px !important;
   }
   @media screen and (min-width:@screen-sm-min) {
     #social-icons  img {
         width: 20px !important;
     }
+    padding: 7px !important;
     font-size: 6px !important;
   }
 
   @media screen and (min-width:@screen-md-min) {
+    padding: 10px !important;
     font-size: 5px !important;
   }
   @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
     font-size: 6px !important;
+
   }
 }
