@@ -30,11 +30,12 @@
     <!--     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Dosis|Open+Sans+Condensed:300|Lato:900|Dancing+Script|Marck+Script" />
  -->
     <link rel="stylesheet" href="css/normalize.min.css" />
-    <link rel="stylesheet" href="css/main.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="js/vendor/picturefill.min.js" async></script>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
 </head>
 
 
@@ -49,7 +50,7 @@
       <div id='gif-spinner'></div>
     <![endif]-->
 
-    <div id='loader'>
+    <!--     <div id='loader'>
         <div id="blockG_1" class="loader_blockG background-blue">
         </div>
         <div id="blockG_2" class="loader_blockG background-blue">
@@ -57,7 +58,7 @@
         <div id="blockG_3" class="loader_blockG background-blue">
         </div>
     </div>
-
+ -->
     <!-- Modals -->
     <div class="modal fade" id="telCinc" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -126,7 +127,7 @@
 
     <!-- Loader icon !-->
 
-    <div id='main' class="invisible">
+    <div id='main' class='invisible'>
         <div id="fb-root"></div>
         <script>
         (function(d, s, id) {
@@ -164,16 +165,16 @@
                     </div>
                     <div id="social-icons" class="nav-item">
                         <a id="phone_anchor" href="tel:+14384966886" class="nav-item">
-                            <img id="phone-logo" src="img/phonelogo_150dpi.png">
+                            <img id="phone-logo" src="img/phonelogo.png">
                         </a>
                         <a href="#" data-target="#skypeCinc" data-toggle="modal" class="nav-item">
-                            <img id="skype-logo" src="img/skypelogo_150dpi.png">
+                            <img id="skype-logo" src="img/skypelogo.png">
                         </a>
                         <a href="https://www.facebook.com/infocinc" target="_blank" class="nav-item">
-                            <img id='facebook-logo' src="img/facebooklogo_150dpi.png">
+                            <img id='facebook-logo' src="img/facebooklogo.png">
                         </a>
                         <a href="https://twitter.com/infoCinc" target="_blank" class="nav-item">
-                            <img id="twitter-logo" src="img/twitterlogo_150dpi.png">
+                            <img id="twitter-logo" src="img/twitterlogo.png">
                         </a>
                     </div>
                 </div>
@@ -184,24 +185,28 @@
         <div id="top" class="background-container container-fluid">
             <div class="slider cadre text-center">
                 <div class="slide ">
-                    <img src="img/creative.jpg"></img>
+                    <img sizes="(min-width: 768px) 738px, (min-width:992px) 894px, (min-width:1200px) 1082px, (min-width: 1600px) 1305px, 100vw" srcset="img/creative_sm.jpg 640px, img/creative_smd.jpg 768px, img/creative_md.jpg 1309px, img/creative_lg.jpg 1744px" alt="cr&eacuteativit&eacute">
+                    </img>
+
                     <h3>Cr&eacuteativit&eacute</h3>
                 </div>
                 <div class="slide hide">
-                    <img src="img/reflexive.jpg"></img>
+                    <img sizes="(min-width: 768px) 738px, (min-width:992px) 894px, (min-width:1200px) 1082px, (min-width: 1600px) 1305px, 100vw" srcset="img/reflexive_sm.jpg 640px, img/reflexive_smd.jpg 768px, img/reflexive_md.jpg 1309px, img/reflexive_lg.jpg 1744px" alt="r&eacuteflexion">
+                    </img>
                     <h3>R&eacuteflexion</h3>
                 </div>
                 <div class="slide hide">
-                    <img src="img/origin.jpg"></img>
+                    <img sizes="(min-width: 768px) 738px, (min-width:992px) 894px, (min-width:1200px) 1082px, (min-width: 1600px) 1305px, 100vw" srcset="img/origin_sm.jpg 640px, img/origin_smd.jpg 768px, img/origin_md.jpg 1309px, img/origin_lg.jpg 1744px" alt="origines">
+                    </img>
                     <h3>Origine</h3>
                 </div>
             </div>
         </div>
         <div id="main-nav-1" class="center-navigation">
-                <a id="service-nav-anchor" href="#services-banner" class="btn btn-default">
-                    <span class="glyphicon glyphicon-play rotate-90 white "></span>
-                </a>
-                <div class="responsive-line"></div>
+            <a id="service-nav-anchor" href="#services-banner" class="btn btn-default">
+                <span class="glyphicon glyphicon-play rotate-90 white "></span>
+            </a>
+            <div class="responsive-line"></div>
         </div>
 
 
@@ -387,7 +392,7 @@
 
         <div id='screen-method' class="container-fluid box  ">
 
-            <div id="bubbles-wrapper">
+            <div id="bubbles-wrapper" class='mobile-hide'>
                 <canvas id="bubbles"></canvas>
             </div>
 
@@ -532,11 +537,11 @@
             <div class="row">
                 <div class="col-sm-2">
                     <button id='nic-button' type="button" class="noglow team-click team-thumbnail mobile-hide">
-                        <img id='nic-img' src="img/face_nic6.jpg"></img>
+                        <img id='nic-img' src="img/face_nic.jpg"></img>
                     </button>
 
                     <div id="nic-photo" class="desktop-hide">
-                        <img class='member-photo' id="nic-1" src="img/nicgif1.gif"></img>
+                        <img class='member-photo' id="nic-1" src="img/nic.gif"></img>
                         <ul>
                             <li>
                                 <h4>Nicolas Dutil</h4>
@@ -549,7 +554,7 @@
                             </li>
                         </ul>
                         <a href="mailto:Nicolas.Dutil@infocinc.com">
-                            <img class='email-icon' src="img/mail_150dpi.png"></img>
+                            <img class='email-icon' src="img/mail.png"></img>
                         </a>
                     </div>
 
@@ -562,10 +567,10 @@
 
                 <div class="col-sm-2">
                     <button id="mel-button" class="noglow team-click img-profile team-thumbnail mobile-hide">
-                        <img id="mel-img" src="img/face_mel1.jpg"></img>
+                        <img id="mel-img" src="img/face_mel.jpg"></img>
                     </button>
                     <div id="mel-photo" class="desktop-hide">
-                        <img id="mel-1" class='member-photo' src="img/melgif1.gif"></img>
+                        <img id="mel-1" class='member-photo' src="img/mel.gif"></img>
                         <ul>
                             <li>
                                 <h4>Melanie Bertrand</h4>
@@ -580,7 +585,7 @@
                             </li>
                         </ul>
                         <a href="mailto:Melanie.Bertrand@infocinc.com">
-                            <img class='email-icon' src="img/mail_150dpi.png"></img>
+                            <img class='email-icon' src="img/mail.png"></img>
                         </a>
                     </div>
                     <div id="mel-text" class="content-block desktop-hide text-center">
@@ -664,7 +669,7 @@
                         <h5>&Eacutetiquettes: UX Design, Site Web Adaptif, E-Commerce</h5>
                     </div>
                 </div>
-<!--                 <div class="col-sm-4 col-md-3 project">
+                <!--                 <div class="col-sm-4 col-md-3 project">
                     <div class="project-wrapper">
                         <img src="img/cdm_100dpi.png"></img>
                         <h3> <a href="http://centredentairemartindutil.com/">Centre Dentaire Martin Dutil </a>
@@ -750,7 +755,7 @@
                 </div>
                 <div class="social-banner background-blue col-sm-6 col-lg-3">
                     <div class="social-banner-wrapper">
-                        <img src="img/ilike_90dpi.png"></img>
+                        <img src="img/ilike.png"></img>
                         <h3>RECOMMENDEZ CINC SUR FACEBOOK</h3>
                         <div class="social-button-wrapper">
                             <div class="fb-like" data-href="http://www.cincinfo.com" data-width="20" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
@@ -760,7 +765,7 @@
 
                 <div class="social-banner background-dark col-sm-6 col-lg-3">
                     <div class="social-banner-wrapper">
-                        <img src="img/Twitter_logo_white.png"></img>
+                        <img src="img/Twitter_logo.png"></img>
                         <h3>TWEETEZ VOS QUESTIONS
                             <a href="http://twitter.com/infoCinc" target="_blank"> @INFOCINC</a>
                         </h3>
@@ -903,7 +908,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/vendor/scrollTo.min.js"></script>
     <script type="text/javascript" src="js/vendor/imagesloaded.pkgd.min.js"></script>
-    
+
     <!--[if IE]><script src="js/vendor/excanvas.js"></script><![endif]-->
 
     <!--     <script type="text/javascript" src="js/vendor/enquire.min.js"></script>
@@ -914,7 +919,7 @@
 
     <script>
     var load = [
-        //first test need for polyfill
+        //test avail of media query
         {
             test: window.matchMedia,
             nope: "js/vendor/media.match.min.js"
@@ -923,7 +928,7 @@
         //and then load enquire
         "js/vendor/enquire.min.js",
         "js/plugins.min.js",
-        "js/main.min.js"
+        "js/main.js"
     ];
     Modernizr.load(load);
     </script>

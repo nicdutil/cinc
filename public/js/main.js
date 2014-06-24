@@ -17,7 +17,7 @@
 // Globals
 ///////////////////////////////////////////////////////////////////////
 var CANVAS_RATIO;
-
+var DROPS_DRAWN = false;
 ///////////////////////////////////////////////////////////////////////
 // Utilities
 ///////////////////////////////////////////////////////////////////////
@@ -97,7 +97,7 @@ function registerMediaCallbacks() {
         },
 
         match: function() {
-        	 CANVAS_RATIO = 0.5;
+            CANVAS_RATIO = 0.5;
             $("#phone_anchor").prop('href', '#');
             $("#phone_anchor").attr({
                 "data-target": '#telCinc',
@@ -139,20 +139,20 @@ function registerMediaCallbacks() {
 }
 
 function queryMediaState() {
-  var size = parseInt($('#media-state').css('font-size'),10);
-  var site_shape;
-  if (size === 1) {
-  	site_shape = "MOBILE";
-  } else if (size === 2) {
-  	site_shape = "TABLET-PORTRAIT";
-  } else if (size === 3) {
-  	site_shape = "TABLET-LANDSCAPE";
-  } else if (size === 4) {
-  	site_shape = "DESKTOP-LG";
-  } else {
-  	site_shape = "DESKTOP-WIDE";
-  }
-  return site_shape;
+    var size = parseInt($('#media-state').css('font-size'), 10);
+    var site_shape;
+    if (size === 1) {
+        site_shape = "MOBILE";
+    } else if (size === 2) {
+        site_shape = "TABLET-PORTRAIT";
+    } else if (size === 3) {
+        site_shape = "TABLET-LANDSCAPE";
+    } else if (size === 4) {
+        site_shape = "DESKTOP-LG";
+    } else {
+        site_shape = "DESKTOP-WIDE";
+    }
+    return site_shape;
 }
 ////////////////////////////////////////////////////////////////////////
 // Bar Graph
@@ -317,16 +317,16 @@ function sizeIcons(format) {
     var modifier;
 
     if (format === 'mini') {
-        tkn = '_';
+        tkn = '.';
         modifier = 'mini';
     } else {
-        tkn = 'mini_';
+        tkn = 'mini';
         modifier = '';
     }
 
     $.each(imgs, function(k, v) {
         src = $('#' + v.id).attr('src').split(tkn);
-        src = src[0] + modifier + '_150dpi.png';
+        src = src[0] + modifier + '.png';
         $('#' + v.id).attr('src', src);
     });
 }
@@ -413,13 +413,16 @@ function registerScrollsTo() {
 
 function resize() {
     // resize bubble canvas
-    var w = CANVAS_WIDTH = $('#bubbles-wrapper').width();
-    var h = CANVAS_HEIGHT = $('#bubbles-wrapper').height();
 
-    if (context.canvas.width !== CANVAS_WIDTH || context.canvas.height !== CANVAS_HEIGHT) {
-        context.canvas.width = CANVAS_WIDTH;
-        context.canvas.height = CANVAS_HEIGHT;
-        background.src = "../img/rainlong1.jpg";
+    if (DROPS_DRAWN) {
+        var w = CANVAS_WIDTH = $('#bubbles-wrapper').width();
+        var h = CANVAS_HEIGHT = $('#bubbles-wrapper').height();
+
+        if (context.canvas.width !== CANVAS_WIDTH || context.canvas.height !== CANVAS_HEIGHT) {
+            context.canvas.width = CANVAS_WIDTH;
+            context.canvas.height = CANVAS_HEIGHT;
+            background.src = "../img/rain.jpg";
+        }
     }
 
     // resize bargraphcanvas 
@@ -444,13 +447,13 @@ function resize() {
 
 
 function centerScreenImg(visualId, refId) {
-    var refHeight = parseInt($(refId).css('height'),10);
-    var visualHeight = parseInt($(visualId).css('height'),10);
+    var refHeight = parseInt($(refId).css('height'), 10);
+    var visualHeight = parseInt($(visualId).css('height'), 10);
     var delta = refHeight - visualHeight;
 
     if (delta > 0) {
-     $(visualId).css('margin-top', delta*0.5 + 'px');
-   }
+        $(visualId).css('margin-top', delta * 0.5 + 'px');
+    }
 }
 
 function selectButton(sectionId, buttonId) {
@@ -478,12 +481,12 @@ function resizeHandlers() {
 //////////////////////////////////////////////////////////////////////
 
 function setBarGraph() {
-	var site_state = queryMediaState();
-	if (site_state === 'TABLET-PORTRAIT') {
-		CANVAS_RATIO = 0.5;
-	} else {
-		CANVAS_RATIO = 0.62;
-	}
+    var site_state = queryMediaState();
+    if (site_state === 'TABLET-PORTRAIT') {
+        CANVAS_RATIO = 0.5;
+    } else {
+        CANVAS_RATIO = 0.62;
+    }
     if ($('#excel-photo').css('display') === 'none') {
         setBarGraphCtx('screen-canvas');
     } else {
@@ -514,6 +517,12 @@ function initWayPoints() {
 }
 
 function initDrops() {
+
+    // fastpath to exit if bubbles are not drawn (mobile light version)
+    if ($("#bubbles-wrapper").css('display') === 'none') {
+        return;
+    }
+
     // Global variables: 
     REFRESH_RATE = 40;
     t = 1; // current time step
@@ -521,7 +530,10 @@ function initDrops() {
     // Array storing all bubble objects 
     background = new Image();
 
-    background.src = "../img/rainlong1.jpg";
+
+
+    background.src = "../img/rain.jpg";
+
 
     // Create canvas and context objects
     canvas = document.getElementById('bubbles');
@@ -544,6 +556,7 @@ function initDrops() {
     for (var i = 0; i < MAX_BUBBLES; i++) {
         bubbles[i] = new Bubble();
     }
+    DROPS_DRAWN = true;
     setInterval(drawDrops, REFRESH_RATE);
 }
 
@@ -624,8 +637,8 @@ function detectIE(callback) {
 
 function display() {
     var callback = function() {
-        $('#loader').css('display', 'none');
-        $('#gif-spinner').css('display', 'none');
+        //        $('#loader').css('display', 'none');
+        //       $('#gif-spinner').css('display', 'none');
         $('#main').removeClass('invisible');
     };
     detectIE(callback);
