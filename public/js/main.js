@@ -59,7 +59,7 @@ function registerMediaCallbacks() {
                 Math.random() * 10, Math.random() * 10,
                 Math.random() * 10
             ]);
-            CANVAS_RATIO = 0.5;
+            CANVAS_RATIO = 0.4;
         },
         match: function() {
             graph.orientation = 'vertical';
@@ -97,7 +97,6 @@ function registerMediaCallbacks() {
         },
 
         match: function() {
-            CANVAS_RATIO = 0.5;
             $("#phone_anchor").prop('href', '#');
             $("#phone_anchor").attr({
                 "data-target": '#telCinc',
@@ -440,9 +439,7 @@ function resize() {
         graph.width = barGraphCtx.canvas.width;
         graph.height = barGraphCtx.canvas.height;
     }
-    setBannerHeight();
-    setTeamTextOffset();
-    centerScreenImg('#screen-services-visual', '#screen-services-text');
+//    centerScreenImg('#screen-services-visual', '#screen-services-text');
 }
 
 
@@ -483,7 +480,7 @@ function resizeHandlers() {
 function setBarGraph() {
     var site_state = queryMediaState();
     if (site_state === 'TABLET-PORTRAIT') {
-        CANVAS_RATIO = 0.5;
+        CANVAS_RATIO = 0.4;
     } else {
         CANVAS_RATIO = 0.62;
     }
@@ -566,6 +563,7 @@ function setBannerHeight() {
         '#team-banner', '#project-banner'
     ];
     var bannerHeight = parseInt($('.banner').css('height'), 10);
+//    alert(bannerHeight);
     var textHeight;
     var selector;
 
@@ -580,14 +578,6 @@ function setBannerHeight() {
     }
 }
 
-function setTeamTextOffset() {
-
-    /*    var photoHeight = parseInt($('#screen-team-photo').css('height'), 10);
-    $('#screen-team-text p').css({
-        'margin-top': ((photoHeight) * 0.1) + 'px'
-    });
-*/
-}
 
 function setResponsiveLine(id) {
     var offset = $(id).offset();
@@ -608,7 +598,6 @@ function setResponsiveLine(id) {
 
 function init() {
     setResponsiveLine('#main-nav-1');
-    setBannerHeight();
     initSlider();
     initWayPoints();
     registerScrollsTo();

@@ -210,16 +210,6 @@ body {
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'Dancing Script';
-    src: url('dancingscript-regular-webfont.eot');
-    src: url('dancingscript-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url(https://themes.googleusercontent.com/static/fonts/dancingscript/v4/DK0eTGXiZjN6yA8zAEyM2VhlQWQpSCpzb2Peu3I-Q34.woff) format('woff'),
-         url('dancingscript-regular-webfont.svg#dancing_scriptregular') format('svg'),
-         url('dancingscript-regular-webfont.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // CSS transitions
@@ -279,7 +269,8 @@ body {
 }
 
 .mobile-thumbnail {
-  .thumbnail(@radius:0px, @width:25em, @height: 25em);
+  .thumbnail(@radius:0px, @width:24em, @height: 24em);
+
 }
 
 .method-thumbnail,.service-thumbnail {
@@ -297,7 +288,9 @@ body {
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 .content-block {
+  padding: 0 4em;
   padding-top: 0.5em;
+
   color: @black;
   letter-spacing: 0.1em;
   text-align: center;
@@ -315,7 +308,10 @@ body {
   h4 {
     font-family:'Lato', 'sans-serif';
     font-weight: bold;
-    font-size: 4em;
+    font-size: 3.5em;
+    margin-bottom: 15px !important;
+    margin-top: 30px !important;
+//  font-size: 3.8em;
     letter-spacing: 0.1em
   } 
   
@@ -324,22 +320,27 @@ body {
   }
 
   p {
-    font-size: 3.8em;
-
+    font-size: 3.2em;
+    margin-bottom: 40px;
   }
 
   > div.text-title {
     font-family: 'Lato', 'sans-serif';
-    font-size: 4em;
+    font-size: 3.5em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
   }
   ul {
     margin: 0.5em 0;
-    font-size: 3.6em;
-    letter-spacing: 0.1em;
+    font-size: 3.2em;
+//    letter-spacing: 0.1em;
   }
   li {
-    margin: 0.5em 0;
+    margin: 10px 0;
   }  
+  @media screen and (min-width:@screen-xs-min) {
+    padding: 0 100px;
+  }
 
   @media screen and (min-width:@screen-sm-min) {
      ul {
@@ -376,8 +377,9 @@ body {
 .banner {
   background: url('../img/tile.png') right top #f2f4f7;
   .row:first-child {
-    padding-top: 8px;
-    padding-bottom: 8px;
+//    padding-top: 8px;
+//    padding-bottom: 8px;
+    padding: 8px 20px;
   }
 
   h2 {
@@ -395,41 +397,43 @@ body {
     color: #444;
     font-size: 3.5em;
     letter-spacing: 0.1em;
+    line-height: 1.8em !important;
   }
 
-  min-height: 610px;
+ // min-height: 610px;
+
   @media screen and (min-width: 481px) {
-    .rw:first-child {
-      padding-bottom: 20px;
-      padding-top: 20px;
+    .row:first-child {
+      padding: 20px 90px;
     }
+
   }
   @media screen and (min-width:@screen-sm-min) {
+    .row:first-child {
+      padding: 20px 20px;
+      padding-top: 100px;
+    }
     h2 {
       font-size: 4.5em;
     }
     p {
       font-size: 4em;
-    }
-
-    .row:first-child { 
-      padding-top: 100px;
-    }
-    p {
       padding: 60px 0;
+
     }
-    min-height: 940px;
   }
 
   @media screen and (min-width:@screen-md-min) {
     .row:first-child {
-      padding-top: 50px;
-     padding-bottom: 30px;
+     padding-top: 50px;
+     padding-bottom: 10px;
+     padding-left: 10px;
+     padding-right: 10px;
     }
     p {
       padding: 20px 0;
     }
-    min-height: 692px;
+  //  min-height: 692px;
   }
 
   @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
@@ -440,9 +444,10 @@ body {
     p {
       padding: 60px 0;
     }
-    min-height:1021px;
+   // min-height:1021px;
   }
 }
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -634,7 +639,7 @@ body {
     left: -1%;
   }
   img {
-      width: 80%;
+      width: 90%;
       max-width: 400px;
   }
 }
@@ -650,27 +655,32 @@ body {
 
 #screen-services {
 
+  display: none;
   padding: 0;
-  display: table;
+
 
   .row {
     display: table-cell;
     vertical-align: middle;
   }
-
+  
   #screen-services-visual #website-photo {
     position:relative;
     left: -20px;
   }
 
   img {
-    width: 520px;
+    width: 480px;
   }
 
+  @media screen and (min-width:@screen-sm-min) {
+   display: table;
+  }
+  
   @media screen and (min-width:@screen-md-min) {
 
-    #screen-services-visual img {
-      vertical-align: middle;
+    #screen-services-visual  {
+      margin-top: 30px;
     }
     #screen-services-text {
       padding-right: 30px;
@@ -687,10 +697,7 @@ body {
   }
 
   @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
-/*    #screen-services-text {
-      padding-left: 30px;
-    }
-*/
+
     #screen-services-visual #website-photo {
       left: -15px;
     }
@@ -726,8 +733,6 @@ body {
   top: 0px;
   bottom: 0px;
   right: 0px;
-//  width: 100%;
-//   height: 100%;
 }
 
 
@@ -736,51 +741,66 @@ body {
   position:relative;
 
   #screen-method-text,#icons {
-    margin-top: 80px;
+   margin-top: 80px;
   }
 
+  span {
+    margin-top: 10px;
+  }
+  
   #icons > .row > div {
     margin-bottom: 16px;
   }
-  
-  img {
-    width: 100%;
-  }
+  .text-title {
+    margin-bottom: 10px;
+  }  
+
 
   @media screen and (min-width:@screen-sm-min) {
     margin-top: 70px;
     #icons {
       margin-top: 50px;
     }
+
     #screen-method-text {
       margin-top: 40px;
+       span {
+         margin-top: 10px;
+       }
+       li {
+        margin: 20px 0;
+       }
     }
-    height: 676px;
+    height: 630px;
 
   }
   @media screen and (min-width:@screen-md-min) {
     margin-top: 60px;
         #icons {
-      margin-top: 80px;
+      margin-top: 122px;
     }
     #screen-method-text {
-      margin-top: 80px;
+      margin-top: 62px;
       margin-left: -20px;
     }
     height: 480px;
   }
+
   @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
     margin-top: 128px;
+
     #icons {
-      margin-top: 140px;
+
+      margin-top: 156px;
     }
+
     #screen-method-text {
-      margin-top: 120px;
+      margin-top: 92px;
       margin-left: -20px;
     }    
+
     height: 600px;
   }
-
 
 }
 
@@ -798,7 +818,9 @@ body {
   }
 
   ul li {
-    font-family: 'Dancing Script', cursive;
+//    font-family: 'Dancing Script', cursive;
+    font-family: 'Marck Script', cursive;
+
   }
 
   ul {
@@ -845,7 +867,7 @@ body {
         font-size: 3em;   
       }
       .member-photo {
-        max-width: 205px;
+        max-width: 130px;
         width: 40%;
       }
       .email-icon {
@@ -944,11 +966,14 @@ body {
     h3 {
       padding-top: 1em;
       font-family: 'Dosis', sans-serif;
-      font-size: 4em;
+      font-size: 3.5em;
+      letter-spacing: 0.1em;
     }
     h5 {
       padding-top: 0.5em;
-      font-size: 3em;
+      padding-left: 15px;
+      padding-right: 15px;
+      font-size: 3.2em;
     }
     img {
       width: 100%;
@@ -992,6 +1017,7 @@ body {
           font-size: 2em;
         }
         h5 {
+          padding-top: 0em;
           font-size: 1.5em;
         }
       }
