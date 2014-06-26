@@ -439,7 +439,6 @@ function resize() {
         graph.width = barGraphCtx.canvas.width;
         graph.height = barGraphCtx.canvas.height;
     }
-//    centerScreenImg('#screen-services-visual', '#screen-services-text');
 }
 
 
@@ -605,6 +604,7 @@ function init() {
     setBarGraph();
     registerMediaCallbacks();
     initDrops();
+    document.addEventListener("touchstart", function() {},false);  // allow css active to work in safari
     $('body').imagesLoaded(function() {
         display();
     });
