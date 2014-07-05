@@ -899,7 +899,7 @@
     <script type="text/javascript" src="js/vendor/imagesloaded.pkgd.min.js"></script>
 
     <!--[if IE]><script src="js/vendor/excanvas.js"></script><![endif]-->
-<!-- 
+    <!-- 
         <script type="text/javascript" src="js/vendor/enquire.min.js"></script>
     <script src="js/plugins.min.js"></script>
     <script src="js/main.js"></script>
@@ -950,7 +950,7 @@
     })();
     </script>
 
-  <!--- google analytics -->
+    <!--- google analytics -->
     <script>
     (function(i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -966,6 +966,17 @@
 
     ga('create', 'UA-52538854-1', 'auto');
     ga('send', 'pageview');
+    </script>
+    <!-- scroll depth ga plugin -->
+    <script src="jquery.scrolldepth.min.js"></script>
+    <script>
+    $(function() {
+        $.scrollDepth();
+    });
+    </script>
+    <script src="riveted.min.js"></script>
+    <script>
+    riveted.init();
     </script>
 
 </body>
