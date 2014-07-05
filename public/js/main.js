@@ -599,8 +599,8 @@ function setFaceBookPageLink() {
      var site_state = queryMediaState();
 
      if (site_state === 'MOBILE') {
-        $('#fbook-anchor').attr('href',"https://m.facebook.com/infocinc");
-        $('#footer-fbook-anchor').attr('href',"https://m.facebook.com/infocinc");
+        $('#fbook-anchor').attr('href',"https://m.facebook.com/pages/infocinc/896328063714402");
+        $('#footer-fbook-anchor').attr('href',"https://m.facebook.com/pages/infocinc/896328063714402");
           
      }
 
