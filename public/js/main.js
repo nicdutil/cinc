@@ -595,6 +595,16 @@ function setResponsiveLine(id) {
     }
 }
 
+function setFaceBookPageLink() {
+     var site_state = queryMediaState();
+
+     if (site_state === 'MOBILE') {
+        $('#fbook-anchor').attr('href',"https://m.facebook.com/infocinc");
+        $('#footer-fbook-anchor').attr('href',"https://m.facebook.com/infocinc");
+          
+     }
+
+}
 function init() {
     setResponsiveLine('#main-nav-1');
     initSlider();
@@ -604,6 +614,7 @@ function init() {
     setBarGraph();
     registerMediaCallbacks();
     initDrops();
+    setFaceBookPageLink();
     document.addEventListener("touchstart", function() {},false);  // allow css active to work in safari
     $('body').imagesLoaded(function() {
         display();
