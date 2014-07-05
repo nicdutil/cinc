@@ -271,7 +271,7 @@ function showPanel(sectionId, buttonId) {
     fadeHtml(o, 'out', htmlCallback);
     canvasHide = 'none' !== $('#screen-canvas-wrapper').css('display');
 
-    if (canvasHide && sectionId === 'services') {
+    if (canvasHide && sectionId === 'services' && buttonPrefix !== 'excel') {
         $('#screen-canvas-wrapper').fadeOut(function() {
             fadeHtml(p, 'out', htmlCallback);
             fadeHtml(p, 'in');
