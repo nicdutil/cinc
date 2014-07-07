@@ -19,7 +19,8 @@
 #navbar {
  padding: 1.5em 1.5em;
  background: @black;
- text-align: center;
+ text-align: center; 
+ position: relative;
  a {
   color: @white !important;
  }
@@ -27,6 +28,28 @@
   color: @red !important;
  }
 
+ #lang-wrapper {
+  position: absolute;
+  right: 20px;
+  font-size: 1.5em;
+  p {
+    color:@white;
+  }
+  p:active {
+    color:@red;
+  }
+  @media screen and (min-width:@screen-sm-min) {
+    font-size: 1em;
+    right: 20px;
+    bottom: 10px;
+  }
+  @media screen and (min-width:@screen-md-min) {
+    font-size: 1em;
+    right: 40px;
+    bottom: 10px;
+  }
+  
+ }
  #social-icons a  { 
   position: relative;
  }
@@ -174,6 +197,11 @@
 .navbar-mini {
   margin-bottom: 0 !important;
   opacity: 0.8;
+
+  #lang-wrapper {
+    display: none;
+  }
+
   #main-title h1 {
     line-height: 1em !important;
     font-size: 6em !important;

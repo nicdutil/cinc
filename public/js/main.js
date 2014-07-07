@@ -605,6 +605,8 @@ function setFaceBookPageLink() {
      }
 
 }
+
+
 function init() {
     setResponsiveLine('#main-nav-1');
     initSlider();
