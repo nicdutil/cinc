@@ -23,13 +23,15 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>CINC Conception Sites Webs Adaptatifs | Minage | Visualisation </title>
-    <meta name="description" content="CINC offre des services informatiques aux entreprises: conception sites webs adaptatifs, ré-usinage de code appareils mobiles, minage de données, visualisation" />
+    <title>CINC Conception Sites Webs Adaptatifs | Minage | Visualisation</title>
+    <meta name="description" content="CINC est une entreprise informatique de Montréal qui se spécialise dans la conception de sites webs adaptatifs, grattoirs, tableaux de bord, automatisation" />
+    <meta name="keywords" content="informatique, montréal, conception sites webs adaptatifs, grattoirs, tableaux de bord, automatisation, ré-usinage de code appareil mobile, analyse de données" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="canonical" href="http://infocinc.com" />
-    <link rel="stylesheet" href="css/normalize.min.css" />
-    <link rel="stylesheet" href="css/main.min.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.min.css" />
+
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
@@ -129,7 +131,12 @@
 
     <!-- Loader icon !-->
 
-    <div id='main' class='invisible'>
+    <div id='main'>
+        <script>
+        var m = document.getElementById("main");
+        m.className = 'invisible';
+        </script>
+
         <div id="fb-root"></div>
 
         <script>
@@ -145,11 +152,6 @@
 
 
         <nav id="navbar">
-            <div id='lang-wrapper'>
-                <a href='#' data-target="#english-modal" data-toggle="modal" id='lang-anchor'>
-                    <p>ENGLISH</p>
-                </a>
-            </div>
             <div class="container">
                 <div class="row">
                     <div id="main-title" class="nav-item">
@@ -161,16 +163,18 @@
                         </div>
                     </div>
                     <div id="main-nav" class="nav-item">
-                        <h2 class="nav-item"><a id="services-hero-anchor" href="#services-banner">services</a>
-                        </h2>
-                        <h2 class="nav-item"><a id="method-hero-anchor" href="#method-banner">&agrave propos </a>
-                        </h2>
-                        <h2 class="nav-item"><a id="team-hero-anchor" href="#team-banner">équipe</a>
-                        </h2>
-                        <h2 class="nav-item"><a id="project-hero-anchor" href="#project-banner">projets</a>
-                        </h2>
-                        <h2 class="nav-item"><a id="contact-hero-anchor" href="#footer">contact</a>
-                        </h2>
+                        <ul>
+                            <li class="nav-item"><a id="services-hero-anchor" href="#services-banner">services</a>
+                            </li>
+                            <li class="nav-item"><a id="method-hero-anchor" href="#method-banner">&agrave propos </a>
+                            </li>
+                            <li class="nav-item"><a id="team-hero-anchor" href="#team-banner">équipe</a>
+                            </li>
+                            <li class="nav-item"><a id="project-hero-anchor" href="#project-banner">projets</a>
+                            </li>
+                            <li class="nav-item"><a id="contact-hero-anchor" href="#footer">contact</a>
+                            </li>
+                        </ul>
                     </div>
                     <div id="social-icons" class="nav-item">
                         <a id="phone_anchor" href="tel:+14384966886" class="nav-item">
@@ -188,26 +192,33 @@
                     </div>
                 </div>
             </div>
+            <div id='lang-wrapper'>
+                <p> <a href='#' data-target="#english-modal" data-toggle="modal" id='lang-anchor'>
+               ENGLISH</a>
+                </p>
+            </div>
+
         </nav>
 
         <div id="margin-top" class="mobile-hide"></div>
+
         <section id="top" class="background-container container-fluid">
             <div class="slider cadre text-center">
-                <div class="slide ">
-                    <img sizes="(min-width: 1600px) 1305px, (min-width:1200px) 1082px, (min-width:992px) 894px, (min-width:768px) 738px, 100vw" srcset="img/creative_sm.jpg 640px, img/creative_smd.jpg 768px, img/creative_md.jpg 1309px, img/creative_lg.jpg 1744px" alt="banniere cr&eacuteativit&eacute">
+                <figure class="slide ">
+                    <img sizes="(min-width: 1600px) 1305px, (min-width:1200px) 1082px, (min-width:992px) 894px, (min-width:768px) 738px, 100vw" srcset="img/creative_sm.jpg 640px, img/creative_smd.jpg 768px, img/creative_md.jpg 1309px, img/creative_lg.jpg 1744px" alt="banniere créativité">
                     </img>
-                    <h2>Cr&eacuteativit&eacute</h2>
-                </div>
-                <div class="slide hide">
-                    <img sizes="(min-width: 1600px) 1305px, (min-width:1200px) 1082px, (min-width:992px) 894px, (min-width:768px) 738px, 100vw" srcset="img/reflexive_sm.jpg 640px, img/reflexive_smd.jpg 768px, img/reflexive_md.jpg 1309px, img/reflexive_lg.jpg 1744px" alt="banniere r&eacuteflexion">
+                    <figcaption>Cr&eacuteativit&eacute</figcaption>
+                </figure>
+                <figure class="slide hide">
+                    <img sizes="(min-width: 1600px) 1305px, (min-width:1200px) 1082px, (min-width:992px) 894px, (min-width:768px) 738px, 100vw" srcset="img/reflexive_sm.jpg 640px, img/reflexive_smd.jpg 768px, img/reflexive_md.jpg 1309px, img/reflexive_lg.jpg 1744px" alt="banniere réflexion">
                     </img>
-                    <h2>R&eacuteflexion</h2>
-                </div>
-                <div class="slide hide">
+                    <figcaption>R&eacuteflexion</figcaption>
+                </figure>
+                <figure class="slide hide">
                     <img sizes="(min-width: 1600px) 1305px, (min-width:1200px) 1082px, (min-width:992px) 894px, (min-width:768px) 738px, 100vw" srcset="img/origin_sm.jpg 640px, img/origin_smd.jpg 768px, img/origin_md.jpg 1309px, img/origin_lg.jpg 1744px" alt="banniere origines">
                     </img>
-                    <h2>Origine</h2>
-                </div>
+                    <figcaption>Origine</figcaption>
+                </figure>
             </div>
         </section>
         <div id="main-nav-1" class="center-navigation">
@@ -222,10 +233,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
-                        <h2>Nos services sont destin&eacutes aux entreprises</h2>
+                        <header>Nos services sont destin&eacutes aux entreprises</header>
                         <p>CINC est une entreprise informatique de la r&eacutegion de Montr&eacuteal qui se sp&eacutecialise dans la conception de sites webs adaptatifs, le minage et la visualisation de donn&eacutees. Nos projets en cours nous aident &agrave &eacutevoluer et &agrave vous offrir de meilleurs services.
                         </p>
-                        <h2>Apprenez en plus sur nos services</h2>
+                        <footer>Apprenez en plus sur nos services</footer>
                     </div>
                 </div>
                 <div class="row center-navigation">
@@ -253,16 +264,19 @@
                         <button id="website-button" type="button" class="noglow service-thumbnail services-click">
                             <img id="website-img" src="img/www.png" alt="bouton service web"></img>
                         </button>
-
-                        <h2 class="button-caption">WEB</h2>
-                        <div id="website-text" class="content-block desktop-hide text-center">
-                            <h3>Conception Sites Webs Adaptatifs</h3>
+                        <div class="button-caption">WEB</div>
+                        <div id="website-text" class="content-block text-center">
+                            <script>
+                            var d = document.getElementById('website-text');
+                            d.className = d.className + ' desktop-hide';
+                            </script>
+                            <h2>Conception Sites Webs Adaptatifs</h2>
                             <p>
-                                Cr&eacuteer un site web intelligent qui s'adapte aux formats et caract&eacuteristiques de vos appareils 
+                                Cr&eacuteer un site web intelligent qui s'adapte aux formats et caract&eacuteristiques de vos appareils
                             </p>
-                            <h3>R&eacute-usinage de Code Appareil Mobile</h3>
+                            <h2>R&eacute-usinage de Code Appareil Mobile</h2>
                             <p>
-                                Am&eacuteliorer l'apparence et la fonctionnalit&eacute de votre site web actuel sur appareils mobiles et tablettes </p>
+                                Am&eacuteliorer l'apparence et la fonctionnalit&eacute de votre site web actuel sur appareils mobiles et tablettes</p>
                         </div>
                         <div id="website-photo" class="desktop-hide text-center">
                             <img id="website-img" sizes="(min-width:1200px) 600px, (min-width:992px) 450px, (min-width:768px) 520px, (min-width:560px) 400px, 80vw" srcset="img/responsive_sm.jpg 529px, img/responsive_md.jpg 793px, img/responsive_lg.png 1041px" alt="conception de sites webs adaptatifs">
@@ -279,13 +293,17 @@
                             <img id="scrape-img" src="img/scrape.png" alt="minage de donnees web"></img>
                         </button>
 
-                        <h2 class="button-caption">MINAGE</h2>
+                        <div class="button-caption">MINAGE</div>
 
-                        <div id="scrape-text" class="content-block desktop-hide text-center">
-                            <h3>Conception de Grattoirs</h3>
-                            <p> &Eacuteliminer les t&acircches r&eacutep&eacutetitives &agrave l'aide de programmes automatis&eacutes qui peuvent saisir du contenu disponible sur divers sites webs 
+                        <div id="scrape-text" class="content-block text-center">
+                            <script>
+                            var d = document.getElementById('scrape-text');
+                            d.className = d.className + ' desktop-hide';
+                            </script>
+                            <h2>Conception de Grattoirs</h2>
+                            <p>&Eacuteliminer les t&acircches r&eacutep&eacutetitives &agrave l'aide de programmes automatis&eacutes qui peuvent saisir du contenu disponible sur divers sites webs
                             </p>
-                            <h3>Analyse de Donn&eacutees</h3>
+                            <h2>Analyse de Donn&eacutees</h2>
                             <p>
                                 Ajouter de la transparence &agrave vos activit&eacutes d'affaires en utilisant des requ&ecirctes sophistiqu&eacutees SQL ou des algorithmes d'apprentissage machine
                             </p>
@@ -304,15 +322,19 @@
                             <img id="excel-img" src="img/visualize.png" alt="integration de donnees Excel"></img>
                         </button>
 
-                        <h2 class="button-caption">VISUALISATION</h2>
+                        <div class="button-caption">VISUALISATION</div>
 
-                        <div id="excel-text" class="content-block desktop-hide text-center">
-                            <h3>Conception de Tableaux de Bord</h3>
+                        <div id="excel-text" class="content-block text-center">
+                            <script>
+                            var d = document.getElementById('excel-text');
+                            d.className = d.className + ' desktop-hide';
+                            </script>
+                            <h2>Conception de Tableaux de Bord</h2>
                             <p>
                                 Pr&eacutesenter vos donn&eacutees d'affaires &agrave des clients &agrave l'aide de graphiques et de tableaux accessibles sur tous vos appareils</p>
-                            <h3>Automatisation de Rapports Excel</h3>
+                            <h2>Automatisation de Rapports Excel</h2>
                             <p>
-                                Ajouter des macros Excel pour automatiser la collecte et la pr&eacutesentation de vos donn&eacutees et graphiques 
+                                Ajouter des macros Excel pour automatiser la collecte et la pr&eacutesentation de vos donn&eacutees et graphiques
                             </p>
                         </div>
 
@@ -360,13 +382,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
-                        <h2>Notre approche est scientifique
-                        </h2>
+                        <header>Notre approche est scientifique
+                        </header>
                         <p>
                             L'exp&eacuterience n'est pas une garantie de succ&egraves. CINC favorise une approche m&eacutethodique pour vous aider. Notre ambition est d'&eacutelaborer des solutions qui se basent sur des donn&eacutees cr&eacutedibles et qui satisfait des crit&egraveres pr&eacutecis mis au point par notre interaction avec le client.
 
                         </p>
-                        <h2>Voici comment nous proc&eacutedons</h2>
+                        <footer>Voici comment nous proc&eacutedons</footer>
                     </div>
                 </div>
                 <div class="row center-navigation">
@@ -400,12 +422,13 @@
                             <img id="observe-img" src="img/data.png" alt="données"></img>
                         </button>
 
-                        <h2 class="button-caption">DONN&EacuteES</h2>
+                        <div class="button-caption">DONN&EacuteES</div>
 
-                        <div id="observe-text" class="content-block text-center desktop-hide">
+                        <div id="observe-text" class="content-block desktop-hide text-center">
 
                             <div class='text-title'>Mati&egravere Premi&egravere</div>
-                            <a target="_blank" href="http://www.domo.com/learn/data-never-sleeps-2"><span class='blue'> &Agrave chaque minute, il y a</span>
+                            <a target="_blank" href="http://www.domo.com/learn/data-never-sleeps-2">
+                                <span id='chaque-minute'>&Agrave chaque minute, il y a</span>
                             </a>
                             <ul>
                                 <li>48hrs de vid&eacuteos transf&eacuter&eacutes sur Youtube</li>
@@ -426,9 +449,9 @@
                             <img id="tasks-img" src="img/plan.png" alt="planification"></img>
                         </button>
 
-                        <h2 class="button-caption">PLANIFICATION</h2>
+                        <div class="button-caption">PLANIFICATION</div>
 
-                        <div id="tasks-text" class="content-block text-center desktop-hide">
+                        <div id="tasks-text" class="content-block desktop-hide text-center ">
                             <div class='text-title'>Moment Strat&eacutegique</div>
                             <span class='darkRed'>Un plan d'action inclut</span>
                             <ul>
@@ -451,7 +474,7 @@
                         <button type="button" id="execute-button" class="noglow method-click method-thumbnail">
                             <img id="execute-img" src="img/execute.png" alt="execution"></img>
                         </button>
-                        <h2 class="button-caption">EX&EacuteCUTION</h2>
+                        <div class="button-caption">EX&EacuteCUTION</div>
 
                         <div id="execute-text" class="content-block text-center desktop-hide">
                             <div class='text-title'>Phase Laboratoire</div>
@@ -475,7 +498,7 @@
                             <img id="result-img" src="img/analyze.png" alt="analyse"></img>
                         </button>
 
-                        <h2 class="button-caption">ANALYSE</h2>
+                        <div class="button-caption">ANALYSE</div>
                         <div id="result-text" class="content-block text-center desktop-hide">
                             <div class='text-title'>&Eacutetape Critique</div>
                             <span class='green'>Une analyse compl&egravete scrute</span>
@@ -512,15 +535,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
-                        <h2 class="text-center">
+                        <header class="text-center">
                             Une &eacutequipe performante
-                        </h2>
+                        </header>
                         <p>
                             Les membres de l'&eacutequipe CINC travaillent plusieurs heures par jour pour terminer les projets en cours. Chaque personne excelle dans un ou plusieurs domaines particuliers. Nous sommes aussi &agrave la recherche de personnes talentueuses pour am&eacuteliorer notre &eacutequipe.
                         </p>
-                        <h2 class="text-center">
+                        <footer class="text-center">
                             Voici les membres de notre &eacutequipe
-                        </h2>
+                        </footer>
                     </div>
                 </div>
                 <div class="row center-navigation">
@@ -566,7 +589,11 @@
                         </a>
                     </div>
 
-                    <div id="nic-text" class="content-block text-center desktop-hide">
+                    <div id="nic-text" class="content-block text-center">
+                     <script>
+                        var d = document.getElementById('nic-text');
+                        d.className = d.className + ' desktop-hide';
+                        </script>
                         <p>
                             Je poss&egravede une ma&icirctrise en bio-informatique et un doctorat en sciences informatiques de l'universit&eacute McGill. Durant mes derni&egraveres ann&eacutees, j'ai enrichi mes connaissances acad&eacutemiques en travaillant dans les secteurs financiers et technologiques. J'aime relever de nouveaux d&eacutefis et je travaille avec rigueur et discipline pour m'assurer de l'enti&egravere satisfaction de mes clients.
                         </p>
@@ -598,7 +625,12 @@
                             <img class='email-icon' src="img/mail.png" alt="icone email"></img>
                         </a>
                     </div>
-                    <div id="mel-text" class="content-block desktop-hide text-center">
+                    <div id="mel-text" class="content-block text-center">
+                                         <script>
+                        var d = document.getElementById('mel-text');
+                        d.className = d.className + ' desktop-hide';
+                        </script>
+
                         <p>
                             M&eacutelanie &agrave un r&ocircle grandissant au sein de notre &eacutequipe. Active sur les r&eacuteseaux sociaux, elle communique les services offerts par notre entreprise. Elle s'occupe aussi des suivis avec les clients. Son empathie pour les autres est une qualit&eacute exceptionnelle qui nous sert de guide pour am&eacuteliorer la pr&eacutesentation de nos services. M&eacutelanie est appr&eacuteci&eacutee pour sa douceur et son calme. Ces aptitudes font d’elle une ressource indispensable pour le bon fonctionnement de notre entreprise.
                         </p>
@@ -642,15 +674,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
-                        <h2>
+                        <header>
                             Contactez-nous
-                        </h2>
+                        </header>
                         <p>
                             CINC &eacutevolue rapidement et veut conna&icirctre vos projets futurs. Nous aimons relever de nouveaux d&eacutefis et nous pouvons vous offrir des tarifs concurrentiels. Contactez-nous par courriel ou t&eacutel&eacutephonez-nous pour discuter de la fa&ccedilon dont on peut aider vos affaires.
                         </p>
-                        <h2>
+                        <footer>
                             R&eacutealisations et projets en cours
-                        </h2>
+                        </footer>
                     </div>
                 </div>
                 <div class="row center-navigation">
@@ -674,70 +706,59 @@
                     <div class="project-wrapper">
                         <a href="http://www.nuayre.com/" target="_blank">
                             <img src="img/nuayre.png" alt="Logo NuAyre"></img>
-                            <h2>NuAyre
-                            </h2>
+                            <figcaption>NuAyre
+                            </figcaption>
                         </a>
-                        <h3>&Eacutetiquettes: Conception Site Web Adaptatif</h3>
+                        <h2>&Eacutetiquettes: Conception Site Web Adaptatif</h2>
                         <h3>Projet en cours</h3>
                     </div>
                 </div>
-                <!--                 <div class="col-sm-4 col-md-3 project">
-                    <div class="project-wrapper">
-                        <img src="img/cdm_100dpi.png"></img>
-                        <h3> <a href="http://centredentairemartindutil.com/">Centre Dentaire Martin Dutil </a>
-                        </h3>
-                        <h5>&Eacutetiquettes: UX Design, Reusinage Mobile</h5>
-                    </div>
-                </div>
-
- -->
-
                 <div class="col-sm-4 col-md-3 mobile-hide project">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" style="opacity:0" alt="Logo NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Logo NuAyre"></img>
                     </div>
                 </div>
 
                 <div class="col-sm-4 col-md-3 mobile-hide project">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" style="opacity:0" alt="Logo NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Logo NuAyre"></img>
                     </div>
                 </div>
 
                 <div class="col-sm-4 col-md-3 mobile-hide project">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" style="opacity:0" alt="Logo NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Logo NuAyre"></img>
                     </div>
                 </div>
 
                 <div class="col-sm-4 col-md-3 mobile-hide project">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" style="opacity:0" alt="Logo NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Logo NuAyre"></img>
                     </div>
                 </div>
 
                 <div class="col-sm-4 col-md-3 mobile-hide project">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" style="opacity:0" alt="Logo NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Logo NuAyre"></img>
                     </div>
                 </div>
 
                 <div class="col-sm-4 col-md-3 mobile-hide project">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" style="opacity:0" alt="Logo NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Logo NuAyre"></img>
                     </div>
                 </div>
 
                 <div class="col-sm-4 col-md-3 mobile-hide project">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" style="opacity:0" alt="Logo NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Logo NuAyre"></img>
                     </div>
                 </div>
 
 
                 <div class="col-sm-4 col-md-3 mobile-hide project landscape-hide">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" style="opacity:0" alt="Logo NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Logo NuAyre"></img>
                     </div>
                 </div>
             </div>
@@ -759,7 +780,7 @@
                         <div id='gplus' class="text-center">
                             <img src="img/google-plus.png" alt="Logo Google Plus"></img>
                         </div>
-                        <h2>RECOMMENDEZ CINC SUR GOOGLE+</h2>
+                        <figcaption>RECOMMENDEZ CINC SUR GOOGLE+</figcaption>
                         <div class="social-button-wrapper iframe-offset">
                             <div class="g-plusone" data-annotation="bubble" data-width="300"></div>
                         </div>
@@ -768,7 +789,7 @@
                 <div class="social-banner background-blue col-sm-6 col-lg-3">
                     <div class="social-banner-wrapper">
                         <img src="img/ilike.png" alt="Logo ilike"></img>
-                        <h2>RECOMMENDEZ CINC SUR FACEBOOK</h2>
+                        <figcaption>RECOMMENDEZ CINC SUR FACEBOOK</figcaption>
                         <div class="social-button-wrapper">
                             <div class="fb-like" data-href="http://www.infocinc.com" data-width="20" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
                         </div>
@@ -778,9 +799,9 @@
                 <div class="social-banner background-dark col-sm-6 col-lg-3">
                     <div class="social-banner-wrapper">
                         <img src="img/Twitter_logo.png" alt="Logo Twitter"></img>
-                        <h2>TWEETEZ VOS QUESTIONS
+                        <figcaption>TWEETEZ VOS QUESTIONS
                             <a href="http://twitter.com/infoCinc" target="_blank"> @INFOCINC</a>
-                        </h2>
+                        </figcaption>
                         <div class="social-button-wrapper iframe-offset">
                             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.infocinc.com" data-text="Tweeter vos questions" data-via="infoCinc" data-lang="fr">Tweeter</a>
                         </div>
@@ -981,7 +1002,7 @@
             (i[r].q = i[r].q || []).push(arguments)
         }, i[r].l = 1 * new Date();
         a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
+            m = s.getElementsByTagName(o)[0];
         a.async = 1;
         a.src = g;
         m.parentNode.insertBefore(a, m)

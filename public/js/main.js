@@ -556,28 +556,6 @@ function initDrops() {
     setInterval(drawDrops, REFRESH_RATE);
 }
 
-
-function setBannerHeight() {
-    var banners = ['#services-banner', '#method-banner',
-        '#team-banner', '#project-banner'
-    ];
-    var bannerHeight = parseInt($('.banner').css('height'), 10);
-    //    alert(bannerHeight);
-    var textHeight;
-    var selector;
-
-    for (var i = 0; i < banners.length; i++) {
-        selector = banners[i] + ' ' + '.row:first-child';
-        textHeight = parseInt($(selector).css('height'), 10);
-        selector = banners[i] + ' ' + '.v-long-line';
-        // subtract 30px from line height because of box preceding 
-        $(selector).css({
-            'height': (bannerHeight - textHeight - 30) + 'px'
-        });
-    }
-}
-
-
 function setResponsiveLine(id) {
     var offset = $(id).offset();
     var windowHeight = $(window).height();
@@ -612,7 +590,6 @@ function setMaxPageHeight() {
     if (site_state === 'MOBILE') {
         // get viewport height 
         var viewportHeight = $(window).height();
-
         $('#main').css({
             'height': viewportHeight + 'px'
         });

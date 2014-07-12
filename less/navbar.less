@@ -1,3 +1,5 @@
+@import (reference) "variables.less";
+
 /*/////////////////////////////////////////////////////////////////////////////////////////////////
 // Navbar Styling
 //////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -17,46 +19,44 @@
 }
 
 #navbar {
- padding: 1.5em 1.5em;
- background: @black;
- text-align: center; 
- position: relative;
- a {
-  color: @white !important;
- }
- a:active {
-  color: @red !important;
- }
-
- #lang-wrapper {
-  position: absolute;
-  right: 20px;
-  font-size: 1.5em;
-  p {
-    color:@white;
-  }
-  p:active {
-    color:@red;
-  }
-  @media screen and (min-width:@screen-sm-min) {
-    font-size: 1em;
-    right: 20px;
-    bottom: 10px;
-  }
-  @media screen and (min-width:@screen-md-min) {
-    font-size: 1em;
-    right: 40px;
-    bottom: 10px;
-  }
-  
- }
- #social-icons a  { 
+  padding: 1.5em 1.5em;
+  background: @black;
+  text-align: center; 
   position: relative;
- }
- #social-icons a:active {
+
+  a {
+   color: @white ;
+  }
+  a:hover,a:active,a:focus {
+   color: @red ;
+  }
+
+  #lang-wrapper {
+    position: absolute;
+    right: 20px;
+    font-size: 1.5em;
+    @media screen and (min-width:@screen-sm-min) {
+      font-size: 1em;
+      right: 20px;
+      bottom: 10px;
+    }
+    @media screen and (min-width:@screen-md-min) {
+      font-size: 1em;
+      right: 40px;
+      bottom: 10px;
+    }
+  }
+
+  #social-icons a  { 
+   position: relative;
+  }
+
+  #social-icons a:focus {
+   border: 1px solid @red;
+  }
+  #social-icons a:active {
    top: 3px;
- }
- 
+  }
 
  .nav-item {
     display: inline-block;
@@ -66,19 +66,22 @@
 
  .nav-transition;
 
-  h2 {
-    font-family: 'Open Sans Condensed', sans-serif;
-    &:extend(#navbar h1);
-    text-align: center;
+  ul, h2 {
+   font-family: 'Open Sans Condensed', sans-serif;
+  }
+  
+  ul {
+    padding: 0;
+    margin: 0;    
   }
 
  .container {
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
- }
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
 
 
- #main-title {
+  #main-title {
     width: 100%;
     color: @white;
     h1 {
@@ -90,7 +93,6 @@
     h2 {
       padding-top:10px;
       font-size: 15px;
-
     }
   }
 
@@ -103,7 +105,7 @@
     display: none;
   }
 
-  #main-nav h2 {
+  #main-nav ul {
       font-size: 2.5em;
   }
 
@@ -127,7 +129,6 @@
         font-size: 17px;
       }
     }
-
   }
 
   @media screen and (min-width:@screen-xs-min) {
@@ -185,7 +186,6 @@
     #social-icons img {
       width: 35px;
     }
-
     .nav-item {
       padding: 0 18px;
     }
