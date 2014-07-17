@@ -599,7 +599,7 @@ function init() {
     registerMediaCallbacks();
     initDrops();
     adaptForMobile();
-    $("#skype-call-anchor").prop('href', 'skype:infoCinc?call'); // set skype href in js for seo friendliness
+    $("#skype-call-anchor").prop('href', 'skype:infoCinc?call'); // skype href in js for seo friendliness
     document.addEventListener("touchstart", function() {}, false); // allow css active to work in safari
     $('body').imagesLoaded(function() {
         display();
