@@ -573,28 +573,21 @@ function setResponsiveLine(id) {
     }
 }
 
-function setFaceBookPageLink() {
+
+function adaptForMobile() {
     var site_state = queryMediaState();
 
     if (site_state === 'MOBILE') {
-        $('#fbook-anchor').attr('href', "https://m.facebook.com/pages/infocinc/896328063714402");
+       $('#fbook-anchor').attr('href', "https://m.facebook.com/pages/infocinc/896328063714402");
         $('#footer-fbook-anchor').attr('href', "https://m.facebook.com/pages/infocinc/896328063714402");
-
-    }
-
-}
-
-function setMaxPageHeight() {
-    var site_state = queryMediaState();
-
-    if (site_state === 'MOBILE') {
-        // get viewport height 
         var viewportHeight = $(window).height();
         $('#main').css({
             'height': viewportHeight + 'px'
         });
+        $("#phone_anchor").prop('href', 'tel:+14384966886'); // set to mobile href initially
     }
 }
+
 
 function init() {
     setResponsiveLine('#main-nav-1');
@@ -605,8 +598,8 @@ function init() {
     setBarGraph();
     registerMediaCallbacks();
     initDrops();
-    setFaceBookPageLink();
-    setMaxPageHeight();
+    adaptForMobile();
+    $("#skype-call-anchor").prop('href', 'skype:infoCinc?call'); // set skype href in js for seo friendliness
     document.addEventListener("touchstart", function() {}, false); // allow css active to work in safari
     $('body').imagesLoaded(function() {
         display();
