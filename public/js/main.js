@@ -77,7 +77,7 @@ function registerMediaCallbacks() {
         unmatch: function() {
             mediaSwitch = true;
             $("#phone_anchor").prop('href', 'tel:+14384966886');
-            $("#phone_anchor img").attr('src','img/phonelogo.png');
+            $("#phone_anchor img").attr('src', 'img/phonelogo.png');
             $("#phone_anchor").removeAttr('data-target');
             $("#phone_anchor").removeAttr('data-toggle');
             $("#navbar").removeClass('navbar-mini');
@@ -85,7 +85,7 @@ function registerMediaCallbacks() {
             $('#navbar .container').css({
                 'border-top': '1px solid #ddd',
                 'border-bottom': '1px solid #ddd'
-              });
+            });
 
             // add no pointer to buttons. 
             $('#services button,#screen-method button').removeClass('selected-button');
@@ -105,7 +105,7 @@ function registerMediaCallbacks() {
 
         match: function() {
             $("#phone_anchor").prop('href', '#');
-            $("#phone_anchor img").attr('src','img/mail_logo.png');
+            $("#phone_anchor img").attr('src', 'img/mail_logo.png');
             $("#phone_anchor").attr({
                 "data-target": '#telCinc',
                 "data-toggle": 'modal'
@@ -389,6 +389,12 @@ var main_nav_slide_anchors = [
 
 function registerScrollsTo() {
 
+    $('#arrow-up-anchor').scrollTo({
+        speed: 800,
+        offset: 0,
+        easing: 'easeInOutCubic'
+    });
+
     $(main_nav_slide_anchors.join()).scrollTo({
         speed: 800,
         offset: 77,
@@ -518,6 +524,14 @@ function initWayPoints() {
     $('#services-banner').waypoint(navBarResizeHandler, {
         offset: '50%'
     });
+
+    $('#services-banner').waypoint(function(direction) {
+        if (direction === "down") {
+            $('#arrow-up').removeClass('invisible');
+        } else {
+            $('#arrow-up').addClass('invisible');
+        }
+    });
 }
 
 function initDrops() {
@@ -586,13 +600,13 @@ function adaptForMobile() {
     var site_state = queryMediaState();
 
     if (site_state === 'MOBILE') {
-       $('#fbook-anchor').attr('href', "https://m.facebook.com/pages/infocinc/896328063714402");
+        $('#fbook-anchor').attr('href', "https://m.facebook.com/pages/infocinc/896328063714402");
         $('#footer-fbook-anchor').attr('href', "https://m.facebook.com/pages/infocinc/896328063714402");
         var viewportHeight = $(window).height();
         $('#main').css({
             'height': viewportHeight + 'px'
         });
-        $("#phone_anchor img").attr('src','img/phonelogo.png');
+        $("#phone_anchor img").attr('src', 'img/phonelogo.png');
         $("#phone_anchor").prop('href', 'tel:+14384966886'); // set to mobile href initially
     }
 }
