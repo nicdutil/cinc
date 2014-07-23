@@ -586,7 +586,8 @@ function setResponsiveLine(id) {
     var delta = windowHeight - (offset.top + boxHeight);
     if (delta > 0) {
         $(id + ' .responsive-line').css({
-            'height': delta + 'px'
+            'height': delta + 'px',
+            'max-height': '700px'
         });
     } else {
         $(id + ' .responsive-line').css({
