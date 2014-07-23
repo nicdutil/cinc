@@ -592,6 +592,7 @@ function adaptForMobile() {
         $('#main').css({
             'height': viewportHeight + 'px'
         });
+        $("#phone_anchor img").attr('src','img/phonelogo.png');
         $("#phone_anchor").prop('href', 'tel:+14384966886'); // set to mobile href initially
     }
 }
