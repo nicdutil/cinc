@@ -104,7 +104,11 @@ function registerMediaCallbacks() {
 
         match: function() {
             $("#phone_anchor").prop('href', '#');
-            $("#phone_anchor img").attr('src', 'img/mail_logo.png');
+            if ($("#navbar").hasClass('navbar-mini')) {
+                $("#phone_anchor img").attr('src', 'img/maillogomini.png');
+            } else {
+                $("#phone_anchor img").attr('src', 'img/maillogo.png');
+            }
             $("#phone_anchor").attr({
                 "data-target": '#telCinc',
                 "data-toggle": 'modal'
@@ -145,24 +149,24 @@ function registerMediaCallbacks() {
 }
 
 function queryMediaState() {
-        var size = parseInt($('#media-state').css('font-size'), 10);
-        var site_shape;
-        if (size === 1) {
-            site_shape = "MOBILE";
-        } else if (size === 2) {
-            site_shape = "TABLET-PORTRAIT";
-        } else if (size === 3) {
-            site_shape = "TABLET-LANDSCAPE";
-        } else if (size === 4) {
-            site_shape = "DESKTOP-LG";
-        } else {
-            site_shape = "DESKTOP-WIDE";
-        }
-        return site_shape;
+    var size = parseInt($('#media-state').css('font-size'), 10);
+    var site_shape;
+    if (size === 1) {
+        site_shape = "MOBILE";
+    } else if (size === 2) {
+        site_shape = "TABLET-PORTRAIT";
+    } else if (size === 3) {
+        site_shape = "TABLET-LANDSCAPE";
+    } else if (size === 4) {
+        site_shape = "DESKTOP-LG";
+    } else {
+        site_shape = "DESKTOP-WIDE";
     }
-    ////////////////////////////////////////////////////////////////////////
-    // Bar Graph
-    ////////////////////////////////////////////////////////////////////////
+    return site_shape;
+}
+////////////////////////////////////////////////////////////////////////
+// Bar Graph
+////////////////////////////////////////////////////////////////////////
 
 var graph, refreshIntervalId, graphCanvasId;
 
@@ -258,42 +262,42 @@ function parse(sectionId, buttonId, suffix) {
 }
 
 function showPanel(sectionId, buttonId) {
-        var o = parse(sectionId, buttonId, 'text');
-        var p = parse(sectionId, buttonId, 'photo');
-        var buttonPrefix = prefix(buttonId);
+    var o = parse(sectionId, buttonId, 'text');
+    var p = parse(sectionId, buttonId, 'photo');
+    var buttonPrefix = prefix(buttonId);
 
-        var htmlCallback = function(ob) {
+    var htmlCallback = function(ob) {
+        $(ob['selector']).html(ob['html']);
+    }
+
+    var excelCallBack = function(ob) {
+        if (buttonPrefix === 'excel') {
+            $(ob['selector']).html(ob['html']);
+            $('#screen-canvas-wrapper').fadeIn();
+        } else {
             $(ob['selector']).html(ob['html']);
         }
-
-        var excelCallBack = function(ob) {
-            if (buttonPrefix === 'excel') {
-                $(ob['selector']).html(ob['html']);
-                $('#screen-canvas-wrapper').fadeIn();
-            } else {
-                $(ob['selector']).html(ob['html']);
-            }
-        }
-
-        fadeHtml(o, 'out', htmlCallback);
-        canvasHide = 'none' !== $('#screen-canvas-wrapper').css('display');
-
-        if (canvasHide && sectionId === 'services' && buttonPrefix !== 'excel') {
-            $('#screen-canvas-wrapper').fadeOut(function() {
-                fadeHtml(p, 'out', htmlCallback);
-                fadeHtml(p, 'in');
-            });
-        } else {
-            fadeHtml(p, 'out', excelCallBack);
-            if (buttonPrefix !== 'excel') {
-                fadeHtml(p, 'in');
-            }
-        }
-        fadeHtml(o, 'in');
     }
-    //////////////////////////////////////////////////////////////////////
-    // Waypoints handlers
-    //////////////////////////////////////////////////////////////////////
+
+    fadeHtml(o, 'out', htmlCallback);
+    canvasHide = 'none' !== $('#screen-canvas-wrapper').css('display');
+
+    if (canvasHide && sectionId === 'services' && buttonPrefix !== 'excel') {
+        $('#screen-canvas-wrapper').fadeOut(function() {
+            fadeHtml(p, 'out', htmlCallback);
+            fadeHtml(p, 'in');
+        });
+    } else {
+        fadeHtml(p, 'out', excelCallBack);
+        if (buttonPrefix !== 'excel') {
+            fadeHtml(p, 'in');
+        }
+    }
+    fadeHtml(o, 'in');
+}
+//////////////////////////////////////////////////////////////////////
+// Waypoints handlers
+//////////////////////////////////////////////////////////////////////
 
 var bannerTriggers = [
     '#margin-top', '#services-banner',
