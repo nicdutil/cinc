@@ -94,6 +94,11 @@
       padding-top:10px;
       font-size: 15px;
     }
+    h2.prefix {
+      display: inline-block;
+      vertical-align: top;
+      font-size:4em;
+    }
   }
 
   
@@ -122,6 +127,7 @@
     }
     #main-title {
       h1 {
+      display: inline-block;
       font-size: 80px;
       line-height: 1.1em;
       }
@@ -160,6 +166,9 @@
       h2 {
         padding-top: 5px;
         font-size: 1.9em;
+      }
+      h2.prefix {
+        font-size: 3em;
       }
       width: auto;
     }
@@ -207,13 +216,19 @@
     font-size: 6em !important;
     margin-top: -5px !important;
   }
+  #main-title h2.prefix {
+//    line-height: 1em !important;
+    font-size: 2em !important;
+//    margin-top: -5px !important;
+  }
+  
   @media screen and (min-width:@screen-sm-min) {
     #social-icons  img {
         width: 25px !important;
     }
     padding: 10px !important;
     .nav-item {
-      padding: 0 10px !important;
+      padding: 0 9px !important;
     }
     font-size: 8px !important;
   }

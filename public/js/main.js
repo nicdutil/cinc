@@ -81,7 +81,6 @@ function registerMediaCallbacks() {
             $("#phone_anchor").removeAttr('data-target');
             $("#phone_anchor").removeAttr('data-toggle');
             $("#navbar").removeClass('navbar-mini');
-            $('#main-title h2').css('display', 'block');
             $('#navbar .container').css({
                 'border-top': '1px solid #ddd',
                 'border-bottom': '1px solid #ddd'
@@ -346,13 +345,13 @@ function navBarResizeHandler(direction) {
 
     if (direction === "down") {
         $('#navbar').addClass('navbar-mini');
-        $('#main-title h2').css('display', 'none');
+        $('#main-title h2:last-child').css('display', 'none');
         $('#navbar .container').css('border', 'none');
         sizeIcons('mini');
     } else {
         $('#navbar').removeClass('navbar-mini');
+        $('#main-title h2:last-child').css('display', 'block');
         sizeIcons('full');
-        $('#main-title h2').css('display', 'block');
         $('#navbar .container').css({
             'border-top': '1px solid #ddd',
             'border-bottom': '1px solid #ddd'
