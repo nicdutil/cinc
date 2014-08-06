@@ -85,11 +85,14 @@
     width: 100%;
     color: @white;
     h1 {
+      position: relative;
+      top:-10px;
       margin-bottom: 15px;
       font-family:'Lato', verdana;
       font-size: 60px;
       line-height: 1.1em;
     }
+
     h2 {
       padding-top:10px;
       font-size: 15px;
@@ -115,18 +118,24 @@
   }
 
   #social-icons img {
-    width: 30px;
+    width: 20px;
     /* fix for firefox cutting image*/
    image-rendering:optimizeQuality;
    -ms-interpolation-mode: bicubic;
   }
 
+  @media screen and (min-width:320px) {
+    #social-icons img {
+      width: 30px;
+    }
+  }
   @media screen and (min-height: 481px) {
     .nav-item {
       padding: 8px;
     }
     #main-title {
       h1 {
+      top: 0px;
       display: inline-block;
       font-size: 80px;
       line-height: 1.1em;
