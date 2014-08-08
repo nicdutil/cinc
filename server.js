@@ -3,9 +3,9 @@ var express = require('express'),
 
 app.use(express.logger());
 
-app.set('title', 'CINC Conception Sites Webs Adaptatifs | Minage | Visualisation ');
+app.set('title', 'InfoCINC | Conception Sites Webs Adaptatifs | Minage | Visualisation ');
 
-var oneDay = 86400000;
+var oneDay = 3600000;
 
 app.use(express.compress());
 app.use(express.static(__dirname + '/public', { maxAge: oneDay }));
