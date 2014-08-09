@@ -530,9 +530,9 @@ function initWayPoints() {
 
     $('#services-banner').waypoint(function(direction) {
         if (direction === "down") {
-            $('#arrow-up').removeClass('invisible');
+            $('#fixed-icons').children().removeClass('invisible');
         } else {
-            $('#arrow-up').addClass('invisible');
+            $('#fixed-icons').children().addClass('invisible');
         }
     });
 }
