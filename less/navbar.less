@@ -1,5 +1,5 @@
 @import (reference) "variables.less";
-
+@import (reference) "utils.less";
 /*/////////////////////////////////////////////////////////////////////////////////////////////////
 // Navbar Styling
 //////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -27,15 +27,15 @@
   a {
    color: @white ;
   }
-  a:hover,a:active,a:focus {
-   color: @red ;
-  }
 
   #lang-wrapper {
     position: absolute;
     right: 20px;
     top: 10px;
     font-size: 1.5em;
+    a:focus,a:hover {
+      color: @red;
+    }
     @media screen and (min-width:@screen-sm-min) {
       font-size: 1em;
       right: 20px;
@@ -79,12 +79,16 @@
  .container {
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
+ 
   }
 
 
   #main-title {
     width: 100%;
     color: @white;
+    a:focus {
+      color: @blue;
+    }
     h1 {
       position: relative;
       top:-10px;
@@ -104,7 +108,9 @@
       font-size:4em;
     }
   }
-
+  #social-icons a:hover {
+    .shake;
+  }
   
   #main-nav,#social-icons {
     text-align: center;
@@ -125,11 +131,17 @@
    -ms-interpolation-mode: bicubic;
   }
 
+  #nav-social-recommends {
+    opacity: 0;
+    height: 0px;
+  }
+
   @media screen and (min-width:320px) {
     #social-icons img {
       width: 30px;
     }
   }
+
   @media screen and (min-height: 481px) {
     .nav-item {
       padding: 8px;
@@ -168,8 +180,11 @@
     top: 0px;
     left: 0px;
     z-index: 100;
+
     #main-title {
       h1 { 
+        display: inline-block;
+        top: 0px;
         font-size: 8em;
         line-height: 1em;
       }
@@ -182,11 +197,51 @@
       }
       width: auto;
     }
-    #main-nav {
+    #main-nav,#main-nav a {
       display: inline-block;
+    }
+    #main-nav li {
+      line-height: 90px;
     }
     .nav-item {
       padding: 0 4px;
+    }
+
+    #main-nav {
+
+      li:hover {
+        text-shadow: 3px 3px 3px #000;
+      }
+      .nav-blue-bg:hover, .nav-blue-bg:focus {
+        background: @blue !important;
+      }
+      .nav-blue-bg:active {
+        background: @darkBlue !important;
+      }
+      .nav-orange-bg:hover, .nav-orange-bg:focus {
+        background: @orange !important;
+      }
+      .nav-orange-bg:active {
+        background: @darkOrange !important;   
+      }
+      .nav-green-bg:hover, .nav-green-bg:focus {
+        background: @green !important;
+      }
+      .nav-green-bg:active {
+        background: @darkGreen !important;
+      }      
+      .nav-purple-bg:hover, .nav-purple-bg:focus {
+        background: @purple !important;
+      }
+      .nav-purple-bg:active {
+        background: @darkPurple !important;
+      }
+      .nav-red-bg:hover, .nav-red-bg:focus {
+        background: @red !important;
+      }
+     .nav-red-bg:active {
+        background: @darkRed !important;
+      } 
     }
 
     #social-icons img {
@@ -195,9 +250,21 @@
 
   }
 
+  @media screen and (min-width:@screen-sm-min) {
+    .container {
+      -webkit-box-shadow: 0px 0px 25px 10px #141C26; 
+      -moz-box-shadow: 0px 0px 25px 10px #141C26;
+      box-shadow: 0px 0px 25px 10px #141C26;
+    }
+  }
   @media screen and (min-width:@screen-md-min) {
     .nav-item {
       padding: 0 13px;
+    }
+    .container {
+      -webkit-box-shadow: 0px 0px 50px 20px #141C26; 
+      -moz-box-shadow: 0px 0px 50px 20px #141C26;
+      box-shadow: 0px 0px 50px 20px #141C26;
     }
   }
 
@@ -205,6 +272,10 @@
     #social-icons img {
       width: 35px;
     }
+    #main-nav li {
+      line-height: 116px;
+    }
+
     .nav-item {
       padding: 0 15px;
     }
@@ -220,6 +291,9 @@
   #lang-wrapper {
     display: none;
   }
+  #main-nav li {
+    line-height: 43px !important;
+  }
 
   #main-title h1 {
     line-height: 1em !important;
@@ -231,7 +305,9 @@
     font-size: 2em !important;
 //    margin-top: -5px !important;
   }
-  
+  .container {
+    box-shadow: none !important;
+  }
   @media screen and (min-width:@screen-sm-min) {
     #social-icons  img {
         width: 25px !important;
@@ -240,11 +316,31 @@
     .nav-item {
       padding: 0 9px !important;
     }
+
+
     font-size: 8px !important;
   }
   @media screen and (min-width:@screen-md-min) {
     padding: 10px !important;
     font-size: 8px !important;
+    #nav-social-recommends {
+      position: absolute;
+      opacity: 1 !important;
+      right: 0px;
+      height: auto;
+      top: 50%;
+      margin-top: -10px;
+      display: block !important;
+      div {
+        display: inline-block !important;
+        vertical-align: top !important;
+        margin-right: 5px !important;
+        width: 80px !important;
+      }
+      .fb-like {
+        width: 90px !important;
+      }
+    }
   }
   @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
     #social-icons  img {

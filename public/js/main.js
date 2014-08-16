@@ -48,6 +48,8 @@ $.fn.isOnScreen = function() {
 //   desktop (992px and larger) : bring up a modal box with contact info
 //   tablet and mobile : launches a phone call
 
+var navMiniMode = false;
+
 function registerMediaCallbacks() {
     mediaSwitch = false;
 
@@ -76,15 +78,13 @@ function registerMediaCallbacks() {
 
         unmatch: function() {
             mediaSwitch = true;
-            $("#phone_anchor").prop('href', 'tel:+14384966886');
-            $("#phone_anchor img").attr('src', 'img/phonelogo.png');
-            $("#phone_anchor").removeAttr('data-target');
-            $("#phone_anchor").removeAttr('data-toggle');
             $("#navbar").removeClass('navbar-mini');
             $('#navbar .container').css({
                 'border-top': '1px solid #ddd',
                 'border-bottom': '1px solid #ddd'
             });
+            sizeIcons('full');
+            navMiniMode = false;
 
             // add no pointer to buttons. 
             $('#services button,#screen-method button').removeClass('selected-button');
@@ -103,17 +103,6 @@ function registerMediaCallbacks() {
         },
 
         match: function() {
-            $("#phone_anchor").prop('href', '#');
-            if ($("#navbar").hasClass('navbar-mini')) {
-                $("#phone_anchor img").attr('src', 'img/maillogomini.png');
-            } else {
-                $("#phone_anchor img").attr('src', 'img/maillogo.png');
-            }
-            $("#phone_anchor").attr({
-                "data-target": '#telCinc',
-                "data-toggle": 'modal'
-            });
-
             if (mediaSwitch) {
                 $.each(carousels, function(key, value) {
                     if (typeof value !== "undefined") {
@@ -122,6 +111,14 @@ function registerMediaCallbacks() {
                 });
                 clearInterval(refreshIntervalId);
                 setBarGraph();
+            }
+            var stop = $('#services-banner').offset().top;
+
+            if ((!navMiniMode) && (stop < $(window).scrollTop())) {
+                $('#navbar').addClass('navbar-mini');
+                $('#navbar #main-title h2:last-child').css('display','none');
+                 sizeIcons('mini');
+                $('#navbar .container').css('border','none');
             }
 
             $('#services button,#screen-method button').css('cursor', 'pointer');
@@ -349,11 +346,13 @@ function navBarResizeHandler(direction) {
 
     if (direction === "down") {
         $('#navbar').addClass('navbar-mini');
+        navMiniMode = true;
         $('#main-title h2:last-child').css('display', 'none');
         $('#navbar .container').css('border', 'none');
         sizeIcons('mini');
     } else {
         $('#navbar').removeClass('navbar-mini');
+        navMiniMode = false;
         $('#main-title h2:last-child').css('display', 'block');
         sizeIcons('full');
         $('#navbar .container').css({
