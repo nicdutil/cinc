@@ -83,7 +83,9 @@ function registerMediaCallbacks() {
                 'border-top': '1px solid #ddd',
                 'border-bottom': '1px solid #ddd'
             });
-            sizeIcons('full');
+            if (navMiniMode) {
+                sizeIcons('full');
+            }
             navMiniMode = false;
 
             // add no pointer to buttons. 
@@ -589,7 +591,7 @@ function setResponsiveLine(id) {
     if (delta > 0) {
         $(id + ' .responsive-line').css({
             'height': delta + 'px',
-            'max-height': '700px'
+            'max-height': '200px'
         });
     } else {
         $(id + ' .responsive-line').css({
@@ -627,9 +629,6 @@ function init() {
     adaptForMobile();
     $("#skype-call-anchor").prop('href', 'skype:infoCinc?call'); // skype href in js for seo friendliness
     document.addEventListener("touchstart", function() {}, false); // allow css active to work in safari
-    $('body').imagesLoaded(function() {
-        display();
-    });
 }
 
 function detectIE(callback) {
@@ -640,27 +639,18 @@ function detectIE(callback) {
         oldIE = true;
     }
     if (oldIE) {
+        $('#main').css('display','none');
         // do nothing which will prevent content from being shown 
     } else {
         callback();
     }
 }
 
-function display() {
-    var callback = function() {
-        //        $('#loader').css('display', 'none');
-        //       $('#gif-spinner').css('display', 'none');
-        $('#main').removeClass('invisible');
-    };
-    detectIE(callback);
-}
-
 // on document ready... 
 $(function() {
     var callback = function() {
-        $('#screen-canvas-wrapper').fadeOut(function() {
             init();
-        });
     }
+    $('#main').removeClass('invisible');
     detectIE(callback);
 });
