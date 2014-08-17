@@ -651,6 +651,6 @@ $(function() {
     var callback = function() {
             init();
     }
-    $('#main').removeClass('invisible');
+//    $('#main').removeClass('invisible');
     detectIE(callback);
 });
