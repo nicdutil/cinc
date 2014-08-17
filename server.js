@@ -5,11 +5,10 @@ app.use(express.logger());
 
 app.set('title', 'InfoCINC | Conception Sites Webs Adaptatifs | Minage | Visualisation ');
 
-var oneDay = 86400000;
 var halfHour = 1800000;  // cache control for shared and private caches
 
 app.use(express.compress());
-app.use(express.static(__dirname + '/public', { maxAge: oneDay }));
+app.use(express.static(__dirname + '/public', { maxAge: halfHour }));
 
 
 app.get('/', function(req, res){
