@@ -23,7 +23,13 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Infocinc: Responsive Web Design | Montreal Consulting</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.min.css" />
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script type="text/javascript" src="js/vendor/picturefill.min.js" async></script>
+
     <meta property="fb:admins" content="699841262" />
     <meta property="og:title" content="Infocinc" />
     <meta property="og:type" content="website" />
@@ -35,12 +41,8 @@
     <meta name="description" content="Infocinc is an enterprise from the region of Montreal specializing in responsive web design, data mining and visualization." />
     <meta name="keywords" content="Infocinc, Responsive Web Design, Montreal, Data Mining, Visualization" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1" />
     <link rel="canonical" href="http://www.infocinc.com/welcome_en.html" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/main.min.css" />
     <link href="https://plus.google.com/+infocinc" rel="publisher" />
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 
@@ -1008,6 +1010,15 @@
     ga('require', 'displayfeatures');
     ga('send', 'pageview');
     </script>
+    
+    <script type="text/javascript" src="js/vendor/imagesloaded.pkgd.min.js"></script>
+    <script>
+        imagesLoaded('#top', function() {
+            var m = document.getElementById("main");
+            m.className = '';
+        });
+    </script>
+
 
     <!-- twitter button -->
     <script>
@@ -1038,12 +1049,10 @@
     <script>
     var load = [
         //test avail of media query
-
         {
             test: window.matchMedia,
             nope: "js/vendor/media.match.min.js"
         },
-        "js/vendor/picturefill.min.js",
         "js/vendor/enquire.min.js",
         "js/plugins.min.js",
         "js/main.min.js"
