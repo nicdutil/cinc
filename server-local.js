@@ -3,7 +3,7 @@ var express = require('express'),
 
 app.use(express.logger());
 
-app.set('title', 'CINC Conception Sites Webs Adaptatifs | Minage | Visualisation ');
+app.set('title', 'CINC Conception Sites Webs | Minage | Visualisation ');
 
 var oneDay = 86400000;
 
