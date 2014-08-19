@@ -301,7 +301,7 @@ function showPanel(sectionId, buttonId) {
     fadeHtml(t, 'out', htmlCallback);
 
     canvasHide = 'none' !== $('#screen-canvas-wrapper').css('display');
-    if (canvasHide) {
+    if (canvasHide && sectionId === 'services') {
         $('#screen-canvas-wrapper').fadeOut(function() {
             $(p['selector']).css('display','none');
             $(p['selector']).html(p['html']);
@@ -405,6 +405,8 @@ function registerScrollsTo() {
 /////////////////////////////////////////////////////////////////////////////
 
 function resize() {
+    var mediaState = queryMediaState();
+
     // resize bubble canvas
     if (DROPS_DRAWN) {
         var w = CANVAS_WIDTH = $('#bubbles-wrapper').width();
@@ -419,7 +421,6 @@ function resize() {
 
     // resize bargraphcanvas 
     if ($('#excel-text').css('display') === 'none') {
-        var mediaState = queryMediaState();
         if (mediaState === "TABLET-PORTRAIT") {
             w = $('#screen-services-visual').width();
         } else {
