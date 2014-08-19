@@ -172,6 +172,8 @@ var graph, refreshIntervalId, graphCanvasId;
 function setBarGraphCtx(canvasId) {
     var w, h;
     var canvas = document.getElementById(canvasId);
+    var site_state = queryMediaState();
+    
     graphCanvasId = canvasId;
     if (typeof G_vmlCanvasManager != 'undefined') {
         canvas = G_vmlCanvasManager.initElement(canvas);
@@ -179,7 +181,11 @@ function setBarGraphCtx(canvasId) {
     var selector = '#' + canvasId;
 
     if (canvasId === 'screen-canvas') {
-        w = 0.4 * $('#screen-services').width();
+        if (site_state === 'TABLET-PORTRAIT') {
+           w = $('#screen-services-visual').width();
+        } else {
+          w = 0.4 * $('#screen-services').width();            
+        }
         h = CANVAS_RATIO * $('#screen-services').height();
     } else {
         w = 0.8 * $('#services').width();
@@ -466,6 +472,7 @@ function resizeHandlers() {
 
 function setBarGraph() {
     var site_state = queryMediaState();
+
     if (site_state === 'TABLET-PORTRAIT') {
         CANVAS_RATIO = 0.4;
     } else {
