@@ -48,7 +48,6 @@ $.fn.isOnScreen = function() {
 //   desktop (992px and larger) : bring up a modal box with contact info
 //   tablet and mobile : launches a phone call
 
-var navMiniMode = false;
 
 function registerMediaCallbacks() {
     mediaSwitch = false;
@@ -121,6 +120,7 @@ function registerMediaCallbacks() {
                 $('#navbar #main-title h2:last-child').css('display','none');
                  sizeIcons('mini');
                 $('#navbar .container').css('border','none');
+                navMiniMode = true;
             }
 
             $('#services button,#screen-method button').css('cursor', 'pointer');
@@ -260,9 +260,18 @@ function parse(sectionId, buttonId, suffix) {
     return o;
 }
 
+var firstPanel = true;
 function showPanel(sectionId, buttonId) {
-    var o = parse(sectionId, buttonId, 'text');
+    var t = parse(sectionId, buttonId, 'text');
     var p = parse(sectionId, buttonId, 'photo');
+
+    if (firstPanel) {
+        $(t['selector']).html(t['html']);
+        $(p['selector']).html(p['html']);
+        firstPanel = false;
+        return;
+    } 
+
     var buttonPrefix = prefix(buttonId);
 
     var htmlCallback = function(ob) {
@@ -271,44 +280,47 @@ function showPanel(sectionId, buttonId) {
 
     var excelCallBack = function(ob) {
         if (buttonPrefix === 'excel') {
-            $(ob['selector']).html(ob['html']);
+            $('#screen-canvas-wrapper').css('display','none');
+            $('#screen-canvas-wrapper').removeClass('hide');
             $('#screen-canvas-wrapper').fadeIn();
         } else {
             $(ob['selector']).html(ob['html']);
+            fadeHtml(ob, 'in');
         }
     }
 
-    fadeHtml(o, 'out', htmlCallback);
-    canvasHide = 'none' !== $('#screen-canvas-wrapper').css('display');
+    var scrollToCallBack = function(ob) {
+       $('#screen-services #consult-anchor').scrollTo({ 
+          speed:800,
+          offset:0, 
+          easing:'easeInOutCubic'
+        });        
+    }
 
-    if (canvasHide && sectionId === 'services' && buttonPrefix !== 'excel') {
+
+    fadeHtml(t, 'out', htmlCallback);
+
+    canvasHide = 'none' !== $('#screen-canvas-wrapper').css('display');
+    if (canvasHide) {
         $('#screen-canvas-wrapper').fadeOut(function() {
-            fadeHtml(p, 'out', htmlCallback);
+            $(p['selector']).css('display','none');
+            $(p['selector']).html(p['html']);
             fadeHtml(p, 'in');
-        });
+        });       
     } else {
         fadeHtml(p, 'out', excelCallBack);
-        if (buttonPrefix !== 'excel') {
-            fadeHtml(p, 'in');
-        }
     }
-    fadeHtml(o, 'in');
+
+    if (buttonPrefix === 'consult') {
+        fadeHtml(t,'in',scrollToCallBack);
+    } else {
+      fadeHtml(t, 'in');
+    }
 }
+
 //////////////////////////////////////////////////////////////////////
 // Waypoints handlers
 //////////////////////////////////////////////////////////////////////
-
-var bannerTriggers = [
-    '#margin-top', '#services-banner',
-    '#method-banner', '#project-banner',
-    '#team-banner', '#social-ads'
-];
-
-var screenTriggers = [
-    '#margin-top', '#screen-services',
-    '#screen-method', '#screen-project',
-    '#screen-team'
-];
 
 
 function carouselHandler(direction) {
@@ -320,54 +332,18 @@ function carouselHandler(direction) {
     }
 }
 
-function sizeIcons(format) {
-    var imgs = $('#social-icons img');
-    var tkn;
-    var modifier;
+function teamHandler(direction) {
+    var length = $('#screen-team-photo').html().trim().length;
 
-    if (format === 'mini') {
-        tkn = '.';
-        modifier = 'mini';
-    } else {
-        tkn = 'mini';
-        modifier = '';
-    }
-
-    $.each(imgs, function(k, v) {
-        src = $('#' + v.id).attr('src').split(tkn);
-        src = src[0] + modifier + '.png';
-        $('#' + v.id).attr('src', src);
-    });
-}
-
-function navBarResizeHandler(direction) {
-    var src;
-    var fixedFlag = 'fixed' === $('#navbar').css('position');
-    if (!fixedFlag)
-        return;
-
-    if (direction === "down") {
-        $('#navbar').addClass('navbar-mini');
-        navMiniMode = true;
-        $('#main-title h2:last-child').css('display', 'none');
-        $('#navbar .container').css('border', 'none');
-        sizeIcons('mini');
-    } else {
-        $('#navbar').removeClass('navbar-mini');
-        navMiniMode = false;
-        $('#main-title h2:last-child').css('display', 'block');
-        sizeIcons('full');
-        $('#navbar .container').css({
-            'border-top': '1px solid #ddd',
-            'border-bottom': '1px solid #ddd'
-        });
+    if (direction === "down" && length === 0) {
+        showPanel('team', 'nic-button');
     }
 }
+
 
 ///////////////////////////////////////////////////////////////////////////
 // Scroll Tos registering
 ///////////////////////////////////////////////////////////////////////////
-
 
 var hero_anchors = [
     '#top-hero-anchor', '#services-hero-anchor', '#method-hero-anchor', '#project-hero-anchor',
@@ -430,7 +406,6 @@ function registerScrollsTo() {
 
 function resize() {
     // resize bubble canvas
-
     if (DROPS_DRAWN) {
         var w = CANVAS_WIDTH = $('#bubbles-wrapper').width();
         var h = CANVAS_HEIGHT = $('#bubbles-wrapper').height();
@@ -444,7 +419,12 @@ function resize() {
 
     // resize bargraphcanvas 
     if ($('#excel-text').css('display') === 'none') {
-        w = 0.4 * $('#screen-services').width();
+        var mediaState = queryMediaState();
+        if (mediaState === "TABLET-PORTRAIT") {
+            w = $('#screen-services-visual').width();
+        } else {
+          w = 0.4 * $('#screen-services').width();
+        }
         h = CANVAS_RATIO * $('#screen-services').height();
     } else {
         w = 0.8 * $('#services').width();
@@ -456,17 +436,6 @@ function resize() {
         barGraphCtx.canvas.height = h;
         graph.width = barGraphCtx.canvas.width;
         graph.height = barGraphCtx.canvas.height;
-    }
-}
-
-
-function centerScreenImg(visualId, refId) {
-    var refHeight = parseInt($(refId).css('height'), 10);
-    var visualHeight = parseInt($(visualId).css('height'), 10);
-    var delta = refHeight - visualHeight;
-
-    if (delta > 0) {
-        $(visualId).css('margin-top', delta * 0.5 + 'px');
     }
 }
 
@@ -509,54 +478,19 @@ function setBarGraph() {
     createBarGraph();
 }
 
-function initWayPoints() {
-
-    $('#services,#screen-method').waypoint(carouselHandler, {
-        offset: '50%'
-    });
-
-    $('#team').waypoint(function(direction) {
-        var length = $('#screen-team-photo').html().trim().length;
-
-        if (direction === "down" && length === 0) {
-            showPanel('team', 'nic-button');
-        }
-    }, {
-        offset: '50%'
-    });
-
-    $('#services-banner').waypoint(navBarResizeHandler, {
-        offset: '50%'
-    });
-
-    $('#services-banner').waypoint(function(direction) {
-        if (direction === "down") {
-            $('#fixed-icons').children().removeClass('invisible');
-        } else {
-            $('#fixed-icons').children().addClass('invisible');
-        }
-    });
-}
 
 function initDrops() {
-
     // fastpath to exit if bubbles are not drawn (mobile light version)
     if ($("#bubbles-wrapper").css('display') === 'none') {
         return;
     }
-
     // Global variables: 
     REFRESH_RATE = 40;
     t = 1; // current time step
     MAX_BUBBLES = 90;
     // Array storing all bubble objects 
     background = new Image();
-
-
-
     background.src = "../img/rain.jpg";
-
-
     // Create canvas and context objects
     canvas = document.getElementById('bubbles');
 
@@ -581,6 +515,7 @@ function initDrops() {
     DROPS_DRAWN = true;
     setInterval(drawDrops, REFRESH_RATE);
 }
+
 
 function setResponsiveLine(id) {
     var offset = $(id).offset();
@@ -608,30 +543,45 @@ function adaptForMobile() {
         $('#fbook-anchor').attr('href', "https://m.facebook.com/pages/infocinc/896328063714402");
         $('#footer-fbook-anchor').attr('href', "https://m.facebook.com/pages/infocinc/896328063714402");
         var viewportHeight = $(window).height();
-        $('#main').css({
+/*        $('#main').css({
             'height': viewportHeight + 'px'
         });
-        $("#phone_anchor img").attr('src', 'img/phonelogo.png');
+*/        $("#phone_anchor img").attr('src', 'img/phonelogo.png');
         $("#phone_anchor").prop('href', 'tel:+14384966886'); // set to mobile href initially
     }
 }
 
+function initWayPoints() {
+    $('#services,#screen-method').waypoint(carouselHandler, {
+        offset: '50%'
+    });
+
+    $('#team').waypoint(teamHandler, {
+        offset: '50%'
+    });
+};
+
 
 function init() {
+    var oldIE = detectIE();
+    if (oldIE) {
+        return;
+    }
+    initWayPoints();
     setResponsiveLine('#main-nav-1');
     initSlider();
-    initWayPoints();
     registerScrollsTo();
     resizeHandlers();
-    setBarGraph();
-    registerMediaCallbacks();
-    initDrops();
     adaptForMobile();
     $("#skype-call-anchor").prop('href', 'skype:infoCinc?call'); // skype href in js for seo friendliness
     document.addEventListener("touchstart", function() {}, false); // allow css active to work in safari
+    setBarGraph();
+
+    registerMediaCallbacks();
+    initDrops();
 }
 
-function detectIE(callback) {
+function detectIE() {
     'use strict';
     // Detecting IE
     var oldIE;
@@ -641,16 +591,11 @@ function detectIE(callback) {
     if (oldIE) {
         $('#main').css('display','none');
         // do nothing which will prevent content from being shown 
-    } else {
-        callback();
-    }
+    } 
+    return oldIE;
 }
 
 // on document ready... 
 $(function() {
-    var callback = function() {
-            init();
-    }
-//    $('#main').removeClass('invisible');
-    detectIE(callback);
+    init();
 });
