@@ -927,6 +927,7 @@ body {
     margin: 0;
     margin-bottom: 0.4em;
     text-shadow: 1px 1px 1px #AAA;
+    position: relative;
   } 
 
   height:174px;
@@ -953,6 +954,9 @@ body {
   @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide)  {
     height: 451px;
     width: 1088px;
+    figcaption {
+    	top: -5px;
+    }
   }
 
   @media screen and (min-width:@screen-wide-min) and (min-height:@screen-height-wide)  {
