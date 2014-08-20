@@ -18,6 +18,265 @@
   transition-timing-function: cubic-bezier(0.000, 1.220, 0.560, 0.920); /* custom */
 }
 
+#fixed-bar {
+  width: 100%;
+  background: @black;
+  z-index: 50;
+
+  a {
+    color: @white !important;
+  }
+
+  h1,ul,h2,#toggle-glyph {
+    margin: 0;
+  }
+
+  .btn {
+    border: none;
+    margin: 0;
+    height: 50px;
+    border-right: 2px solid @white;
+  }
+
+  .navbar-brand {
+    float: right;
+    padding: 0px 5px;
+    height: 50px;
+    line-height: 50px;
+    h1 {
+      font-size: 0;
+    }
+    a {
+      display: inline-block;
+      font-family:'Lato', verdana;
+      font-size: 43px;
+      vertical-align: top;
+      position: relative;
+      height: 50px; 
+      top: -1px;  
+    }
+    span {
+      font-family: 'Open Sans Condensed', sans-serif;
+      color: @white;
+      display: inline-block;
+      vertical-align: top;
+      font-size: 20px;
+      position: relative;
+      top: 5px;
+      padding-right: 3px;
+    }
+  }
+
+  .navbar-toggle {
+    float: left;
+    padding: 15px;
+    .icon-bar {
+      background-color: @white;
+      width: 25px;
+      height: 3px;
+    }
+  }
+  .btn:active {
+    background: @darkGreen !important;
+  }
+
+  .glyphicon {
+    top: 0px;
+    line-height: 50px;
+  }
+
+  .bar-items {
+    background: @white;
+    text-align: center;
+    padding: 0px;
+    a{
+      display: block;
+      color: @black !important;
+      border-top: 1px solid #bebebe;
+      border-bottom: 1px solid #bebebe;
+      margin-top: -1px;
+    }
+    li {
+      padding: 15px 0px;
+      font-size: 15px;
+    }
+    li:active {
+      background: @darkGray;
+    }
+    a:first-child {
+      border-top: none;
+      margin-top: 0px;
+    }
+  }
+  
+  #social-icons {
+    float: right;
+    a:hover {
+     .shake;
+    }
+  }
+
+  .title-description {
+    display: none;
+  }
+
+  @media screen and (min-width: @screen-sm-min) {
+    position:fixed;
+    top: 0px;
+    z-index: 70;
+    .navbar-collapse {
+      float:right;
+    }
+
+
+    .navbar-brand {
+      height: 90px;
+      line-height: 90px;
+      padding: 0px 15px;
+      a {
+        font-size: 70px;
+        line-height: 90px;
+        top: -5px;
+      }
+      span {
+        top: 14px;
+        padding-right: 5px;
+        font-size: 30px;
+      }
+    }
+
+    .navbar-collapse {
+      display: inline-block;
+    }
+
+    #social-icons {
+      a {
+        display: inline-block;
+        height: 90px;
+        line-height: 90px;
+        padding: 0px 15px;
+      }
+      img {
+        width: 30px;
+      }
+    }
+
+    .bar-items {
+      background: none;
+      display: inline-block;
+      font-size: 0;
+      ul {
+        text-align: center;
+      }
+      a {
+        border: none;
+        margin-top: 0px;
+        display: inline-block;
+        color: @white !important;
+        height: 90px;
+      }
+      li {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 13px;
+
+        border: none;
+        vertical-align: middle;
+        padding: 0px 10px;
+        height: 90px;
+        line-height: 90px;
+        letter-spacing: 0.2em;
+      }
+
+      li:hover {
+        text-shadow: 3px 3px 3px #000;
+      }
+      .nav-blue-bg:hover, .nav-blue-bg:focus {
+        background: @blue !important;
+      }
+      .nav-blue-bg:active {
+        background: @darkBlue !important;
+      }
+      .nav-orange-bg:hover, .nav-orange-bg:focus {
+        background: @orange !important;
+      }
+      .nav-orange-bg:active {
+        background: @darkOrange !important;   
+      }
+      .nav-green-bg:hover, .nav-green-bg:focus {
+        background: @green !important;
+      }
+      .nav-green-bg:active {
+        background: @darkGreen !important;
+      }      
+      .nav-purple-bg:hover, .nav-purple-bg:focus {
+        background: @purple !important;
+      }
+      .nav-purple-bg:active {
+        background: @darkPurple !important;
+      }
+      .nav-red-bg:hover, .nav-red-bg:focus {
+        background: @red !important;
+      }
+     .nav-red-bg:active {
+        background: @darkRed !important;
+      } 
+
+      #lang-item {
+        border: none;
+        float:right;
+      }
+    }
+  }
+
+  @media screen and (min-width:@screen-md-min) {
+    .title-description {
+      display: block;
+       font-family: 'Open Sans Condensed', sans-serif;
+       padding-left:10px;
+       height:90px;
+       width: 60px;
+       padding-top: 10px;
+       h2 {
+        letter-spacing: 0.2em;
+        font-size: 15px;
+      }
+      color: @white;
+      float:left;
+    }
+
+    .bar-items li {
+      padding: 0px 15px;
+    }
+    .navbar-brand {
+      a {
+        font-size: 65px;
+      }
+      span {
+        font-size: 25px;
+      }
+    }
+    .title-description h2,.bar-items li {
+        font-size: 15px;
+    }
+  }
+
+  @media screen and (min-width:@screen-lg-min) {
+    .title-description h2,.bar-items li {
+      font-size: 16px;
+    }
+
+  }
+
+  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
+    #social-icons {
+      img {
+        width: 35px;
+      }
+    }
+  }
+
+}
+
 #navbar {
   padding: 1.5em 1.5em;
   background: @black;
@@ -48,17 +307,7 @@
     }
   }
 
-  #social-icons a  { 
-   position: relative;
-  }
-
-  #social-icons a:focus {
-   border: 1px solid @red;
-  }
-  #social-icons a:active {
-   top: 3px;
-  }
-
+ 
  .nav-item {
     display: inline-block;
     vertical-align: middle;
@@ -136,11 +385,6 @@
     height: 0px;
   }
 
-  @media screen and (min-width:320px) {
-    #social-icons img {
-      width: 30px;
-    }
-  }
 
   @media screen and (min-height: 481px) {
     .nav-item {
@@ -169,9 +413,7 @@
         font-size: 17px;
       }
     }    
-    #social-icons img {
-      width: 42px;
-    }
+   
   }
 
   @media screen and (min-width: @screen-sm-min) {
@@ -207,46 +449,7 @@
       padding: 0 4px;
     }
 
-    #main-nav {
-
-      li:hover {
-        text-shadow: 3px 3px 3px #000;
-      }
-      .nav-blue-bg:hover, .nav-blue-bg:focus {
-        background: @blue !important;
-      }
-      .nav-blue-bg:active {
-        background: @darkBlue !important;
-      }
-      .nav-orange-bg:hover, .nav-orange-bg:focus {
-        background: @orange !important;
-      }
-      .nav-orange-bg:active {
-        background: @darkOrange !important;   
-      }
-      .nav-green-bg:hover, .nav-green-bg:focus {
-        background: @green !important;
-      }
-      .nav-green-bg:active {
-        background: @darkGreen !important;
-      }      
-      .nav-purple-bg:hover, .nav-purple-bg:focus {
-        background: @purple !important;
-      }
-      .nav-purple-bg:active {
-        background: @darkPurple !important;
-      }
-      .nav-red-bg:hover, .nav-red-bg:focus {
-        background: @red !important;
-      }
-     .nav-red-bg:active {
-        background: @darkRed !important;
-      } 
-    }
-
-    #social-icons img {
-      width: 30px;
-    }
+  
 
   }
 
