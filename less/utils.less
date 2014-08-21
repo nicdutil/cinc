@@ -237,7 +237,12 @@
   margin-left: @margin-y;
   border: 1px solid;
 }
-
+.transition(@property, @delay:500ms, @easing:ease, @duration:0s) {
+  -webkit-transition: @property @delay @easing @duration;
+  -moz-transition: @property @delay @easing @duration;
+  -o-transition: @property @delay @easing @duration;
+  transition: @property @delay @easing @duration;  
+}
 
 .h-line {
    .line(30px,0px,0px,top);

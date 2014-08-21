@@ -45,25 +45,16 @@ function sizeIcons(format) {
 
 function navBarResizeHandler(direction) {
     var src;
-    var fixedFlag = 'fixed' === $('#navbar').css('position');
+    var fixedFlag = 'fixed' === $('#fixed-bar').css('position');
     if (!fixedFlag)
         return;
 
     if (direction === "down") {
-        $('#navbar').addClass('navbar-mini');
+        $('#fixed-bar').addClass('navbar-mini');
         navMiniMode = true;
-        $('#main-title h2:last-child').css('display', 'none');
-        $('#navbar .container').css('border', 'none');
-        sizeIcons('mini');
     } else {
-        $('#navbar').removeClass('navbar-mini');
+        $('#fixed-bar').removeClass('navbar-mini');
         navMiniMode = false;
-        $('#main-title h2:last-child').css('display', 'block');
-        sizeIcons('full');
-        $('#navbar .container').css({
-            'border-top': '1px solid #ddd',
-            'border-bottom': '1px solid #ddd'
-        });
     }
 }
 

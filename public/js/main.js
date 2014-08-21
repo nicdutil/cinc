@@ -77,67 +77,45 @@ function registerMediaCallbacks() {
 
         unmatch: function() {
             mediaSwitch = true;
-            $("#navbar").removeClass('navbar-mini');
-            $('#navbar .container').css({
-                'border-top': '1px solid #ddd',
-                'border-bottom': '1px solid #ddd'
-            });
-            if (navMiniMode) {
-                sizeIcons('full');
+            if ($("#fixed-bar").hasClass("navbar-mini")) {
+                $("#fixed-bar").removeClass('navbar-mini');
             }
             navMiniMode = false;
 
             // add no pointer to buttons. 
-            $('#services button,#screen-method button').removeClass('selected-button');
-            $('#services button,#screen-method button').css('cursor', 'default');
             // stop carousels 
             $.each(carousels, function(key, value) {
                 value.stop();
             });
-
-            $('#screen-method button').unbind('click');
-            $('#services button').unbind('click');
-            $('#team button').unbind('click');
-            $('.services-click,.method-click,.team-click').unbind('click');
+            $('#services button, #team button').off();
             clearInterval(refreshIntervalId);
             setBarGraph();
         },
 
         match: function() {
-            if (mediaSwitch) {
-                $.each(carousels, function(key, value) {
-                    if (typeof value !== "undefined") {
-                        value.start();
-                    }
-                });
+            if (mediaSwitch || site_state === 'MOBILE') {
+                initCarousel('services');
+                initCarousel('team');
                 clearInterval(refreshIntervalId);
                 setBarGraph();
             }
             var stop = $('#services-banner').offset().top;
 
             if ((!navMiniMode) && (stop < $(window).scrollTop())) {
-                $('#navbar').addClass('navbar-mini');
-                $('#navbar #main-title h2:last-child').css('display','none');
-                 sizeIcons('mini');
-                $('#navbar .container').css('border','none');
+                $('#fixed-bar').addClass('navbar-mini');
                 navMiniMode = true;
             }
 
-            $('#services button,#screen-method button').css('cursor', 'pointer');
-
-            $('#screen-method button').on('click', function() {
-                selectButton('screen-method', this);
-            });
-
             $('#services button').on('click', function() {
                 selectButton('services', this);
+                var targetId = event.target.id;
+                var sectionId = $(this).closest('.container-fluid').prop('id');
+                //    changeBgColor(sectionId,targetId);
+                showPanel(sectionId, targetId);
             });
 
             $('#team button').on('click', function() {
                 selectButton('team', this);
-            });
-
-            $('.services-click,.method-click,.team-click').on('click', function(event) {
                 var targetId = event.target.id;
                 var sectionId = $(this).closest('.container-fluid').prop('id');
                 //    changeBgColor(sectionId,targetId);
@@ -163,6 +141,8 @@ function queryMediaState() {
     }
     return site_shape;
 }
+
+
 ////////////////////////////////////////////////////////////////////////
 // Bar Graph
 ////////////////////////////////////////////////////////////////////////
@@ -173,7 +153,7 @@ function setBarGraphCtx(canvasId) {
     var w, h;
     var canvas = document.getElementById(canvasId);
     var site_state = queryMediaState();
-    
+
     graphCanvasId = canvasId;
     if (typeof G_vmlCanvasManager != 'undefined') {
         canvas = G_vmlCanvasManager.initElement(canvas);
@@ -182,9 +162,9 @@ function setBarGraphCtx(canvasId) {
 
     if (canvasId === 'screen-canvas') {
         if (site_state === 'TABLET-PORTRAIT') {
-           w = $('#screen-services-visual').width();
+            w = $('#screen-services-visual').width();
         } else {
-          w = 0.4 * $('#screen-services').width();            
+            w = 0.4 * $('#screen-services').width();
         }
         h = CANVAS_RATIO * $('#screen-services').height();
     } else {
@@ -267,6 +247,7 @@ function parse(sectionId, buttonId, suffix) {
 }
 
 var firstPanel = true;
+
 function showPanel(sectionId, buttonId) {
     var t = parse(sectionId, buttonId, 'text');
     var p = parse(sectionId, buttonId, 'photo');
@@ -276,7 +257,7 @@ function showPanel(sectionId, buttonId) {
         $(p['selector']).html(p['html']);
         firstPanel = false;
         return;
-    } 
+    }
 
     var buttonPrefix = prefix(buttonId);
 
@@ -286,7 +267,7 @@ function showPanel(sectionId, buttonId) {
 
     var excelCallBack = function(ob) {
         if (buttonPrefix === 'excel') {
-            $('#screen-canvas-wrapper').css('display','none');
+            $('#screen-canvas-wrapper').css('display', 'none');
             $('#screen-canvas-wrapper').removeClass('hide');
             $('#screen-canvas-wrapper').fadeIn();
         } else {
@@ -296,11 +277,11 @@ function showPanel(sectionId, buttonId) {
     }
 
     var scrollToCallBack = function(ob) {
-       $('#screen-services #consult-anchor').scrollTo({ 
-          speed:800,
-          offset:0, 
-          easing:'easeInOutCubic'
-        });        
+        $('#screen-services #consult-anchor').scrollTo({
+            speed: 800,
+            offset: 0,
+            easing: 'easeInOutCubic'
+        });
     }
 
 
@@ -309,18 +290,18 @@ function showPanel(sectionId, buttonId) {
     canvasHide = 'none' !== $('#screen-canvas-wrapper').css('display');
     if (canvasHide && sectionId === 'services') {
         $('#screen-canvas-wrapper').fadeOut(function() {
-            $(p['selector']).css('display','none');
+            $(p['selector']).css('display', 'none');
             $(p['selector']).html(p['html']);
             fadeHtml(p, 'in');
-        });       
+        });
     } else {
         fadeHtml(p, 'out', excelCallBack);
     }
 
     if (buttonPrefix === 'consult') {
-        fadeHtml(t,'in',scrollToCallBack);
+        fadeHtml(t, 'in', scrollToCallBack);
     } else {
-      fadeHtml(t, 'in');
+        fadeHtml(t, 'in');
     }
 }
 
@@ -368,24 +349,8 @@ var main_nav_anchors = [
     '#team-nav-anchor', '#footer-nav-anchor'
 ];
 
-var main_nav_slide_anchors = [
-    '#service-nav-slide-anchor', '#method-nav-slide-anchor',
-    '#team-nav-slide-anchor'
-];
 
 function registerScrollsTo() {
-
-    $('#arrow-up-anchor').scrollTo({
-        speed: 800,
-        offset: 0,
-        easing: 'easeInOutCubic'
-    });
-
-    $(main_nav_slide_anchors.join()).scrollTo({
-        speed: 800,
-        offset: 77,
-        easing: 'easeInOutCubic'
-    });
 
     $(main_nav_anchors.join()).scrollTo({
         speed: 800,
@@ -394,13 +359,13 @@ function registerScrollsTo() {
     });
 
     $(hero_anchors.join()).scrollTo({
-        speed: 800,
+        speed: 1500,
         offset: 0,
         easing: 'easeInOutCubic'
     });
 
     $(footer_anchors.join()).scrollTo({
-        speed: 800,
+        speed: 1500,
         offset: 0,
         easing: 'easeInOutCubic'
     });
@@ -430,7 +395,7 @@ function resize() {
         if (mediaState === "TABLET-PORTRAIT") {
             w = $('#screen-services-visual').width();
         } else {
-          w = 0.4 * $('#screen-services').width();
+            w = 0.4 * $('#screen-services').width();
         }
         h = CANVAS_RATIO * $('#screen-services').height();
     } else {
@@ -544,17 +509,16 @@ function setResponsiveLine(id) {
 }
 
 
+var site_state;
+
 function adaptForMobile() {
-    var site_state = queryMediaState();
+    site_state = queryMediaState();
 
     if (site_state === 'MOBILE') {
         $('#fbook-anchor').attr('href', "https://m.facebook.com/pages/infocinc/896328063714402");
         $('#footer-fbook-anchor').attr('href', "https://m.facebook.com/pages/infocinc/896328063714402");
         var viewportHeight = $(window).height();
-/*        $('#main').css({
-            'height': viewportHeight + 'px'
-        });
-*/        $("#phone_anchor img").attr('src', 'img/phonelogo.png');
+        $("#phone_anchor img").attr('src', 'img/phonelogo.png');
         $("#phone_anchor").prop('href', 'tel:+14384966886'); // set to mobile href initially
     }
 }
@@ -572,6 +536,7 @@ function initWayPoints() {
 
 function init() {
     var oldIE = detectIE();
+
     if (oldIE) {
         return;
     }
@@ -597,9 +562,9 @@ function detectIE() {
         oldIE = true;
     }
     if (oldIE) {
-        $('#main').css('display','none');
+        $('#main').css('display', 'none');
         // do nothing which will prevent content from being shown 
-    } 
+    }
     return oldIE;
 }
 

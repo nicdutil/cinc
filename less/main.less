@@ -362,6 +362,8 @@ html, body{
  margin: 0px !important;
  padding: 0px !important;
 -webkit-tap-highlight-color: rgba(0,0,0,0);
+ -ms-touch-action: manipulation; // remove delay for windows Phones
+ touch-action: manipulation;  // remove delay for windows Phones
 }
 
 img {
@@ -833,12 +835,16 @@ body {
     }
   }
   button:active {
-    .shake;
-    border-bottom:4px solid @blue;
+  	@media screen and (min-width:@screen-sm-min) {
+      .shake;
+      border-bottom:4px solid @blue;  		
+  	}
   }
 
   button:focus {
-    border-bottom:4px solid @red;
+  	@media screen and (min-width:@screen-sm-min) {
+      border-bottom:4px solid @blue;  		
+  	}
   }
 }
 
@@ -908,8 +914,9 @@ body {
   padding-left: 0;
   padding-right: 0;
   text-align: center;
-
+  padding-top: 5px;
   @media screen and (min-width:@screen-sm-min) {
+  	padding-top: 0px;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -930,9 +937,11 @@ body {
     margin-bottom: 0.4em;
     text-shadow: 1px 1px 1px #AAA;
     position: relative;
+    top: 3px;
   } 
 
-  height:194px;
+  height:220px;
+  border-bottom: 8px solid @white;
   width: 100%;
 
   @media screen and (min-width:@screen-xs-min) {
@@ -947,6 +956,9 @@ body {
    -webkit-box-shadow: 5px 10px 30px 2px rgba(0,0,0,0.55);
    -moz-box-shadow: 5px 10px 30px 2px rgba(0,0,0,0.55);
     box-shadow: 5px 10px 30px 2px rgba(0,0,0,0.55);
+    figcaption {
+    	top: 0px;
+    }
   }
   
   @media screen and (min-width:@screen-md-min) {
@@ -970,12 +982,15 @@ body {
 
 .slide {
   position:absolute;
-  padding: 2px;
+  padding: 7px;
   width: 100%;
 }
 
-.slide img { 
-  height: 175px; // take into account width = 100%
+.slide img {  
+  height: 125px;
+  @media screen and (min-width:320px) {
+  	height: 175px;
+  }
   @media screen and (min-width:@screen-xs-min) {
     height: 224px;
   }
@@ -1009,8 +1024,9 @@ body {
       width: 90%;
       max-width: 400px;
   }
-  #services-icons .col-sm-3 > div:last-child {
+  #services-icons .col-sm-3 .content-block > div {
   	margin-top: 20px;
+  	margin-bottom: 20px;
   }
 }
 
