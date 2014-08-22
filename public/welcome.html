@@ -1,16 +1,30 @@
+<!-- Copyright 2014 CINC (www.infocinc.com)
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+-->
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="fr" prefix="og: http://ogp.me/ns#">
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
 <!--<![endif]-->
 
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <title>Infocinc: Conception sites web adaptatifs | Informatique Montréal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Infocinc: Responsive Web Design | Montreal Consulting</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/main.min.css" />
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -19,16 +33,15 @@
     <meta property="fb:admins" content="699841262" />
     <meta property="og:title" content="Infocinc" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Infocinc est une entreprise informatique de la région de Montréal qui se spécialise dans la création et le ré-usinage de sites web, le minage et la visualisation de données. Contactez-nous à info@infocinc.com" />
-    <meta property="og:locale" content="fr_CA" />
-    <meta property="og:url" content="http://www.infocinc.com" />
+    <meta property="og:description" content="Infocinc is an enterprise from the region of Montreal specializing in responsive web design, data mining and visualization. Contact us at info@infocinc.com" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="http://www.infocinc.com/welcome.html" />
     <meta property="og:image" content="http://www.infocinc.com/img/cinc-logo_big.png" />
 
-    <meta name="description" content="Infocinc est une entreprise informatique de Montréal qui offre des services de conception web adaptatifs, ré-usinage de sites web, minage et visualisation de données." />
+    <meta name="description" content="Infocinc is an enterprise from the region of Montreal specializing in responsive web design, data mining and visualization." />
+    <meta name="keywords" content="Infocinc, Responsive Web Design, Montreal, Data Mining, Visualization" />
 
-    <meta name="keywords" content="Infocinc, informatique, Montréal, conception sites web adaptatifs, minage, visualisation de données" />
-
-    <link rel="canonical" href="http://www.infocinc.com" />
+    <link rel="canonical" href="http://www.infocinc.com/welcome.html" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 
@@ -36,11 +49,12 @@
 
 <body itemscope itemtype="http://schema.org/ProfessionalService">
   <a href="https://plus.google.com/{+Infocinc}" rel="publisher"></a>
+
     <!--[if lt IE 9]>
             <p class="chromeframe" >You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> </p>
         <![endif]-->
 
-    <!-- Skype Modal -->
+    <!-- Modals -->
     <div class="modal fade" id="skypeCinc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -50,23 +64,23 @@
                 <div class="modal-body text-center">
                     <ul>
                         <li class="list-group-item">
-                            <strong>PRÉREQUIS!</strong>
+                            <strong>PREREQUISITES!</strong>
                         </li>
-                        <li class="list-group-item">L'extension  </span> <a href="http://www.skype.com/en/download-skype/click-to-call"> Skype click to call </a>
+                        <li class="list-group-item"><a href="http://www.skype.com/en/download-skype/click-to-call"> Skype click to call extension</a>
                         </li>
 
-                        <li class="list-group-item">L'application Skype</li>
+                        <li class="list-group-item">Skype Application</li>
                         <hr></hr>
                         <li class="list-group-item">
-                            Utilisateurs de Windows 8 sur desktop, téléchargez  </span> <a href="http://www.skype.com/en/download-skype/skype-for-computer"> Skype desktop.</a>
+                            For Windows 8 desktop users, please download <a href="http://www.skype.com/en/download-skype/skype-for-computer"> Skype desktop.</a>
                         </li>
-                        <li class="list-group-item">Le app integré Skype n'est pas detecté par l'extension Skype click to call sur Google Chrome.
+                        <li class="list-group-item">The native Skype app pre-installed with Windows 8 is not detected by the Skype click to call extension for Chrome.
                         </li>
-                        <li class="list-group-item">Tentez votre chance!</li>
+                        <li class="list-group-item">I'm feeling lucky:</li>
                     </ul>
                     <div class="skype-call-wrapper text-center">
                         <a id='skype-call-anchor' href="#">
-                            <span>APPELEZ INFOCINC  </span>
+                            <span>CALL INFOCINC </span>
                         </a>
                     </div>
                 </div>
@@ -89,31 +103,24 @@
         <div id='fixed-icons'>
             <div id='phone-logo-wrapper' class="desktop-hide invisible">
                 <a id='phone-logo-anchor' href="tel:+14384966886">
-                    <span class="glyphicon glyphicon-earphone">  </span>
+                    <span class="glyphicon glyphicon-earphone"> </span>
                 </a>
             </div>
-
             <div id='mail-logo-wrapper' class="desktop-hide invisible">
                 <a id='mail-logo-anchor' href="mailto:info@infocinc.com?Subject=Contact">
-                    <span class="glyphicon glyphicon-envelope">  </span>
+                    <span class="glyphicon glyphicon-envelope"> </span>
                 </a>
             </div>
             <div id='arrow-up' class='desktop-hide invisible'>
-                <a id='arrow-up-anchor' href="#">
-                    <span class="glyphicon glyphicon-arrow-up">  </span>
+                <a id='arrow-up-anchor' href="#fixed-bar">
+                    <span class="glyphicon glyphicon-arrow-up"> </span>
                 </a>
-
             </div>
-        </div>
-
-	
-        <div class="mobile-hide ribbon">
-           <img src="img/adapt_ribbon.png">
         </div>
 
         <div id="social-icons">
             <div class="msg-wrapper ">
-                <span>Suivez-nous sur :  </span>
+                <span>Follows us on: </span>
             </div>
             <div class="icon-wrapper">
                 <a id='fbook-anchor' href="https://facebook.com/infocinc" target="_blank" class="nav-item">
@@ -136,20 +143,23 @@
             </div>
         </div>
 
+        <div class="mobile-hide ribbon">
+           <img src="img/responsive_ribbon.png">
+        </div>
 
 
         <nav id='fixed-bar' class='clearfix'>
             <div class='navbar-header'>
                 <button id='navbar-button' type='button' data-toggle="collapse" data-target="#navbar-collapse" class='navbar-toggle btn noglow background-none'>
-                    <span class="sr-only">Toggle navigation  </span>
-                    <span class="icon-bar">  </span>
-                    <span class="icon-bar">  </span>
-                    <span class="icon-bar">  </span>
+                    <span class="sr-only">Toggle navigation </span>
+                    <span class="icon-bar"> </span>
+                    <span class="icon-bar"> </span>
+                    <span class="icon-bar"> </span>
                 </button>
                 <div class='navbar-brand text-center'>
                     <h1>
 
-                        <span class="prefix">Info  </span>
+                        <span class="prefix">Info </span>
                         <a id="top-hero-anchor" href="#margin-top">[IN[</a>
                     </h1>
                 </div>
@@ -158,7 +168,7 @@
             </div>
 
             <div class="title-description">
-                <h2>SERVICES INFORMATIQUES ET CONSULTATION</h2>
+                <h2>TECHNOLOGY SERVICES AND CONSULTING</h2>
             </div>
 
 
@@ -169,67 +179,63 @@
                         <li class="nav-item ">SERVICES</li>
                     </a>
                     <a id="team-hero-anchor" class="nav-red-bg" href="#team-banner">
-                        <li class="nav-item ">A PROPOS</li>
+                        <li class="nav-item ">ABOUT</li>
                     </a>
                     <a id="project-hero-anchor" class="nav-green-bg" href="#slide-four">
-                        <li class="nav-item">PROJETS</li>
+                        <li class="nav-item">PROJECTS</li>
                     </a>
                     <a id="contact-hero-anchor" class="nav-orange-bg" href="#footer">
                         <li class="nav-item">CONTACT</li>
                     </a>
-                    <a id="english-hero-anchor" class="nav-yellow-bg desktop-hide" href="/welcome_en.html">
-                        <li class="nav-item">ENGLISH</li>
+                    <a id="french-hero-anchor" class="nav-yellow-bg desktop-hide" href="/">
+                        <li class="nav-item">FRANÇAIS</li>
                     </a>
+
                 </ul>
             </div>
             <div id='lang-wrapper' class="mobile-hide">
-                <p> <a href='/welcome.html' id='lang-anchor'>
-               ENGLISH</a>
+                <p> <a href='/' id='lang-anchor'>
+               FRANÇAIS</a>
                 </p>
             </div>
         </nav>
 
 
 
-
-
-
-        <div id="margin-top" class="mobile-hide">
-        </div>
+        <div id="margin-top" class="mobile-hide"></div>
 
         <section id="top" class="background-container container-fluid">
             <div class="slider cadre text-center">
                 <figure class="slide ">
-                    <img sizes="(min-width: 1600px) 1305px, (min-width:1200px) 1082px, (min-width:992px) 894px, (min-width:768px) 738px, 100vw" srcset="img/creative_sm.jpg 640px, img/creative_smd.jpg 768px, img/creative_md.jpg 1309px, img/creative_lg.jpg 1744px" alt="banniere créativité">
+                    <img sizes="(min-width: 1600px) 1305px, (min-width:1200px) 1082px, (min-width:992px) 894px, (min-width:768px) 738px, 100vw" srcset="img/creative_sm.jpg 640px, img/creative_smd.jpg 768px, img/creative_md.jpg 1309px, img/creative_lg.jpg 1744px" alt="Creative">
                     </img>
                     <figcaption>Design</figcaption>
                 </figure>
                 <figure class="slide hide">
-                    <img sizes="(min-width: 1600px) 1305px, (min-width:1200px) 1082px, (min-width:992px) 894px, (min-width:768px) 738px, 100vw" srcset="img/reflexive_sm.jpg 640px, img/reflexive_smd.jpg 768px, img/reflexive_md.jpg 1309px, img/reflexive_lg.jpg 1744px" alt="banniere réflexion">
+                    <img sizes="(min-width: 1600px) 1305px, (min-width:1200px) 1082px, (min-width:992px) 894px, (min-width:768px) 738px, 100vw" srcset="img/reflexive_sm.jpg 640px, img/reflexive_smd.jpg 768px, img/reflexive_md.jpg 1309px, img/reflexive_lg.jpg 1744px" alt="Reflective">
                     </img>
-                    <figcaption>Ingénierie</figcaption>
+                    <figcaption>Engineering</figcaption>
                 </figure>
                 <figure class="slide hide">
-                    <img sizes="(min-width: 1600px) 1305px, (min-width:1200px) 1082px, (min-width:992px) 894px, (min-width:768px) 738px, 100vw" srcset="img/origin_sm.jpg 640px, img/origin_smd.jpg 768px, img/origin_md.jpg 1309px, img/origin_lg.jpg 1744px" alt="banniere origines">
+                    <img sizes="(min-width: 1600px) 1305px, (min-width:1200px) 1082px, (min-width:992px) 894px, (min-width:768px) 738px, 100vw" srcset="img/origin_sm.jpg 640px, img/origin_smd.jpg 768px, img/origin_md.jpg 1309px, img/origin_lg.jpg 1744px" alt="Origin">
                     </img>
-                    <figcaption>Consultation</figcaption>
+                    <figcaption>Consulting</figcaption>
                 </figure>
             </div>
             <div class="title-description desktop-hide">
-                <h2>SERVICES INFORMATIQUES
-                    <br>ET CONSULTATION</h2>
+                <h2>TECHNOLOGY SERVICES
+                    <br>AND CONSULTING</h2>
                 <ul>
                     <li>
                         <a href="tel:+14384966886"> 438 496-6886 </a>
                     </li>
-                    <li>Terrebonne, Québec</li>
+                    <li>Terrebonne, Quebec</li>
                 </ul>
             </div>
-
         </section>
-        <div id="main-nav-1" class="center-navigation ">
+        <div id="main-nav-1" class="center-navigation">
             <a id="service-nav-anchor" href="#services-banner" class="btn btn-default">
-                <span class="glyphicon glyphicon-play rotate-90 white ">  </span>
+                <span class="glyphicon glyphicon-play rotate-90 white "> </span>
             </a>
             <div class="responsive-line"></div>
         </div>
@@ -239,25 +245,25 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
-                        <header class="extra-sm-padding">Des services informatiques aux entreprises</header>
+                        <header class="extra-sm-padding">We offer technology services to companies</header>
                         <p itemprop="description">
-                            <span class="italic bold">Infocinc  </span>est une entreprise informatique de la région métropolitaine de Montréal. Nous offrons plusieurs services informatiques dont la conception et le ré-usinage de sites web, le minage et la visualisation de données d'affaires. Peu importe le projet, nous nous efforçons d'insuffler la qualité et l'intelligence dans nos services. Nous sommes avant-gardistes et utilisons les meilleurs outils technologiques pour créer des solutions innovatrices.
+                            <span class="italic bold">Infocinc </span>is a company in the metropolitan area of Montreal offering various technology and consulting services. We specialize in responsive web design, optimization of websites for smartphones and tablet computers, web scraping, data modeling and visualization tools. Infocinc always strive to infuse quality and intelligence in our services. We are forward thinkers and use the best technology to create innovative solutions for our customers.
                         </p>
-                        <footer class="extra-sm-padding">Voici un rapide tour d'horizon de nos services actuels</footer>
+                        <footer class="extra-sm-padding">Here's a quick tour of our current services:</footer>
                     </div>
                 </div>
+
             </div>
         </section>
 
 
         <section id="services" class="container-fluid ">
 
-
             <div class='container'>
                 <div id="slide-one" class="slide-nav">
                     <div class="v-line"></div>
                     <div class="slide-box">
-                        <span>1  </span>
+                        <span>1 </span>
                     </div>
                 </div>
 
@@ -265,30 +271,30 @@
                     <div class="col-sm-3">
                         <div class="button-padding desktop-hide"></div>
                         <button id="website-button" type="button" class="noglow service-thumbnail services-click">
-                            <img id="website-img" src="img/www.png" alt="bouton service web"></img>
+                            <img id="website-img" src="img/www.png" alt="Web button"></img>
                         </button>
-                        <div class="button-caption">SITES WEB</div>
+                        <div class="button-caption">WEBSITES</div>
                         <div id="website-text" class="content-block text-center">
                             <script>
                             var d = document.getElementById('website-text');
                             d.className = d.className + ' desktop-hide';
                             </script>
-                            <h2>Création sur mesure</h2>
+                            <h2>Website Design</h2>
                             <p>
-                                <strong>Infocinc </strong>est à la fine pointe des technologies Web: <a href="http://en.wikipedia.org/wiki/Responsive_web_design"> designs adaptatifs</a>, serveurs NodeJs, intégration avec les réseaux Facebook et Google+, balises de données structurées et plus. Nous offrons aussi un suivi du comportement de vos utilisateurs à l'aide des puces Google Analytics et des scripts fabriqués sur mesure. Le design adaptatif est <a href="https://developers.google.com/webmasters/smartphone-sites/details"> la technique préférée de Google</a> pour développer des sites web optimisés pour les téléphones mobiles.
+                                <strong>Infocinc </strong>is on the cutting edge of web technologies: <a href="http://en.wikipedia.org/wiki/Responsive_web_design"> responsive design</a>, NodeJs http servers, Facebook and Google+ integration, rich snippets and more. We also offer to track the behavior of your users using Google Analytics and custom-made scripts. Responsive design is <a href="https://developers.google.com/webmasters/smartphone-sites/details">Google's recommended configuration</a> for smartphone-optimized websites.
                             </p>
                             <div id="website-photo" class="desktop-hide text-center">
-                                <img id="website-img" sizes="(min-width:1200px) 600px, (min-width:992px) 450px, (min-width:768px) 520px, (min-width:560px) 400px, 80vw" srcset="img/responsive_sm.jpg 529px, img/responsive_md.jpg 793px, img/responsive_lg.png 1041px" alt="conception de sites web adaptatifs">
-                                </img>
+                            <img id="website-img" sizes="(min-width:1200px) 600px, (min-width:992px) 450px, (min-width:768px) 520px, (min-width:560px) 400px, 80vw" srcset="img/responsive_sm.jpg 529px, img/responsive_md.jpg 793px, img/responsive_lg.png 1041px" alt="Responsive web design">
+                            </img>
                             </div>
-
-                            <h2>Ré-usinage de sites web</h2>
+                            <h2>Website Optimization</h2>
                             <p>
-                                À l'aide des techniques de designs adaptatifs,<strong> Infocinc </strong>améliore l'apparence et la disposition de votre contenu sur les appareils mobiles et tablettes. Selon une <a href="http://googlemobileads.blogspot.ca/2012/09/mobile-friendly-sites-turn-visitors.html"> étude récente effectuée </a> par Google, un site web qui offre une navigation défaillante sur appareils mobiles engendre de l'insatisfaction chez plus de 50% des utilisateurs, alors que 67% des utilisateurs sont davantage intéressés par vos produits si votre site web offre une navigation mobile conviviale.
+                                Using responsive design techniques,
+                                <strong>Infocinc </strong>improves your website's image and the layout of its content on mobile devices and tablet computers. According to a <a href="http://googlemobileads.blogspot.ca/2012/09/mobile-friendly-sites-turn-visitors.html">survey by Google</a>, more than 50% of users said that a bad mobile experience made them less likely to engage with a company. More than 67% of mobile users are more likely to buy products or services on a mobile-friendly site.
                             </p>
                         </div>
+                      
                     </div>
-
 
                     <div class='mobile-break desktop-hide'></div>
 
@@ -296,32 +302,35 @@
                         <div class="button-padding desktop-hide"></div>
 
                         <button id="scrape-button" type="button" class="noglow service-thumbnail services-click">
-                            <img id="scrape-img" src="img/scrape.png" alt="minage de donnees web"></img>
+                            <img id="scrape-img" src="img/scrape.png" alt="Data mining"></img>
                         </button>
 
-                        <div class="button-caption">MINAGE</div>
+                        <div class="button-caption">MINING</div>
 
                         <div id="scrape-text" class="content-block text-center">
                             <script>
                             var d = document.getElementById('scrape-text');
                             d.className = d.className + ' desktop-hide';
                             </script>
-                            <h2>Conception de grattoirs</h2>
+                            <h2>Web Scraping</h2>
                             <p>
-                                Un grattoir est un petit programme informatique qui extrait de l'information provenant de sites web. Les données récupérées peuvent ensuite être stockées sur une base de données pour une analyse ultérieure.
-                                <strong>Infocinc </strong>a une expertise avec les solutions d'intégration de données <a href="http://kapowsoftware.com/products/kapow-katalyst/">Kapow Katalyst</a>. Ce logiciel est utilisé par de nombreuses entreprises telles que les banques d'affaires de Wall Street, les concessionnaires automobiles etc.
+                                A scraper is a small computer program that extracts information from websites. The recovered data can then be stored on a database for later analysis.
+                                <strong>Infocinc </strong>offers its expertise with data integration solutions such as <a href="http://kapowsoftware.com/products/kapow-katalyst/">Kapow Katalyst</a>. This software is used by many corporations in the financial sector and the automobile industry.
                             </p>
                             <div id="scrape-photo" class="desktop-hide text-center">
-                                <img id="scrape-img" sizes="(min-width:1200px) 600px, (min-width:992px) 450px, (min-width:768px) 520px, (min-width:560px) 400px, 80vw" srcset="img/miners_sm.jpg 529px, img/miners_md.jpg 793px, img/miners_lg.png 1041px" alt="minage de donnéees web">
-                                </img>
+                            <img id="scrape-img" sizes="(min-width:1200px) 600px, (min-width:992px) 450px, (min-width:768px) 520px, (min-width:560px) 400px, 80vw" srcset="img/miners_sm.jpg 529px, img/miners_md.jpg 793px, img/miners_lg.png 1041px" alt="Data mining">
+                            </img>
                             </div>
-                            <h2>Analyse de données</h2>
+                            <h2>Data Analysis</h2>
                             <p>
-                                Il est important de bien interpréter vos données d'affaires.
-                                <strong>Infocinc </strong>offre son expertise dans la base de données <a href="http://kx.com/kdb-plus.php"> KDB+ </a> et son langage propriétaire <a href="http://en.wikipedia.org/wiki/Q_(programming_language_from_Kx_Systems)">Q</a>. Plusieurs entreprises du secteur financier utilisent cette solution pour traiter des millions de données en quelques secondes seulement.
-                            </p>
-                        </div>
+                                It is important to interpret business data correctly.
+                                <strong>Infocinc </strong>offers its expertise with the <a href="http://kx.com/kdb-plus.php"> KDB+</a> columnar database and its <a href="http://en.wikipedia.org/wiki/Q_(programming_language_from_Kx_Systems)">proprietary language Q</a> to build you a suite of analytics. KDB+ and Q are widely used by the financial sector and other industries to process in realtime billions of records.
+                                <p>
 
+
+                                </p>
+                        </div>
+                      
                     </div>
                     <div class='mobile-break desktop-hide'></div>
 
@@ -329,39 +338,37 @@
                         <div class="button-padding desktop-hide"></div>
 
                         <button id="excel-button" type="button" class="noglow service-thumbnail services-click">
-                            <img id="excel-img" src="img/visualize.png" alt="integration de donnees Excel"></img>
+                            <img id="excel-img" src="img/visualize.png" alt="Visualization"></img>
                         </button>
 
-                        <div class="button-caption">VISUALISATION</div>
+                        <div class="button-caption">VISUALIZATION</div>
 
                         <div id="excel-text" class="content-block text-center">
                             <script>
                             var d = document.getElementById('excel-text');
                             d.className = d.className + ' desktop-hide';
                             </script>
-                            <h2>Conception de tableaux de bord</h2>
+                            <h2>Custom Dashboards</h2>
                             <p>
-                                La visualisation de données est essentielle pour établir des tendances et identifier des modèles explicatifs (e.g mélange gaussiens, arbre de décision).
-                                <strong>Infocinc </strong>possède de l'expertise dans les technologies web et les techniques de modélisation de données (e.g. régression logistique, réseaux de neurones, "clustering"). Nous vous proposons de bâtir une application web pour visualiser vos données.
+                                Data visualization is essential to establish trends and identify explanatory models (e.g. mixture of Gaussians, decision trees, Bayesian nets).
+                                <strong>Infocinc </strong>has expertise in web technologies and modeling techniques (e.g. logistic regression, neural nets, clustering). We offer to build you a web application for viewing your data from any of your devices.
                             </p>
                             <div id="excel-photo" class="desktop-hide text-center">
-                                <div id='excel-wrapper-canvas'>
-                                    <canvas id='excel-canvas'>
-                                    </canvas>
-                                </div>
+                            <div id='excel-wrapper-canvas'>
+                                <canvas id='excel-canvas'>
+                                </canvas>
                             </div>
-                            <h2>Automatisation des rapports Excel</h2>
+                            </div>
+                            <h2>Excel Automation</h2>
                             <p>
-                                Une alternative à la visualisation de vos données sur le web, utilisez toute la puissance et la maturité d'Excel pour construire des rapports à partir de vos données.
-                                <strong>Infocinc </strong>vous offre une automatisation de la mise à jour périodique de vos rapports à l'aide de macros VBA et des options de collecte de données externes.
+                                An alternative to visualizing your data on the web, use the power and maturity of Excel for building intelligent reports based on the data you carefully collected.
+                                <strong>Infocinc </strong>offers automation of your reports using VBA macros and Excel's configurable external data connections.
                             </p>
                         </div>
 
-
+                      
                     </div>
                     <div class='mobile-break desktop-hide'></div>
-
-
                     <div class="col-sm-3">
                         <div class="button-padding desktop-hide"></div>
                         <button id="consult-button" type="button" class="noglow service-thumbnail services-click">
@@ -373,27 +380,23 @@
                             var d = document.getElementById('consult-text');
                             d.className = d.className + ' desktop-hide';
                             </script>
-                            <h2>Résolution de problèmes techniques</h2>
+                            <h2>Problem Solving</h2>
                             <p>
-                                Avez-vous besoin d'éclaircir certains aspects techniques de votre prochain projet ? Nous offrons de l'aide pour régler vos difficultés techniques: bugs de logiciels, crash de systèmes, virus, choix de matériels informatiques etc. L'expérience d'Infocinc dans la résolution de problèmes nous permet de s'aventurer avec confiance dans des territoires moins connus. Alors, n'hésitez pas à <a id="consult-anchor" href="#footer"> nous joindre</a>.
-                                <strong>Infocinc </strong>programme des solutions sur mesure si la situation se présente.
+                                Do you need to clarify certain technical issues about your next project ? We offer help to resolve your technical problems: software bugs, system crashes, viruses, choice of hardware etc. Our experience in problem solving allows us to approach less familiar areas of knowledge with confidence. Do not hesitate to <a id="contact-anchor" href="#footer">contact us</a> for help with your current technical difficulties.
+                                <strong>Infocinc </strong>can build custom software solutions if the situation arises.
                             </p>
                             <div id="consult-photo" class="desktop-hide text-center">
-                                <img id="website-img" sizes="(min-width:1200px) 600px, (min-width:992px) 450px, (min-width:768px) 520px, (min-width:560px) 400px, 80vw" srcset="img/maze_sm.jpg 529px, img/maze_md.jpg 793px, img/maze_lg.jpg 1041px" alt="Labyrinthe">
-                                </img>
+                            <img id="website-img" sizes="(min-width:1200px) 600px, (min-width:992px) 450px, (min-width:768px) 520px, (min-width:560px) 400px, 80vw" srcset="img/maze_sm.jpg 529px, img/maze_md.jpg 793px, img/maze_lg.jpg 1041px" alt="Labyrinthe">
+                            </img>
                             </div>
                         </div>
-
+                     
                     </div>
-
-
-
                 </div>
             </div>
         </section>
 
         <div id='screen-services' class="container-fluid mobile-hide box ">
-
             <div class="row ">
                 <div id='screen-services-visual'>
                     <div id='screen-services-photo'>
@@ -408,10 +411,11 @@
             </div>
         </div>
 
+
         <div id="main-nav-2" class="center-navigation">
             <div>
                 <a id="team-nav-anchor" href="#team-banner" class="btn btn-default">
-                    <span class="glyphicon glyphicon-play rotate-90 white">  </span>
+                    <span class="glyphicon glyphicon-play rotate-90 white"> </span>
                 </a>
                 <div class="v-md-line"></div>
             </div>
@@ -423,51 +427,53 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
                         <header class="text-center">
-                            Infocinc: un partenaire de choix
+                            Infocinc: Partner of Choice
                         </header>
                         <p>
-                            <span class="italic bold">Infocinc  </span>est une jeune compagnie reposant sur plusieurs années d'expertise dans le domaine de l'informatique. Notre vision est d'être un leader dans les services informatiques et de consultation pour les entreprises. Nous sommes toujours à l’affût des dernières technologies. La taille de notre entreprise  nous permet d’offrir un accueil personnalisé et des communications plus directes avec notre clientèle ce qui est souvent plus difficile dans les grandes entreprises informatiques. <span class="italic bold">Infocinc  </span>valorise l'innovation et la qualité du travail. Notre mission est de créer des services à la fine pointe de la technologie et guider les entreprises vers le succès.
+                            <span class="italic bold">Infocinc </span>is a young company based on several years of expertise in the field of computer science and information technology. Our vision is to be a leader in IT and consulting services for small and large businesses. We're always on the lookout for the latest technologies. The size of our company allows us to offer a personalized and more direct communication with our customers which is often more difficult in large IT companies. Infocinc values innovation and quality of work. Our mission is to create services on the cutting edge of technology and guide companies towards achieving their goals.
                         </p>
                         <footer class="text-center">
-                            Les membres fondateurs de Infocinc:
+                            Know more about the founders of Infocinc:
                         </footer>
                     </div>
                 </div>
+
             </div>
         </section>
 
 
         <section id="team" class="container-fluid ">
-            <div id="slide-two" class="slide-nav ">
+
+            <div id='slide-three' class="slide-nav">
                 <div class="v-line"></div>
                 <div class="slide-box">
-                    <span>3  </span>
+                    <span>2 </span>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-sm-2" itemscope itemtype="http://schema.org/Person">
                     <button id='nic-button' type="button" class="noglow team-click team-thumbnail mobile-hide">
-                        <img itemprop="image" id='nic-img' src="img/face_nic.jpg" alt='portrait Nicolas Dutil'></img>
-
+                        <img itemprop="image" id='nic-img' src="img/face_nic.jpg" alt='Nicolas Dutil'></img>
                     </button>
                     <div class="button-caption mobile-hide">Nicolas</div>
 
                     <div id="nic-photo" class="desktop-hide">
-                        <img id="nic-1" class="member-photo" sizes="(min-width:768px) 137px, (min-width:321px) 40px, 0.3vw" srcset="img/nic_sm.gif 100px, img/nic_md.gif 132px, img/nic_lg.gif 182px" alt="portrait Nicolas Dutil">
+                        <img id="nic-1" class="member-photo" sizes="(min-width:768px) 137px, (min-width:321px) 40px, 0.3vw" srcset="img/nic_sm.gif 100px, img/nic_md.gif 132px, img/nic_lg.gif 182px" alt="Nicolas Dutil">
                         </img>
 
                         <ul>
                             <li>
-                                <span class="team-name" itemprop="name">Nicolas Dutil  </span>
+                                <span class="team-name" itemprop="name">Nicolas Dutil </span>
                             </li>
                             <li>
-                                <span>Ph.D. Informatique  </span>
+                                <span>Ph.D. Computer Science </span>
                             </li>
                         </ul>
                         <div id="social-badges">
                             <a href="//plus.google.com/101661497738886796076?prsrc=3" target="_blank" style="text-decoration:none;">
-                                <span itemprop="email" class="hide">Nicolas.Dutil@infocinc.com  </span>
-                                <img id="googleplus -badge" src="//ssl.gstatic.com/images/icons/gplus-64.png" alt="Google+" />
+                                <span itemprop="email" class="hide">Nicolas.Dutil@infocinc.com </span>
+                                <img id="googleplus-badge" src="//ssl.gstatic.com/images/icons/gplus-64.png" alt="Google+" />
                             </a>
                             <a href="//twitter.com/NicolasDutil1" target="_blank" style="text-decoration:none;">
                                 <img id="twitter-badge" src="img/twitter_badge.png" alt="Twitter" />
@@ -480,36 +486,36 @@
                         var d = document.getElementById('nic-text');
                         d.className = d.className + ' desktop-hide';
                         </script>
-                        <div class='text-title'>Mon parcours</div>
+                        <div class='text-title'>My journey</div>
                         <p itemprop="description">
-                            Je possède une maîtrise en bio-informatique et un doctorat en sciences informatiques de l'université McGill. J'ai commencé ma carrière professionnelle en tant qu'informaticien pour Nexsan Technologies. En 2012, j'ai poursuivi mon parcours avec le géant des services financiers Morgan Stanley en tant qu'associé. En 2014, J'ai démarré ma propre entreprise:
-                            <span itemprop="worksFor" class="itemprop"><strong>Infocinc</strong></span>. Mon objectif est d'utiliser ma formation académique et mes expériences professionnelles pour offrir des services de technologie de haute qualité.
+                            I am a Montreal-born computer scientist with a research background in Bioinformatics and information theory. I received my M.Sc. and Ph.D degrees in computer science from McGill University in 2003 and 2011. I started my professional career as a kernel engineer at Nexsan Technologies. In 2012, I moved to the financial services giant Morgan Stanley as a technology associate. I left Morgan Stanley to start my own business:<span itemprop="worksFor" class="itemprop"><strong> Infocinc</strong></span>. My objective is to use my formal academic training and previous work experiences to create and provide technology services of high quality.
                         </p>
                     </div>
                 </div>
 
                 <div class="col-sm-2" itemscope itemtype="http://schema.org/Person">
                     <button id="mel-button" class="noglow team-click img-profile team-thumbnail mobile-hide">
-                        <img itemprop="image" id="mel-img" src="img/face_mel.jpg" alt="portrait Melanie Bertrand"></img>
-
+                        <img itemprop="image" id="mel-img" src="img/face_mel.jpg" alt="Melanie Bertrand"></img>
                     </button>
-                    <div class="button-caption mobile-hide">Mélanie</div>
+                    <div class="button-caption mobile-hide">Melanie</div>
+
                     <div id="mel-photo" class="desktop-hide">
-                        <img id="nic-1" class="member-photo" sizes="(min-width:768px) 137px, (min-width:321px) 40px, 0.3vw" srcset="img/mel_sm.gif 100px, img/mel_md.gif 132px, img/mel_lg.gif 182px" alt="portrait Melanie Bertrand">
+                        <img id="nic-1" class="member-photo" sizes="(min-width:768px) 137px, (min-width:321px) 40px, 0.3vw" srcset="img/mel_sm.gif 100px, img/mel_md.gif 132px, img/mel_lg.gif 182px" alt="Melanie Bertrand">
                         </img>
 
                         <ul>
                             <li>
-                                <span itemprop="name" class="team-name">Melanie Bertrand  </span>
+                                <span itemprop="name" class="team-name">Melanie Bertrand </span>
                             </li>
                             <li>
-                                <span>Relations Publiques  </span>
+                                <span> </span>
+                                <span itemprop="jobTitle">Public Relations </span>
                             </li>
                         </ul>
 
                         <div id="social-badges">
                             <a href="//plus.google.com/101167237243257115048?prsrc=3" target="_blank" style="text-decoration:none;">
-                                <span itemprop="email" class="hide">Melanie.Bertrand@infocinc.com  </span>
+                                <span itemprop="email" class="hide">Melanie.Bertrand@infocinc.com </span>
                                 <img src="//ssl.gstatic.com/images/icons/gplus-64.png" alt="Google+" />
                             </a>
                         </div>
@@ -519,9 +525,9 @@
                         var d = document.getElementById('mel-text');
                         d.className = d.className + ' desktop-hide';
                         </script>
-                        <div class='text-title'>Mon rôle</div>
+                        <div class='text-title'>My role</div>
                         <p itemprop="description">
-                            Mélanie à un rôle grandissant au sein de notre entreprise <span itemprop="worksFor" class="itemprop"><strong>Infocinc</strong></span>. Active sur les réseaux sociaux, elle communique les services offerts par notre entreprise. Elle s'occupe aussi des suivis avec les clients. Son empathie pour les autres est une qualité exceptionnelle qui nous sert de guide pour améliorer la présentation de nos services. Mélanie est appréciée pour sa douceur et son calme. Ces aptitudes font d’elle une ressource indispensable pour le bon fonctionnement de notre entreprise.
+                            Melanie has a growing role as a co-founder of <span itemprop="worksFor" class="itemprop"><strong>Infocinc</strong></span>. Active on social networks, she communicates the services offered by our company. She is also an avid websurfer, and regularly performs a series of smoke testing while projects are ongoing. Her empathy for others is an exceptional quality that guides us to improve the presentation of our services. Melanie is valued for her softness and calm. She's an indispensable resource for the proper operation of our business.
                         </p>
                     </div>
                 </div>
@@ -544,7 +550,6 @@
                 <canvas id="bubbles"></canvas>
             </div>
 
-
             <div class="screen-wrapper row">
                 <div id='screen-team-photo' class="col-md-4 col-md-offset-1 col-lg-4 col-lg-offset-1">
                 </div>
@@ -557,7 +562,7 @@
         <div id="main-nav-4" class="center-navigation">
             <div>
                 <a id="team-nav-anchor" href="#project-banner" class="btn btn-default">
-                    <span class="glyphicon glyphicon-play rotate-90 white">  </span>
+                    <span class="glyphicon glyphicon-play rotate-90 white"> </span>
                 </a>
                 <div class="v-md-line"></div>
             </div>
@@ -568,14 +573,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
-                        <header class="extra-sm-padding">
-                            Contactez-nous
+                        <header class="extra-padding">
+                            Contact Us
                         </header>
-                        <p>
-                            <span class="italic bold">Infocinc  </span>évolue rapidement et veut connaître vos projets futurs. Nous souhaitons relever de nouveaux défis. Infocinc peut vous offrir des tarifs concurrentiels. Contactez-nous par courriel à <a target="_blank" href="mailto:info@infocinc.com">info@infocinc.com</a> ou appelez-nous au <a href="tel:+14384966886">1-438-496-6886</a> pour discuter de la façon dont on peut améliorer vos affaires. Nos bureaux sont présentement situés à Terrebonne, Québec. N'hésitez pas aussi à nous suivre sur <a target="_blank" href="//twitter.com/InfoCinc">Twitter</a>, <a target="_blank" href="//facebook.com/Infocinc">Facebook</a> et <a target="_blank" href="//plus.google.com/+infocinc">Google+</a>.
+                        <p class="extra-padding">
+                            <span class="italic bold">Infocinc </span>wants to hear about your next projects. We want new challenges and we can offer a competitive range of prices. Contact us by email at <a href="mailto:info@infocinc.com">info@infocinc.com</a> or call us at <a href="tel:=14384966886">1-438-496-6886</a> to discuss how we can improve your business. Our offices are currently located in Terrebonne, Quebec. Follow us on <a target="_blank" href="//twitter.com/InfoCinc">Twitter</a>, <a target="_blank" href="//facebook.com/Infocinc">Facebook</a> and <a target="_blank" href="//plus.google.com/+infocinc">Google+</a> to keep up with the latest events.
                         </p>
-                        <footer class="extra-sm-padding">
-                            Réalisations et projets en cours
+                        <footer class="extra-padding">
+                            Past achievements and work in progress:
                         </footer>
                     </div>
                 </div>
@@ -584,7 +589,7 @@
         <div id="slide-four" class="slide-nav">
             <div class="v-line"></div>
             <div class="slide-box">
-                <span>4  </span>
+                <span>4 </span>
             </div>
         </div>
 
@@ -598,7 +603,7 @@
                             <figcaption>NuAyre
                             </figcaption>
                         </a>
-                        <h2>Conception web</h2>
+                        <h2>Website Design</h2>
                     </div>
                 </div>
                 <div class="col-sm-4 col-md-3 project">
@@ -608,50 +613,50 @@
                             <figcaption>Centre Dentaire Martin Dutil
                             </figcaption>
                         </a>
-                        <h2>Ré-usinage de sites web</h2>
+                        <h2>Website Re-Design</h2>
                     </div>
                 </div>
 
                 <div class="col-sm-4 col-md-3 mobile-hide project">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" class="invisible" alt=" NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Nuayre "></img>
                     </div>
                 </div>
 
                 <div class="col-sm-4 col-md-3 mobile-hide project">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" class="invisible" alt=" NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Nuayre "></img>
                     </div>
                 </div>
 
                 <div class="col-sm-4 col-md-3 mobile-hide project">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" class="invisible" alt=" NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Nuayre "></img>
                     </div>
                 </div>
 
                 <div class="col-sm-4 col-md-3 mobile-hide project">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" class="invisible" alt=" NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Nuayre "></img>
                     </div>
                 </div>
 
                 <div class="col-sm-4 col-md-3 mobile-hide project">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" class="invisible" alt=" NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Nuayre "></img>
                     </div>
                 </div>
 
                 <div class="col-sm-4 col-md-3 mobile-hide project">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" class="invisible" alt=" NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Nuayre "></img>
                     </div>
                 </div>
 
 
                 <div class="col-sm-4 col-md-3 mobile-hide project landscape-hide">
                     <div class="project-wrapper img-placeholder">
-                        <img src="img/nuayre.png" class="invisible" alt=" NuAyre"></img>
+                        <img src="img/nuayre.png" class="invisible" alt="Nuayre "></img>
                     </div>
                 </div>
             </div>
@@ -659,7 +664,7 @@
 
         <div id='main-nav-5' class="center-navigation ">
             <a id="footer-nav-anchor" href="#social-ads" class="btn border">
-                <span class="glyphicon glyphicon-play rotate-90 black ">  </span>
+                <span class="glyphicon glyphicon-play rotate-90 black "> </span>
             </a>
         </div>
         <div class="footer-background container-fluid">
@@ -671,9 +676,9 @@
                 <div class="social-banner background-red col-sm-6 col-lg-3">
                     <div class="social-banner-wrapper">
                         <div id='gplus' class="text-center">
-                            <img src="img/google-plus.png" alt=" Google Plus"></img>
+                            <img src="img/google-plus.png" alt="Google+ "></img>
                         </div>
-                        <figcaption>RECOMMENDEZ INFOCINC SUR GOOGLE+</figcaption>
+                        <figcaption>RECOMMEND INFOCINC ON GOOGLE+</figcaption>
                         <div class="social-button-wrapper iframe-offset">
                             <div class="g-plusone" data-annotation="bubble" data-width="300"></div>
                         </div>
@@ -682,9 +687,9 @@
                 <div class="social-banner background-blue col-sm-6 col-lg-3">
                     <div class="social-banner-wrapper">
                         <img src="img/ilike.png" alt=" ilike"></img>
-                        <figcaption>AIMEZ INFOCINC SUR FACEBOOK</figcaption>
+                        <figcaption>RECOMMEND INFOCINC ON FACEBOOK</figcaption>
                         <div class="social-button-wrapper">
-                            <div class="fb-like" data-href="http://www.infocinc.com" data-width="20" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+                            <div class="fb-like" data-href="http://www.infocinc.com/welcome_en.html" data-width="20" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
                         </div>
                     </div>
                 </div>
@@ -692,11 +697,11 @@
                 <div class="social-banner background-dark col-sm-6 col-lg-3">
                     <div class="social-banner-wrapper">
                         <img src="img/Twitter_logo.png" alt=" Twitter"></img>
-                        <figcaption>TWEETEZ VOS QUESTIONS
-                            <a href="http://twitter.com/infoCinc" target="_blank"> @INFOCINC</a>
+                        <figcaption>TWEET YOUR QUESTIONS
+                            <a href="http://twitter.com/infocinc" target="_blank"> @INFOCINC</a>
                         </figcaption>
                         <div class="social-button-wrapper iframe-offset">
-                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.infocinc.com" data-text="Tweeter vos questions" data-via="infoCinc" data-lang="fr">Tweeter</a>
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.infocinc.com/welcome_en.html" data-text="Tweet your questions" data-via="infocinc" data-lang="en">Tweet</a>
                         </div>
                     </div>
                 </div>
@@ -713,26 +718,26 @@
                             <strong>CONTACT</strong>
                         </li>
                         <li class="list-group-item">
-                            <span class="contact-type red">courriel  </span>
+                            <span class="contact-type red">email </span>
                             <a href="mailto:info@infocinc.com">
-                                <span itemprop="email">info@infocinc.com  </span>
+                                <span itemprop="email">info@infocinc.com </span>
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <span class="contact-type blue">twitter  </span>
-                            <a href="https://twitter.com/InfoCinc" target="_blank">@infoCinc</a>
+                            <span class="contact-type blue">twitter </span>
+                            <a href="https://twitter.com/infoCinc" target="_blank">@infoCinc</a>
                         </li>
                         <li class="list-group-item">
-                            <span class="contact-type purple">skype  </span>
+                            <span class="contact-type purple">skype </span>
                             <a href="#" data-toggle="modal" data-target="#skypeCinc">
-                                <span itemprop="name">infocinc  </span>
+                                <span itemprop="name">infocinc </span>
                             </a>
                         </li>
 
                         <li class="list-group-item">
-                            <span class="contact-type orange">mobile  </span>
+                            <span class="contact-type orange">mobile </span>
                             <span itemprop="telephone"><a href="tel:+14384966886">438 496-6886</a>
-                              </span>
+                             </span>
                         </li>
                     </ul>
                 </div>
@@ -744,35 +749,35 @@
                         </li>
 
                         <li class="list-group-item">
-                            Conception web alimentée par
+                            This website is powered by
                         </li>
 
                         <li class="row brand-icons">
                             <a href="http://heroku.com" target="_blank">
-                                <img src="img/heroku.png" class="logo" alt=" Heroku"></img>
+                                <img src="img/heroku.png" class="logo" alt="Heroku"></img>
                             </a>
                             <a href="http://expressjs.com" target="_blank">
-                                <img src="img/expressjs.png" class="logo" alt=" ExpressJs"></img>
+                                <img src="img/expressjs.png" class="logo" alt="ExpressJs"></img>
                             </a>
                             <a href="http://jquery.com" target="_blank">
-                                <img src="img/jquery.png" class="logo" alt=" Jquery"></img>
+                                <img src="img/jquery.png" class="logo" alt="Jquery"></img>
                             </a>
                             <a href="http://www.w3.org/TR/html5/" target="_blank">
-                                <img src="img/html5.png" class="logo" alt=" Html5"></img>
+                                <img src="img/html5.png" class="logo" alt="Html5"></img>
                             </a>
                         </li>
                         <li class="row brand-icons">
                             <a href="http://nodejs.org" target="_blank">
-                                <img src="img/js.png" class="logo" alt=" NodeJs"></img>
+                                <img src="img/js.png" class="logo" alt="NodeJs"></img>
                             </a>
                             <a href="http://getbootstrap.com" target="_blank">
-                                <img src="img/bs.png" class="logo" alt=" Bootstrap"></img>
+                                <img src="img/bs.png" class="logo" alt="Bootstrap"></img>
                             </a>
                             <a id="less-anchor" href="http://lesscss.org" target="_blank">
-                                <img id="less-logo" src="img/less.png" class="logo" alt=" Less"></img>
+                                <img id="less-logo" src="img/less.png" class="logo" alt="Less"></img>
                             </a>
                             <a href="http://www.w3.org/Style/CSS/Overview.en.html" target="_blank">
-                                <img id="css-logo" src="img/css3.png" class="logo " alt=" CSS3">
+                                <img id="css-logo" src="img/css3.png" class="logo " alt="CSS3">
                             </a>
                         </li>
                     </ul>
@@ -784,24 +789,23 @@
                             <strong>NAVIGATION</strong>
                         </li>
                         <li class="list-group-item">
-                            <a href="#main" id="top-footer-anchor">accueil</a>
+                            <a href="#main" id="top-footer-anchor">top</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="#services-banner" id="services-footer-anchor"> services</a>
+                            <a href="#services-banner" id="services-footer-anchor">services</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="#team-banner" id="team-footer-anchor"> à propos</a>
+                            <a href="#team-banner" id="team-footer-anchor">about</a>
                         </li>
-
                         <li class="list-group-item">
-                            <a href="#project-banner" id="project-footer-anchor"> projets </a>
+                            <a href="#project-banner" id="project-footer-anchor">projects</a>
                         </li>
                     </ul>
                 </div>
                 <div id="footer-community" class="col-sm-6 col-lg-3">
                     <ul class="list-group text-center">
                         <li class="list-group-item ">
-                            <strong>COMMUNAUTÉ</strong>
+                            <strong>COMMUNITY</strong>
                         </li>
                         <li class="list-group-item">
                             <a id='footer-fbook-anchor' href="https://www.facebook.com/infocinc" target="_blank">
@@ -818,8 +822,8 @@
                 </div>
                 <div id='small-prints' class="col-sm-12 text-center">
                     <hr></hr>
-                    <img itemprop="logo" src="img/cinc-logo.png" alt=" Infocinc"></img>
-                    <span>Copyright &copy 2014 Infocinc, Certains droits réservés.  </span>
+                    <img itemprop="logo" src="img/cinc-logo.png" alt="infocinc"></img>
+                    <span>Copyright &copy 2014 Infocinc, Some Rights Reserved. </span>
                 </div>
             </div>
         </footer>
@@ -827,10 +831,9 @@
     <div id='media-state' class='hide media-state'>
     </div>
 
-
     <script type="text/javascript">
     window.___gcfg = {
-        lang: 'fr-CA',
+        lang: 'en-US',
         parsetags: 'onload'
     };
     (function() {
@@ -842,6 +845,7 @@
         s.parentNode.insertBefore(po, s);
     })();
     </script>
+
 
     <!--- google analytics -->
     <script>
@@ -864,7 +868,14 @@
     </script>
 
     <script type="text/javascript" src="js/vendor/imagesloaded.pkgd.min.js"></script>
+    <script>
+    imagesLoaded('#top', function() {
+        var m = document.getElementById("main");
+        m.className = '';
+    });
+    </script>
 
+    <script type="text/javascript" src="js/vendor/imagesloaded.pkgd.min.js"></script>
     <!-- twitter button -->
     <script>
     ! function(d, s, id) {
@@ -878,19 +889,20 @@
         }
     }(document, 'script', 'twitter-wjs');
     </script>
+
     <script>
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s);
         js.id = id;
-        js.src = "//connect.facebook.net/fr_CA/sdk.js#xfbml=1&appId=257336651130199&version=v2.0";
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=257336651130199&version=v2.0";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     </script>
 
-    <script src="https://code.jquery.com/jquery-2.1.0.min.js" type="text/javascript"></script>
 
+    <script src="https://code.jquery.com/jquery-2.1.0.min.js" type="text/javascript"></script>
     <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-2.1.0.min.js"><\/script>')
     </script>
@@ -905,6 +917,8 @@
     <script type="text/javascript" src="js/vendor/jquery-ui-1.10.4.custom.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/vendor/scrollTo.min.js"></script>
+
+
     <script>
     var load = [
         //test avail of media query
@@ -930,7 +944,10 @@
     <script>
     riveted.init();
     </script>
+
+
     <!--[if IE]><script src="js/vendor/excanvas.js"></script><![endif]-->
+
 </body>
 
 </html>
