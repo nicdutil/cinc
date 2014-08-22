@@ -334,7 +334,7 @@ function teamHandler(direction) {
 
 var hero_anchors = [
     '#top-hero-anchor', '#services-hero-anchor', '#method-hero-anchor', '#project-hero-anchor',
-    '#team-hero-anchor', '#footer-hero-anchor'
+    '#team-hero-anchor'
 ];
 
 var footer_anchors = [
@@ -351,6 +351,7 @@ var main_nav_anchors = [
 
 
 function registerScrollsTo() {
+  var media_state = queryMediaState();
 
     $(main_nav_anchors.join()).scrollTo({
         speed: 800,
@@ -363,12 +364,15 @@ function registerScrollsTo() {
         offset: 0,
         easing: 'easeInOutCubic'
     });
+  
 
+  if (media_state !== 'MOBILE') {   
     $(footer_anchors.join()).scrollTo({
         speed: 1500,
         offset: 0,
         easing: 'easeInOutCubic'
     });
+  }
 }
 
 /////////////////////////////////////////////////////////////////////////////
