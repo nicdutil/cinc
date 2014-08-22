@@ -538,9 +538,19 @@ function initWayPoints() {
 };
 
 
+function arrowUpNoHashTag() {
+    $('#arrow-up-anchor').on('click', function(e) {
+        e.preventDefault();
+        var loc = window.location;
+        window.location.href = '#';
+        if (history.pushState) {
+           history.pushState("", document.title, loc.pathname);            
+        }
+    });
+}
+
 function init() {
     var oldIE = detectIE();
-
     if (oldIE) {
         return;
     }
@@ -550,6 +560,7 @@ function init() {
     registerScrollsTo();
     resizeHandlers();
     adaptForMobile();
+    arrowUpNoHashTag();
     $("#skype-call-anchor").prop('href', 'skype:infoCinc?call'); // skype href in js for seo friendliness
     document.addEventListener("touchstart", function() {}, false); // allow css active to work in safari
     setBarGraph();
