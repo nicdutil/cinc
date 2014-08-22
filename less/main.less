@@ -583,7 +583,7 @@ body {
 
 }
 
-.method-thumbnail,.service-thumbnail {
+.service-thumbnail {
  .mobile-thumbnail;
  .square-thumbnail;
 }
@@ -810,7 +810,7 @@ body {
 // Button styling for services, method, team sections
 ////////////////////////////////////////////////////////////////////////////////////////
 
-#services, #screen-method, #team {
+#services, #team {
 
   .selected-button {
     border-bottom: 4px solid @blue;
@@ -1128,86 +1128,6 @@ body {
   top: 0px;
   bottom: 0px;
   right: 0px;
-}
-
-
-#screen-method {
-  margin-top: 0;
-  position:relative;
- 
-  #screen-method-text {
-  	div,span,ul {
-  	display: none;
-   }
-  }
-
-  #screen-method-text,#icons {
-   margin-top: 80px;
-   text-align: left;
-  }
-
-  a {
-    display: inline-block;
-  }
-  a:focus {
-    border-bottom: 1px solid @red;
-  }
-  
-  #icons > .row > div {
-    margin-bottom: 16px;
-  }
-  .text-title {
-    margin-bottom: 10px;
-  }  
-
-
-  @media screen and (min-width:@screen-sm-min) {
-    margin-top: 70px;
-    
-    #icons {
-      margin-top: 50px;
-    }
-
-    #screen-method-text {
-      div,span,ul {
-      	display: block;
-      }
-     .text-title{
-     	white-space: nowrap;
-     }
-      margin-top: 40px;
-       li {
-        margin: 20px 0;
-       }
-    }
-    height: 630px;
-
-  }
-  @media screen and (min-width:@screen-md-min) {
-    margin-top: 60px;
-        #icons {
-      margin-top: 122px;
-    }
-    #screen-method-text {
-      margin-top: 62px;
-    }
-    height: 480px;
-  }
-
-  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
-    margin-top: 128px;
-
-    #icons {
-      margin-top: 156px;
-    }
-
-    #screen-method-text {
-      margin-top: 92px;
-    }    
-
-    height: 600px;
-  }
-
 }
 
 
