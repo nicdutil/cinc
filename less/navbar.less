@@ -33,7 +33,11 @@
   
   @media screen and (min-width:@screen-sm-min) {
     width: auto;
+    .msg-wrapper,.icon-wrapper, #nav-social-recommends {
+      min-width: 0;
+    }
   }
+
   @media screen and (min-width:@screen-lg-min) {
     bottom:20px;
   }
@@ -50,17 +54,22 @@
     }
   }
 
-  
+
   .icon-wrapper {
     display: none;
     @media screen and (min-width: 320px) {
+      min-width: 30%;
       display: inline-block;      
+    }
+    @media screen and (min-width: 480px) {
+      min-width: 150px;
     }
     a {
       display: inline-block;
       height: @height;
       line-height: @height;
       padding: 0px @padding-x;
+      width: 33.3%;
     }
     a:hover {
       .shake;
@@ -83,12 +92,12 @@
     padding: 0 10px;
     @media screen and (min-width:320px) {
       padding: 0;
-      margin-left: @padding-x;
+      margin-left: 7px;
     }
     .fb-like {
       width: 50px !important;
       height: @height;
-      padding-top: (@height / 4);      
+      padding-top: (@height / 4);     
     }
     .fb-like, .social-button-wrapper {
       display: inline-block !important;
@@ -99,12 +108,13 @@
       padding-right: (@padding-x * 2);
       @media screen and (min-width:320px) {
         padding-right:(@padding-x * 2);
-        margin-left: 20px;
+        margin-left: 21px;
       }
 
     }
   }
 }
+
 
 .title-description {
   display: block;
@@ -237,6 +247,12 @@
       width: 30px;
       height: 3px;
     }
+        .menu {
+      color: @white;
+      position: relative;
+      font-size: 12px;
+    }
+
   }
   .btn:active {
     background: @darkGray !important;
