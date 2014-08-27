@@ -911,7 +911,11 @@
         //test avail of media query
         {
             test: window.matchMedia,
-            nope: "js/vendor/media.match.min.js"
+            nope: "js/vendor/matchMedia.min.js"
+        },
+        {
+            test: window.matchMedia.addListener,
+            nope: "js/vendor/matchMedia.addListener.min.js"
         },
         "js/vendor/enquire.min.js",
         "js/plugins.min.js",

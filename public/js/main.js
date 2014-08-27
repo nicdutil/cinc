@@ -106,7 +106,7 @@ function registerMediaCallbacks() {
                 navMiniMode = true;
             }
 
-            $('#services button').on('click', function() {
+            $('#services button').on('click', function(event) {
                 selectButton('services', this);
                 var targetId = event.target.id;
                 var sectionId = $(this).closest('.container-fluid').prop('id');
@@ -114,7 +114,7 @@ function registerMediaCallbacks() {
                 showPanel(sectionId, targetId);
             });
 
-            $('#team button').on('click', function() {
+            $('#team button').on('click', function(event) {
                 selectButton('team', this);
                 var targetId = event.target.id;
                 var sectionId = $(this).closest('.container-fluid').prop('id');
