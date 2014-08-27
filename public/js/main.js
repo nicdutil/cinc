@@ -549,6 +549,40 @@ function arrowUpNoHashTag() {
     });
 }
 
+function createGaEvent(label,value,url) {
+    e = {
+     'hitType' : 'event',
+     'eventCategory': 'button',
+     'eventAction' : 'click',
+     'eventLabel' : label,
+     'eventValue': value,
+     'page': url,
+     'nonInteraction': false
+    }
+    return e;
+}
+
+function registerMouseClicks() {
+    var path = document.location.pathname;
+    $('#lang-wrapper').on('click', function() {
+        eo = createGaEvent('lang-button',1,path);
+        ga('send',eo);
+    });
+    $('.center-navigation').on('click',function() {
+        eo = createGaEvent('nav-button',1,path);
+        ga('send',eo);       
+    });
+    $('#services-icons button, #team button').on('click',function(e) {
+        eo = createGaEvent(e.target.id,1,path);
+        ga('send',eo);       
+    });
+    $('#navbar-collapse a').on('click', function(e) {
+        var navitem = $(e.target).text().toLowerCase() + '-menuitem';
+        eo = createGaEvent(navitem,1,path);
+        ga('send',eo);        
+    });
+}
+
 function init() {
     var oldIE = detectIE();
     if (oldIE) {
@@ -561,10 +595,11 @@ function init() {
     resizeHandlers();
     adaptForMobile();
     arrowUpNoHashTag();
+    registerMouseClicks();
     $("#skype-call-anchor").prop('href', 'skype:infoCinc?call'); // skype href in js for seo friendliness
     document.addEventListener("touchstart", function() {}, false); // allow css active to work in safari
     setBarGraph();
-
+    
     registerMediaCallbacks();
     initDrops();
 }
