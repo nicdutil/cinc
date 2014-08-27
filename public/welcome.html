@@ -918,13 +918,16 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/vendor/scrollTo.min.js"></script>
 
-
     <script>
     var load = [
         //test avail of media query
         {
             test: window.matchMedia,
-            nope: "js/vendor/media.match.min.js"
+            nope: "js/vendor/matchMedia.min.js"
+        },
+        {
+            test: window.matchMedia.addListener,
+            nope: "js/vendor/matchMedia.addListener.min.js"
         },
         "js/vendor/enquire.min.js",
         "js/plugins.min.js",
@@ -933,6 +936,7 @@
     Modernizr.load(load);
     </script>
 
+   
     <!-- scroll depth ga plugin -->
     <script src="js/vendor/jquery.scrolldepth.min.js"></script>
     <script>
