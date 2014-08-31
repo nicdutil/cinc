@@ -164,7 +164,7 @@ function setBarGraphCtx(canvasId) {
         if (site_state === 'TABLET-PORTRAIT') {
             w = $('#screen-services-visual').width();
         } else {
-            w = 0.4 * $('#screen-services').width();
+            w = 0.3 * $('#screen-services').width();
         }
         h = CANVAS_RATIO * $('#screen-services').height();
     } else {
@@ -399,7 +399,7 @@ function resize() {
         if (mediaState === "TABLET-PORTRAIT") {
             w = $('#screen-services-visual').width();
         } else {
-            w = 0.4 * $('#screen-services').width();
+            w = 0.3 * $('#screen-services').width();
         }
         h = CANVAS_RATIO * $('#screen-services').height();
     } else {

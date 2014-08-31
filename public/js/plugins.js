@@ -19,8 +19,8 @@
 var carousels = {};
 var buttonSelected = {};
 
-var CAROUSEL_WAIT = minToMillis(1);
-var CAROUSEL_TIMEOUT = secToMillis(30);
+var CAROUSEL_WAIT = minToMillis(100);
+var CAROUSEL_TIMEOUT = secToMillis(300000);
 // accordeon collapse handler 
 
 function secToMillis(s) {
@@ -144,14 +144,13 @@ function hideSlide(n) {
         rollodex_curr = n = 0;
     }
 
+    $(selector).animate({
+        'opacity': '0'
+    }, 1000, function() {
+        $(selector).addClass('hide');
+    });
+
     showSlide(n + 1);
-    setTimeout(function() {
-        $(selector).animate({
-            'opacity': '0'
-        }, 1000, function() {
-            $(selector).addClass('hide');
-        });
-    }, 20);
 }
 
 function showSlide(n) {
@@ -162,7 +161,6 @@ function showSlide(n) {
     $(selector).animate({
         'opacity': '1'
     }, 1000);
-    //    $(selector).fadeIn();
 }
 
 function nextSlide() {
