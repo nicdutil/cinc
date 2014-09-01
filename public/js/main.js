@@ -351,7 +351,7 @@ var main_nav_anchors = [
 
 
 function registerScrollsTo() {
-  var media_state = queryMediaState();
+    var media_state = queryMediaState();
 
     $(main_nav_anchors.join()).scrollTo({
         speed: 800,
@@ -364,15 +364,15 @@ function registerScrollsTo() {
         offset: 0,
         easing: 'easeInOutCubic'
     });
-  
 
-  if (media_state !== 'MOBILE') {   
-    $(footer_anchors.join()).scrollTo({
-        speed: 1500,
-        offset: 0,
-        easing: 'easeInOutCubic'
-    });
-  }
+
+    if (media_state !== 'MOBILE') {
+        $(footer_anchors.join()).scrollTo({
+            speed: 1500,
+            offset: 0,
+            easing: 'easeInOutCubic'
+        });
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -528,12 +528,15 @@ function adaptForMobile() {
 }
 
 function initWayPoints() {
-    $('#services,#screen-method').waypoint(carouselHandler, {
-        offset: '50%'
-    });
+    $.getScript('js/vendor/waypoints.min.js', function() {
+        $.getScript('js/navws.min.js');
+        $('#services,#screen-method').waypoint(carouselHandler, {
+            offset: '50%'
+        });
 
-    $('#team').waypoint(teamHandler, {
-        offset: '50%'
+        $('#team').waypoint(teamHandler, {
+            offset: '50%'
+        });
     });
 };
 
@@ -544,20 +547,20 @@ function arrowUpNoHashTag() {
         var loc = window.location;
         window.location.href = '#';
         if (history.pushState) {
-           history.pushState("", document.title, loc.pathname);            
+            history.pushState("", document.title, loc.pathname);
         }
     });
 }
 
-function createGaEvent(label,value,url) {
+function createGaEvent(label, value, url) {
     e = {
-     'hitType' : 'event',
-     'eventCategory': 'button',
-     'eventAction' : 'click',
-     'eventLabel' : label,
-     'eventValue': value,
-     'page': url,
-     'nonInteraction': false
+        'hitType': 'event',
+        'eventCategory': 'button',
+        'eventAction': 'click',
+        'eventLabel': label,
+        'eventValue': value,
+        'page': url,
+        'nonInteraction': false
     }
     return e;
 }
@@ -565,43 +568,40 @@ function createGaEvent(label,value,url) {
 function registerMouseClicks() {
     var path = document.location.pathname;
     $('#lang-wrapper').on('click', function() {
-        eo = createGaEvent('lang-button',1,path);
-        ga('send',eo);
+        eo = createGaEvent('lang-button', 1, path);
+        ga('send', eo);
     });
-    $('.center-navigation').on('click',function() {
-        eo = createGaEvent('nav-button',1,path);
-        ga('send',eo);       
+    $('.center-navigation').on('click', function() {
+        eo = createGaEvent('nav-button', 1, path);
+        ga('send', eo);
     });
-    $('#services-icons button, #team button').on('click',function(e) {
-        eo = createGaEvent(e.target.id,1,path);
-        ga('send',eo);       
+    $('#services-icons button, #team button').on('click', function(e) {
+        eo = createGaEvent(e.target.id, 1, path);
+        ga('send', eo);
     });
     $('#navbar-collapse a').on('click', function(e) {
         var navitem = $(e.target).text().toLowerCase() + '-menuitem';
-        eo = createGaEvent(navitem,1,path);
-        ga('send',eo);        
+        eo = createGaEvent(navitem, 1, path);
+        ga('send', eo);
     });
 }
 
-function init() {
-    var oldIE = detectIE();
-    if (oldIE) {
-        return;
-    }
-    initWayPoints();
-    setResponsiveLine('#main-nav-1');
-    initSlider();
-    registerScrollsTo();
-    resizeHandlers();
-    adaptForMobile();
-    arrowUpNoHashTag();
-    registerMouseClicks();
-    $("#skype-call-anchor").prop('href', 'skype:infoCinc?call'); // skype href in js for seo friendliness
-    document.addEventListener("touchstart", function() {}, false); // allow css active to work in safari
-    setBarGraph();
-    
-    registerMediaCallbacks();
-    initDrops();
+
+function modernizrTests(complete) {
+    var load = [{
+            test: window.matchMedia,
+            nope: "js/vendor/matchMedia.min.js"
+        }, {
+            test: window.matchMedia.addListener,
+            nope: "js/vendor/matchMedia.addListener.min.js"
+        }, {
+            both: ['js/vendor/enquire.min.js', 'js/plugins.min.js'],
+            complete: function() {
+                complete();
+            }            
+        }
+    ];
+    Modernizr.load(load);
 }
 
 function detectIE() {
@@ -618,7 +618,51 @@ function detectIE() {
     return oldIE;
 }
 
-// on document ready... 
-$(function() {
-    init();
-});
+function initScrollsTo() {
+    $.getScript("js/vendor/scrollTo.min.js", function() {
+        registerScrollsTo();
+    });
+}
+
+function removeInvisible() {
+    $.getScript('js/vendor/imagesloaded.pkgd.min.js', function() {
+        imagesLoaded('#top', function() {
+            $('#main').removeClass('invisible');
+        });
+    });
+}
+
+function initScrollDepth() {
+    $.getScript('js/vendor/jquery.scrolldepth.min.js', function() {
+        $.scrollDepth();
+    });
+}
+
+function complete() {
+    setResponsiveLine('#main-nav-1');
+    initSlider();
+    resizeHandlers();
+    adaptForMobile();
+    arrowUpNoHashTag();
+    registerMouseClicks();
+    $("#skype-call-anchor").prop('href', 'skype:infoCinc?call'); // skype href in js for seo friendliness
+    document.addEventListener("touchstart", function() {}, false); // allow css active to work in safari
+    setBarGraph();
+    registerMediaCallbacks();
+    initDrops();
+    initScrollDepth();    
+}
+
++ function init() {
+    var oldIE = detectIE();
+    if (oldIE) {
+        return;
+    }
+
+    initScrollsTo();
+    initWayPoints();
+    removeInvisible();
+
+    modernizrTests(complete);
+
+}();
