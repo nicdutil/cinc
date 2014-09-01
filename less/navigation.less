@@ -1,4 +1,5 @@
 @import (reference) "variables.less";
+@import (reference) "utils.less";
 
 .sidebar {
   position: fixed;
@@ -40,6 +41,36 @@
   border:1px solid @orange;
 }
 
+
+.center-navigation {
+  position:relative;
+  z-index: 15;
+  text-align: center;
+  a {
+   .transition(@property:all);
+    display:block;
+    margin: 0px auto;
+    padding: 0;    
+    border: 1px solid;
+    width: 30px;
+    height: 30px;
+    span {
+       .transition(@property:all);
+      position: relative;
+      top: 5px;
+      font-size: 12px;
+    }
+  }
+/*  a:hover {
+    width: 50px;
+    height: 50px;
+    span {
+      top: 10px;
+      font-size: 25px;
+    }
+  }
+*/}
+
 #main-nav-1 {
   margin-top: 50px;
 }
@@ -49,30 +80,6 @@
 }
 #main-nav-2 {
   margin-top: 20px;
-}
-
-
-
-.center-navigation {
-
-  position:relative;
-  z-index: 15;
-  text-align: center;
-  a {
-    margin: 0px auto;
-    padding: 0;    
-    border: 1px solid;
-
-    display:block;
-    width: 30px;
-    height: 30px;
-    span {
-      position: relative;
-      top: 5px;
-      font-size: 12px;
-    }
-  }  
-
 }
 
 

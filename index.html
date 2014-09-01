@@ -74,9 +74,16 @@
         </div>
     </div>
     <!-- End Modals -->
-
+ 	<script>
+ 	  function touchHoverHack() {
+ 	  	var el = this;
+ 	  	var par = el.parentNode;
+ 	  	var next = el.nextSibling;
+ 	  	par.removeChild(el);
+ 	  	setTimeout(function() {par.insertBefore(el,next);},0);
+ 	  }
+ 	</script>
     <!-- Loader icon !-->
-
     <div id='main'>
         <script>
         var m = document.getElementById("main");
@@ -227,7 +234,7 @@
             </div>
 
         </section>
-        <div id="main-nav-1" class="center-navigation ">
+        <div id="main-nav-1" touchend="this.onclick=fix" class="center-navigation ">
             <a id="service-nav-anchor" href="#services-banner" class="btn btn-default">
                 <span class="glyphicon glyphicon-play rotate-90 white "></span>
             </a>
