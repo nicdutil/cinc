@@ -469,8 +469,8 @@ body {
 ////////////////////////////////////////////////////////////////////////////////////////
 #fixed-icons {
   position: fixed;
-  top: 40%;
-  right: 0px;  
+  top: 5%;
+  left: 0px;  
   z-index: 900;
   @media screen and (min-width:@screen-xs-min) {
   	top: 0%;
@@ -493,22 +493,22 @@ body {
     line-height: 25px;
   }
   @media screen and (min-width:320px) {
-    width: 50px;
-    height: 50px;
-    font-size: 40px;
+    width: 35px;
+    height: 35px;
+    font-size: 25px;
     span {
-      line-height: 50px;
+      line-height: 35px;
     }
   }
 }
 
 #mail-logo-wrapper {
   background: @blue;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 #phone-logo-wrapper {
-  background: @yellow;
+  background: @red;
 }
 
 #arrow-up {
@@ -516,7 +516,7 @@ body {
   text-align: center;
   background: #bebebe;
   opacity: 0.7;
-  margin-top: 15px;
+  margin-top: 10px;
   a {
     display: inline-block;
     line-height: 25px;
@@ -532,9 +532,9 @@ body {
     left: -1px;
   }
   @media screen and (min-width:320px) {
-    font-size: 30px;
+    font-size: 25px;
     a {
-      line-height: 50px;
+      line-height: 35px;
     }
   }
 }
@@ -547,13 +547,13 @@ body {
 ////////////////////////////////////////////////////////////////////////////////////////
 
 .mobile-break {
+  width: 100%;
+  height:75px;
+  margin: 0;
   border-top: 1px solid @lightGray;
   border-bottom: 1px solid @lightGray;
-  width: 100%;
   padding: 0;
-  margin: 20px 0;
   background: url('../img/tile.png');
-  height:75px;
 }
 
 .button-padding {
@@ -601,18 +601,15 @@ body {
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 .content-block {
-  padding: 0 4em;
+  padding: 15px 4em;
   padding-top: 0.5em;
 
   color: @midnight;
   letter-spacing: 0.1em;
   font-family: 'Dosis', sans-serif;
 
-  h2,h4 {
-    text-align: center;
-  }
-  p {
-    text-align: justify;
+  h2,h4,p {
+    text-align: left;
   }
 
   a {
@@ -621,7 +618,7 @@ body {
   span:not(.itemprop) {
     display: inline-block;
     font-size: 3.2em;
-    text-align: justify;
+    text-align: left;
     max-width: 270px;
   }
   h2 {
@@ -659,10 +656,12 @@ body {
     font-family: 'Lato', 'sans-serif';
     font-size: 3.5em;
     font-weight: bold;
+    text-align: left;
     letter-spacing: 0.1em;
-    text-align: center;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    margin-top: 35px;
+    margin-bottom: 15px;
   }
   ul {
     margin: 0.5em 0;
@@ -673,7 +672,7 @@ body {
     margin: 10px 0;
   }  
   @media screen and (min-width:@screen-xs-min) {
-    padding: 0 60px;
+    padding: 15px 60px;
   }
 
   @media screen and (min-width:@screen-sm-min) {
@@ -692,6 +691,7 @@ body {
       font-size: 2em;
      }
      h2 {
+      text-align: left;
       font-size: 2.4em;
      }
   }
@@ -707,8 +707,7 @@ body {
     	font-size: 1.8em;
     }
     h2,h4 {
-      text-align: left;
-
+      font-size: 2em;
     }
     ul {
       text-align: left;
@@ -719,6 +718,9 @@ body {
   	   margin-top: 0px;
   	   margin-bottom: 0px;
   	}
+  	h2 {
+  		font-size: 2.4em;
+  	}
   	p {
   		font-size: 2em;
   	}
@@ -726,15 +728,18 @@ body {
 }
 
 .button-caption {
-  text-align: center;
-  font-family: 'Dosis', sans-serif;    
-  font-size: 4em;   
+  position: relative;
+  top: -10px;
   margin: 0;
   margin-bottom: 20px;
+  font-family: 'Dosis', sans-serif;    
+  font-size: 4em;   
+  text-align: center;
   @media screen and (min-width:@screen-sm-min) {
+    top: 0;
     margin: 0;
     font-size: 2em;
-    text-shadow: 3px 3px 3px #AAA;
+    text-shadow: 3px 3px 3px #ccc;
   }
 }
 
@@ -888,28 +893,29 @@ body {
     img {
       width: 80%;
       border: 1px solid black;
-      -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.45);
-      -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.45);
-       box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.45);
-    }
-    @media screen and (min-width:@screen-xs-min) {
-    	img {
-    	  width: 100%;
-    	}
     }
   }
-  button:active {
-  	@media screen and (min-width:@screen-sm-min) {
+
+  @media screen and (min-width:@screen-xs-min) {
+  	 button img {
+  	 	width: 100%;
+  	 }
+  }
+  @media screen and (min-width:@screen-sm-min) {
+  	button img {
+      -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35) !important;
+      -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35) !important;
+       box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35) !important;
+  	}
+  	button:active {
       .shake;
-      border-bottom:4px solid @blue;  		
+      border-bottom:4px solid @blue;  		  		
+  	}
+  	button:focus {
+      border-bottom:4px solid @blue;  		  		
   	}
   }
 
-  button:focus {
-  	@media screen and (min-width:@screen-sm-min) {
-      border-bottom:4px solid @blue;  		
-  	}
-  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -1107,7 +1113,9 @@ body {
 /////////////////////////////////////////////////////////////////////////////////////////
 
 #services {
-  #website-photo {
+  #website-photo,#consult-photo,#excel-photo,#scrape-photo {
+  	margin-top: 35px;
+  	margin-bottom: 35px;
     position: relative;
     left: -1%;
   }
@@ -1116,7 +1124,6 @@ body {
       max-width: 400px;
   }
   #services-icons .col-sm-3 .content-block > div {
-  	margin-top: 20px;
   	margin-bottom: 20px;
   }
 }
@@ -1178,7 +1185,11 @@ body {
       padding-right: 30px;
       padding-left: 30px;
       > .row {
-      	left: 0px;
+      	left: 10px;
+      	> .service-column:nth-child(2) {
+      		position: relative;
+      		left: -20px;
+      	}
       }
     }
     img { 
@@ -1187,6 +1198,11 @@ body {
   }
 
   @media screen and (min-width:@screen-lg-min) {
+  	#screen-services-text {
+  	  > .row {
+  	  	left: 30px;
+  	  }
+  	}
     #screen-services-visual {
       left: 40px;
       margin-top: -122px;
@@ -1241,11 +1257,6 @@ body {
 
   }
 
-  .text-title { 
-    font-family: 'Open Sans Condensed', sans-serif !important;
-    margin-top: 20px;
-    margin-bottom: 15px;
-  }
 
   ul {
     font-size: 2.5em;
@@ -1366,6 +1377,9 @@ body {
     vertical-align: middle;
     margin-left: -0.5em;
   }
+  .text-title { 
+  	text-align: left;
+  }
 
   #screen-team-photo {
     text-align: center;
@@ -1373,7 +1387,7 @@ body {
 
     .member-photo {
         width: 20%;
-        max-width: 141px;    
+        max-width: 111px;    
     }
     .email-icon {
       width: 40px;
@@ -1389,22 +1403,22 @@ body {
     }
   }
   .text-title {
-  	margin-top: 20px;
-  	margin-bottom: 10px;
+  	font-family: 'Open Sans Condensed', sans-serif !important;
+  	margin-top: 35px;
+  	margin-bottom: 15px;
   }
   @media screen and (min-width:@screen-md-min) {
 
     #screen-team-text {
       .text-title {
-        text-align: left;
         margin-bottom: 20px;
         margin-top: 0px;
 
       }
     }
     #screen-team-photo .member-photo {
-      width: 30%;
-      max-width:113px;
+      width: 35%;
+      max-width:123px;
     }
   }
 

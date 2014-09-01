@@ -443,7 +443,7 @@ function setBarGraph() {
     var site_state = queryMediaState();
 
     if (site_state === 'TABLET-PORTRAIT') {
-        CANVAS_RATIO = 0.4;
+        CANVAS_RATIO = 0.30;
     } else {
         CANVAS_RATIO = 0.62;
     }
