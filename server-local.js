@@ -17,7 +17,7 @@ new compressor.minify({
 	type: 'gcc',
 	fileIn: ['public/js/vendor/jquery.easing.1.3.js','public/js/vendor/bootstrap.js',
 			 'public/js/common.js','public/js/vendor/scrollTo.js','public/js/vendor/waypoints.js',
-			 'public/js/vendor/imagesloaded.pkgd.js','public/js/vendor/jquery.scrolldepth.js',
+			 'public/js/vendor/jquery.scrolldepth.js',
 			 'public/js/drops.js', 'public/js/tablet.js','public/js/init.js'],
 	fileOut: 'public/js-dist/base-min.js',
 	callback: function(err,min) {
