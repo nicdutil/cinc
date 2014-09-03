@@ -739,6 +739,9 @@ body {
   font-family: 'Dosis', sans-serif;    
   font-size: 4em;   
   text-align: center;
+  @media screen and (min-width: 480px) {
+  	top: 0px;
+  }
   @media screen and (min-width:@screen-sm-min) {
     top: 0;
     margin: 0;
@@ -913,10 +916,6 @@ body {
   	}
   	button:active {
       .shake;
-      border-bottom:4px solid @blue;  		  		
-  	}
-  	button:focus {
-      border-bottom:4px solid @blue;  		  		
   	}
   }
 
@@ -987,9 +986,13 @@ body {
 //////////////////////////////////////////////////////////////////////////////////////////
 
 #margin-top {
-  height: 160px;
+  height: 54px;
   color: @white;
-  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
+  .transition(@property:height);
+  @media screen and (min-width:@screen-sm-min) {
+  	height: 160px;
+  }
+  @media screen and (min-width:@screen-lg-min)  {
    height: 180px;
   }
 }
@@ -1004,6 +1007,7 @@ body {
   text-align: center;
   padding-top: 5px;
   @media screen and (min-width:@screen-sm-min) {
+  	margin-top: 0px;
   	padding-top: 0px;
     padding-left: 15px;
     padding-right: 15px;
@@ -1015,6 +1019,7 @@ body {
 .ifc-container {
   width: 100%;
   margin: 0 auto;
+  .transition(@property:width);
   @media screen and (min-width:@screen-sm-min) {
     width: 744px;
   }

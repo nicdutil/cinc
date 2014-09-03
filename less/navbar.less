@@ -152,6 +152,8 @@
 
 
 #fixed-bar {
+  position:fixed;
+  top: 0px;
   width: 100%;
   z-index: 50;
   background: @black;
@@ -279,9 +281,6 @@
       border-top: 1px solid #bebebe;
       border-bottom: 1px solid #bebebe;
       margin-top: -1px;
-    }
-    a:hover {
-      background: @darkGray !important;
     }
     a:active,a:focus {
       background: @lightGray !important;
@@ -496,13 +495,14 @@
 
 .navbar-mini {
   margin-bottom: 0 !important;
-  opacity: 0.8;
   box-shadow: none !important;
   #lang-wrapper {
     display: none;
   }
-  
+  opacity: 0.9;
+
   @media screen and (min-width:@screen-sm-min) {  
+    opacity: 0.8;
     height: 54px !important;
     .title-description {
       height: 54px !important;
