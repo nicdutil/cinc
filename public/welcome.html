@@ -97,6 +97,16 @@
         </script>
 
         <div id="fb-root"></div>
+        <script>
+         (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=257336651130199&version=v2.0";
+          fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+        </script>
 
 
         <div id='fixed-icons'>
@@ -935,11 +945,7 @@
     ga('require', 'displayfeatures');
     ga('send', 'pageview');
     </script>
-   <!--[if IE]><script src="js/vendor/excanvas.min.js"></script><![endif]-->
-    <script type="text/javascript" src="js-dist/base-min.js"></script>
-
-
-  <!-- twitter button -->
+    <!-- twitter button -->
     <script>
     ! function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
@@ -953,17 +959,7 @@
     }(document, 'script', 'twitter-wjs');
     </script>
 
-    <script>
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=257336651130199&version=v2.0";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    </script>
-
+   
 
     <script type="text/javascript">
     window.___gcfg = {
@@ -980,6 +976,11 @@
     })();
     </script>
 
+   <!--[if IE]><script src="js/vendor/excanvas.min.js"></script><![endif]-->
+    <script type="text/javascript" src="js-dist/base-min.js"></script>
+
+
+  
 
   
   
