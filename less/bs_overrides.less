@@ -50,8 +50,12 @@ a {
   padding-right: 0px !important;
 }
 .btn-danger  {
-  border: none !important;
+//  border: none !important;
   background-color: @red !important;
-  &:extend(.noglow);
+  border-radius: 2px !important;
+//  &:extend(.noglow);
+}
+.btn-danger:active {
+  border: 1px solid @white;
 }
 

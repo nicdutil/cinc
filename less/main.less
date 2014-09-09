@@ -636,7 +636,7 @@ body {
   .service-column {
   	padding: 0px 15px;
   	p:nth-child(3) {
-  		margin-top: 5px;
+  		margin-top: 15px;
   	}
   }
   p {
@@ -968,7 +968,7 @@ body {
   }
 
   @media screen and (min-width: @screen-md-min) {
-    height: 420px; 
+    height: 502px; 
   }
 
   @media screen and (min-width:@screen-lg-min)  {
@@ -1307,29 +1307,38 @@ body {
 }
 
 
+.grayfilter {
+  @media screen and (min-width:@screen-sm-min) {
+     filter: grayscale(100%);
+     -webkit-filter: grayscale(100%);
+  }
+}
+
 #team {
   width: 90%;
   max-width: 1713px;
 
   .row {
-    margin-top: 3em;
+     margin-top: 3em;
 
-    > div {
-      text-align: center;
-      > button {
-        padding: 0;
-        display: none;
-        @media screen and (min-width:@screen-sm-min) {
-          display: block;
-        }
-        > img {
+      > div {
+       text-align: center;
+       > button {
+         display: none;
+         > img {
           width: 100%;
+         }
+         @media screen and (min-width:@screen-sm-min) {
+          display: block;
+         }
         }
-      }
 
       .img-placeholder {
         padding:1.5em;
         background: url('../img/polka-1-2.png') @white;
+        margin-top:0.8em;
+        width:84px;
+        height:84px;
       }
       #placeholder-1 {
         opacity: 0.9;
@@ -1343,8 +1352,6 @@ body {
       #placeholder-4 {
         opacity: 0.3;
       }
-
-
       .team-name {
         font-size: 2em;
       }
@@ -1364,7 +1371,6 @@ body {
         -ms-interpolation-mode: bicubic;
         width: 50px;
       }
-
     }
   }
 }
@@ -1446,93 +1452,261 @@ body {
 // Project Stylings
 ////////////////////////////////////////////////////////////////////////////////
 
+
+#project {
+	> div {
+		padding: 0 4em;
+	}
+	.caoursel img {
+		height: 220px;
+	}
+  .slide {
+	  max-width: 600px;
+	  margin: 0 auto;   	 
+  }
+}
+
 #screen-project {
-  &:before {
-    content:'';
-    height:100%;
-    display: inline-block;
+  position: relative;
+  display: none;
+  padding: 0;
+  .row {
+    display: table-cell;
     vertical-align: middle;
-    margin-left: -0.5em;
   }
-
-  text-align: center;
-
-  .project-wrapper {
-    display: inline-block;
-    vertical-align: middle;
-    margin-bottom: 40px;
-    figcaption {
-      padding-top: 5px;
-      font-family: 'Open Sans Condensed', sans-serif;
-      font-size: 3.5em;
-      letter-spacing: 0.1em;
-    }
-    h2,h3 {
-      font-family: 'Dosis', sans-serif;
-      padding-top: 5px;
-      padding-left: 15px;
-      padding-right: 15px;
-      font-size: 3.2em;
-    }
-    img {
-      width: 100%;
-      max-width: 190px;
-    }
+  .carousel {
+	  height: 100%;
   }
   
-
-  .img-placeholder {
-    padding:0em;
-    background: url('../img/polka-1-2.png') @white;
-    vertical-align: top !important;
-  }
-
-  .project:before {    
-    content:'';
-    height: 100%;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: -0.5em;    
-  }
-  
-  @media screen and (min-width:@screen-xs-min) {
-    .project-wrapper img {
-      width: 100%;
-      max-width: 240px;
-    }
+  .project-nav {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
   }
   @media screen and (min-width:@screen-sm-min) {
-    margin-top: 70px;
-    .project {
-      height: 176px;
-      margin-top: 2em;
-      margin-bottom: 2em;
-      > .project-wrapper {
-        margin-bottom: 0em;
-        img {
-          width: 190px;
-        }
-        figcaption {
-          font-size: 2em;
-        }
-        h2,h3 {
-          padding-top: 0em;
-          font-size: 1.4em;
-        }
-      }
+    display: table;
+  }
+}
+
+#screen-project,#project {
+  
+  @media screen and (min-width:@screen-wide-min) {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+  .slide {
+  	position:relative;
+  	@media screen and (min-width:@screen-sm-min) {
+       width: 569px;
+       margin: 0 auto;
+  	   max-width: 600px;
+  	}
+    @media screen and (min-width:@screen-md-min) {
+       width: auto;
+       max-width: none;
     }
   }
-  @media screen and (min-width:@screen-md-min) {
-    margin-top: 60px;
+
+  .row {
+  	margin-left: 0px;
+  	margin-right: 0px;
   }
-  
-  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
-    margin-top: 128px;
-    .project {
-      height: 220px;
-      > .project-wrapper img {
-        width: 237px;
+
+  .carousel {
+  	padding: 0;
+  	border: 1px solid black;
+    height: 100%;
+    
+ 	  img {
+		  width: 100%;
+
+		  @media screen and (min-width:@screen-sm-min) {
+   	  	height: 50%;			
+		  }
+		  @media screen and (min-width:@screen-md-min) {
+		   	margin-top: 20px;
+			  height:350px;
+		  }		
+		  @media screen and (min-width:@screen-lg-min) {
+		  	height:400px;
+		  }  		
+		  @media screen and (min-width:@screen-wide-min) {
+			  height:500px;
+		  }
+    }
+	
+
+    .carousel-control {
+		  position:absolute;
+		  top: 50%;
+		  margin-top: -15px;
+		  background: black;
+    	width: 30px;
+	  	height: 30px;
+      text-align: center;
+      @media screen and (min-width:@screen-sm-min) {
+        width: 50px;
+        height: 50px;
+        margin-top: -25px;
       }
+    	.control-arrow {
+        margin-top: 6px;
+        margin-bottom: 6px;        
+        width: 10px;
+        height: 18px;
+        @media screen and (min-width:@screen-sm-min) {
+          width: 21px;
+          height: 38px;
+        }
+    	}
+    }
+
+    .carousel-inner {
+    	.carousel-caption {
+    		position: absolute;
+    		top: 0px;
+    		right: 0px;
+    		bottom: initial;
+        left: initial;
+    		padding: 5px;
+    		background: black;
+    		opacity: 0.9;
+    		font-family: 'Open Sans Condensed', sans-serif;
+    		font-size: 12px;
+        @media screen and (min-width:320px) {
+          font-size: 15px;
+        }
+        @media screen and (min-width:@screen-sm-min) {
+          font-size: 20px;
+        }
+        @media screen and (min-width:@screen-md-min) {
+          font-size: 25px;
+        }
+       @media screen and (min-width:@screen-lg-min) {
+          font-size: 30px;
+        } 
+    	}
+    }
+    .carousel-indicators {
+    	text-align: right;
+      display: none;
+    	background: black;
+    	opacity: 0.9;
+    	width: 100%;
+    	left: 0px;
+    	bottom: 0px;
+    	margin: 0;
+    	li,li.active {
+		    margin: 5px 5px;
+    	}
+    	li:last-child {
+    	  margin-right: 10px;
+    	}
+      li.active {
+        width: 10px;
+        height: 10px;
+      }
+      @media screen and (min-width:@screen-xs-min) {
+        display: block;
+        height: 20px;
+      }
+    }
+    img {
+      padding: 0;
+    	margin: 0;
+    }
+  }
+
+  .project-overview {
+ 	  text-align: left;
+    padding: 20px 4em;
+
+   
+    .project-title {
+     	font-family: 'Lato', sans-serif;
+     	font-size: 15px;
+      color: @black;
+     	padding: 0px;
+     	margin: 0;
+     	border-top: 1px solid black;
+     	border-bottom: 1px solid black;
+      @media screen and (min-width:320px) {
+        font-size: 19px;
+      }
+      @media screen and (min-width:@screen-xs-min) {
+        font-size: 23px;
+      }
+
+     	@media screen and (min-width:@screen-md-min) {
+     		font-size: 21px;
+     	}
+      @media screen and (min-width:@screen-lg-min) {
+        font-size: 27px;
+      }
+     	@media screen and (min-width:@screen-wide-min) {
+     		font-size: 30px;
+     	}
+    }
+    
+    .project-description {
+      font-family: 'Dosis', sans-serif;
+      p {
+        margin: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      } 
+      p:first-child {
+        border-bottom: 1px solid black;
+      }
+      p span {
+        font-size: 14px;
+        @media screen and (min-width:320px) {
+          font-size: 18px;
+        }
+        @media screen and (min-width:@screen-xs-min) {
+          font-size: 20px;
+        }
+      }
+      ul {
+        margin: 0;
+        li {
+        	padding: 5px;
+        	font-style: italic;
+        }
+      }
+      
+      p, ul  {
+        font-size: 13px;
+        @media screen and (min-width:320px) {
+          font-size: 15px;
+        }
+        @media screen and (min-width:@screen-md-min) {
+        	font-size: 15px;
+        }
+        @media screen and (min-width:@screen-lg-min) {
+        	font-size: 18px;
+        }          
+      }
+    }
+    @media screen and (min-width:@screen-xs-min) {
+      padding: 20px 10em;
+    }
+    @media screen and (min-width:@screen-sm-min) {
+      padding: 0;
+      padding-top: 20px;
+    }
+    @media screen and (min-width:@screen-md-min) {
+      padding: 0;
+      padding-left: 15px;
+      padding-right:15px;
+    }
+    @media screen and (min-width:@screen-lg-min) {
+      padding: 0px 35px;
+    }
+    @media screen and (min-width:@screen-wide-min) {
+      padding: 0px 65px;
     }
   }
 }
