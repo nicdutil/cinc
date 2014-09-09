@@ -1309,8 +1309,13 @@ body {
 
 .grayfilter {
   @media screen and (min-width:@screen-sm-min) {
-     filter: grayscale(100%);
-     -webkit-filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: url('../img/grayscale.svg#greyscale');
+    filter: gray; /* IE 6-9 */
   }
 }
 
