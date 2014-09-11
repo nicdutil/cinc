@@ -31,6 +31,7 @@
 
 
 <body itemscope itemtype="http://schema.org/ProfessionalService">
+
     <!--[if lt IE 9]>
             <p class="chromeframe" >You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> </p>
         <![endif]-->
@@ -75,18 +76,7 @@
         m.className = 'invisible';
         </script>
 
-        <div id="fb-root"></div>
-        <script>
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/fr_CA/sdk.js#xfbml=1&appId=257336651130199&version=v2.0";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        </script>
-
+    
 
 
         <div id='fixed-icons'>
@@ -798,7 +788,7 @@
                 </div>
             </div>
             <div class="project-nav">
-                <button type="button" class="btn btn-danger">Projet suivant</button>
+                <button id='btn-next-proj' type="button" class="btn btn-danger">Projet suivant</button>
             </div>
         </section>
 
@@ -830,7 +820,8 @@
                         <img src="img/ilike.png" alt=" ilike"></img>
                         <figcaption>AIMEZ INFOCINC SUR FACEBOOK</figcaption>
                         <div class="social-button-wrapper">
-                            <div class="fb-like" data-href="http://www.infocinc.com" data-width="20" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+                              <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.infocinc.com&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=257336651130199" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true">
+                              </iframe>
                         </div>
                     </div>
                 </div>
@@ -983,8 +974,6 @@
     <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-2.1.0.min.js"<\/script>')
     </script>
-
-    <!--- google analytics -->
     <script>
     (function(i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -1003,7 +992,6 @@
     ga('require', 'displayfeatures');
     ga('send', 'pageview');
     </script>
-    <!-- twitter button -->
     <script>
     ! function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
@@ -1016,7 +1004,6 @@
         }
     }(document, 'script', 'twitter-wjs');
     </script>
-
     <script type="text/javascript">
     window.___gcfg = {
         lang: 'fr-CA',
@@ -1031,12 +1018,8 @@
         s.parentNode.insertBefore(po, s);
     })();
     </script>
-
     <!--[if IE]><script src="js/vendor/excanvas.min.js"></script><![endif]-->
     <script type="text/javascript" src="js-dist/base-min.js"></script>
-
-
-
 </body>
 
 </html>
