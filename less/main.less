@@ -338,11 +338,6 @@ a, button
 }
 
 
-a:hover, a:active, a:focus {
-  color: @red ;
-}
-
-
 button {
   padding: 0;
   border: none;
@@ -605,7 +600,7 @@ body {
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 .hover-underline {
- text-decoration: underline !important;
+  border-bottom: 2px solid ;
 }
 
 .content-block {
@@ -802,6 +797,8 @@ body {
     color: @white;
     a {
     	color:@blue;
+      display: inline-block;
+      border-bottom: 2px solid @blue;
     }
   }
 
@@ -1299,12 +1296,9 @@ body {
     left: 0px;
     display:inline-block;
   }
-  a:focus {
-    border: 1px solid @red;
-  }
 
-  a:active {
-        top: 3px;
+  a:active, a:focus {
+    top: 3px;
   }
 
   #social-badges {
@@ -1639,6 +1633,10 @@ body {
       a:hover {
         color: @blue !important;
       }
+      a {
+        display: inline-block;
+        line-height: 1;
+      }
       @media screen and (min-width:320px) {
         font-size: 19px;
       }
@@ -1774,9 +1772,6 @@ body {
       figcaption,a {
         color: @white ;
       }  
-      a:focus {
-        border: 1px solid @red;
-      }
       figcaption {
         padding: 0;
         font-family: 'Lato', sans-serif;
@@ -1881,7 +1876,6 @@ body {
   a:hover {
     color: @blue !important;
   }
-
   #footer-wrapper {
     background-color: @white;
     opacity: 0.95;
@@ -1987,9 +1981,14 @@ body {
       #small-prints {
         height: 80px;
       }
-      li a img:hover {
+      li a img:hover{
         .shake;
       }
+      li a:focus {
+        position: relative;
+        top: 5px;
+      }
+
     }
   }
 
