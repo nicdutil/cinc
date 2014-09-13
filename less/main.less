@@ -886,16 +886,7 @@ body {
 //////////////////////////////////////////////////////////////////////////////////////
 // Button styling for services, method, team sections
 ////////////////////////////////////////////////////////////////////////////////////////
-.grayfilter {
-  @media screen and (min-width:@screen-sm-min) {
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    filter: grayscale(100%);
-    filter: url('../img/grayscale.svg#greyscale');
-  }
-}
+
 
 .button-hover {
   border-bottom: 4px solid @blue;
@@ -1585,10 +1576,10 @@ body {
     .carousel-inner {
     	.carousel-caption {
     		position: absolute;
-    		top: 0px;
-    		right: 0px;
-    		bottom: auto;
-        left: auto;
+    		bottom: 0px;
+    		left: 0px;
+    		top: auto;
+        right: auto;
     		padding: 5px;
     		background: black;
     		opacity: 0.9;
