@@ -764,6 +764,8 @@ body {
   .bg-wrapper {
   	background: url('../img/congruent_pentagon.png') repeat;
   	border: 2px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
   .row > .p-wrapper{
   	background: @white;
@@ -771,6 +773,12 @@ body {
   	border: 1px solid @dark;
   }
 
+  span {
+    background: yellow;
+    color: @black;
+    font-style: italic;
+    line-height: 1.4;
+  }
 
   header,footer {
     border-top: 1px solid @dark;
@@ -793,12 +801,12 @@ body {
     color: #444;
     text-align: center;
     letter-spacing: 0.1em;
-    line-height: 1.2em !important;
+    line-height: 1.4 !important;
     color: @white;
     a {
     	color:@blue;
+      text-decoration: underline !important;
       display: inline;
-      border-bottom: 2px solid @blue;
     }
   }
 
@@ -818,7 +826,9 @@ body {
   
   @media screen and (min-width:@screen-sm-min) {
     .row:first-child {
-      padding: 50px 50px ;
+      padding: 50px;
+      padding-left: 10px;
+      padding-right: 10px;
     }
     .row > .p-wrapper {
        border-radius: 10px;
@@ -841,13 +851,13 @@ body {
     }
     p {
       letter-spacing: 0.05em;
-      padding: 25px 20px;
+      padding: 15px 20px;
     }
     p:nth-child(1),p:nth-child(3) {
-      padding-right: 100px;
+      padding-right: 350px;
     }
     p:nth-child(2),p:nth-child(4) {
-      padding-left: 100px;
+      padding-left: 350px;
     }   
   }
 
@@ -856,14 +866,14 @@ body {
      padding: 20px 10px;
     }
     p {
-      padding: 10px 25px;
+      padding: 10px 20px;
       letter-spacing: 0.1em;
     }
     p:nth-child(1),p:nth-child(3) {
-      padding-right: 300px;
+      padding-right: 460px;
     }
     p:nth-child(2),p:nth-child(4) {
-      padding-left: 300px;
+      padding-left: 470px;
     }
 
   }
@@ -875,8 +885,25 @@ body {
       font-size: 3.7em;
     }
     p {
-      padding: 20px 25px;
+      padding: 20px;
       font-size: 3.2em;
+    }
+    p:nth-child(1), p:nth-child(3) {
+      padding-right: 600px;
+    }
+    p:nth-child(2), p:nth-child(4) {
+      padding-left: 600px;
+    }
+  }
+  @media screen and (min-width:@screen-wide-min) {
+    p {
+      padding: 25px;
+    }
+    p:nth-child(1),p:nth-child(3) {
+      padding-right: 750px;
+    }
+    p:nth-child(2),p:nth-child(4) {
+      padding-left: 700px;
     }
   }
 }
@@ -952,7 +979,7 @@ body {
   -o-transition: opacity 1s cubic-bezier(.02, .01, .47, 1);
   position:relative;
   @media screen and (min-width:@screen-md-min)  {
-    top: -40px;
+    top: -60px;
   }
   @media screen and (min-width:@screen-lg-min)  {
     top: -40px;
@@ -969,7 +996,7 @@ body {
   padding-top: 2em;
     
   @media screen and (min-width: @screen-sm-min) {
-    height: 672px;
+    height: 684px;
   }
 
   @media screen and (min-width: @screen-md-min) {
@@ -1027,19 +1054,19 @@ body {
   margin: 0 auto;
   .transition(@property:width);
   @media screen and (min-width:@screen-sm-min) {
-    width: 744px;
+    width: 750px;
   }
   
  @media screen and (min-width:@screen-md-min) {
-   width: 900px;
+   width: 970px;
   }
 
   @media screen and (min-width:@screen-lg-min)   {
-    width: 1088px;
+    width: 1180px;
   }
 
   @media screen and (min-width:@screen-wide-min)  {
-    width: 1311px;
+    width: 1500px;
   }
 }
 
@@ -1055,16 +1082,13 @@ body {
     margin-bottom: 0.4em;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 3.5em;
-    letter-spacing: 0.2em;
-    text-shadow: 1px 1px 1px #AAA;
+    letter-spacing: 0.4em;
   } 
-
   height:200px;
-  border-bottom: 8px solid @white;
 
   @media screen and (min-width:@screen-xs-min) {
   	max-width: 640px;
-   height: 274px;
+    height: 274px;
   }
 
   @media screen and (min-width:@screen-sm-min) {
@@ -1077,7 +1101,18 @@ body {
     box-shadow: 5px 10px 30px 2px rgba(0,0,0,0.55);
     figcaption {
     	top: -3px;
+      left: 0px;
+      margin-left: 12px;
+      margin-right: 12px;
     }
+    figure:first-child figcaption {
+      text-align: left;
+    }
+    figure:last-child figcaption {
+      text-align: right;
+    }
+  
+     
   }
   
   @media screen and (min-width:@screen-lg-min)  {
@@ -1264,6 +1299,10 @@ body {
   p {
     font-family: 'Marck Script', cursive;
     margin-bottom:20px;
+    span {
+      background: black;
+      color: white;
+    }
   }
 
   ul li {
@@ -1305,6 +1344,10 @@ body {
       width: 45px;
     }
   }
+  #twitter-follow {
+    margin-top: 10px;
+  }
+
 
 }
 
@@ -1413,11 +1456,12 @@ body {
   #screen-team-text {
   	p{
       position:relative;
+      font-size: 2.1em;
     }
   }
   .text-title {
   	font-family: 'Open Sans Condensed', sans-serif !important;
-  	margin-top: 35px;
+  	margin-top: 15px;
   	margin-bottom: 15px;
   }
   @media screen and (min-width:@screen-md-min) {
@@ -1430,7 +1474,7 @@ body {
       }
     }
     #screen-team-photo .member-photo {
-      width: 35%;
+      width: 44%;
       max-width:123px;
     }
   }
