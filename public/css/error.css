@@ -1,0 +1,368 @@
+footer,
+nav,
+section,
+figure,
+figcaption,
+header
+{
+    display: block;
+}
+
+figure,figcaption {
+	-webkit-backface-visibility: hidden;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+
+canvas {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    font-size: 100%; /* 1 */
+    -ms-text-size-adjust: 100%; /* 2 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Address `font-family` inconsistency between `textarea` and other form
+ * elements.
+ */
+
+html,
+button {
+    font-family: sans-serif;
+}
+
+/**
+ * Address margins handled incorrectly in IE 6/7.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active, a:focus,
+a:hover {
+    outline: 0;
+}
+
+
+/**
+ * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+
+/**
+ * Address differences between Firefox and other browsers.
+ * Known issue: no IE 6/7 normalization.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+p {
+    margin: 1em 0;
+}
+
+
+
+
+
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+ul {
+    margin: 1em 0;
+}
+
+/**
+ * Address paddings set differently in IE 6/7.
+ */
+
+ul {
+    padding: 0 0 0 40px;
+}
+
+/**
+ * Correct list images handled incorrectly in IE 7.
+ */
+
+nav ul{
+    list-style: none;
+    list-style-image: none;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+
+button {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+button {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+    *overflow: visible;  /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled] {
+    cursor: default;
+}
+
+
+
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #888;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+canvas, img {
+    vertical-align: middle;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// Additional html stylings
+///////////////////////////////////////////////////////////////////////////////////////////
+
+a {
+  text-decoration: none !important;
+}
+
+a, button
+{
+    -ms-touch-action: manipulation; /* IE10  */
+    touch-action: manipulation;     /* IE11+ */
+}
+
+
+button {
+  padding: 0;
+  border: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: normal;
+  margin: 0 !important;
+}
+
+html, body{
+ position: relative;
+ z-index: 10;
+ width: 100% !important;
+ height: 100% !important;
+ margin: 0px !important;
+ padding: 0px !important;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+ -ms-touch-action: manipulation; // remove delay for windows Phones
+ touch-action: manipulation;  // remove delay for windows Phones
+}
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/lato-black-webfont.eot');
+    src: url('../fonts/lato-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url(https://themes.googleusercontent.com/static/fonts/lato/v7/BVtM30trf7q_jfqYeHfjtA.woff) format('woff'),
+         url('../fonts/lato-black-webfont.svg#latoblack') format('svg'),
+         url('../fonts/lato-black-webfont.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Marck Script';
+    src: url('../fonts/marckscript-regular-webfont.eot');
+    src: url('../fonts/marckscript-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url(https://themes.googleusercontent.com/static/fonts/marckscript/v5/O_D1NAZVOFOobLbVtW3bcnhCUOGz7vYGh680lGh-uXM.woff) format('woff'),
+         url('../fonts/marckscript-regular-webfont.svg#marck_scriptregular') format('svg'),
+         url('../fonts/marckscript-regular-webfont.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+img {
+ image-rendering:optimizeQuality !important;
+}
+
+@-ms-viewport{ width: auto !important; }
+
+body {
+  font-size: 6px !important; 
+  text-align: center;
+
+ // iphone
+  @media screen and (max-height: 480px) {
+    font-size: 5px !important;
+  }
+
+  // single column display, landscape mobile screen 
+  @media screen and (min-width:@screen-xs-min) {
+    font-size: 6px !important;
+  }
+  // tablet portrait and landscape  
+  @media screen and (min-width:@screen-sm-min) {
+    font-size: 8px !important;
+  }
+  // laptop, desktop 
+  @media screen and (min-width:@screen-wide-min) {
+    font-size: 10px !important;
+  }
+}
+
+h1 {
+    font-family: 'Verdana', sans-serif;
+    font-size: 4em;
+    text-align: center;
+    padding: 20px;
+}
+
+h2 {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    font-size: 3.5em;
+    padding: 20px;
+}
+img {
+    width: 40%;
+    max-width: 400px;
+}
+
+
