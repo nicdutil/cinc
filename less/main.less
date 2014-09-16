@@ -1923,26 +1923,30 @@ body {
     }
   
     .logo {
-      display: inline-block;
-      vertical-align: middle;
+      display: block;
       image-rendering:optimizeQuality;
       width: 45px;
       padding: 0 0.5em;
+      padding-bottom: 10px;
     }
   
     #footer-cinc {
       > ul > li:first-child {
       display: none;      
       }
+      > ul > li:nth-child(2) {
+        font-weight: bold;
+      }
+
       a {
         display: inline-block;
+        font-family: 'Dosis', sans-serif;
+        font-size: 12px;
       }
     }
 
     .brand-icons {
-      margin: 32px 0; 
-      margin-top: 0;
-      height: 48px;
+      margin: 20px 0; 
     }
 
     .brand-icons:before {
@@ -2000,14 +2004,21 @@ body {
     }
     #footer-wrapper {
       #footer-contact,#footer-cinc {
-        height: 270px;
+        margin-top: 40px;
+        margin-bottom: 20px;
       }
       #footer-cinc {
         > ul > li:first-child {
           display: block;
         }
+        > ul > li:nth-child(2) {
+          font-weight: normal;
+        }
         .brand-icons {
-          margin: 24px 0;
+          margin: 20px 0;
+        }
+        a {
+          font-size: 1.5em;
         }
       }
       .logo {
@@ -2027,8 +2038,15 @@ body {
     }
   }
 
-  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
+  @media screen and (min-width:@screen-lg-min)  {
     #footer-wrapper {
+      #footer-contact,#footer-cinc {
+        height: auto;
+        margin: 0;
+      }
+      #footer-cinc a {
+        font-size: 12px;
+      }
       >div:not(#small-prints) {
         height: auto;
       }
@@ -2040,7 +2058,27 @@ body {
       }
     }
   }
-}
+
+/*  @media screen and (min-width:@screen-wide-min)  {
+    #footer-wrapper {
+      #footer-contact,#footer-cinc {
+        height: auto;
+      }
+        a {
+          font-size: 12px;
+        }
+      >div:not(#small-prints) {
+        height: auto;
+      }
+      .logo {
+      width:64px;
+      }
+      #small-prints {
+        font-size: 1.5em;
+      }
+    }
+  }
+*/}
 
 
 
