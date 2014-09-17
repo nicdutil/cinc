@@ -594,7 +594,6 @@ body {
   .square-thumbnail;
 }
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // Panel Styling
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -756,7 +755,8 @@ body {
 
 .banner {
   background: url('../img/tile.png') right top #f2f4f7;
-  
+  z-index: 4;
+  position: relative;
   .row:first-child {
     padding: 30px 10px;
     margin: 0;
@@ -1972,6 +1972,9 @@ body {
       }
       span {
        padding: 1em 1.5em;
+      }
+      a {
+        margin-left: 15px;
       }
     }
   }
