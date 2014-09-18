@@ -16,6 +16,11 @@ app.get('/', function(req, res){
     res.sendfile('index.html');
 });
 
+app.get('/welcome_en.html', function(req,res) {
+	res.redirect(301, 'welcome.html');
+});
+
+
 app.use(function(req,res) {
     res.status(404);
     res.render('404.jade', {title_en: 'File Not Found', title_fr: 'Page non trouvée '});
