@@ -8,6 +8,10 @@ app.set('title', 'InfoCINC | Conception Sites Webs Adaptatifs | Minage | Visuali
 var halfHour = 1800000;  // cache control for shared and private caches
 
 app.use(express.compress());
+app.get('/welcome_en.html', function(req,res) {
+    res.redirect(301, '/welcome.html');
+});
+
 app.use(express.static(__dirname + '/public', { maxAge: halfHour }));
 
 
@@ -16,9 +20,6 @@ app.get('/', function(req, res){
     res.sendfile('index.html');
 });
 
-app.get('/welcome_en.html', function(req,res) {
-	res.redirect(301, 'welcome.html');
-});
 
 
 app.use(function(req,res) {

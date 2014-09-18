@@ -40,8 +40,13 @@ app.set('title', 'Infocinc | Création Sites Webs | Minage | Visualisation ');
 var oneDay = 86400000;
 
 app.use(express.compress());
-app.use(express.static(__dirname + '/public'));
 
+app.get('/welcome_en.html', function(req,res) {
+    console.log('hi');
+    res.redirect(301, '/welcome.html');
+});
+
+app.use(express.static(__dirname + '/public'));
 
 function get_geoloc(ip, complete) {
 
@@ -85,6 +90,8 @@ app.get('/', function(req, res) {
     	}
     });
 */});
+
+
 
 app.use(function(req,res) {
     res.status(404);
