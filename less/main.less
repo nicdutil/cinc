@@ -706,11 +706,11 @@ body {
   .sub-titles,.title {
     left: 0%;
     color: white;
+    text-align: center;
   }
  
   .big-text-wrapper {
-    top: 50px;
-    background: black;
+    background: rgba(0,0,0,0.7);
   } 
   .center-navigation {
     display: none;
@@ -720,6 +720,7 @@ body {
     position: relative;
   }
   .title {
+    display: none;
     font-size: 35px;
   }
   .sub-titles {
@@ -746,7 +747,8 @@ body {
     }
     .big-text-wrapper {
       padding: 10px 20px;
-      top: 100px;
+      top: initial;
+      bottom: 0px;
       padding-bottom: 5px;
     }
     .sub-titles {
@@ -774,9 +776,11 @@ body {
     background-position: 0% 5%;
     height: 510px;
     .title {
+      display: block;
       border-bottom: 4px solid white;
      }    
     .sub-titles,.title {
+      text-align: left;
       left: 45%;
     }
      .sub-titles {
