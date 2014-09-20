@@ -26,7 +26,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>Infocinc: Web Design - Consulting - Terrebonne, Montreal</title>
     <meta name="author" content="Infocinc">
-    <link rel="stylesheet" href="css/base-min.css" />
+    <!--     <link rel="stylesheet" href="css/base-min.css" />
+ -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css" />
+
     <link rel="alternate" href="http://www.infocinc.com" hreflang="fr-ca" />
     <link rel="alternate" href="http://www.infocinc.com/welcome.html" hreflang="en" />
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -42,7 +46,7 @@
 
     <meta name="description" content="Infocinc, located in Terrebonne, provides IT and consulting services: responsive website design, mobile web design, data mining." />
     <meta name="keywords" content="Infocinc, responsive web design, consulting, IT, Montreal, Laval, Terrebonne, data mining" />
-    <link href="https://plus.google.com/+Infocinc1" rel="publisher"/>
+    <link href="https://plus.google.com/+Infocinc1" rel="publisher" />
     <link rel="canonical" href="http://www.infocinc.com/welcome.html" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
@@ -50,7 +54,7 @@
 
 
 <body itemscope itemtype="http://schema.org/ProfessionalService">
-   <script>
+    <script>
     (function(i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function() {
@@ -68,7 +72,7 @@
     ga('require', 'displayfeatures');
     ga('send', 'pageview');
     </script>
-  <script type="text/javascript">
+    <script type="text/javascript">
     window.___gcfg = {
         lang: 'en-US',
         parsetags: 'onload'
@@ -86,894 +90,379 @@
             <p class="chromeframe" >You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> </p>
         <![endif]-->
 
-    <!-- Modals -->
-    <div class="modal fade" id="skypeCinc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body text-center">
-                    <ul>
-                        <li class="list-group-item">
-                            <strong>PREREQUISITES!</strong>
-                        </li>
-                        <li class="list-group-item"><a href="http://www.skype.com/en/download-skype/click-to-call"> Skype click to call extension</a>
-                        </li>
 
-                        <li class="list-group-item">Skype Application</li>
-                        <hr></hr>
-                        <li class="list-group-item">
-                            For Windows 8 desktop users, please download <a href="http://www.skype.com/en/download-skype/skype-for-computer"> Skype desktop.</a>
-                        </li>
-                        <li class="list-group-item">The native Skype app pre-installed with Windows 8 is not detected by the Skype click to call extension for Chrome.
-                        </li>
-                        <li class="list-group-item">I'm feeling lucky:</li>
-                    </ul>
-                    <div class="skype-call-wrapper text-center">
-                        <a id='skype-call-anchor' href="#">
-                            <span>CALL INFOCINC</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Modals -->
 
     <!-- Loader icon !-->
+    <div id='fixed-icons'>
+        <div id='phone-logo-wrapper' class="desktop-hide invisible">
+            <a id='phone-logo-anchor' href="tel:+14384966886">
+                <span class="glyphicon glyphicon-earphone"></span> 
+            </a>
+        </div>
 
-    <div id='main'>
-        <script>
-        var m = document.getElementById("main");
-        m.className = 'invisible';
-        </script>
+        <div id='mail-logo-wrapper' class="desktop-hide invisible">
+            <a id='mail-logo-anchor' href="mailto:info@infocinc.com?Subject=Contact">
+                <span class="glyphicon glyphicon-envelope"></span> 
+            </a>
+        </div>
+        <div id='arrow-up' class=' invisible'>
+            <a id='arrow-up-anchor' href="#">
+                <span class="glyphicon glyphicon-arrow-up"></span> 
+            </a>
 
-      
-        <div id='fixed-icons'>
-            <div id='phone-logo-wrapper' class="desktop-hide invisible">
-                <a id='phone-logo-anchor' href="tel:+14384966886">
-                    <span class="glyphicon glyphicon-earphone"></span>
-                </a>
+        </div>
+    </div>
+
+
+
+
+
+
+    <nav id='fixed-bar' class='clearfix'>
+        <div class='navbar-header'>
+            <button id='navbar-button' type='button' data-toggle="collapse" data-target="#navbar-collapse" class='navbar-toggle btn noglow background-none'>
+                <span class="icon-bar"></span> 
+                <span class="icon-bar"></span> 
+                <span class="icon-bar"></span> 
+                <span class="menu">Menu</span> 
+            </button>
+            <div class='navbar-brand text-center'>
+                <div class="logo">
+                    <span class="prefix">Info</span> 
+                    <span class="suffix">[IN[</span> 
+                </div>
             </div>
-            <div id='mail-logo-wrapper' class="desktop-hide invisible">
-                <a id='mail-logo-anchor' href="mailto:info@infocinc.com?Subject=Contact">
-                    <span class="glyphicon glyphicon-envelope"></span>
-                </a>
-            </div>
-            <div id='arrow-up' class='desktop-hide invisible'>
-                <a id='arrow-up-anchor' href="#fixed-bar">
-                    <span class="glyphicon glyphicon-arrow-up"></span>
-                </a>
+            <div class='empty-square desktop-hide'>
             </div>
         </div>
 
-     
-
-
-        <nav id='fixed-bar' class='clearfix'>
-            <div class='navbar-header'>
-                <button id='navbar-button' type='button' data-toggle="collapse" data-target="#navbar-collapse" class='navbar-toggle btn noglow background-none'>
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="menu">Menu</span>
-                </button>
-                <div class='navbar-brand text-center'>
-                    <h1>
-                        <span class="prefix">Info</span>
-                        <span class="suffix">[IN[</span>
-                    </h1>
-                </div>
-                <div class='empty-square desktop-hide'>
-                </div>
-            </div>
-
-            <div class="title-description">
-                <h2>TECHNOLOGY SERVICES AND CONSULTING</h2>
-            </div>
+        <div class="title-description">
+            SERVICES INFORMATIQUES ET CONSULTATION
+        </div>
 
 
 
-            <div id='navbar-collapse' class='bar-items collapse navbar-collapse'>
+        <div id='navbar-collapse' class='bar-items collapse navbar-collapse'>
+            <ul>
+                <a id="team-hero-anchor" class="nav-red-bg" href="#apropos-banner">
+                    <li class="nav-item ">ABOUT</li>
+                </a>
+                <a id="services-hero-anchor" class="nav-blue-bg" href="#services-web">
+                    <li class="nav-item ">WEBSITE</li>
+                </a>
+                <a id="project-hero-anchor" class="nav-green-bg" href="#services-consult">
+                    <li class="nav-item">CONSULTATION</li>
+                </a>
+                <a id="project-hero-anchor" class="nav-yellow-bg" href="#reviews">
+                    <li class="nav-item">TESTIMONY</li>
+                </a>
+                <a id="contact-hero-anchor" class="nav-orange-bg" href="#contact-banner">
+
+                    <li class="nav-item">CONTACT</li>
+                </a>
+                <a id="english-hero-anchor" class="nav-red-bg" href="/">
+                    <li class="nav-item">FRANÇAIS</li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+
+
+    <div id='top-background'>
+        <div class="big-text-wrapper">
+            <h1 class="title">INFOCINC</h1>
+            <div class="sub-titles mobile-hide">
                 <ul>
-                    <a id="services-hero-anchor" class="nav-blue-bg" href="#slide-one">
-                        <li class="nav-item ">SERVICES</li>
-                    </a>
-                    <a id="team-hero-anchor" class="nav-red-bg" href="#team-banner">
-                        <li class="nav-item ">ABOUT</li>
-                    </a>
-                    <a id="project-hero-anchor" class="nav-green-bg" href="#slide-four">
-                        <li class="nav-item">PORTFOLIO</li>
-                    </a>
-                    <a id="contact-hero-anchor" class="nav-orange-bg" href="#footer">
-                        <li class="nav-item">CONTACT</li>
-                    </a>
-                    <a id="french-hero-anchor" class="nav-yellow-bg desktop-hide" href="/">
-                        <li class="nav-item">FRANÇAIS</li>
-                    </a>
-
+                    <li>CREATIVE</li>
+                    <li>INTELLIGENT</li>
+                    <li>INNOVATOR</li>
                 </ul>
             </div>
-            <div id='lang-wrapper' class="mobile-hide">
-                <p> <a href='http://www.infocinc.com/' id='lang-anchor'>
-               FRANÇAIS</a>
+            <div class="sub-titles desktop-hide">
+                <ul>
+                    <li>SERVICES INFORMATIQUES ET CONSULTATION</li>
+                    <li>438 496-6886</li>
+                    <li>Terrebonne, Québec</li>
+            </div>
+
+        </div>
+        <div class="version">
+            VERSION 2.0
+        </div>
+        <div class="center-navigation">
+            <a id="top-nav-anchor" href="#apropos-banner">
+                <img src='img/arrow-down.png' alt="une flèche vers le bas">
+            </a>
+        </div>
+    </div>
+
+    <section id="apropos-banner" class="container-fluid banner ">
+        <div class="row">
+            <div class="p-wrapper">
+                <header>INFOCINC: INTELLIGENT CREATION</header>
+                <div class="bg-wrapper row" itemprop="description">
+                    <div class="col-md-6">
+                        <p>
+                            <span>Infocinc</span> is a young IT consulting company from Montreal. 
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            Our services are varied: website design, mobile optimization, automation...
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            The mission of Infocinc is simple: <span>design intelligent and creative solutions.</span>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                    <p>
+                    Our playgrounds: <span>web, databases, algorithms, operating systems...</span>
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="center-navigation">
+            <a id="slideone-nav-anchor" href="#services-web">
+                <img src='img/arrow-down.png' alt="une flèche vers le bas">
+            </a>
+        </div>
+    </section>
+
+
+
+
+    <section id="services-web" class="slide-services container-fluid ">
+        <h2 class="title text-right">
+            WEBSITE DESIGN
+        </h2>
+        <div id="scrape-photo" class="abs-image">
+            <img id="scrape-img" sizes="(min-width:1200px) 653px, (min-width:992px) 450px, (min-width:768px) 520px, (min-width:560px) 400px, 1vw" srcset="img/web-desktop.jpg 529px, img/web-desktop.jpg 653px, img/web-desktop.jpg 1041px" alt="minage de donnéees web">
+            </img>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-4 text-content">
+                <div class="row">
+                    <div class="col-md-6 underline">
+                        <p>LATEST TECHNOLOGIES:</p>
+                    </div>
+                    <div class="col-md-6 ">
+                        <p>
+                            <span class="emphasize">NODE.JS, KEYSTONE.JS, BOOSTRAP, HTML5</span> 
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 underline">
+                        <p>
+                           TECHNIQUES:
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            <span class="emphasize">RESPONSIVE DESIGN, RESS</span> 
+                        </p>
+                    </div>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 underline">
+                        <p>
+                          USER TRACKING:
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            <span class="emphasize">GOOGLE ANALYTICS, COOKIES, CUSTOM
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6 underline">
+                        <p>
+                            SITE UPDATING:
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            <span class="emphasize">MOBILE VERSION, RESPONSIVE DESIGN
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row soumission">
+                    <div class="col-md-6 col-md-offset-6">
+                        <p>
+                            <a id="soumission" href="#footer">
+                                <strong>Contact us</strong>
+                            </a>to get a quote.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="center-navigation ">
+            <a id="slidetwo-nav-anchor" href="#services-consult" class="invert">
+                <img src='img/arrow-down-black.png' alt="une flèche vers le bas">
+            </a>
+        </div>
+    </section>
+
+    <section id="services-consult" class="slide-services container-fluid ">
+        <h2 class="title text-left">
+            CONSULTATION
+        </h2>
+        <div class="row">
+            <div class="col-md-6 col-sm-offset-0 text-content">
+                <div class="row">
+                    <div class="col-md-6 underline">
+                        <p>OUR EXPERTISE:</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            <span class="emphasize">WEB TECHNOLOGIES, DATABASES, MODELING, ALGORITHMS, SYSTEM DEBUGGING
+                            </span> 
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 underline">
+                        <p>
+                            OUR SERVICES:
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            <span class="emphasize"></span> 
+                            TRAINING, RESEARCH AND DEVELOPMENT, PROTOTYPING
+                        </p>
+                    </div>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 underline">
+                        <p>
+                            OUR RATE:
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            <span class="emphasize">ON DEMAND
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div id="scrape-photo" class="abs-image">
+                <img id="scrape-img" sizes="(min-width:1200px) 600px, (min-width:992px) 450px, (min-width:768px) 520px, (min-width:560px) 400px, 1vw" srcset="img/consult-desktop.jpg 529px, img/consult-desktop.jpg 793px, img/consult-desktop.jpg 1041px" alt="minage de donnéees web">
+                </img>
+            </div>
+        </div>
+        <div class="center-navigation">
+            <a id="slidefour-nav-anchor" href="#reviews">
+                <img src='img/arrow-down.png' alt="une flèche vers le bas">
+            </a>
+        </div>
+    </section>
+
+
+    <section id="reviews" class="slide-services container-fluid ">
+        <h2 class="title text-right">
+            TESTIMONY
+        </h2>
+        <div class="row">
+
+            <div class="col-md-6 col-lg-4 col-lg-offset-2 text-content">
+                <p>Francine Sylvestre, NuAyre.</p>
+                <p>
+                    Our company NuAyre gave full confidence to Infocinc for the creation and implementation of our website. We are really pleased with the results. Infocinc is a trustworthy company with a creative team that listens to their clients and has a very open mind. They are always available for follow ups when necessary. It is with pleasure and confidence that I recommend this company to people with whom we do business.  
                 </p>
             </div>
-        </nav>
-
-    
-        <div id="margin-top"></div>
-
-        <section id="top" class="background-container container-fluid">
-            <div class="slider cadre text-center ifc-container">
-                <figure class="slide ">
-                    <img sizes="(min-width: 1600px) 1305px, (min-width:1200px) 1082px, (min-width:992px) 894px, (min-width:768px) 738px, 1vw" srcset="img/creative_sm.jpg 640px, img/creative_smd.jpg 768px, img/creative_md.jpg 1309px, img/creative_lg.jpg 1744px" alt="Abstract and colorful buildings seen through windows">
-                    </img>
-                    <figcaption>Imagination</figcaption>
-                </figure>
-                <figure class="slide">
-                    <img sizes="(min-width: 1600px) 1305px, (min-width:1200px) 1082px, (min-width:992px) 894px, (min-width:768px) 738px, 1vw" srcset="img/reflexive_sm.jpg 640px, img/reflexive_smd.jpg 768px, img/reflexive_md.jpg 1309px, img/reflexive_lg.jpg 1744px" alt="Windows that reflect the building">
-                    </img>
-                    <figcaption>Reflection</figcaption>
-                </figure>
-                <figure class="slide">
-                    <img sizes="(min-width: 1600px) 1305px, (min-width:1200px) 1082px, (min-width:992px) 894px, (min-width:768px) 738px, 1vw" srcset="img/origin_sm.jpg 640px, img/origin_smd.jpg 768px, img/origin_md.jpg 1309px, img/origin_lg.jpg 1744px" alt="Montreal city">
-                    </img>
-                    <figcaption>Construction</figcaption>
-                </figure>
+            <div class="col-md-6 col-lg-4 text-content">
+                <p>
+                    Jean-Marc Desharnais, Web Consultant.
+                </p>
+                <p>
+                    As a web specialist and consultant for the past three years, I often took advice with them to confirm my ideas and make sure of the accuracy of the data I use to advise my clients. Thanks to them, I'm always a step ahead of the others ! Thanks for innovating ! 
+                </p>
             </div>
-            <div class="title-description desktop-hide">
-                <h2>TECHNOLOGY SERVICES
-                    <br>AND CONSULTING</h2>
-                <ul>
-                    <li>
-                        <a href="tel:+14384966886"> 438 496-6886 </a>
-                    </li>
-                    <li>Terrebonne, Quebec</li>
-                </ul>
+        </div>
+        <div class="row portfolio">
+            <div class="col-md-5 col-lg-10 col-lg-offset-2 text-content">
+                <span>INFOCINC PROJECTS:</span>  <a href="http://www.nuayre.com">NuAyre</a>, <a href="http://www.centredentairemartindutil.com">Centre Dentaire Martin Dutil</a>, Cardio Tennis Canada, Markem Image Canada...
             </div>
-        </section>
-        <div id="main-nav-1" class="center-navigation">
-            <a id="service-nav-anchor" href="#services-banner">
-                <img src='img/arrow-down.png' alt="arrow down">
+        </div>
+        <div class="center-navigation">
+            <a id="slidefive-nav-anchor" class="invert" href="#contact-banner">
+                <img src='img/arrow-down-black.png' alt="une flèche vers le bas">
             </a>
-            <div class="responsive-line"></div>
         </div>
+    </section>
 
-
-        <section id="services-banner" class="container-fluid banner ">
-            <div class="ifc-container">
-                <div class="row">
-                    <div class="p-wrapper">
-                        <header class="extra-sm-padding">Infocinc: designer of ideas</header>
-                        <div class="bg-wrapper" itemprop="description">
-                            <p>
-                                <span>Infocinc</span> is a young company in the field of computing and IT.</p>
-                            <p>Our <a id="banner-anchor-service" href="#services"> services are varied</a>: website design, data mining and modeling, consultation...
-                            </p>
-                            <p>The mission of Infocinc is simple: 
-                                <span>design intelligent and creative technology experiences.</span>
-                            </p>
-                            <p>Our playgrounds: <span>web, databases, algorithms, operating systems...</span>
-                            </p>
-                        </div>
-                        <footer class="extra-sm-padding">Our services:</footer>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <section id="services" class="container-fluid ">
-
-            <div class='container'>
-                <div id="slide-one" class="slide-nav">
-                    <div class="v-line"></div>
-                    <div class="slide-box">
-                        <span>1</span>
-                    </div>
-                </div>
-
-                <div id='services-icons' class="row ">
-                    <div class="col-sm-3">
-                        <div class="button-padding desktop-hide"></div>
-                        <button id="website-button" type="button" class="noglow service-thumbnail services-click">
-                            <img id="website-img" src="img/www.png" alt="Web service button"></img>
-                        </button>
-                        <div class="button-caption">WEBSITES</div>
-                        <div id="website-text" class="content-block text-center">
-                            <script>
-                            var d = document.getElementById('website-text');
-                            d.className = d.className + ' desktop-hide';
-                            </script>
-                            <div class="row">
-                                <div class="col-sm-offset-1 col-sm-5 col-md-offset-3 col-md-4 service-column">
-                                    <h2>Website Design</h2>
-                                    <p>
-                                        <strong>Infocinc </strong>is on the cutting edge of web technologies: <a href="http://en.wikipedia.org/wiki/Responsive_web_design"> responsive design</a>, NodeJs http servers, Facebook and Google+ integration, rich snippets and more.
-                                    </p>
-                                    <p>We also offer to track the behavior of your users using Google Analytics and custom-made scripts.
-                                    </p>
-                                    <p class="extra">Responsive design is <a href="https://developers.google.com/webmasters/smartphone-sites/details">Google's recommended configuration</a> for smartphone-optimized websites.
-                                    </p>
-                                    <div id="website-photo" class="desktop-hide text-center">
-                                        <img id="website-img" sizes="(min-width:1200px) 600px, (min-width:992px) 450px, (min-width:768px) 520px, (min-width:560px) 400px, 1vw" srcset="img/responsive_sm.jpg 529px, img/responsive_md.jpg 793px, img/responsive_lg.png 1041px" alt="Responsive web design">
-                                        </img>
-                                    </div>
-                                </div>
-                                <div class="col-sm-offset-1 col-sm-5 col-md-4 service-column">
-                                    <h2>Mobile Optimization</h2>
-                                    <p>
-                                        A bad mobile experience makes users less likely to engage with your company.
-                                    </p>
-                                    <p>
-                                        <strong>Infocinc </strong>improves your website's image and the layout of its content on mobile devices and tablet computers.
-                                    </p>
-                                    <p class="extra">
-                                        According to a <a href="http://googlemobileads.blogspot.ca/2012/09/mobile-friendly-sites-turn-visitors.html">survey by Google</a>, 67% of mobile users are more likely to buy products or services on a mobile-friendly site.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class='mobile-break desktop-hide'></div>
-
-                    <div class="col-sm-3">
-                        <div class="button-padding desktop-hide"></div>
-
-                        <button id="scrape-button" type="button" class="noglow service-thumbnail services-click">
-                            <img id="scrape-img" src="img/scrape.png" alt="Data mining service button" class="grayfilter"></img>
-                        </button>
-
-                        <div class="button-caption">MINING</div>
-
-                        <div id="scrape-text" class="content-block text-center">
-                            <script>
-                            var d = document.getElementById('scrape-text');
-                            d.className = d.className + ' desktop-hide';
-                            </script>
-                            <div class="row">
-                                <div class="col-sm-offset-1 col-sm-5 col-md-offset-3 col-md-4 service-column">
-                                    <h2>Web Scraping</h2>
-                                    <p>
-                                        A scraper is a small computer program that extracts information from websites.</p>
-                                    <p>
-                                        <strong>Infocinc </strong>offers its expertise with data integration solutions such as <a href="http://kapowsoftware.com/products/kapow-katalyst/">Kapow Katalyst</a>. We design robots and automate their execution for your data extraction jobs.
-                                    </p>
-                                    <p class="extra">This software is used by many corporations in the financial sector and the automobile industry.
-                                    </p>
-                                    <div id="scrape-photo" class="desktop-hide text-center">
-                                        <img id="scrape-img" sizes="(min-width:1200px) 600px, (min-width:992px) 450px, (min-width:768px) 520px, (min-width:560px) 400px, 1vw" srcset="img/miners_sm.jpg 529px, img/miners_md.jpg 793px, img/miners_lg.png 1041px" alt="Two robots mining data">
-                                        </img>
-                                    </div>
-                                </div>
-                                <div class="col-sm-offset-1 col-sm-5 col-md-4 service-column">
-                                    <h2>Data Analysis</h2>
-                                    <p>
-                                        It is important to interpret business data correctly.
-                                        <strong>Infocinc </strong>offers its expertise with the <a href="http://kx.com/kdb-plus.php"> KDB+</a> columnar database and its <a href="http://en.wikipedia.org/wiki/Q_(programming_language_from_Kx_Systems)">proprietary language Q</a> to build you a suite of analytics.
-                                    </p>
-                                    <p class="extra">KDB+ and Q are widely used by the financial sector and other industries to process in realtime billions of records.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='mobile-break desktop-hide'></div>
-
-                    <div class="col-sm-3">
-                        <div class="button-padding desktop-hide"></div>
-
-                        <button id="excel-button" type="button" class="noglow service-thumbnail services-click">
-                            <img id="excel-img" src="img/visualize.png" alt="Visualization service button" class="grayfilter"></img>
-                        </button>
-
-                        <div class="button-caption">VISUALIZATION</div>
-
-                        <div id="excel-text" class="content-block text-center">
-                            <script>
-                            var d = document.getElementById('excel-text');
-                            d.className = d.className + ' desktop-hide';
-                            </script>
-                            <div class="row">
-                                <div class="col-sm-offset-1 col-sm-5 col-md-offset-3 col-md-4 service-column">
-                                    <h2>Custom Dashboards</h2>
-                                    <p>
-                                        Data visualization is essential to establish trends and identify explanatory models (e.g. mixture of Gaussians, decision trees, Bayesian nets).
-                                    </p>
-                                    <p>
-                                        <strong>Infocinc </strong>has expertise in web technologies and modeling techniques (e.g. logistic regression, neural nets, clustering). We offer to build you a web application for viewing your data from any of your devices.
-                                    </p>
-                                    <div id="excel-photo" class="desktop-hide text-center">
-                                        <div id='excel-wrapper-canvas'>
-                                            <canvas id='excel-canvas'>
-                                            </canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-offset-1 col-sm-5 col-md-4 service-column">
-                                    <h2>Excel Automation</h2>
-                                    <p>
-                                        An alternative to visualizing your data on the web, use the power and maturity of Excel for building intelligent reports based on the data you carefully collected.
-                                    </p>
-                                    <p>
-                                        <strong>Infocinc </strong>offers automation of your reports using VBA macros and Excel's configurable external data connections.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='mobile-break desktop-hide'></div>
-                    <div class="col-sm-3">
-                        <div class="button-padding desktop-hide"></div>
-                        <button id="consult-button" type="button" class="noglow service-thumbnail services-click">
-                            <img id="consult-img" src="img/light.png" alt="Consulting service button"class="grayfilter"></img>
-                        </button>
-                        <div class="button-caption">CONSULTATION</div>
-                        <div id="consult-text" class="content-block text-center">
-                            <script>
-                            var d = document.getElementById('consult-text');
-                            d.className = d.className + ' desktop-hide';
-                            </script>
-                            <div class="row">
-                                <div class="col-sm-offset-1 col-sm-5 col-md-offset-3 col-md-4 service-column">
-                                    <h2>Technical Assistance</h2>
-                                    <p>
-                                        Do you need to clarify certain technical issues about your next project ? We offer help to resolve your technical problems: software bugs, system crashes, viruses, choice of hardware etc.
-                                    </p>
-                                    <p>Our experience in problem solving allows us to approach less familiar areas of knowledge with confidence. Do not hesitate to <a id="consult-anchor" href="#footer">contact us</a> for help with your current technical difficulties.
-                                        <strong>Infocinc </strong>can build custom software solutions if the situation arises.
-                                    </p>
-                                    <div id="consult-photo" class="desktop-hide text-center">
-                                        <img id="website-img" sizes="(min-width:1200px) 600px, (min-width:992px) 450px, (min-width:768px) 520px, (min-width:560px) 400px, 1vw" srcset="img/maze_sm.jpg 529px, img/maze_md.jpg 793px, img/maze_lg.jpg 1041px" alt="Steam machine that is complex to fix">
-                                        </img>
-                                    </div>
-                                </div>
-                                <div class="col-sm-offset-1 col-sm-5 col-md-4 service-column">
-                                    <h2>Custom Solutions</h2>
-                                    <p>
-                                        Coming soon.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div id='screen-services' class="container-fluid mobile-hide box ">
-            <div class="row ">
-                <div id='screen-services-visual'>
-                    <div id='screen-services-photo'>
-                    </div>
-                    <div id='screen-canvas-wrapper' class="hide">
-                        <canvas id='screen-canvas'></canvas>
-                    </div>
-
-                </div>
-                <div id='screen-services-text' class="content-block col-md-offset-2 col-md-10 col-lg-offset-3 col-lg-9">
-                </div>
-            </div>
-        </div>
-
-
-        <div id="main-nav-2" class="center-navigation">
-            <div>
-                <a id="team-nav-anchor" href="#team-banner">
-                    <img src='img/arrow-down.png' alt='arrow down'>
-                </a>
-                <div class="v-md-line"></div>
-            </div>
-        </div>
-
-
-        <section id="team-banner" class="container-fluid banner">
-            <div class="ifc-container">
-                <div class="row">
-                    <div class="p-wrapper">
-                        <header class="text-center extra-sm-padding">
-                            Infocinc: Partner of Choice
-                        </header>
-                        <div class="bg-wrapper">
-                            <p>
-                                <span>Infocinc</span> is a small company based on <a id="team-banner-anchor" href="#team">several years of expertise</a> in the field of computer science.
-                            </p>
-                            <p>The size of our company is small, but the <span>ideas are many.</span>
-                            </p>
-                            <p>Our identity is well defined: <span>we are conceptors.</span>
-                            </p>
-                            <p>
-                            Our values: <span>quality of work, intelligence, innovation and communication.</span>
-                            </p> 
-                        </div>
-                        <footer class="text-center extra-sm-padding">
-                            The founders:
-                        </footer>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <section id="team" class="container-fluid ">
-
-            <div id='slide-three' class="slide-nav">
-                <div class="v-line"></div>
-                <div class="slide-box">
-                    <span>2</span>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-2" itemscope itemtype="http://schema.org/Person">
-                    <button id='nic-button' type="button" class="noglow team-click team-thumbnail mobile-hide selected-button">
-                        <img itemprop="image" id='nic-img' src="img/facenic.jpg" alt='Face of Nicolas Dutil'></img>
-                    </button>
-                    <div class="button-caption mobile-hide">Nicolas</div>
-
-                    <div id="nic-photo" class="desktop-hide">
-                        <img id="nic-1" class="member-photo" sizes="(min-width:768px) 137px, (min-width:321px) 40px, 0.3vw" srcset="img/nicsm.gif 100px, img/nicmd.gif 132px, img/niclg.gif 182px" alt="Artistic portrait of Nicolas Dutil">
-                        </img>
-
-                        <ul>
-                            <li>
-                                <span class="team-name" itemprop="name">Nicolas Dutil</span>
-                            </li>
-                            <li>
-                                <span>Conceptor</span>
-                            </li>
-                        </ul>
-                        <div id="social-badges">
-                            <a href="//plus.google.com/101661497738886796076?prsrc=3" target="_blank" style="text-decoration:none;">
-                                <span itemprop="email" class="hide">Nicolas.Dutil@infocinc.com</span>
-                                <img id="googleplus-badge" src="//ssl.gstatic.com/images/icons/gplus-64.png" alt="Google+" />
-                            </a>
-                            <a href="//twitter.com/NicolasDutil1" target="_blank" style="text-decoration:none;">
-                                <img id="twitter-badge" src="img/twitter_badge.png" alt="Twitter" />
-                            </a>
-                        </div>
-                        <a id='twitter-follow' href="https://twitter.com/NicolasDutil1" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false">Follow @NicolasDutil1</a>
-                    </div>
-
-                    <div id="nic-text" class="content-block text-center">
-                        <script>
-                        var d = document.getElementById('nic-text');
-                        d.className = d.className + ' desktop-hide';
-                        </script>
-                        <div class='text-title'>My journey</div>
-                        <p itemprop="description">
-                            I received my M.Sc. and Ph.D degrees in computer science from McGill University in 2003 and 2011. I started my professional career as a kernel engineer at Nexsan Technologies. Then, I moved to the financial services giant Morgan Stanley as a technology associate.
-                            </p> 
-                            <p>
-                            My passion for creation began with the Logo programming language at the age of twelve. <span itemprop="worksFor" class="itemprop">Infocinc</span> is a return to my roots: explore new ideas and conceptualize them using technology.  
-                            </p>
-                    </div>
-                </div>
-
-                <div class="col-sm-2" itemscope itemtype="http://schema.org/Person">
-                    <button id="mel-button" class="noglow team-click img-profile team-thumbnail mobile-hide">
-                        <img itemprop="image" id="mel-img" src="img/facemel.jpg" alt="Face of Melanie Bertrand" class="grayfilter"></img>
-                    </button>
-                    <div class="button-caption mobile-hide">Melanie</div>
-
-                    <div id="mel-photo" class="desktop-hide">
-                        <img id="nic-1" class="member-photo" sizes="(min-width:768px) 137px, (min-width:321px) 40px, 0.3vw" srcset="img/melsm.gif 100px, img/melmd.gif 132px, img/mellg.gif 182px" alt="Artistic portrait of Melanie Bertrand">
-                        </img>
-
-                        <ul>
-                            <li>
-                                <span itemprop="name" class="team-name">Melanie Bertrand</span>
-                            </li>
-                            <li>
-                                <span></span>
-                                <span itemprop="jobTitle">Public Relations</span>
-                            </li>
-                        </ul>
-
-                        <div id="social-badges">
-                            <a href="//plus.google.com/101167237243257115048?prsrc=3" target="_blank" style="text-decoration:none;">
-                                <span itemprop="email" class="hide">Melanie.Bertrand@infocinc.com</span>
-                                <img src="//ssl.gstatic.com/images/icons/gplus-64.png" alt="Google+" />
-                            </a>
-                        </div>
-                    </div>
-                    <div id="mel-text" class="content-block text-center">
-                        <script>
-                        var d = document.getElementById('mel-text');
-                        d.className = d.className + ' desktop-hide';
-                        </script>
-                        <div class='text-title'>My role</div>
-                        <p itemprop="description">
-                            Melanie has a growing role as a co-founder of
-                            <span itemprop="worksFor" class="itemprop">Infocinc</span>. Active on social networks, she communicates the services offered by our company. She is also an avid websurfer, and regularly performs a series of smoke testing while projects are ongoing. Her empathy for others is an exceptional quality that guides us to improve the presentation of our services. Melanie is valued for her softness and calm. 
-                            </p>
-                            <p>Melanie is an indispensable resource for the proper operation of our business.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-2 mobile-hide">
-                    <div id='placeholder-1' class="team-thumbnail img-placeholder"></div>
-                </div>
-                <div class="col-sm-2 mobile-hide">
-                    <div id='placeholder-2' class="team-thumbnail img-placeholder"></div>
-                </div>
-                <div class="col-sm-2 mobile-hide">
-                    <div id='placeholder-3' class="team-thumbnail img-placeholder"></div>
-                </div>
-                <div class="col-sm-2 mobile-hide">
-                    <div id='placeholder-4' class="team-thumbnail img-placeholder"></div>
-                </div>
-            </div>
-        </section>
-        <section id='screen-team' class="mobile-hide container-fluid box ">
-            <div id="bubbles-wrapper" class='mobile-hide'>
-                <canvas id="bubbles"></canvas>
-            </div>
-
-            <div class="screen-wrapper row">
-                <div id='screen-team-photo' class="col-md-4 col-md-offset-1 col-lg-4 col-lg-offset-1">
-                </div>
-                <div id='screen-team-text' class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-1 col-lg-offset-1 col-lg-5 content-block">
-                </div>
-            </div>
-        </section>
-
-
-        <div id="main-nav-4" class="center-navigation">
-            <div>
-                <a id="team-nav-anchor" href="#project-banner">
-                    <img src='img/arrow-down.png' alt='arrow down'>
-                </a>
-                <div class="v-md-line"></div>
-            </div>
-        </div>
-
-
-        <section id="project-banner" class="container-fluid banner">
-            <div class="ifc-container">
-                <div class="row">
-                    <div class="p-wrapper">
-                        <header class="extra-sm-padding">
-                            Contact Us
-                        </header>
-                        <div class="bg-wrapper">
-                            <p>
-                                <span>Infocinc</span> wants to hear about your next projects.
-                                <span>
-                                    We want new challenges.</span>
-                            </p>
-                            <p>Contact us at <a href="mailto:info@infocinc.com">info@infocinc.com</a> to discuss how we can improve your business.
-                                <p>
-                                    <span>Infocinc</span> offices are currently located in Terrebonne, Quebec.</span>
-                                </p>
-                                <p><span>Follow us</span> on <a target="_blank" href="//twitter.com/InfoCinc">Twitter</a>, <a target="_blank" href="//facebook.com/Infocinc">Facebook</a> and <a target="_blank" href="//plus.google.com/+Infocinc1">Google+</a> to keep up with the latest events.
-                                </p>
-                        </div>
-                        <footer class="extra-sm-padding">
-                            Our portfolio:
-                        </footer>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div id="slide-four" class="slide-nav">
-            <div class="v-line"></div>
-            <div class="slide-box">
-                <span>3</span>
-            </div>
-        </div>
-
-    <section id='project' class='container-fluid desktop-hide'>
-            <div id='nuayre-project'>
-                <div id='nuayre-carousel' class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img sizes="(min-width:768px) 567px, 1vw" srcset="img/nuayre_carousel_3_en_sm.jpg 382px, img/nuayre_carousel_3_en.jpg 975px" alt="Facebook page of NuAyre">           
-                            <div class="carousel-caption">
-                                 <a href="http://www.facebook.com/NuAyre" target="_blank"> www.facebook.com/NuAyre </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img sizes="(min-width:768px) 567px, 1vw" srcset="img/nuayre_carousel_1_sm.jpg 382px, img/nuayre_carousel_1.jpg 975px" alt="Image for a Facebook Photo Ad">
-                            <div class="carousel-caption">
-                                Facebook Ad
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img sizes="(min-width:768px) 567px, 1vw" srcset="img/nuayre_carousel_2_sm.jpg 382px, img/nuayre_carousel_2.jpg 975px" alt="Responsive website design for NuAyre">                  
-                            <div class="carousel-caption">
-                            <a href="http://nuayre.com" target="_blank"> www.nuayre.com </a>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="left carousel-control" href="#nuayre-carousel" role="button" data-slide="prev">
-                        <img src='img/left-arrow.png' class="control-arrow">
-                    </a>
-                    <a class="right carousel-control" href="#nuayre-carousel" role="button" data-slide="next">
-                        <img src='img/right-arrow.png' class="control-arrow">
-                    </a>
-                </div>
-                <div class="project-overview">
-                    <div class="project-title">
-                       <a href="http://www.nuayre.com"> NuAyre </a>
-
-                    </div>
-                    <div class="project-description">
+    <section id="contact-banner" class="container-fluid banner">
+        <div class="row">
+            <div class="p-wrapper">
+                <header>
+                    CONTACT US
+                </header>
+                <div class="bg-wrapper row">
+                    <div class="col-md-6">
                         <p>
-                           Odor eliminators that smell good without carcinogens. The company is located in Laval, Qc and manufactures UL 296 EcoLogo certified products, an environmental choice. 
+                            <span>Infocinc</span>  wants to hear about your next projects. 
+                            <span>
+                            We want new challenges.
+                            </span> 
                         </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Call us at <span>438-496-6886</span> 
+                            to discuss how we can improve your business.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
                         <p>
-                            <span class="bold">Our collaboration to NuAyre's web strategy:</span>
-                            <ul>
-                                <li>A fully responsive website theme.</li>
-                                <li>Facebook and Google+ pages.</li>
-                                <li>Facebook Photo Ad seen by more than 100K people.</li>
-                                <li>Google Analytics monthly reports.</li>
-                            </ul>
+                            Our values:
+                            <span>quality of work, intelligence, innovation and communication.</span> 
                         </p>
                     </div>
-                </div>
-            </div>    
-            <div id='cdm-project'>
-                <div id="cdm-carousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="item active">
-                             <img sizes="(min-width:768px) 567px, 1vw" srcset="img/cdm_carousel_1_sm.jpg 382px, img/cdm_carousel_1.jpg 975px" alt="Mobile version of centre dentaire martin dutil">
-                            <div class="carousel-caption">
-                                Mobile Version
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img sizes="(min-width:768px) 567px, 1vw" srcset="img/cdm_carousel_2_sm.jpg 382px, img/cdm_carousel_2.jpg 975px" alt="Responsive web design">
-                            <div class="carousel-caption">
-                                Responsive Design
-                            </div>
-                        </div>
-                    </div>
-                    <a class="left carousel-control" href="#cdm-carousel" role="button" data-slide="prev">
-                        <img src='img/left-arrow.png' class="control-arrow" alt='arrow down'>
-                    </a>
-                    <a class="right carousel-control" href="#cdm-carousel" role="button" data-slide="next">
-                        <img src='img/right-arrow.png' class="control-arrow" alt='arrow down'>
-                    </a>
-                </div>
-                <div class="project-overview">
-                    <div class="project-title">
-                        <a href="http://centredentairemartindutil.com">
-                        Centre Dentaire Martin Dutil
-                        </a>
-                    </div>
-                    <div class="project-description">
+                    <div class="col-md-6">
                         <p>
-                            The Martin Dutil Dental Clinic is well established in the district of Ahuntsic since 19XX. A wide range of dental services are offered including teeth whitening and dental implants.
-                        </p>
-                        <p>
-                            <span class="bold">Our services for this project:</span>
-                            <ul>
-                                <li>HTML/CSS optimization using Bootstrap 3.0.</li>
-                                <li>A responsive design.</li>
-                                <li>Youtube channel - website integration.</li>
-                                <li>Google Analytics monthly reports.</li>
-                            </ul>
+                            <span>Follow us</span> on <a target="_blank" href="//twitter.com/InfoCinc">Twitter</a>, <a target="_blank" href="//facebook.com/Infocinc">Facebook</a> et <a target="_blank" href="//plus.google.com/+Infocinc1">Google+</a>.
                         </p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id='screen-project' class="mobile-hide container-fluid box ">
-            <div class="row">
-                <div id='screen-project-carousel' class="col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-8 col-lg-7">
-                    <div id='screen-carousel' class="carousel slide" data-ride="carousel">
-
-                    </div>
-                </div>
-                <div id='screen-project-overview' class="col-sm-offset-2 col-sm-8 col-md-offset-0 col-md-4 col-lg-offset-0 col-lg-5 project-overview">
-                </div>
-            </div>
-            <div class="project-nav">
-                <button id='btn-next-proj' type="button" class="btn btn-danger">Next project</button>
-            </div>
-        </section>
-
-
-        <div id='main-nav-5' class="center-navigation ">
-            <a id="footer-nav-anchor" href="#social-ads" >
-                <img src='img/arrow-down.png' alt='arrow down'>
-            </a>
-            <div class="v-md-line"></div>
-        </div>
-        <div class="footer-background container-fluid">
-            <div class="row">
             </div>
         </div>
-        <section id="social-ads" class="container-fluid ">
-            <div id="social-ads-wrapper">
-                <div class="social-banner background-red col-sm-6 col-lg-3">
-                    <div class="social-banner-wrapper">
-                        <div id='gplus' class="text-center">
-                            <img src="img/google-plus.png" alt="Google+ "></img>
-                        </div>
-                        <figcaption>RECOMMEND INFOCINC ON GOOGLE+</figcaption>
-                        <div class="social-button-wrapper iframe-offset">
-                            <div class="g-plusone" data-annotation="bubble" data-width="300"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="social-banner background-blue col-sm-6 col-lg-3">
-                    <div class="social-banner-wrapper">
-                        <img src="img/ilike.png" alt=" ilike button"></img>
-                        <figcaption>RECOMMEND INFOCINC ON FACEBOOK</figcaption>
-                        <div class="social-button-wrapper">
-                            <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.infocinc.com%2welcome.html&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=257336651130199" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
-                        </div>
-                    </div>
-                </div>
+    </section>
 
-                <div class="social-banner background-dark col-sm-6 col-lg-3">
-                    <div class="social-banner-wrapper">
-                        <img src="img/Twitter_logo.png" alt=" Twitter"></img>
-                        <figcaption>TWEET YOUR QUESTIONS
-                            <a href="http://twitter.com/infocinc" target="_blank"> @INFOCINC</a>
-                        </figcaption>
-                        <div class="social-button-wrapper iframe-offset">
-                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.infocinc.com/welcome.html" data-text="Tweet your questions" data-via="infocinc" data-lang="en">Tweet</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="social-banner background-red col-sm-6 col-lg-3 mobile-hide">
-                </div>
-            </div>
-        </section>
 
-        <footer id="footer" class="container-fluid">
-            <div id="footer-wrapper" class="clearfix">
-                <div id='footer-contact' class="col-sm-6 col-lg-3">
-                    <ul class="list-group text-center">
-                        <li class="list-group-item">
-                            <strong>CONTACT</strong>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="contact-type red">email</span>
-                            <a href="mailto:info@infocinc.com">
-                                <span itemprop="email">info@infocinc.com</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="contact-type blue">twitter</span>
-                            <a href="https://twitter.com/infoCinc" target="_blank">@infoCinc</a>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="contact-type purple">skype</span>
-                            <a href="#" data-toggle="modal" data-target="#skypeCinc">
-                                <span itemprop="name">infocinc</span>
-                            </a>
-                        </li>
 
-                        <li class="list-group-item">
-                            <span class="contact-type orange">mobile</span>
-                            <span itemprop="telephone"><a href="tel:+14384966886">438 496-6886</a>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
 
-                <div id='footer-cinc' class="col-sm-6 col-lg-3">
-                    <ul class="list-group text-center">
-                        <li class="list-group-item">
-                            <strong>INFOCINC</strong>
-                        </li>
-
-                        <li class="list-group-item">
-                            This website is powered by
-                        </li>
-
-                        <li class="row brand-icons">
-                            <a href="http://heroku.com" target="_blank">
-                                <img src="img/heroku.png" class="logo" alt="Heroku"></img>
-                                Heroku
-                            </a>
-                            <a href="http://expressjs.com" target="_blank">
-                                <img src="img/expressjs.png" class="logo" alt="ExpressJs"></img>
-                                Express
-                            </a>
-                            <a href="http://jquery.com" target="_blank">
-                                <img src="img/jquery.png" class="logo" alt="Jquery"></img>
-                                jQuery
-                            </a>
-                            <a href="http://www.w3.org/TR/html5/" target="_blank">
-                                <img src="img/html5.png" class="logo" alt="Html5"></img>
-                                HTML5
-                            </a>
-                        </li>
-                        <li class="row brand-icons">
-                            <a href="http://nodejs.org" target="_blank">
-                                <img src="img/js.png" class="logo" alt="NodeJs"></img>
-                                Node.js
-                            </a>
-                            <a href="http://getbootstrap.com" target="_blank">
-                                <img src="img/bs.png" class="logo" alt="Bootstrap"></img>
-                                Bootstrap
-                            </a>
-                            <a id="less-anchor" href="http://lesscss.org" target="_blank">
-                                <img id="less-logo" src="img/less.png" class="logo" alt="Less"></img>
-                                Less.js
-                            </a>
-                            <a href="http://www.w3.org/Style/CSS/Overview.en.html" target="_blank">
-                                <img id="css-logo" src="img/css3.png" class="logo " alt="CSS3">
-                                CSS3
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div id="footer-nav" class="col-sm-6 col-lg-3 ">
-                    <ul class="list-group text-center">
-                        <li class="list-group-item ">
-                            <strong>NAVIGATION</strong>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#main" id="top-footer-anchor">top</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#slide-one" id="services-footer-anchor">services</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#team-banner" id="team-footer-anchor">about</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#slide-four" id="project-footer-anchor">projects</a>
-                        </li>
-                    </ul>
-                </div>
-                <div id="footer-community" class="col-sm-6 col-lg-3">
-                    <ul class="list-group text-center">
-                        <li class="list-group-item ">
-                            <strong>COMMUNITY</strong>
-                        </li>
-                        <li class="list-group-item">
-                            <a id='footer-fbook-anchor' href="https://www.facebook.com/infocinc" target="_blank">
-                                Facebook/Infocinc</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="https://twitter.com/infoCinc" target="_blank">
-                             Twitter/Infocinc
-                             </a>
-                        </li>
-                        <li class="list-group-item"><a target="_blank" href="https://plus.google.com/+Infocinc1"> Google+/+Infocinc1</a>
-                        </li>
-                    </ul>
-                </div>
-                <div id='small-prints' class="col-sm-12 text-center">
-                    <hr></hr>
-                    <img itemprop="logo" src="img/cinc-logo.png" alt="Infocinc logo"></img>
-                    <span>Copyright &copy 2014 Infocinc, All Rights Reserved.</span>
-                    <a href="/terms.html"> Terms and conditions </a>
-                </div>
-            </div>
-        </footer>
     </div>
     <script>
-      var m = document.getElementById("main");
-       m.className = '';
+    var m = document.getElementById("main");
+    m.className = '';
     </script>
 
     <div id='media-state' class='hide media-state'>
     </div>
-  
+
     <script src="https://code.jquery.com/jquery-2.1.0.min.js" type="text/javascript"></script>
     <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-2.1.0.min.js"><\/script>')
+    window.jQuery || document.write('<script src="js/vendor/jquery-2.1.0.min.js"<\/script>')
     </script>
- 
-   <!--[if IE]><script src="js/vendor/excanvas.min.js"></script><![endif]-->
-    <script type="text/javascript" src="js-dist/base-min.js"></script> 
+
+    <script>
+    </script>
+    <script type="text/javascript" src="js-dist/base-min.js"></script>
 </body>
 
 </html>

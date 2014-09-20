@@ -20,7 +20,6 @@
 @import             "modals.less";
 @import             "navigation.less";
 @import             "bs_overrides.less";
-@import             "lists.less";
 
 /*! normalize.css v1.1.3 | MIT License | git.io/normalize */
 
@@ -322,6 +321,23 @@ canvas, img {
     vertical-align: middle;
 }
 
+/////////////////////////////////////////////////////////////////////
+// Lists styling
+/////////////////////////////////////////////////////////////////////
+
+li.list-group-item {
+   background-color: white;
+   border: none;
+   font-family: 'Open Sans Condensed', sans-serif;
+   font-size: 3em;
+   padding: 0.3em 0.5em;
+}
+
+
+ul.contact-type > li {
+  padding-left: 0px;
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Additional html stylings
@@ -397,16 +413,6 @@ body {
   }
 }
 
-@font-face {
-    font-family: 'Dosis';
-    src: url('../fonts/dosis-regular-webfont.eot');
-    src: url('../fonts/dosis-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url(https://themes.googleusercontent.com/static/fonts/dosis/v2/xIAtSaglM8LZOYdGmG1JqQ.woff) format('woff'),
-         url('../fonts/dosis-regular-webfont.svg#dosisregular') format('svg'),
-         url('../fonts/dosis-regular-webfont.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
 
 @font-face {
     font-family: 'Open Sans Condensed';
@@ -416,17 +422,6 @@ body {
          url('../fonts/opensans-condlight-webfont.svg#open_sanscondensed_light') format('svg'),
          url('../fonts/opensans-condlight-webfont.ttf') format('truetype');
     font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Marck Script';
-    src: url('../fonts/marckscript-regular-webfont.eot');
-    src: url('../fonts/marckscript-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url(https://themes.googleusercontent.com/static/fonts/marckscript/v5/O_D1NAZVOFOobLbVtW3bcnhCUOGz7vYGh680lGh-uXM.woff) format('woff'),
-         url('../fonts/marckscript-regular-webfont.svg#marck_scriptregular') format('svg'),
-         url('../fonts/marckscript-regular-webfont.ttf') format('truetype');
-    font-weight: 400;
     font-style: normal;
 }
 
@@ -541,236 +536,41 @@ body {
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////
-// Box Shadows
-////////////////////////////////////////////////////////////////////////////////////////
 
-.mobile-break {
-  width: 100%;
-  height:75px;
-  margin: 0;
-  border-top: 1px solid @lightGray;
-  border-bottom: 1px solid @lightGray;
-  padding: 0;
-  background: url('../img/tile.png');
-}
-
-.button-padding {
-  height: 20px;
-}
-//////////////////////////////////////////////////////////////////////////////////////// 
-// Thumbnail Stylings
-//////////////////////////////////////////////////////////////////////////////////////// 
-
-.thumbnail(@radius, @width, @height) {
-  margin: 0 auto;
-  border-radius: @radius;
-  -moz-border-radius: @radius;
-  -webkit-border-radius: @radius;
-  width: @width;
-  height: @height;
-}
-
-.square-thumbnail {
-  @media screen and (min-width:@screen-sm-min) {
-   .thumbnail(@radius:0px, @width:80px , @height: 80px );
-  }
-  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
-   .thumbnail(@radius:0px, @width:100px , @height: 100px );  
-  }
-}
-
-.mobile-thumbnail {
-  .thumbnail(@radius:0px, @width:24em, @height: 24em);
-
-}
-
-.service-thumbnail {
- .mobile-thumbnail;
- .square-thumbnail;
-}
-
-.team-thumbnail {
-  .square-thumbnail;
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-// Panel Styling
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-.hover-underline {
-  border-bottom: 2px solid ;
-}
-
-.content-block {
-  padding: 15px 4em;
-  padding-top: 0.5em;
-
-  color: @midnight;
-  letter-spacing: 0.1em;
-  font-family: 'Dosis', sans-serif;
-
-  h2,h4,p {
-    text-align: left;
-  }
-
-  a {
-    color: @blue;
-  }
-  span:not(.itemprop) {
-    display: inline-block;
-    font-size: 3.2em;
-    text-align: left;
-    max-width: 270px;
-  }
-  h2 {
-    font-family:'Lato', 'sans-serif';
-    font-weight: bold;
-    font-size: 3.5em;
-    margin-bottom: 10px !important;
-    margin-top: 10px !important;
-    letter-spacing: 0.1em
-  } 
-  .service-column {
-  	padding: 0px 15px;
-  	p:nth-child(3) {
-  		margin-top: 15px;
-  	}
-  }
-  p {
-    margin:0;
-    font-size: 3.2em;
-  }
-  p.extra {
-  	font-style: italic;
-  	border-top: 1px solid black;
-  	margin-top: 10px;
-  	padding-top: 5px;
-  	margin-bottom: 30px;
-  }
-  h2 {
-    border-top: 1px solid @dark;
-    border-bottom: 1px solid @dark;
-    padding: 5px 0;
-  }
-
-  > div.text-title {
-    font-family: 'Lato', 'sans-serif';
-    font-size: 3.5em;
-    font-weight: bold;
-    text-align: left;
-    letter-spacing: 0.1em;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    margin-top: 35px;
-    margin-bottom: 15px;
-  }
-  ul {
-    margin: 0.5em 0;
-    font-size: 3.2em;
-    font-weight: bold;
-  }
-  li {
-    margin: 10px 0;
-  }  
-  @media screen and (min-width:@screen-xs-min) {
-    padding: 15px 60px;
-  }
-
-  @media screen and (min-width:@screen-sm-min) {
-    padding: 0 15px;
-     ul {
-      font-size: 2em;
-      font-weight: normal;
-      text-align: center;
-      text-shadow: 2px 2px 2px #CCC;
-     }
-     p {
-      font-size: 2em;
-     }
-     span:not(.itemprop) {
-      max-width: none; 
-      font-size: 2em;
-     }
-     h2 {
-      text-align: left;
-      font-size: 2.4em;
-     }
-  }
-  @media screen and (min-width:@screen-md-min) {
-  	.service-column {
-  	   margin-top: 25px;
-  	   margin-bottom: 25px;
-  	}
-    > div.text-title {
-      text-align: left;
-    }
-    p {
-    	font-size: 1.8em;
-    }
-    h2,h4 {
-      font-size: 2em;
-    }
-    ul {
-      text-align: left;
-    }
-  }
-  @media screen and (min-width:@screen-lg-min) {
-  	.service-column {
-  	   margin-top: 0px;
-  	   margin-bottom: 0px;
-  	}
-  	h2 {
-  		font-size: 2.4em;
-  	}
-  	p {
-  		font-size: 2em;
-  	}
-  }
-}
-
-.button-caption {
-  position: relative;
-  top: -10px;
-  margin: 0;
-  margin-bottom: 20px;
-  font-family: 'Dosis', sans-serif;    
-  font-size: 4em;   
-  text-align: center;
-  @media screen and (min-width: 480px) {
-  	top: 0px;
-  }
-  @media screen and (min-width:@screen-sm-min) {
-    top: 0;
-    margin: 0;
-    font-size: 2em;
-    text-shadow: 3px 3px 3px #ccc;
-  }
-}
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Banner Ads Styling
 //////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
+.center-navigation {
+  position: relative;
+  left: initial;
+  margin-top: 15px;
+}
+@media screen and (min-width:@screen-md-min) {
+  .center-navigation {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    margin-left: -15px;
+  }
+}
+
 .banner {
-  background: url('../img/tile.png') right top #f2f4f7;
+  background: url('../img/t17.png') repeat;
+  min-height: 100%;
   z-index: 4;
   position: relative;
-  .row:first-child {
-    padding: 30px 10px;
-    margin: 0;
+  padding: 30px 10px;
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
   }
   .bg-wrapper {
-  	background: url('../img/congruent_pentagon.png') repeat;
-  	border: 2px solid black;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .row > .p-wrapper{
-  	background: @white;
-  	padding: 10px;
-  	border: 1px solid @dark;
   }
 
   span {
@@ -779,1131 +579,578 @@ body {
     font-style: italic;
     line-height: 1.4;
   }
-
-  header,footer {
-    border-top: 1px solid @dark;
-    border-bottom: 1px solid @dark;
-    padding:6px 0;
-
-    font-family: 'Lato', sans-serif;
-    font-size: 4em;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    color: #141c26;
+  header, p {
+    font-family: 'Open Sans Condensed', sans-serif;
     text-align: center;
+    color: @white;
+  }
+  header {
+    font-size: 24px;
   }
 
   p {
-    padding: 20px 15px;
     margin: 0;
-    font-family: 'Open Sans Condensed',sans-serif;
+    padding: 20px 0px;
+//    padding: 20px 15px;
     font-size: 3.5em;
-    color: #444;
-    text-align: center;
-    letter-spacing: 0.1em;
     line-height: 1.4 !important;
-    color: @white;
+    letter-spacing: 0.1em;
     a {
+      display: inline;
     	color:@blue;
       text-decoration: underline !important;
-      display: inline;
     }
   }
 
-  .extra-sm-padding {
-    margin: 25px 0; 
-  }
-
+ 
   p:nth-child(2),p:nth-child(4) {
   	color:#FFF;
   }
- 
+  
+  @media screen and (min-width:320px) {
+    header {
+      font-size: 35px;
+    }
+    p {
+      font-size: 24px;
+    }
+  }
   @media screen and (min-width: 481px) {
-  	.row > .p-wrapper {
-      padding: 20px;
+    p {
+      width: 400px;
+      margin: 0 auto;
     }
   }
   
   @media screen and (min-width:@screen-sm-min) {
-    .row:first-child {
-      padding: 50px;
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-    .row > .p-wrapper {
-       border-radius: 10px;
-      -webkit-box-shadow: 5px 10px 30px 2px rgba(0,0,0,0.55);
-      -moz-box-shadow: 5px 10px 30px 2px rgba(0,0,0,0.55);
-       box-shadow: 5px 10px 30px 2px rgba(0,0,0,0.55);
-    }
     header,p {
-      text-align: left;
-    }
-    header,footer {
-      font-size: 3.3em;
-      letter-spacing: 0.2em;
-    }
-    p {
-      font-size: 3em;
-    }
-    footer {
-    	text-align: right;
-    }
-    p {
+      text-align: center;
       letter-spacing: 0.05em;
-      padding: 15px 20px;
     }
-    p:nth-child(1),p:nth-child(3) {
-      padding-right: 350px;
+    header {
+      font-size: 60px;
     }
-    p:nth-child(2),p:nth-child(4) {
-      padding-left: 350px;
-    }   
+    p {
+      width: 600px;
+      padding: 30px 20px;
+      font-size: 40px;
+      letter-spacing: 0.05em;
+    }
   }
 
   @media screen and (min-width:@screen-md-min) {
-    .row:first-child {
-     padding: 20px 10px;
+    padding-top: 60px;
+    header,p {
+      text-align:left;
+    }
+    header {
+      font-size: 65px;
     }
     p {
-      padding: 10px 20px;
+      width: auto;
+      padding: 20px 10px;
+      font-size: 26px;
       letter-spacing: 0.1em;
     }
-    p:nth-child(1),p:nth-child(3) {
-      padding-right: 460px;
+    .bg-wrapper > div:nth-child(2),.bg-wrapper > div:nth-child(4) {
+      margin-top: 110px;
     }
-    p:nth-child(2),p:nth-child(4) {
-      padding-left: 470px;
-    }
+  
 
   }
   @media screen and (min-width:@screen-lg-min) {
-  	.row:first-child {
-  	  padding: 30px 10px;
-  	}
-    header,footer {
-      font-size: 3.7em;
+    padding: 50px 10px;
+    header {
+      font-size: 75px;
     }
     p {
       padding: 20px;
-      font-size: 3.2em;
+      font-size: 32px;
     }
-    p:nth-child(1), p:nth-child(3) {
-      padding-right: 600px;
+    .bg-wrapper > div:nth-child(2),.bg-wrapper > div:nth-child(4) {
+      margin-top: 150px;
     }
-    p:nth-child(2), p:nth-child(4) {
-      padding-left: 600px;
-    }
+
   }
   @media screen and (min-width:@screen-wide-min) {
+    header {
+      font-size: 80px;
+    }
     p {
+      font-size: 40px;
       padding: 25px;
     }
-    p:nth-child(1),p:nth-child(3) {
-      padding-right: 750px;
-    }
-    p:nth-child(2),p:nth-child(4) {
-      padding-left: 700px;
-    }
   }
 }
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////
-// Button styling for services, method, team sections
-////////////////////////////////////////////////////////////////////////////////////////
-
-
-.button-hover {
-  border-bottom: 4px solid @lightBlue !important;
-}
-
-#services, #team {
-  .selected-button {
-    border-bottom: 4px solid @blue;
-  }
-
-  button {
-    display: block;
-    background: none !important;
-    padding: 0.8em;
-    overflow: hidden !important;
-    img {
-      width: 80%;
-      border: 1px solid black;
-    }
-  }
-
-  @media screen and (min-width:@screen-xs-min) {
-  	 button img {
-  	 	width: 100%;
-  	 }
-  }
-  @media screen and (min-width:@screen-sm-min) {
-  	button img {
-      -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35) !important;
-      -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35) !important;
-       box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35) !important;
-  	}
-  	button:active {
-      .shake;
-  	}
-  }
-
-}
-
-///////////////////////////////////////////////////////////////////////////////////////
-// Screens Stylings
-//////////////////////////////////////////////////////////////////////////////////////
-/* This code is tested with latest version of Firefox and Chrome */
-
-/* This code is tested with latest version of Firefox and Chrome */
-.box {
-  @media screen and (min-width:@screen-sm-min) {
-    position: relative;
-    width: 95%;
-    max-width: 1807px;
-    background-color: @white;
-    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  }
-}
-
-
-#screen-canvas-wrapper {
-  -webkit-transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
-  -moz-transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
-  transition: opacity 1s cubic-bezier(.02, .01, .47, 1); 
-  -o-transition: opacity 1s cubic-bezier(.02, .01, .47, 1);
-  position:relative;
-  @media screen and (min-width:@screen-md-min)  {
-    top: -60px;
-  }
-  @media screen and (min-width:@screen-lg-min)  {
-    top: -40px;
-  }
- @media screen and (min-width:@screen-wide-min)  {
-    top: -50px;
-  }  
-}
-
-
-
-#screen-services,#screen-team,#screen-project {
-  margin-top: 2em;
-  padding-top: 2em;
-    
-  @media screen and (min-width: @screen-sm-min) {
-    height: 684px;
-  }
-
-  @media screen and (min-width: @screen-md-min) {
-    height: 502px; 
-  }
-
-  @media screen and (min-width:@screen-lg-min)  {
-    height: 515px;
-  }
- @media screen and (min-width:@screen-wide-min)  {
-    height: 600px;
-  }
-   
-}
-
-
-//////////////////////////////////////////////////////////////////////////////////////////
-// Top padding div 
-//////////////////////////////////////////////////////////////////////////////////////////
-
-#margin-top {
-  height: 54px;
-  color: @white;
-  .transition(@property:height);
-  @media screen and (min-width:@screen-sm-min) {
-  	height: 160px;
-  }
-  @media screen and (min-width:@screen-lg-min)  {
-   height: 180px;
-  }
-}
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-// Top div styling
+// Top background
 ///////////////////////////////////////////////////////////////////////////////////////////
-
-#top.container-fluid {
-  padding-left: 0;
-  padding-right: 0;
-  text-align: center;
-  padding-top: 5px;
-  @media screen and (min-width:@screen-sm-min) {
-  	margin-top: 0px;
-  	padding-top: 0px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-}
-
-
-.ifc-container {
-  width: 100%;
-  margin: 0 auto;
-  .transition(@property:width);
-  @media screen and (min-width:@screen-sm-min) {
-    width: 750px;
-  }
-  
- @media screen and (min-width:@screen-md-min) {
-   width: 970px;
-  }
-
-  @media screen and (min-width:@screen-lg-min)   {
-    width: 1180px;
-  }
-
-  @media screen and (min-width:@screen-wide-min)  {
-    width: 1500px;
-  }
-}
-
-.cadre {
+#top-background {
   position: relative;
-  margin: 0 auto;
-  padding: 0 !important;
+  background: url('../img/bg-mobile.jpg') no-repeat ;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  height: 280px;
 
-  figcaption {
-    position: relative;
-    top: 3px;
-    margin: 0;
-    margin-bottom: 0.4em;
+  .version,.title, .sub-titles {
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 3.5em;
-    letter-spacing: 0.4em;
+    color: white;
+    text-align: left;
+    position:relative;
+  }
+  .sub-titles,.title {
+    left: 0%;
+    color: white;
+  }
+ 
+  .big-text-wrapper {
+    top: 50px;
+    background: black;
   } 
-  height:185px;
-
-  @media screen and (min-width:@screen-xs-min) {
-  	max-width: 640px;
-    height: 274px;
+  .center-navigation {
+    display: none;
+  }   
+  .big-text-wrapper {
+    padding: 10px;
+    position: relative;
+  }
+  .title {
+    font-size: 35px;
+  }
+  .sub-titles {
+    font-size: 17px;
   }
 
-  @media screen and (min-width:@screen-sm-min) {
-  	max-width: none;
-    border-radius: 2em;
-    border: 1px solid #000;
-    height: 382px;
-   -webkit-box-shadow: 5px 10px 30px 2px rgba(0,0,0,0.55);
-   -moz-box-shadow: 5px 10px 30px 2px rgba(0,0,0,0.55);
-    box-shadow: 5px 10px 30px 2px rgba(0,0,0,0.55);
-    figcaption {
-    	top: -3px;
-      left: 0px;
-      margin-left: 12px;
-      margin-right: 12px;
-    }
-    figure:first-child figcaption {
-      text-align: left;
-    }
-    figure:last-child figcaption {
-      text-align: right;
-    }
-  
-     
+  .version {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-size: 20px;
   }
-  
-  @media screen and (min-width:@screen-lg-min)  {
-  	figcaption {
-  		top: -6px;
-  	}
-    height: 451px;
-  }
-  @media screen and (min-width:@screen-wide-min)  {
-    height: 520px;
-  }
-}
 
-
-.slide {
-  position:absolute;
-  padding: 7px;
-  width: 100%;
-}
-
-.slide img {  
-  height: 125px;
   @media screen and (min-width:320px) {
-  	height: 140px;
+    height: 500px;
+    .sub-titles {
+     font-size: 26px;
+    }
+    .title {
+      font-size: 50px;
+    }
+    .version {
+      font-size: 30px;
+    }
+    .big-text-wrapper {
+      padding: 10px 20px;
+      top: 100px;
+      padding-bottom: 5px;
+    }
+    .sub-titles {
+      ul {
+        margin: 0;
+        li {
+          margin: 15px 0;
+        }
+      }
+    }
   }
+
   @media screen and (min-width:@screen-xs-min) {
-    height: 224px;
   }
-
   @media screen and (min-width:@screen-sm-min) {
-    padding: 1.5em;
-    height: 322px;
+    background: url('../img/bg-tablet.jpg') no-repeat ;
+    background-size: 100%;
+    margin-top: 90px;
+    background-position: 0% 5%;
+    height: 510px;
+    .title {
+      border-bottom: 4px solid white;
+     }    
+    .sub-titles,.title {
+      left: 45%;
+    }
+     .sub-titles {
+      font-size: 46px;
+      width: 325px
+     }
+     .version {
+      left: initial;
+       right: 100px;
+       bottom: 50px;
+       font-size: 30px;
+     }
+     .title {
+      display: block;
+      width: 320px;
+      font-size: 100px;
+     }
+     .big-text-wrapper {
+      background: none;
+      top: 50px;
+     } 
+     .sub-titles {
+      ul {
+        margin: 0;
+        li {
+         margin: 15px 0;
+        }
+      }
+    }
   }
-
-  @media screen and (min-width:@screen-lg-min)  {
-    height: 391px;
+  @media screen and (min-width:@screen-md-min) {
+    height: 100%;
+    margin-top: 0px;
+    background: url('../img/bg-desktop.jpg') no-repeat ;
+    background-size: cover;
+    background-position: 0% 5%; 
+    .sub-titles,.title {
+      left: 55%;
+    }
+     .sub-titles {
+      font-size: 51px;
+      width: 300px
+     }
+     .title {
+      width: 320px;
+      font-size: 110px;
+     }
+     .big-text-wrapper {
+      top: 100px;
+     }
+     .center-navigation {
+      position:absolute;
+      left: 50%;
+      margin-left: -15px;
+      bottom: 40px;
+      display: block;
+     }   
   }
+  @media screen and (min-width:@screen-lg-min) {
+      background: url('../img/bg-desktop.jpg') no-repeat ;
+      background-size: cover;
+      background-position: 0% 5%;
+    .sub-titles,.title {
+      left: 60%;
+    }
+     .sub-titles {
+      font-size: 56px;
+      width: 300px
+     }
 
+     .title {
+      width: 400px;
+      font-size: 120px;
+     }
+  }
   @media screen and (min-width:@screen-wide-min) {
-    height: 460px;
+    .sub-titles,.title {
+        left: 60%;
+    }
+      
+     .sub-titles {
+      font-size: 70px;
+      width: 400px;
+     }
+     .title {
+      width: 500px;
+      line-height: 1.1;
+      font-size: 150px;
+     }
   }
-
-  width: 100%;  
 }
+
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // Services Stylings
 /////////////////////////////////////////////////////////////////////////////////////////
 
-#services {
-  #website-photo,#consult-photo,#excel-photo,#scrape-photo {
-  	margin-top: 35px;
-  	margin-bottom: 35px;
-    position: relative;
-    left: -1%;
-  }
-  img {
-      width: 90%;
-      max-width: 400px;
-  }
-  #services-icons .col-sm-3 .content-block > div {
-  	margin-bottom: 20px;
-  }
+
+@media screen and (min-width:@screen-xs-min) {
+
 }
+@media screen and (min-width:@screen-sm-min) {
 
-.before {
-  content:'';
-  height: 100%;
-  margin-left: -0.5em;
-  display: inline-block;
-  vertical-align: middle; 
 }
+@media screen and (min-width:@screen-md-min) {
 
+}
+@media screen and (min-width:@screen-lg-min) {
 
-
-
-
-#screen-services {
-
-  display: none;
-  padding: 0;
-  
-  #screen-services-visual #website-photo {
-    position:relative;
-    left: -20px;
-  }
-
-  img {
-    width: 480px;
-  }
-
-  @media screen and (min-width:@screen-sm-min) {
-    display: table;
-    #screen-services-visual {
-        margin: 20px auto;
-        width: 340px;
-    }
-   #screen-services-text > .row {
-   	position: relative;
-   	left: -28px;
-   }
-    .row {
-      display: table-cell;
-      vertical-align: middle;
-    }
-    img {
-      width: 340px;
-    }
-  }
-  
-  @media screen and (min-width:@screen-md-min) {
-
-    #screen-services-visual {
-      position: absolute;
-      margin-top: -90px;
-      top: 50%;
-      left: 20px;
-    }
-    #screen-services-text {
-      padding-right: 30px;
-      padding-left: 30px;
-      > .row {
-      	left: 10px;
-      	> .service-column:nth-child(2) {
-      		position: relative;
-      		left: -20px;
-      	}
-      }
-    }
-    img { 
-      width: 330px;
-    }
-  }
-
-  @media screen and (min-width:@screen-lg-min) {
-  	#screen-services-text {
-  	  > .row {
-  	  	left: 30px;
-  	  }
-  	}
-    #screen-services-visual {
-      left: 40px;
-      margin-top: -122px;
-    }
-    img { 
-      width: 400px;
-    }
-  }
-
-  @media screen and (min-width:@screen-wide-min)  {
-    #screen-services-visual {
-       left: 60px;
-    }
-    img {
-    	width: 500px;
-    }
-  }
+}
+@media screen and (min-width:@screen-wide-min) {
 
 }
 
-
-
-/////////////////////////////////////////////////////////////////////////////////////// 
-// How we work section 
-/////////////////////////////////////////////////////////////////////////////////////// 
-
-#bubbles-wrapper {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-}
-
-
-///////////////////////////////////////////////////////////////////////////////////
-// Team Stlings
-///////////////////////////////////////////////////////////////////////////////////
-
-// Common stylings 
-
-
-#screen-team,#team {
-  p {
-    font-family: 'Marck Script', cursive;
-    margin-bottom:20px;
-    span {
-      background: black;
-      color: white;
-    }
+ #services-web {
+  background: url('../img/t9.png');
+  .abs-image {
+    left: 0%;
+    text-align: left;
   }
-
-  ul li {
-//    font-family: 'Dancing Script', cursive;
-    font-family: 'Marck Script', cursive;
-
-  }
-
-
-  ul {
-    font-size: 2.5em;
-    margin: 0.5em 0;
-    text-align: center;
-    letter-spacing: 0.1em;
-    padding: 0;
-  }
-  
-  a {
-    position: relative; 
-    top: 0px;
-    left: 0px;
-    display:inline-block;
-  }
-
-  a:active, a:focus {
-    top: 3px;
-  }
-
-  #social-badges {
-
-    img {
-      width: 35px;
-      height: 35px;
-      border: 0;
-
-    }
-    #twitter-badge {
-      padding-left: 10px;
-      width: 45px;
-    }
-  }
-  #twitter-follow {
-    margin-top: 10px;
-  }
-
-
-}
-
-
-
-
-#team {
-  width: 90%;
-  max-width: 1713px;
-
-  .row {
-     margin-top: 3em;
-
-      > div {
-       text-align: center;
-       > button {
-         display: none;
-         > img {
-          width: 100%;
-         }
-         @media screen and (min-width:@screen-sm-min) {
-          display: block;
-         }
-        }
-
-      .img-placeholder {
-        padding:1.5em;
-        background: url('../img/polka-1-2.png') @white;
-        margin-top:0.8em;
-        width:84px;
-        height:84px;
-      }
-      #placeholder-1 {
-        opacity: 0.9;
-      }
-      #placeholder-2 {
-        opacity: 0.7;
-      }
-      #placeholder-3 {
-        opacity: 0.5;
-      }
-      #placeholder-4 {
-        opacity: 0.3;
-      }
-      .team-name {
-        font-size: 2em;
-      }
-      span:not(.itemprop) {
-        font-size: 1.5em;
-      }
-      p {
-        // diminimish because of cursive family
-        font-size: 3em;   
-        margin-bottom: 30px;
-      }
-      .member-photo {
-        max-width: 130px;
-        width: 40%;
-      }
-      .email-icon {
-        -ms-interpolation-mode: bicubic;
-        width: 50px;
-      }
-    }
-  }
-}
-
-.screen-wrapper {
-  display: inline-block;
-  vertical-align: middle;
-  width:100%;
-  margin: 0 auto !important;
-  position:relative;
-}
-
-#screen-team {
- 
-
-  &:before {
-    content:'';
-    height:100%;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: -0.5em;
-  }
-  .text-title { 
-  	text-align: left;
-  }
-
-  #screen-team-photo {
-    text-align: center;
-
-
-    .member-photo {
-        width: 20%;
-        max-width: 111px;    
-    }
-    .email-icon {
-      width: 40px;
-    }
-    h4 {
-      font-size: 1.5em;
-    }
-  }
-
-  #screen-team-text {
-  	p{
-      position:relative;
-      font-size: 2.1em;
-    }
-  }
-  .text-title {
-  	font-family: 'Open Sans Condensed', sans-serif !important;
-  	margin-top: 15px;
-  	margin-bottom: 15px;
+  .col-sm-5 {
+    text-decoration: underline;
   }
   @media screen and (min-width:@screen-md-min) {
-
-    #screen-team-text {
-      .text-title {
-        margin-bottom: 20px;
-        margin-top: 0px;
-
-      }
+    .title {
+      text-align: right;
     }
-    #screen-team-photo .member-photo {
-      width: 44%;
-      max-width:123px;
+    .text-content {
+      padding-left: 100px;
     }
   }
-
-  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
-    #screen-team-photo .member-photo {
-      width: 40%;
-      max-width:154px;
-    }
-  }
-}
-
-
-
-////////////////////////////////////////////////////////////////////////////////
-// Project Stylings
-////////////////////////////////////////////////////////////////////////////////
-
-
-#project {
-	> div {
-		padding: 0 4em;
-	}
-	.caoursel img {
-		height: 220px;
-	}
-  .slide {
-	  max-width: 600px;
-	  margin: 0 auto;   	 
-  }
-}
-
-.shadow-hover {
-  -webkit-box-shadow: 5px 5px 15px 0px rgba(50, 50, 50, 0.75); 
-  -moz-box-shadow:    5px 5px 15px 0px rgba(50, 50, 50, 0.75);
-  box-shadow:         5px 5px 15px 0px rgba(50, 50, 50, 0.75);
-}
-
-#screen-project {
-  position: relative;
-  display: none;
-  padding: 0;
-  .row {
-    display: table-cell;
-    vertical-align: middle;
-  }
-  .carousel {
-	  height: 100%;
-  }
-  
-  .project-nav {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 14px;
-    &:active {
-      .shake;
-    }
-    button {
-      .transition(@property:all);
-    }
-  }
-  @media screen and (min-width:@screen-sm-min) {
-    display: table;
-
-  }
-}
-
-#screen-project,#project {
-  
   @media screen and (min-width:@screen-wide-min) {
-    padding-left: 40px !important;
-    padding-right: 40px !important;
   }
-  .slide {
-  	position:relative;
-  	@media screen and (min-width:@screen-sm-min) {
-       width: 569px;
-       margin: 0 auto;
-  	   max-width: 600px;
-  	}
-    @media screen and (min-width:@screen-md-min) {
-       width: auto;
-       max-width: none;
+ }
+ #services-minage {
+  background: url('../img/t11.png');  
+  color: black;
+ }
+ #services-consult {
+  background: url('../img/t19.png');
+  color: white;
+  .col-sm-4 {
+    text-decoration: underline;
+  }
+  @media screen and (min-width:@screen-md-min) {
+    .title {
+      text-align: left;
+    }
+  }
+  @media screen and (min-width:@screen-lg-min) {
+    .abs-image {
+      min-width: 468px;
     }
   }
 
+ }
+ #reviews {
+  background: url('../img/t9.png');  
+  .text-content {
+    p:first-child {
+      text-decoration: underline;
+    }
+    p:last-child {
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width:@screen-md-min) {
+    .text-content {
+      padding-left: 0px;
+      p{
+        padding: 0px 30px;
+      }
+      p:last-child {
+        font-size: 18px;
+      }
+    }
+  }
+  @media screen and (min-width:@screen-md-min) {
+    .text-content {
+      p{
+        padding: 0px 30px;
+      }
+      p:last-child {
+        font-size: 24px;
+      }
+    }
+  }  
+ }
+
+.slide-services {
+  position: relative;
+  min-height: 100%;
+//  display: table;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
   .row {
-  	margin-left: 0px;
-  	margin-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  h2,.extra-text,.text-content {
+    font-family: 'Open Sans Condensed', sans-serif;
+  }
+  .title {
+    text-align: center;
+    font-size: 30px;
+    padding: 0;
+    padding-bottom: 20px;
+  }
+  
+  .text-content {
+    font-size: 20px;    
+    text-align: center;
+  }
+  p {
+    margin: 20px 0;
+  }
+  h2 {
+    font-size: 90px;
+    padding:100px 50px;        
   }
 
-  .carousel {
-  	padding: 0;
-  	border: 1px solid black;
-    height: 100%;
-    
- 	  img {
-		  width: 100%;
-
-		  @media screen and (min-width:@screen-sm-min) {
-   	  	height: 50%;			
-		  }
-		  @media screen and (min-width:@screen-md-min) {
-		   	margin-top: 20px;
-			  height:350px;
-		  }		
-		  @media screen and (min-width:@screen-lg-min) {
-		  	height:400px;
-		  }  		
-		  @media screen and (min-width:@screen-wide-min) {
-			  height:500px;
-		  }
-    }
-	
-
-    .carousel-control {
-		  position:absolute;
-		  top: 50%;
-		  margin-top: -15px;
-		  background: black;
-    	width: 30px;
-	  	height: 30px;
-      text-align: center;
-      @media screen and (min-width:@screen-sm-min) {
-        width: 50px;
-        height: 50px;
-        margin-top: -25px;
-      }
-    	.control-arrow {
-        margin-top: 6px;
-        margin-bottom: 6px;        
-        width: 10px;
-        height: 18px;
-        @media screen and (min-width:@screen-sm-min) {
-          width: 21px;
-          height: 38px;
-        }
-    	}
-    }
-
-    .carousel-inner {
-    	.carousel-caption {
-    		position: absolute;
-    		bottom: 0px;
-    		left: 0px;
-    		top: auto;
-        right: auto;
-    		padding: 5px;
-    		background: black;
-    		opacity: 0.9;
-    		font-family: 'Open Sans Condensed', sans-serif;
-    		font-size: 12px;
-        a {
-          color: @white !important;
-        }
-        @media screen and (min-width:320px) {
-          font-size: 15px;
-        }
-        @media screen and (min-width:@screen-sm-min) {
-          font-size: 20px;
-        }
-        @media screen and (min-width:@screen-md-min) {
-          font-size: 25px;
-        }
-       @media screen and (min-width:@screen-lg-min) {
-          font-size: 30px;
-        } 
-    	}
-    }
-    img {
-      padding: 0;
-    	margin: 0;
-    }
+  img {
+    width: 100%;
   }
 
-  .project-overview {
- 	  text-align: left;
-    padding: 20px 4em;
+  @media screen and (min-width:320px) {
+    .title {
+      font-size: 35px;
+    }
+    .text-content {
+      font-size: 24px;
+    }
+    .portfolio {
+      span {
+        text-decoration: underline;
+      }
+    }
 
-   
-    .project-title {
-     	font-family: 'Marck Script', sans-serif;
-     	font-size: 16px;
-      color: @black;
-     	padding: 0px;
-     	margin: 0;
-     	border-top: 1px solid black;
-     	border-bottom: 1px solid black;
-      a:hover {
-        color: @blue !important;
+
+  }
+  @media screen and (min-width:@screen-xs-min) {
+  
+  }
+  @media screen and (min-width:@screen-sm-min) {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    .title {
+      font-size: 60px;
+    }
+    .text-content {
+      font-size: 40px;
+    }
+    .portfolio {
+      margin-top: 50px;
+      span {
+        font-size: 40px;
+        display: block;
       }
-      a {
-        display: inline-block;
-        line-height: 1;
+    }
+    .portfolio .text-content {
+      font-size: 24px;
+    }
+  }
+  @media screen and (min-width:@screen-md-min) {
+    padding-top: 70px;
+    .text-content {
+      text-align: left;
+      font-size: 20px;
+    }
+    .abs-image {
+      position: absolute;
+      width: 40%;
+      right: 0px;
+      text-align: right;
+      height: 100%;
+      bottom: 0px;
+      img {
+        height: 100%;
       }
-      @media screen and (min-width:320px) {
-        font-size: 19px;
+    }
+    .portfolio {
+      padding: 0px 30px;
+      span {
+        font-size: 20px;
       }
-      @media screen and (min-width:@screen-xs-min) {
+    }
+    .portfolio .text-content {
+      font-size: 18px;
+    }
+
+  }
+  @media screen and (min-width:@screen-lg-min) {
+    .abs-image {
+      width: 35% !important;
+    }
+    .text-content {
+      font-size: 25px;
+    }
+    .title {
+      font-size: 75px;
+    }
+    .portfolio .text-content {
+      font-size: 21px;
+    }
+    .portfolio {
+      margin-top: 50px;
+      margin-bottom: 50px;
+      span {
+        display: inline;
+        padding-right: 10px;
         font-size: 25px;
       }
-      @media screen and (min-width:@screen-sm-min) {
-        font-size: 28px;
-      }
-     	@media screen and (min-width:@screen-md-min) {
-        letter-spacing: 0;
-     		font-size: 22px;
-     	}
-      @media screen and (min-width:@screen-lg-min) {
-        letter-spacing: 0.1em;
-        font-size: 26px;
-      }
-     	@media screen and (min-width:@screen-wide-min) {
-     		font-size: 30px;
-     	}
-    }
-    
-    .project-description {
-      font-family: 'Dosis', sans-serif;
-      p {
-        margin: 0;
-        padding-top: 10px;
-        padding-bottom: 10px;
-      } 
-      p:first-child {
-        border-bottom: 1px solid black;
-      }
-      p span {
-        font-size: 14px;
-        @media screen and (min-width:320px) {
-          font-size: 18px;
-        }
-        @media screen and (min-width:@screen-xs-min) {
-          font-size: 20px;
-        }
-      }
-      ul {
-        margin: 0;
-        li {
-        	padding: 5px;
-        	font-style: italic;
-        }
-      }
-      
-      p, ul  {
-        font-size: 13px;
-        @media screen and (min-width:320px) {
-          font-size: 15px;
-        }
-        @media screen and (min-width:@screen-md-min) {
-        	font-size: 15px;
-        }
-        @media screen and (min-width:@screen-lg-min) {
-        	font-size: 18px;
-        }          
+      a {
+        text-decoration: underline !important;
       }
     }
-    @media screen and (min-width:@screen-xs-min) {
-      padding: 20px 10em;
+
+  }
+  @media screen and (min-width:@screen-wide-min) {
+    .title {
+      font-size: 80px;
     }
-    @media screen and (min-width:@screen-sm-min) {
-      padding: 0;
-      padding-top: 20px;
+    .text-content {
+      font-size: 27px;    
     }
-    @media screen and (min-width:@screen-md-min) {
-      padding: 0;
-      padding-left: 15px;
-      padding-right:15px;
+    p {
+      margin: 30px 0;
     }
-    @media screen and (min-width:@screen-lg-min) {
-      padding: 0px 35px;
+    h2 {
+      font-size: 90px;
+      padding:100px 50px;        
     }
-    @media screen and (min-width:@screen-wide-min) {
-      padding: 0px 65px;
+    .abs-image {
+      width: 32% !important;
     }
+    .soumission {
+      margin-top: 100px;
+      font-size: 30px;
+      strong {
+        text-decoration: underline;
+      }
+    }
+    .portfolio .text-content {
+      font-size: 24px;
+    }
+    .portfolio {
+      margin-top: 100px;
+      font-size: 24px;
+      span {
+        font-size: 27px;
+      }
+      a {
+        text-decoration: underline !important;
+      }
+    }
+
+
   }
 }
 
 
-///////////////////////////////////////////////////////////////////////////////
-// Footer section
-///////////////////////////////////////////////////////////////////////////////
-
-.footer-background {
-  position: relative;
-  padding: 0;
-  height: 400px;
-  //width: 100%;
-  background: url('../img/stripe2.png') repeat;
-  max-width:1920px;
-//  margin: 0 auto;
-
-  .row {
-    position:absolute;
-    left:0;
-    top:0;
-    bottom:0;
-    right:0;
-  //  width: 100%;
-    margin: 0;
-    padding: 0;
-    opacity: 0.9;
-    background: @white;
-  }
-}
 
 
-//////////////////////////////////////////////////////////////////////////////////
-// Social ads Stylings
-//////////////////////////////////////////////////////////////////////////////////
 
-#social-ads {
-  padding: 0;
-  background: url('../img/stripe.png') repeat;
-  max-width:1920px;
-  //margin: 0 auto;
 
-  #social-ads-wrapper {
-    background: @white;
-    opacity: 0.9;
-    overflow-x: hidden !important;
-    .social-banner {
-      text-align: center;
-      padding: 3em 1.5em;
-      img {
-        width: 60%;
-      }
-      figcaption,a {
-        color: @white ;
-      }  
-      figcaption {
-        padding: 0;
-        font-family: 'Lato', sans-serif;
-        font-size: 3em;
-      }
-  
-      #gplus {
-        position:relative;
-        top: 0;
-        left: 5%;
 
-        @media screen and (min-width:@screen-sm-min) {
-          left: 7%;
-        }
 
-        @media screen and (min-width:@screen-md-min) {
-          left: 5%;
-        }
-      }
-
-      .social-button-wrapper {
-        padding: 0;
-        margin: 0 auto;
-        margin-top: 20px;
-        width: 130px;
-      }
-
-      .iframe-offset {
-        position:relative;
-        left: 4%;
-        @media screen and (min-width:@screen-sm-min) {
-         left: 5%;
-        }
-
-        @media screen and (min-width:@screen-md-min) {
-         left: 3%;
-        }
-        @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
-         left: 5%;
-        }
-      }
-
-      .social-banner-wrapper {
-        margin: 0;
-        padding: 0;
-        display: inline-block;
-        vertical-align: middle;
-      }
-    }
-
-    .social-banner:before {
-      content:'';
-      height: 100%;
-      margin-left: -0.5em;
-      display: inline-block;
-      vertical-align: middle;
-    }
-  }
-
-  @media screen and (min-width:@screen-sm-min) {
-    #social-ads-wrapper .social-banner {
-      height: 400px;
-      .social-button-wrapper {
-        margin-top: 20px;
-        height: 5em;
-      }
-      img {
-        width: 192px;
-      }
-    }
-  }
-
-  @media screen and (min-width:@screen-md-min) {
-    #social-ads-wrapper .social-banner  {
-      height: 500px;
-      img {
-       width: 220px;
-      }
-    }
-  }
-
-  @media screen and (min-width:@screen-lg-min) and (min-height:@screen-height-wide) {
-    #social-ads-wrapper .social-banner {
-      img {
-       width: 170px;
-      }
-    }
-  }
-}
 
 /////////////////////////////////////////////////////////////////////////////////
 // Footer Stylings
 /////////////////////////////////////////////////////////////////////////////////
-
+.hover-underline {
+  text-decoration: underline !important;
+}
 
 #footer {
   position:relative;  
-  background: url('../img/stripe2.png') ;
   max-width:1920px;
   margin: 0 auto;
   z-index:-1;
@@ -1912,7 +1159,6 @@ body {
   }
   #footer-wrapper {
     background-color: @white;
-    opacity: 0.95;
     > div > ul > li {
       background: none; // fix for Dolphin browser
     }
@@ -1920,7 +1166,9 @@ body {
     .contact-type {
      display: block;
     }
-  
+    #footer-contact a {
+      text-decoration: underline !important;
+    }  
     .logo {
       display: block;
       image-rendering:optimizeQuality;
@@ -1939,8 +1187,8 @@ body {
 
       a {
         display: inline-block;
-        font-family: 'Dosis', sans-serif;
-        font-size: 12px;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 14px;
       }
     }
 
@@ -1961,8 +1209,8 @@ body {
       margin-bottom: 20px;
 
       padding: 0;
-      font-family: 'Dosis', sans-serif;
-      font-size: 2em;
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-size: 2.2em;
       height: 80px;
       img {
        width: 30px;
@@ -2061,27 +1309,7 @@ body {
       }
     }
   }
-
-/*  @media screen and (min-width:@screen-wide-min)  {
-    #footer-wrapper {
-      #footer-contact,#footer-cinc {
-        height: auto;
-      }
-        a {
-          font-size: 12px;
-        }
-      >div:not(#small-prints) {
-        height: auto;
-      }
-      .logo {
-      width:64px;
-      }
-      #small-prints {
-        font-size: 1.5em;
-      }
-    }
-  }
-*/}
+}
 
 
 

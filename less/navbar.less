@@ -5,33 +5,14 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 
-.hover-shadow(@color:@blue) {
-  -webkit-box-shadow: -12px 12px 23px 2px @color;
-  -moz-box-shadow: -12px 12px 23px 2px @color;
-  box-shadow: -12px 12px 23px 2px @color;
-}
-
-
 .title-description {
   display: block;
   font-family: 'Open Sans Condensed', sans-serif;
   text-align: center;
-  padding: 20px 5px;
 
-  -webkit-box-shadow: 0px 6px 23px 2px rgba(60,55,66,1);
-  -moz-box-shadow: 0px 6px 23px 2px rgba(60,55,66,1);
-   box-shadow: 0px 6px 23px 2px rgba(60,55,66,1);
- 
+  letter-spacing: 0.2em;
+  font-size: 23px;
 
-  h2,li {
-    letter-spacing: 0.2em;
-    font-size: 23px;
-  }
-
-  a {
-    color: @white;
-    padding-top: 10px;
-  }
   color: @white;
   background-color: @black;
   @media screen and (min-width:@screen-sm-min) {
@@ -42,21 +23,17 @@
 
 
 #fixed-bar {
-  position:fixed;
-  top: 0px;
   width: 100%;
   z-index: 50;
   background: @black;
-  -webkit-box-shadow: 0px 6px 23px 2px rgba(60,55,66,1);
-  -moz-box-shadow: 0px 6px 23px 2px rgba(60,55,66,1);
-  box-shadow: 0px 6px 23px 2px rgba(60,55,66,1);
+
   .transition(box-shadow);
  
   a {
     color: @white !important;
   }
 
-  h1,ul,h2,#toggle-glyph {
+  .logo,ul,.title-description,#toggle-glyph {
     margin: 0;
   }
 
@@ -85,10 +62,12 @@
       display: inline-block;
       vertical-align: top;
     }
-    h1 {
+    .logo {
       font-size: 0;
-      padding: 5px 0;
+      padding: 0;
+      position: relative;
       @media screen and (min-width:320px) {
+        top: -3px;
         padding: 0;
       }
       .suffix,.prefix {
@@ -98,12 +77,13 @@
         color: @white;
       }
       .prefix {
-        top: 5px;
+        top: -5px;
         padding-right: 3px;
         font-family: 'Open Sans Condensed', sans-serif;
-        font-size: 15px;
+        font-size: 18px;
         @media screen and (min-width:320px) {
-          font-size: 25px;
+          top: -7px;
+          font-size: 27px;
         }
       }
       .suffix {
@@ -200,33 +180,7 @@
     top: 0px;
     z-index: 70;
     opacity: 0.9;
-    box-shadow: none;
 
-    #lang-wrapper {
-       position: absolute;
-       bottom: -50px;
-       height: 20px;
-       right: 0px;
-       background: #000;
-       -webkit-box-shadow: 2px 5px 23px 2px #3c3742;
-       -moz-box-shadow: 2px 5px 23px 2px #3c3742;
-       box-shadow: 2px 5px 23px 2px #3c3742;
-       font-family: 'Arial',sans-serif;
-       p {
-        margin: 0;
-       }
-
-       a {
-        display: inline-block;
-        padding-right: 15px;
-        padding-left: 15px;
-        line-height: 20px;
-        text-shadow: 3px 3px 3px #000;
-       }
-       a:hover,a:focus {
-        background: @darkBlue;
-       }
-    }
 
     .navbar-toggle {
       display: none;
@@ -240,7 +194,7 @@
       left: 0px;
       margin-left: 0px;
       padding: 0px 15px;
-      h1 {
+      .logo {
         line-height: 90px;
         .prefix,.suffix {
           display: inline;
@@ -277,9 +231,6 @@
         height: 90px;
         color: @white !important;
       }
-      #french-hero-anchor,#english-hero-anchor {
-        display: none;
-      }
       li {
         border: none;
         padding: 0px 10px;
@@ -288,12 +239,9 @@
         line-height: 90px;
         letter-spacing: 0.2em;
         font-family: 'Open Sans Condensed', sans-serif;
-        font-size: 15px;
+        font-size: 10px;
       }
 
-      li:hover {
-        text-shadow: 3px 3px 3px #000;
-      }
       .nav-blue-bg:hover, .nav-blue-bg:focus {
         background: @blue !important;
       }
@@ -333,28 +281,33 @@
       } 
     }
     .title-description {
-       display: block;
-       padding-left:10px;
-       padding-top: 10px;
-       height:90px;
-       width: 60px;
-       font-family: 'Open Sans Condensed', sans-serif;
-       color: @white;
-       text-align: left;
-       h2 {
-        letter-spacing: 0.2em;
-        font-size: 15px;
-      }
-      float:left;
+      display: none;
     }
 
   }
 
   @media screen and (min-width:@screen-md-min) {
+    .title-description {
+/*      display: block;
+      padding-top: 10px;
+      padding-left:10px;
+      height:90px;
+      width: 90px;
+      font-family: 'Open Sans Condensed', sans-serif;
+      color: @white;
+      text-align: left;
+      letter-spacing: 0.2em;
+      font-size: 13px;
+      float:left;
+      padding-top: 10px;
+      padding-left: 5px;
+      font-size: 13px;
+*/    }
     .bar-items li {
+      font-size: 12px;
       padding: 0px 15px;
     }
-    .navbar-brand h1 {
+    .navbar-brand .logo {
       .prefix {
         font-size: 25px;
       }
@@ -365,8 +318,12 @@
   }
 
   @media screen and (min-width:@screen-lg-min) {
-    .title-description h2,.bar-items li {
-      font-size: 16px;
+    .title-description {
+      padding-top: 4px;
+      width: 100px;
+    }
+    .title-description,.bar-items li {
+      font-size: 15px;
     }
 
   }
@@ -376,10 +333,6 @@
 
 .navbar-mini {
   margin-bottom: 0 !important;
-  box-shadow: none !important;
-  #lang-wrapper {
-    display: none;
-  }
   opacity: 0.9;
 
   @media screen and (min-width:@screen-sm-min) {  
@@ -387,14 +340,13 @@
     height: 54px !important;
     .title-description {
       height: 54px !important;
-      line-height: 54px !important;
+      line-height: 1.5 !important;
+      width: 110px !important;
       padding: 5px 10px !important;
-      h2 {
-        font-size: 10px !important;
-      }
+      font-size: 10px !important;
     }
    .navbar-brand {
-      h1 {
+      .logo {
         position: relative;
         line-height: 54px !important;
         .prefix {

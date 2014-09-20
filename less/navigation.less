@@ -13,19 +13,17 @@
 }
 
 .center-navigation {
-  position:relative;
-  z-index: 15;
-  text-align: center;
   a {
-   .transition(@property:all,@delay:150ms);
-    background: @black;
     display:block;
     margin: 0px auto;
+    border: 1px solid @white;
     padding: 0;    
     width: 30px;
     height: 30px;
     line-height: 30px;
     text-align: center;
+    background: none;
+   .transition(@property:all,@delay:150ms);
     img {
       .transition(@property:all,@delay:150ms);
       position: relative;
@@ -36,15 +34,17 @@
     color:@black !important;
   }
   a:active,#black-box:active {
-    background: @blue !important;
+    background: @darkGray !important;
   }
+  .invert {
+    border: 1px solid black;
+
+  }
+
 }
+
 #main-nav-5 a:hover {
   color: @black;
-}
-#main-nav-1 {
-  margin-top: 50px;
-  z-index: 3;
 }
 #main-nav-2 {
   margin-top: 20px;
