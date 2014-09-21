@@ -959,16 +959,24 @@ body {
       }
     }
   }
-  @media screen and (min-width:@screen-md-min) {
+  @media screen and (min-width:@screen-lg-min) {
     .text-content {
+      margin-top: 30px;
       p{
-        padding: 0px 30px;
+        padding: 0px 80px;
       }
       p:last-child {
         font-size: 24px;
       }
     }
   }  
+  @media screen and (min-width:@screen-wide-min) {
+    .text-content {
+      p {
+        padding: 0px 90px;        
+      }
+    }
+  }
  }
 
 .slide-services {
@@ -1084,21 +1092,6 @@ body {
     }
     .title {
       font-size: 75px;
-    }
-    .portfolio .text-content {
-      font-size: 21px;
-    }
-    .portfolio {
-      margin-top: 50px;
-      margin-bottom: 50px;
-      span {
-        display: inline;
-        padding-right: 10px;
-        font-size: 25px;
-      }
-      a {
-        text-decoration: underline !important;
-      }
     }
 
   }
