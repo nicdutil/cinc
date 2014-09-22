@@ -951,6 +951,10 @@ body {
   .col-sm-5 {
     text-decoration: underline;
   }
+  #soumission {
+    color: @blue !important;
+    text-decoration: underline !important;
+  }
   @media screen and (min-width:@screen-md-min) {
     .title {
       text-align: right;
@@ -969,15 +973,51 @@ body {
  #services-consult {
   background: url('../img/t19.png');
   color: white;
+  a {
+    color: white !important;
+  }
+
+  .social-badges-wrapper {
+    display: block;
+    margin-top: -15px;
+    img {
+      width: 30px;
+      margin-right: 10px;
+    }
+  }
+
   .col-sm-4 {
     text-decoration: underline;
   }
+  @media screen and (min-width:@screen-sm-min) {
+    .social-badges-wrapper {
+      margin-top: -20px;
+      img {
+        width: 40px;
+        margin-right: 20px;
+
+      }
+    }
+  }
   @media screen and (min-width:@screen-md-min) {
+    .social-badges-wrapper {
+      margin-top: -20px;
+      img {
+        width: 20px;
+        margin-right: 15px;
+      }
+    }
     .title {
       text-align: left;
     }
   }
-  @media screen and (min-width:@screen-lg-min) {
+  @media screen and (min-width:@screen-wide-min) {
+    .social-badges-wrapper {
+      margin-top: -30px;
+      img {
+        width: 30px;
+      }
+    }
     .abs-image {
       min-width: 468px;
     }
