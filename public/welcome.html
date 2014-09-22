@@ -26,10 +26,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>Infocinc: Web Design - Consulting - Terrebonne, Montreal</title>
     <meta name="author" content="Infocinc">
-    <!--     <link rel="stylesheet" href="css/base-min.css" />
- -->
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/base-min.css" />
+
 
     <link rel="alternate" href="http://www.infocinc.com" hreflang="fr-ca" />
     <link rel="alternate" href="http://www.infocinc.com/welcome.html" hreflang="en" />
@@ -39,13 +37,13 @@
     <meta property="fb:admins" content="699841262" />
     <meta property="og:title" content="Infocinc" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Infocinc, located in Terrebonne, provides IT and consulting services: responsive website design, mobile web design, data mining. Contact us at info@infocinc.com" />
+    <meta property="og:description" content="Infocinc, located in Terrebonne, designs websites and web apps. We also offer consulting services (choice of web technologies, data architecture, training). Contact us at info@infocinc.com" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="http://www.infocinc.com/welcome.html" />
     <meta property="og:image" content="http://www.infocinc.com/img/cinc-logo_big.png" />
 
-    <meta name="description" content="Infocinc, located in Terrebonne, provides IT and consulting services: responsive website design, mobile web design, data mining." />
-    <meta name="keywords" content="Infocinc, responsive web design, consulting, IT, Montreal, Laval, Terrebonne, data mining" />
+    <meta name="description" content="Infocinc, located in Terrebonne, designs websites and web apps. We also offer consulting services (choice of web technologies, data architecture, training)." />
+    <meta name="keywords" content="Infocinc, web design, consulting, web apps, Montreal, Laval, Terrebonne, data architecture" />
     <link href="https://plus.google.com/+Infocinc1" rel="publisher" />
     <link rel="canonical" href="http://www.infocinc.com/welcome.html" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -174,7 +172,7 @@
 
     <div id='top-background' class="english-bg">
         <div class="big-text-wrapper">
-            <h1 class="title">INFOCINC</h1>
+            <h1 class="title" itemprop="name">INFOCINC</h1>
             <div class="sub-titles mobile-hide">
                 <ul>
                     <li>CREATIVE</li>
@@ -186,7 +184,7 @@
                 <ul>
                     <li>TECHNOLOGY SERVICES AND CONSULTING</li>
                     <li>438 496-6886</li>
-                    <li>Terrebonne, Québec</li>
+                    <li itemprop="location">Terrebonne, Québec</li>
             </div>
 
         </div>
@@ -410,7 +408,7 @@
                 </header>
                 <div class="bg-wrapper row">
                     <div class="col-md-6">
-                        <p>Email: <a href="mailto:info@infocinc.com">info@infocinc.com</a>
+                        <p>Email: <a href="mailto:info@infocinc.com" itemprop="email">info@infocinc.com</a>
                         </p>
                     </div>
                     <div class="col-md-6">
@@ -421,7 +419,7 @@
                     </div>
                     <div class="col-md-6">
                         <p>
-                            Tel: <a href="tel:+4384966886">438 486-6886</a>
+                            Tel: <a href="tel:+4384966886" itemprop="telephone">438 486-6886</a>
                         </p>
                     </div>
                     <div class="col-md-6">
@@ -433,7 +431,10 @@
             </div>
         </div>
         <div class="row">
-            <p>&copy; Infocinc 2014, all rights reserved.
+            <p>
+            <img itemprop="logo" src="img/cinc-logo.png" alt=" Infocinc"></img>
+            &copy; Infocinc 2014, all rights reserved.
+            </p>
         </div>
         <div class="terms">
             This website uses cookies: <a href="/terms.html">learn more</a>.
