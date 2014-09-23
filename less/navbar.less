@@ -41,6 +41,7 @@
     border: none;
     margin: 0;
     height: 54px;
+    border-radius: 0px;
     border-right: 3px solid @white;
   }
   .navbar-header {
@@ -75,6 +76,7 @@
         display: inline-block;
         vertical-align: top;
         color: @white;
+
       }
       .prefix {
         top: -5px;
@@ -95,6 +97,11 @@
          font-size: 45px;
         } 
       }
+      .suffix,.prefix {
+        @media screen and (max-width:175px) {
+          display: none;
+        }
+      } 
     }
   }
 
@@ -287,22 +294,6 @@
   }
 
   @media screen and (min-width:@screen-md-min) {
-    .title-description {
-/*      display: block;
-      padding-top: 10px;
-      padding-left:10px;
-      height:90px;
-      width: 90px;
-      font-family: 'Open Sans Condensed', sans-serif;
-      color: @white;
-      text-align: left;
-      letter-spacing: 0.2em;
-      font-size: 13px;
-      float:left;
-      padding-top: 10px;
-      padding-left: 5px;
-      font-size: 13px;
-*/    }
     .bar-items li {
       font-size: 12px;
       padding: 0px 15px;

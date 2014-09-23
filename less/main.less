@@ -369,6 +369,9 @@ h1,h2,h3,h4,h5,h6 {
   margin: 0 !important;
 }
 
+span,p, li, h1,h2 {
+  word-wrap: break-word !important;
+}
 html, body{
  position: relative;
  z-index: 10;
@@ -562,7 +565,7 @@ body {
 
 .banner {
   background: url('../img/t17.png') repeat;
-  min-height: 100%;
+//  min-height: 100%;
   z-index: 4;
   position: relative;
   padding: 30px 10px;
@@ -593,6 +596,9 @@ body {
       display: block !important;
     }
     margin-bottom: 20px;
+    @media screen and (max-width:207px) {
+      display: none!important;
+    }
   }
 
   span {
@@ -600,11 +606,13 @@ body {
     color: @black;
     font-style: italic;
     line-height: 1.4;
+    word-wrap: break-word;
   }
   header, p, .terms {
     font-family: 'Open Sans Condensed', sans-serif;
     text-align: center;
     color: @white;
+    word-wrap: break-word;
   }
   header {
     font-size: 24px;
@@ -678,6 +686,7 @@ body {
   }
 
   @media screen and (min-width:@screen-md-min) {
+    min-height: 100%;
     padding-top: 60px;
     header,p,.terms {
       text-align:left;
@@ -787,6 +796,9 @@ body {
     left: 0%;
     color: white;
     text-align: center;
+    a {
+      color: @white !important;
+    }
   }
  
   .big-text-wrapper {
@@ -809,7 +821,7 @@ body {
 
   .version {
     position: absolute;
-    left: 10px;
+    right:10px;
     bottom: 10px;
     font-size: 20px;
   }
@@ -823,7 +835,7 @@ body {
       font-size: 50px;
     }
     .version {
-      font-size: 30px;
+      font-size: 20px;
     }
     .big-text-wrapper {
       padding: 10px 20px;
@@ -869,9 +881,9 @@ body {
      }
      .version {
       left: initial;
-       right: 100px;
-       bottom: 50px;
-       font-size: 30px;
+       right: 50px;
+       bottom: 10px;
+       font-size: 25px;
      }
      .title {
       display: block;
@@ -905,7 +917,7 @@ body {
       width: 300px
      }
      .title {
-      width: 350px;
+      width: 355px;
       font-size: 110px;
      }
      .big-text-wrapper {
@@ -926,13 +938,17 @@ body {
     .sub-titles,.title {
       left: 60%;
     }
+    .version {
+      bottom: 50px;
+      font-size: 30px;
+    }
      .sub-titles {
       font-size: 56px;
       width: 300px
      }
 
      .title {
-      width: 380px;
+      width: 385px;
       font-size: 120px;
      }
   }
@@ -1137,7 +1153,6 @@ body {
 
 .slide-services {
   position: relative;
-  min-height: 100%;
 //  display: table;
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -1194,6 +1209,7 @@ body {
     }
   }
   @media screen and (min-width:@screen-md-min) {
+    min-height: 100%;
     padding-top: 70px;
     padding-left: 15px !important;
     padding-right: 15px !important;
