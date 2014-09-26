@@ -765,6 +765,9 @@ body {
         text-decoration: underline !important;
         color: @blue !important;
       }
+      img {
+        padding-left: 10px;
+      }
     }
     img {
       width: 45px;
@@ -814,9 +817,11 @@ body {
   .title {
     display: none;
     font-size: 35px;
+    .transition(@property:all);
   }
   .sub-titles {
     font-size: 17px;
+    .transition(@property:all);
   }
 
   .version {
@@ -934,9 +939,9 @@ body {
   @media screen and (min-width:@screen-lg-min) {
       background: url('../img/bg-desktop.jpg') no-repeat ;
       background-size: cover;
-      background-position: 0% 5%;
+      background-position: 0% 10%;
     .sub-titles,.title {
-      left: 60%;
+      left: 56%;
     }
     .version {
       bottom: 50px;
@@ -954,7 +959,7 @@ body {
   }
   @media screen and (min-width:@screen-wide-min) {
     .sub-titles,.title {
-        left: 60%;
+        left: 67%;
     }
       
      .sub-titles {
@@ -994,23 +999,6 @@ body {
 /////////////////////////////////////////////////////////////////////////////////////////
 // Services Stylings
 /////////////////////////////////////////////////////////////////////////////////////////
-
-
-@media screen and (min-width:@screen-xs-min) {
-
-}
-@media screen and (min-width:@screen-sm-min) {
-
-}
-@media screen and (min-width:@screen-md-min) {
-
-}
-@media screen and (min-width:@screen-lg-min) {
-
-}
-@media screen and (min-width:@screen-wide-min) {
-
-}
 
  #services-web {
   background: url('../img/t9.png');
@@ -1270,13 +1258,6 @@ body {
 
   }
 }
-
-
-
-
-
-
-
 
 
 /////////////////////////////////////////////////////////////////////////////////

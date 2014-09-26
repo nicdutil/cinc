@@ -245,7 +245,7 @@
         line-height: 90px;
         letter-spacing: 0.2em;
         font-family: 'Open Sans Condensed', sans-serif;
-        font-size: 15px;
+        font-size: 13px;
       }
 
       .nav-blue-bg:hover, .nav-blue-bg:focus {
@@ -295,7 +295,7 @@
   @media screen and (min-width:@screen-md-min) {
     background: rgba(0,0,0,0.7);
     .bar-items li {
-      font-size: 15px;
+      font-size: 13px;
       padding: 0px 15px;
     }
     .navbar-brand .logo {
@@ -314,9 +314,13 @@
       width: 100px;
     }
     .title-description,.bar-items li {
-      font-size: 15px;
+      font-size: 14px;
     }
-
+  }
+  @media screen and (min-width:@screen-wide-min) {
+    .title-description,.bar-items li {
+      font-size: 15px;
+    }    
   }
 }
 
