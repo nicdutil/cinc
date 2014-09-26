@@ -25,7 +25,7 @@
 #fixed-bar {
   width: 100%;
   z-index: 50;
-  background: @black;
+  background: rgba(0,0,0,0.9);
 
   .transition(box-shadow);
  
@@ -186,7 +186,7 @@
     position:fixed;
     top: 0px;
     z-index: 70;
-    opacity: 0.9;
+    background: @black;
 
 
     .navbar-toggle {
@@ -209,12 +209,11 @@
           line-height: 1;
         }
         .prefix {
-          top: -18px;
+          top: -13px;
           padding-right: 5px;
           font-size: 20px;
         }
         .suffix {
-          top: -5px;
           font-size: 60px;
         }
       }
@@ -246,7 +245,7 @@
         line-height: 90px;
         letter-spacing: 0.2em;
         font-family: 'Open Sans Condensed', sans-serif;
-        font-size: 12px;
+        font-size: 15px;
       }
 
       .nav-blue-bg:hover, .nav-blue-bg:focus {
@@ -294,8 +293,9 @@
   }
 
   @media screen and (min-width:@screen-md-min) {
+    background: rgba(0,0,0,0.7);
     .bar-items li {
-      font-size: 12px;
+      font-size: 15px;
       padding: 0px 15px;
     }
     .navbar-brand .logo {
