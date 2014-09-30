@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    meta(http-equiv = 'Content-Type', content = 'text/html; charset=UTF-8')
+    title= subject
+    style(type= 'text/css').
+       li {
+         padding: 5px;
+         margin: 0;
+       }
+       ul {
+          list-style: none;
+          margin: 0;
+          padding-left: 20px;
+       }
+       h3 span {
+        color: #00F;
+       }
+  body
+    p 
+      | Demande d’information sur le site web du Centre Dentaire Martin Dutil
+    h3
+      span= user.fullname
+      |  a fait une demande d’information sur votre site web.
+      | Voici les informations fournies par cette personne :
+    ul
+      li 
+        | Courriel:  
+        = user.email
+      li 
+        | Compagnie:  
+        = user.company
+      li
+        | Téléphone: 
+        = user.phone
+      li
+        | Son Message:
+    div(style='padding:5px;border: 1px solid #bebebe; margin-left:50px; width: 50%')
+      = user.msg
+    p 
+      | Nous en profitons pour vous souhaiter une bonne journée de InfoCINC (www.infocinc.com)

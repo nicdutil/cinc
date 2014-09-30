@@ -1,15 +1,57 @@
-var https = require("https");
-var unirest = require('unirest');
-
-var loc_service = {
-    host: 'freegeoip.net',
-    path: '/json'
-}
-var mashape_key = "3hBdaIHGwpmshFPt6hqA18t1NIaqp1zW3Apjsnj8uzRLC2kcU1";
-
 var express = require('express'),
-    app = express();
-var compressor = require('node-minify');
+    app = express(),
+    mailer = require('express-mailer'),
+    compressor = require('node-minify');
+
+var oneDay = 86400000;
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// CONFIG
+/////////////////////////////////////////////////////////////////////////////////////////
+
+app.set('title', 'Infocinc | Création Sites Webs | Minage | Visualisation ');
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+
+
+app.configure(function() {
+    app.use(express.logger());
+    app.use(express.compress());
+    app.use(express.bodyParser());
+    mailer.extend(app, {
+        from: 'ndutil79@gmail.com',
+        host: 'smtp.gmail.com',
+        secureConnection: true,
+        port: 465,
+        transportMethod: 'SMTP',
+        auth: {
+            user: process.env.GMAIL_USERNAME,
+            pass: process.env.GMAIL_PASSWORD
+        }
+    });
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// UTILITIES
+//////////////////////////////////////////////////////////////////////////////////////////
+function formProcessor(req, res, formName, file) {
+    app.mailer.send('email', {
+            from: 'ndutil79@gmail.com',
+            to: 'info@infocinc.com',
+            subject: "FW: Site Web : " + formName + ' : ' + req.body.user.fullname,
+            user: req.body.user
+        },
+        function(err,message) {
+
+            if (err) {
+                console.log('Sending Mail Failed!');
+                console.log(err);
+                return;
+            };
+         res.sendfile(__dirname + '/public/' + file);
+        }
+    );
+}
 
 
 new compressor.minify({
@@ -27,71 +69,30 @@ new compressor.minify({
 new compressor.minify({
     type: 'clean-css',
     fileIn: ['public/css/bootstrap.css', 'public/css/main.css'],
-    fileOut: 'public/css/base-min.css',
+    fileOut: 'public/css-dist/base-min.css',
     callback: function(err, min) {
         console.log(err);
     }
 });
 
-app.use(express.logger());
-
-app.set('title', 'Infocinc | Création Sites Webs | Minage | Visualisation ');
-
-var oneDay = 86400000;
-
-app.use(express.compress());
-
-app.get('/welcome_en.html', function(req,res) {
-    console.log('hi');
-    res.redirect(301, '/welcome.html');
+var server = app.listen(process.env.PORT, '192.168.1.6', function() {
+    console.log(__dirname);
+    console.log('Express server started on port %s', process.env.PORT);
 });
 
+
+app.all('/welcome_en.html', function(req,res) {
+    res.redirect(301, '/welcome.html');
+});
 app.use(express.static(__dirname + '/public'));
 
-function get_geoloc(ip, complete) {
-
-    unirest.get("https://worldtimeiofree.p.mashape.com/ip?ipaddress=" + '176.31.255.0')
-        .header("X-Mashape-Key", mashape_key)
-        .end(function(result) {
-        	var body = result.body;
-        	if (result.status != "200") {
-        		theme = 'day';
-        		console.log('ERROR WITH WORLD TIME SERVICE: ' + result.status);
-        	} else {
-			  var datetime = body['summary'].local;
-			  var time = datetime.split(' ')[1];
-			  var hour = parseInt(time.split(":")[0]);
-
-			  console.log('DATE TIME:' + datetime);
-			  console.log('HOUR:' + hour);
-			  if ((hour > 20) || (hour < 6)) {
-			  	theme = 'night';
-			  } else {
-			  	theme = 'day';
-			  }
-			  console.log('THEME:' + theme);
-			  complete(theme);
-        	}
-        });
-}
-
-
-app.get('/', function(req, res) {
-    var ip = req.headers['X-Forwarded-For'];
-    console.log('USER IP:' + ip);
+app.all('/', function(req, res) {
     res.sendfile('index.html');
-/*    get_geoloc('202.13.34.255', function(theme) {
-    	switch(theme) {
-    		case 'day': 
-    		  res.sendfile('index.html');
-    		  break;
-    		case 'night':
-    		  res.sendfile('night.html'); 
-    	}
-    });
-*/});
+});
 
-
+app.post('/contact.html', function(req,res) {
+    formProcessor(req,res, "formulaire de contact","contact_success.html");
+})
 
 app.use(function(req,res) {
     res.status(404);
@@ -103,7 +104,3 @@ app.use(function(error,req,res,next) {
 });
 
 
-var server = app.listen(process.env.PORT, '192.168.1.6', function() {
-    console.log(__dirname);
-    console.log('Express server started on port %s', process.env.PORT);
-});
