@@ -140,11 +140,8 @@
 
             <div id='navbar-collapse' class='bar-items collapse navbar-collapse'>
                 <ul>
-                    <a id="team-hero-anchor" class="nav-red-bg" href="#apropos-banner">
+                    <a id="team-hero-anchor" class="nav-red-bg" href="/">
                         <li class="nav-item ">ACCUEIL</li>
-                    </a>
-                    <a id="english-hero-anchor" class="nav-red-bg" href="/welcome.html">
-                        <li class="nav-item">ENGLISH</li>
                     </a>
                 </ul>
             </div>
@@ -212,7 +209,7 @@
         <script>
         $('#main').css('min-height',$(document).height()+'px');
         $(window).on('resize', function() { $('#main').css('min-height',$(document).height()+'px');});
-        
+
         $.validator.addMethod("cRequired", $.validator.methods.required, "Ce champ est obligatoire.");
 
         $.validator.addMethod("cMaxLength", $.validator.methods.maxlength, "Le champ doit contenir moins de 50 caractères.")
