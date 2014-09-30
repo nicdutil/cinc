@@ -20,7 +20,7 @@ app.configure(function() {
     app.use(express.compress());
     app.use(express.bodyParser());
     mailer.extend(app, {
-        from: 'ndutil79@gmail.com',
+        from: 'nicolas.dutil@infocinc.com',
         host: 'smtp.gmail.com',
         secureConnection: true,
         port: 465,
@@ -37,8 +37,8 @@ app.configure(function() {
 //////////////////////////////////////////////////////////////////////////////////////////
 function formProcessor(req, res, formName, file) {
     app.mailer.send('email', {
-            from: 'ndutil79@gmail.com',
-            to: 'info@infocinc.com',
+            from: 'info@infocinc.com',
+            to: 'ndutil79@gmail.com',
             subject: "FW: Site Web : " + formName + ' : ' + req.body.user.fullname,
             user: req.body.user
         },
