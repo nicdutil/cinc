@@ -77,6 +77,9 @@ app.all('/', function(req, res){
 app.post('/contact.html', function(req,res) {
     formProcessor(req,res, "formulaire de contact","contact_success.html");
 });
+app.all('/contact', function(req,res) {
+    formProcessor(req,res, "formulaire de contact","contact_success.html");	
+})
 
 app.use(function(req,res) {
     res.status(404);
