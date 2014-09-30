@@ -4,6 +4,7 @@ var express = require('express'),
     compressor = require('node-minify');
 
 var oneDay = 86400000;
+var halfHour = 1000*60*30;
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // CONFIG
