@@ -1,13 +1,65 @@
 var express = require('express'),
-    app = express();
+    app = express(),
+    mailer = require('express-mailer'),
+    compressor = require('node-minify');
 
-app.use(express.logger());
+var oneDay = 86400000;
 
-app.set('title', 'InfoCINC | Conception Sites Webs Adaptatifs | Minage | Visualisation ');
+/////////////////////////////////////////////////////////////////////////////////////////
+// CONFIG
+/////////////////////////////////////////////////////////////////////////////////////////
 
-var halfHour = 1800000;  // cache control for shared and private caches
+app.set('title', 'Infocinc | Création Sites Webs | Minage | Visualisation ');
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
 
-app.use(express.compress());
+
+app.configure(function() {
+    app.use(express.logger());
+    app.use(express.compress());
+    app.use(express.bodyParser());
+    mailer.extend(app, {
+        from: 'ndutil79@gmail.com',
+        host: 'smtp.gmail.com',
+        secureConnection: true,
+        port: 465,
+        transportMethod: 'SMTP',
+        auth: {
+            user: process.env.GMAIL_USERNAME,
+            pass: process.env.GMAIL_PASSWORD
+        }
+    });
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// UTILITIES
+//////////////////////////////////////////////////////////////////////////////////////////
+function formProcessor(req, res, formName, file) {
+    app.mailer.send('email', {
+            from: 'ndutil79@gmail.com',
+            to: 'info@infocinc.com',
+            subject: "FW: Site Web : " + formName + ' : ' + req.body.user.fullname,
+            user: req.body.user
+        },
+        function(err,message) {
+
+            if (err) {
+                console.log('Sending Mail Failed!');
+                console.log(err);
+                return;
+            };
+         res.sendfile(__dirname + '/public/' + file);
+        }
+    );
+}
+
+
+var server = app.listen(process.env.PORT, function() { 
+ console.log(__dirname);
+ console.log('Express server started on port %s', process.env.PORT);
+});
+
+
 app.all('/welcome_en.html', function(req,res) {
     res.redirect(301, '/welcome.html');
 });
@@ -21,6 +73,9 @@ app.all('/', function(req, res){
 });
 
 
+app.post('/contact.html', function(req,res) {
+    formProcessor(req,res, "formulaire de contact","contact_success.html");
+});
 
 app.use(function(req,res) {
     res.status(404);
@@ -32,10 +87,6 @@ app.use(function(error,req,res,next) {
 });
 
 
-var server = app.listen(process.env.PORT, function() { 
- console.log(__dirname);
- console.log('Express server started on port %s', process.env.PORT);
-});
 
 
 
