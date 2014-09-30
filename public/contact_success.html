@@ -87,7 +87,7 @@
     <!-- Loader icon !-->
     <div id='main'>
 
-
+    <div class="overlay-wrapper">
 
         <div id='fixed-icons'>
             <div id='phone-logo-wrapper' class="desktop-hide invisible">
@@ -140,11 +140,8 @@
 
             <div id='navbar-collapse' class='bar-items collapse navbar-collapse'>
                 <ul>
-                    <a id="team-hero-anchor" class="nav-red-bg" href="#apropos-banner">
+                    <a id="team-hero-anchor" class="nav-red-bg" href="/">
                         <li class="nav-item ">ACCUEIL</li>
-                    </a>
-                    <a id="english-hero-anchor" class="nav-red-bg" href="/welcome.html">
-                        <li class="nav-item">ENGLISH</li>
                     </a>
                 </ul>
             </div>
@@ -153,37 +150,35 @@
 
 
         <section id="contact-section">
-            <div class="overlay-wrapper">
-              <div class="container">
-                <h1>Votre allié technologique</h1>
-                <h2>Découvrer ce que Infocinc peut faire pour vous </h2>
-                <form name="formContact" id="formContact" action="" method="post" role="form" class="row">
-                    <div class="form-group col-lg-4 col-lg-offset-2">
-                        <input type="text" name="user[fullname]" class="form-control constrained" id="fullName" placeholder="Nom complet *">
-                    </div>
-                    <div class="form-group col-lg-4">
-                        <input type="text" name="user[company]" class="form-control constrained" id="company" placeholder="Compagnie *">
-                    </div>
-                    <div class="form-group col-lg-4 col-lg-offset-2">
-                        <input type="email" name="user[email]" class="form-control constrained" id="email" placeholder="Courriel *">
-                    </div>
-                    <div class="form-group col-lg-4">
-                        <input type="text" name="user[phone]" class="form-control constrained" id="tel" placeholder="Téléphone *">
-                    </div>
-                    <div class="form-group col-lg-8 col-lg-offset-2">
-                        <textarea class="form-control msg-constrained" id="msg" name="user[msg]" rows="4" cols="40" placeholder="Comment peut-on vous aider aujourd'hui ?"></textarea>
-                    </div>
+                <div class="container">
+                    <h1>Votre allié technologique</h1>
+                    <h2>Découvrer ce que Infocinc peut faire pour vous</h2>
+                    <form name="formContact" id="formContact" action="" method="post" role="form" class="row">
+                        <div class="form-group col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-2">
+                            <input type="text" name="user[fullname]" class="form-control constrained" id="fullname" placeholder="Nom complet *">
+                        </div>
+                        <div class="form-group col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0" >
+                            <input type="text" name="user[company]" class="form-control constrained" id="company" placeholder="Compagnie *">
+                        </div>
+                        <div class="form-group col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-2">
+                            <input type="email" name="user[email]" class="form-control constrained" id="email" placeholder="Courriel *">
+                        </div>
+                        <div class="form-group col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0">
+                            <input type="text" name="user[phone]" class="form-control constrained" id="tel" placeholder="Téléphone *">
+                        </div>
+                        <div class="form-group col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                            <textarea class="form-control msg-constrained" id="msg" name="user[msg]" rows="4" cols="40" placeholder="Comment peut-on vous aider aujourd'hui ?"></textarea>
+                        </div>
 
-                    <div class="form-group col-lg-4 col-lg-offset-4">
-                        <button type="submit" class="btn">ENVOYER</button>
-                    </div>
-                </form>
-                <h2 id="success-msg"> Votre message a été envoyé ! </h2>
+                        <div class="form-group col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-4">
+                            <button type="submit" class="btn">ENVOYER</button>
+                        </div>
+                    </form>
+                    <h2 id="success-msg"> Votre message a été envoyé ! </h2>
                 </div>
-            </div>
         </section>
 
-        
+        </div>
         <div id='media-state' class='hide media-state'>
         </div>
         <script>
@@ -205,12 +200,50 @@
         window.jQuery || document.write('<script src="js/vendor/jquery-2.1.0.min.js"<\/script>')
         </script>
 
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js" type=" text/javascript"></script>
         <script>
-          $('#formContact input').on("focus", function() {
-            $('#success-msg').addClass('hide');
-          });
+        $.validator || document.write('<script src="js/vendor/jquery.validate.min.js"><\/script>')
         </script>
+
+        <script type="text/javascript" src="js/vendor/jquery.form.min.js"></script>
         <script type="text/javascript" src="js-dist/base-min.js"></script>
+        <script>
+        $('#main').css('min-height',$(document).height()+'px');
+        $(window).on('resize', function() { $('#main').css('min-height',$(document).height()+'px');});
+        $('#formContact input').on('focus', function() {
+            $('#success-msg').addClass('hide');
+        });
+        
+        $.validator.addMethod("cRequired", $.validator.methods.required, "Ce champ est obligatoire.");
+
+        $.validator.addMethod("cMaxLength", $.validator.methods.maxlength, "Le champ doit contenir moins de 50 caractères.")
+         $.validator.addMethod("cTextAreaMaxLength", $.validator.methods.maxlength, "Le champ doit contenir moins de 2000 caractères.");
+        $.validator.addClassRules("constrained", {
+            cRequired: true,
+            cMaxLength: 50
+        });
+        $.validator.addClassRules("msg-constrained", {
+            cRequired: true,
+            cTextAreaMaxLength: 2000
+        });
+
+        $('#formContact').validate({
+            messages: {
+                "user[email]": "Veuillez entrer une adresse valide."
+            },
+            success: function(label, element) {
+                $(element).removeClass('has-error');
+                $(element).addClass('has-success');
+            },
+            errorPlacement: function(error, element) {
+                $(element).addClass('has-error');
+                $(element).closest("div").append(error);
+            },
+            errorElement: "span"
+        });
+
+        </script>
+
 </body>
 
 </html>
