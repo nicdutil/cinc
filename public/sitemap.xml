@@ -8,22 +8,26 @@
 
 <url>
   <loc>http://www.infocinc.com/</loc>
-  <lastmod>2014-09-17T20:52:13+00:00</lastmod>
-  <changefreq>daily</changefreq>
+  <lastmod>2014-10-01T06:35:13+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.infocinc.com/fr/contact.html</loc>
+  <lastmod>2014-10-01T06:35:14+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.infocinc.com/welcome.html</loc>
-  <lastmod>2014-09-17T20:52:13+00:00</lastmod>
-  <changefreq>daily</changefreq>
+  <lastmod>2014-10-01T06:35:14+00:00</lastmod>
 </url>
 <url>
-  <loc>http://www.infocinc.com/termes.html</loc>
-  <lastmod>2014-09-17T20:52:14+00:00</lastmod>
-  <changefreq>yearly</changefreq>
+  <loc>http://www.infocinc.com/fr/termes.html</loc>
+  <lastmod>2014-10-01T06:35:14+00:00</lastmod>
 </url>
 <url>
-  <loc>http://www.infocinc.com/terms.html</loc>
-  <lastmod>2014-09-17T20:52:14+00:00</lastmod>
-  <changefreq>yearly</changefreq>
+  <loc>http://www.infocinc.com/en/contact.html</loc>
+  <lastmod>2014-10-01T06:35:14+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.infocinc.com/en/terms.html</loc>
+  <lastmod>2014-10-01T06:35:14+00:00</lastmod>
 </url>
 </urlset>
