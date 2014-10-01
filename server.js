@@ -79,7 +79,7 @@ app.post('/contact.html', function(req,res) {
 });
 
 app.all('/contact/', function(req,res) {
-	res.redirect('/contact.html');
+	res.redirect('/fr/contact.html');
 });
 
 app.use(function(req,res) {
