@@ -410,9 +410,7 @@
         </script>
 
         <script>
-        // $('#form-section').css('min-height',$(document).height()+'px');
-         // $(window).on('resize', function() { $('#form-section').css('min-height',$(document).height()+'px');});
-
+        $('form input').on("focus", function() {$('.sent-msg').addClass('invisible');});
         $.validator.addMethod("cRequired", $.validator.methods.required, "Ce champ est obligatoire.");
 
         $.validator.addMethod("cMaxLength", $.validator.methods.maxlength, "Le champ doit contenir moins de 50 caractères.")
