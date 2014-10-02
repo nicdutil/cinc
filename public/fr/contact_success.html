@@ -15,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="/css/base-min.css" />
     <link rel="stylesheet" href="/css/contact.css" />
-    <link rel="stylesheet" href="/css/form.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
 
     <link rel="alternate" href="http://www.infocinc.com/fr/contact.html" hreflang="fr-ca" />
     <link rel="alternate" href="http://www.infocinc.com/en/contact.html" hreflang="en" />
@@ -325,6 +325,12 @@
 
         <script type="text/javascript" src="/js-dist/base-min.js"></script>
         <script>
+        var path = document.location.pathname;
+        $("button").on('click', function() {
+          var eo = ifc.analytics.create_event('contact-fr submit form',1,path);            
+          ga('send', eo);
+        });
+
         function initGoogleMap(mapId) {
             var styles = [{
                 "featureType": "poi.park",
